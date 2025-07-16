@@ -35,31 +35,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const { toast } = useToast()
 
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-      setUser(session?.user ?? null)
-      if (session?.user) {
-        checkAdminStatus(session.user.id)
-      }
-      setLoading(false)
-    })
-
-    // Listen for auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
-      setSession(session)
-      setUser(session?.user ?? null)
-      if (session?.user) {
-        await checkAdminStatus(session.user.id)
-      } else {
-        setIsAdmin(false)
-      }
-      setLoading(false)
-    })
-
-    return () => subscription.unsubscribe()
+    // Skip Supabase auth - just set loading to false for free login
+    setLoading(false)
   }, [])
 
   const checkAdminStatus = async (userId: string) => {
@@ -80,18 +57,30 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signIn = async (email: string, password: string) => {
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email, password })
-      if (error) {
-        toast({
-          title: "Login Failed",
-          description: error.message,
-          variant: "destructive"
-        })
-        throw error
+      // Mock user for free login - accept any credentials
+      const mockUser = {
+        id: 'mock-user-' + Math.random().toString(36).substr(2, 9),
+        email,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        email_confirmed_at: new Date().toISOString(),
       }
+      
+      const mockSession = {
+        access_token: 'mock-token',
+        refresh_token: 'mock-refresh',
+        expires_in: 3600,
+        token_type: 'bearer',
+        user: mockUser,
+      }
+      
+      setUser(mockUser as any)
+      setSession(mockSession as any)
+      setIsAdmin(email.includes('admin')) // Make admin if email contains 'admin'
+      
       toast({
-        title: "Welcome back!",
-        description: "Successfully logged in"
+        title: "Welcome!",
+        description: "Successfully logged in (demo mode)"
       })
     } catch (error) {
       throw error
@@ -99,29 +88,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   const signUp = async (email: string, password: string) => {
-    try {
-      const { error } = await supabase.auth.signUp({ email, password })
-      if (error) {
-        toast({
-          title: "Registration Failed",
-          description: error.message,
-          variant: "destructive"
-        })
-        throw error
-      }
-      toast({
-        title: "Account Created",
-        description: "Please check your email to verify your account"
-      })
-    } catch (error) {
-      throw error
-    }
+    // Same as sign in for free access
+    await signIn(email, password)
   }
 
   const signOut = async () => {
     try {
-      const { error } = await supabase.auth.signOut()
-      if (error) throw error
+      setUser(null)
+      setSession(null)
+      setIsAdmin(false)
       toast({
         title: "Logged out",
         description: "Successfully logged out"
