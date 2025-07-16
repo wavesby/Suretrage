@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { User, Bell, DollarSign, Save } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
+import { useNotifications } from '@/contexts/NotificationContext'
 import { supabase } from '@/lib/supabase'
 import { useToast } from '@/hooks/use-toast'
 
@@ -16,6 +17,7 @@ export const SettingsView = () => {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const { user, signOut } = useAuth()
+  const { enableNotifications, requestPermission } = useNotifications()
   const { toast } = useToast()
 
   useEffect(() => {
@@ -156,6 +158,22 @@ export const SettingsView = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <Label>Browser Notifications</Label>
+              <p className="text-sm text-muted-foreground">
+                Get instant alerts for new arbitrage opportunities
+              </p>
+            </div>
+            {!enableNotifications ? (
+              <Button size="sm" onClick={requestPermission}>
+                Enable
+              </Button>
+            ) : (
+              <span className="text-sm text-green-600">Enabled</span>
+            )}
+          </div>
+          
           <div className="flex items-center justify-between">
             <div>
               <Label>SMS Notifications</Label>

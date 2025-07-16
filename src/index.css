@@ -37,6 +37,11 @@ All colors MUST be HSL.
     --ring: 142 76% 36%;
 
     --radius: 0.5rem;
+    
+    /* Custom arbitrage colors */
+    --profit: 120 84% 33%;
+    --profit-foreground: 0 0% 98%;
+    --profit-light: 120 60% 95%;
 
     --sidebar-background: 0 0% 98%;
 
@@ -83,6 +88,12 @@ All colors MUST be HSL.
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 142 70% 45%;
+    
+    /* Custom arbitrage colors for dark mode */
+    --profit: 120 84% 45%;
+    --profit-foreground: 0 0% 98%;
+    --profit-light: 120 20% 15%;
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

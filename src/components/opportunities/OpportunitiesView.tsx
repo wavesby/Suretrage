@@ -8,6 +8,7 @@ import { OpportunityCard } from './OpportunityCard'
 import { ArbitrageOpportunity, MatchOdds, calculateArbitrage } from '@/utils/arbitrage'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/contexts/AuthContext'
+import { useNotifications } from '@/contexts/NotificationContext'
 import { useToast } from '@/hooks/use-toast'
 
 export const OpportunitiesView = () => {
@@ -17,7 +18,9 @@ export const OpportunitiesView = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [userBookmakers, setUserBookmakers] = useState<string[]>([])
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
+  const [previousOpportunityIds, setPreviousOpportunityIds] = useState<Set<string>>(new Set())
   const { user } = useAuth()
+  const { notifyNewOpportunity } = useNotifications()
   const { toast } = useToast()
 
   useEffect(() => {
@@ -75,6 +78,19 @@ export const OpportunitiesView = () => {
 
         // Calculate arbitrage opportunities
         const arbOpportunities = calculateArbitrage(filteredOdds as MatchOdds[], stakeAmount)
+        
+        // Check for new opportunities and notify
+        const currentOpportunityIds = new Set(arbOpportunities.map(opp => opp.id))
+        const newOpportunities = arbOpportunities.filter(opp => !previousOpportunityIds.has(opp.id))
+        
+        // Notify about new opportunities (but not on first load)
+        if (previousOpportunityIds.size > 0) {
+          newOpportunities.forEach(opportunity => {
+            notifyNewOpportunity(opportunity)
+          })
+        }
+        
+        setPreviousOpportunityIds(currentOpportunityIds)
         setOpportunities(arbOpportunities)
         setLastUpdate(new Date())
       }
