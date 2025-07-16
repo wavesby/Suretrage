@@ -10,6 +10,7 @@ export interface ArbitrageOpportunity {
     bookmaker: string
     outcome: 'home' | 'away' | 'draw'
     odds: number
+    stake: number
   }[]
   arbitragePercentage: number
   profitPercentage: number
@@ -20,8 +21,8 @@ export interface ArbitrageOpportunity {
     potentialReturn: number
   }[]
   totalStake: number
-  guaranteedProfit: number
-  lastUpdated: string
+  profitAmount: number
+  updatedAt: string
 }
 
 export interface MatchOdds {
@@ -40,7 +41,7 @@ export interface MatchOdds {
   updated_at: string
 }
 
-export const calculateArbitrage = (odds: MatchOdds[], userStake: number = 10000): ArbitrageOpportunity[] => {
+export const calculateArbitrage = (odds: any[], userStake: number = 10000): ArbitrageOpportunity[] => {
   const opportunities: ArbitrageOpportunity[] = []
   
   // Group odds by match_id
@@ -50,7 +51,7 @@ export const calculateArbitrage = (odds: MatchOdds[], userStake: number = 10000)
     }
     groups[odd.match_id].push(odd)
     return groups
-  }, {} as Record<string, MatchOdds[]>)
+  }, {} as Record<string, any[]>)
 
   // Check each match for arbitrage opportunities
   Object.entries(matchGroups).forEach(([matchId, matchOdds]) => {
@@ -94,12 +95,14 @@ export const calculateArbitrage = (odds: MatchOdds[], userStake: number = 10000)
           {
             bookmaker: bestOdds.home.bookmaker,
             outcome: 'home',
-            odds: bestOdds.home.odds_home
+            odds: bestOdds.home.odds_home,
+            stake: Math.round(homeStake)
           },
           {
             bookmaker: bestOdds.away.bookmaker,
             outcome: 'away',
-            odds: bestOdds.away.odds_away
+            odds: bestOdds.away.odds_away,
+            stake: Math.round(awayStake)
           }
         ],
         arbitragePercentage: arbitrageValue2Way * 100,
@@ -119,8 +122,8 @@ export const calculateArbitrage = (odds: MatchOdds[], userStake: number = 10000)
           }
         ],
         totalStake: Math.round(totalCalculatedStake),
-        guaranteedProfit: Math.round(guaranteedProfit),
-        lastUpdated: new Date().toISOString()
+        profitAmount: Math.round(guaranteedProfit),
+        updatedAt: new Date().toISOString()
       })
     }
 
@@ -153,17 +156,20 @@ export const calculateArbitrage = (odds: MatchOdds[], userStake: number = 10000)
             {
               bookmaker: bestOdds.home.bookmaker,
               outcome: 'home',
-              odds: bestOdds.home.odds_home
+              odds: bestOdds.home.odds_home,
+              stake: Math.round(homeStake)
             },
             {
               bookmaker: bestOdds.away.bookmaker,
               outcome: 'away',
-              odds: bestOdds.away.odds_away
+              odds: bestOdds.away.odds_away,
+              stake: Math.round(awayStake)
             },
             {
               bookmaker: bestOdds.draw.bookmaker,
               outcome: 'draw',
-              odds: bestOdds.draw.odds_draw
+              odds: bestOdds.draw.odds_draw,
+              stake: Math.round(drawStake)
             }
           ],
           arbitragePercentage: arbitrageValue3Way * 100,
@@ -189,8 +195,8 @@ export const calculateArbitrage = (odds: MatchOdds[], userStake: number = 10000)
             }
           ],
           totalStake: Math.round(totalCalculatedStake),
-          guaranteedProfit: Math.round(guaranteedProfit),
-          lastUpdated: new Date().toISOString()
+          profitAmount: Math.round(guaranteedProfit),
+          updatedAt: new Date().toISOString()
         })
       }
     }

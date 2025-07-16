@@ -1,50 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
-import { Button } from '@/components/ui/button'
-import { useAuth } from '@/contexts/AuthContext'
-import { supabase } from '@/lib/supabase'
+import { Badge } from '@/components/ui/badge'
 import { useToast } from '@/hooks/use-toast'
+import { useUserPreferences } from '@/contexts/UserPreferencesContext'
 
-const BOOKMAKERS = [
-  { id: 'bet9ja', name: 'Bet9ja', color: 'bg-green-500' },
-  { id: '1xbet', name: '1xBet', color: 'bg-blue-500' },
-  { id: 'betano', name: 'Betano', color: 'bg-orange-500' },
-  { id: 'betking', name: 'BetKing', color: 'bg-red-500' },
-  { id: 'sportybet', name: 'SportyBet', color: 'bg-purple-500' },
+const bookmakers = [
+  { id: 'bet9ja', name: 'Bet9ja', color: 'bg-green-600' },
+  { id: '1xbet', name: '1xBet', color: 'bg-blue-600' },
+  { id: 'betano', name: 'Betano', color: 'bg-orange-600' },
+  { id: 'betking', name: 'BetKing', color: 'bg-purple-600' },
+  { id: 'sportybet', name: 'SportyBet', color: 'bg-red-600' },
 ]
 
 export const BookmakerSelection = () => {
-  const [selectedBookmakers, setSelectedBookmakers] = useState<string[]>([])
-  const [loading, setLoading] = useState(false)
-  const [saving, setSaving] = useState(false)
-  const { user } = useAuth()
+  const { preferences, updateSelectedBookmakers } = useUserPreferences()
+  const [selectedBookmakers, setSelectedBookmakers] = useState<string[]>(preferences.selectedBookmakers)
   const { toast } = useToast()
-
-  useEffect(() => {
-    loadUserPreferences()
-  }, [user])
-
-  const loadUserPreferences = async () => {
-    if (!user) return
-    
-    setLoading(true)
-    try {
-      const { data, error } = await supabase
-        .from('user_preferences')
-        .select('selected_bookmakers')
-        .eq('user_id', user.id)
-        .single()
-
-      if (data && !error) {
-        setSelectedBookmakers(data.selected_bookmakers || [])
-      }
-    } catch (error) {
-      console.error('Error loading preferences:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
 
   const handleBookmakerToggle = (bookmakerId: string) => {
     setSelectedBookmakers(prev => {
@@ -56,102 +29,98 @@ export const BookmakerSelection = () => {
     })
   }
 
-  const savePreferences = async () => {
-    if (!user || selectedBookmakers.length === 0) {
+  const handleSave = () => {
+    if (selectedBookmakers.length === 0) {
       toast({
-        title: "Selection Required",
-        description: "Please select at least one bookmaker",
+        title: "No Bookmakers Selected",
+        description: "Please select at least one bookmaker to monitor.",
         variant: "destructive"
       })
       return
     }
 
-    setSaving(true)
-    try {
-      const { error } = await supabase
-        .from('user_preferences')
-        .upsert({
-          user_id: user.id,
-          selected_bookmakers: selectedBookmakers,
-          updated_at: new Date().toISOString()
-        })
-
-      if (error) throw error
-
-      toast({
-        title: "Preferences Saved",
-        description: `Selected ${selectedBookmakers.length} bookmaker(s)`
-      })
-    } catch (error) {
-      console.error('Error saving preferences:', error)
-      toast({
-        title: "Save Failed",
-        description: "Failed to save your preferences",
-        variant: "destructive"
-      })
-    } finally {
-      setSaving(false)
-    }
-  }
-
-  if (loading) {
-    return (
-      <div className="p-4">
-        <div className="animate-pulse space-y-4">
-          {[1, 2, 3, 4, 5].map(i => (
-            <div key={i} className="h-16 bg-muted rounded-lg" />
-          ))}
-        </div>
-      </div>
-    )
+    updateSelectedBookmakers(selectedBookmakers)
+    toast({
+      title: "Bookmakers Updated",
+      description: `Monitoring ${selectedBookmakers.length} bookmaker${selectedBookmakers.length > 1 ? 's' : ''} for arbitrage opportunities.`
+    })
   }
 
   return (
-    <div className="p-4 pb-20">
-      <Card>
-        <CardHeader>
-          <CardTitle>Select Bookmakers</CardTitle>
-          <CardDescription>
-            Choose which bookmakers to monitor for arbitrage opportunities (1-5)
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {BOOKMAKERS.map((bookmaker) => (
-            <div
-              key={bookmaker.id}
-              className="flex items-center space-x-3 p-3 rounded-lg border hover:bg-accent/50 transition-colors"
-            >
-              <div className={`w-4 h-4 rounded-full ${bookmaker.color}`} />
-              <div className="flex-1">
-                <label htmlFor={bookmaker.id} className="text-sm font-medium cursor-pointer">
-                  {bookmaker.name}
-                </label>
-              </div>
-              <Checkbox
-                id={bookmaker.id}
-                checked={selectedBookmakers.includes(bookmaker.id)}
-                onCheckedChange={() => handleBookmakerToggle(bookmaker.id)}
-              />
-            </div>
-          ))}
-          
-          <div className="pt-4">
-            <Button 
-              onClick={savePreferences}
-              disabled={saving || selectedBookmakers.length === 0}
-              className="w-full"
-            >
-              {saving ? 'Saving...' : `Save Selection (${selectedBookmakers.length})`}
-            </Button>
-          </div>
+    <div className="min-h-screen bg-background p-4 pb-20">
+      <div className="max-w-2xl mx-auto space-y-6">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold text-primary mb-2">Select Bookmakers</h1>
+          <p className="text-muted-foreground">
+            Choose which bookmakers to monitor for arbitrage opportunities
+          </p>
+        </div>
 
-          {selectedBookmakers.length > 0 && (
-            <div className="text-sm text-muted-foreground text-center">
-              You will see arbitrage opportunities from {selectedBookmakers.length} bookmaker(s)
-            </div>
-          )}
-        </CardContent>
-      </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center justify-between">
+              <span>Available Bookmakers</span>
+              <Badge variant="secondary">
+                {selectedBookmakers.length} of {bookmakers.length} selected
+              </Badge>
+            </CardTitle>
+            <CardDescription>
+              Select at least 2 bookmakers to find arbitrage opportunities between them
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {bookmakers.map((bookmaker) => (
+              <div
+                key={bookmaker.id}
+                className="flex items-center space-x-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors"
+              >
+                <Checkbox
+                  id={bookmaker.id}
+                  checked={selectedBookmakers.includes(bookmaker.id)}
+                  onCheckedChange={() => handleBookmakerToggle(bookmaker.id)}
+                />
+                <div className="flex items-center space-x-3 flex-1">
+                  <div className={`w-4 h-4 rounded-full ${bookmaker.color}`} />
+                  <label
+                    htmlFor={bookmaker.id}
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                  >
+                    {bookmaker.name}
+                  </label>
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+
+        {selectedBookmakers.length > 0 && (
+          <Card>
+            <CardHeader>
+              <CardTitle>Selected Bookmakers</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {selectedBookmakers.map((id) => {
+                  const bookmaker = bookmakers.find(b => b.id === id)
+                  return (
+                    <Badge key={id} variant="secondary" className="px-3 py-1">
+                      {bookmaker?.name}
+                    </Badge>
+                  )
+                })}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        <Button 
+          onClick={handleSave} 
+          className="w-full"
+          disabled={selectedBookmakers.length === 0}
+        >
+          Save Selection
+        </Button>
+      </div>
     </div>
   )
 }
