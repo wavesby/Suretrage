@@ -14,6 +14,10 @@ export interface MatchOdds {
   odds_home: number;
   odds_draw?: number;
   odds_away: number;
+  // Over/Under goals market
+  goals_over_under?: number;  // The threshold value (e.g., 2.5 goals)
+  odds_over?: number;         // Odds for over goals
+  odds_under?: number;        // Odds for under goals
   updated_at: string;
   liquidity?: number;
   suspensionRisk?: number;
@@ -40,6 +44,7 @@ export interface ArbitrageOpportunity {
   expectedValue?: number;
   volatility?: number;
   lastUpdated: string;
+  marketType?: '1X2' | 'OVER_UNDER'; // Market type for filtering
 }
 
 // Define the StakeDistribution interface
@@ -99,7 +104,7 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
       // Skip if we don't have multiple bookmakers (no arbitrage possible)
       if (matchOdds.length < 2) return;
       
-      // Find best odds for each outcome across all bookmakers
+      // Find best odds for each outcome across all bookmakers (1X2 market)
       const bestHomeOdds = matchOdds.reduce((best, current) => 
         current.odds_home > best.odds_home ? current : best, matchOdds[0]);
         
@@ -116,6 +121,135 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
       let arbitragePercentage: number;
       let stakes: StakeDistribution[] = [];
       let bestOdds: BestOdds[] = [];
+      let marketType = '1X2';
+      
+      // Check for over/under market opportunities
+      const overUnderOdds = matchOdds.filter(odd => 
+        odd.goals_over_under !== undefined && 
+        odd.odds_over !== undefined && 
+        odd.odds_under !== undefined
+      );
+      
+      if (overUnderOdds.length >= 2) {
+        // Find best odds for over and under outcomes
+        // Group by goals threshold (e.g., 2.5)
+        const overUnderGroups: Record<string, MatchOdds[]> = {};
+        
+        overUnderOdds.forEach(odd => {
+          const key = `${odd.goals_over_under}`;
+          if (!overUnderGroups[key]) {
+            overUnderGroups[key] = [];
+          }
+          overUnderGroups[key].push(odd);
+        });
+        
+        // Check each threshold group for arbitrage
+        Object.entries(overUnderGroups).forEach(([threshold, thresholdOdds]) => {
+          if (thresholdOdds.length < 2) return; // Need at least 2 bookmakers for comparison
+          
+          // Find best odds for over and under for this threshold
+          const bestOverOdds = thresholdOdds.reduce((best, current) => 
+            (current.odds_over ?? 0) > (best.odds_over ?? 0) ? current : best, thresholdOdds[0]);
+          
+          const bestUnderOdds = thresholdOdds.reduce((best, current) => 
+            (current.odds_under ?? 0) > (best.odds_under ?? 0) ? current : best, thresholdOdds[0]);
+          
+          // Calculate arbitrage percentage for over/under
+          const overUnderArbitragePercentage = (1 / (bestOverOdds.odds_over ?? 1)) + 
+                                               (1 / (bestUnderOdds.odds_under ?? 1));
+          
+          // Skip if there's no profitable arbitrage
+          if (overUnderArbitragePercentage > 1.02) return;
+          
+          // Calculate stakes for over/under
+          const overStake = (totalStake * (1 / (bestOverOdds.odds_over ?? 1))) / overUnderArbitragePercentage;
+          const underStake = (totalStake * (1 / (bestUnderOdds.odds_under ?? 1))) / overUnderArbitragePercentage;
+          
+          // Create stake distribution
+          const overUnderStakes: StakeDistribution[] = [
+            {
+              outcome: `Over ${threshold} Goals`,
+              bookmaker: bestOverOdds.bookmaker,
+              odds: bestOverOdds.odds_over ?? 0,
+              stake: Math.round(overStake),
+              potentialReturn: Math.round(overStake * (bestOverOdds.odds_over ?? 0)),
+              impliedProbability: 1 / (bestOverOdds.odds_over ?? 1)
+            },
+            {
+              outcome: `Under ${threshold} Goals`,
+              bookmaker: bestUnderOdds.bookmaker,
+              odds: bestUnderOdds.odds_under ?? 0,
+              stake: Math.round(underStake),
+              potentialReturn: Math.round(underStake * (bestUnderOdds.odds_under ?? 0)),
+              impliedProbability: 1 / (bestUnderOdds.odds_under ?? 1)
+            }
+          ];
+          
+          // Calculate profit percentage
+          const profitPercentage = overUnderArbitragePercentage < 1 
+            ? ((1 / overUnderArbitragePercentage) - 1) * 100 
+            : 0;
+          
+          // Calculate guaranteed profit
+          const actualTotalStake = overUnderStakes.reduce((sum, stake) => sum + stake.stake, 0);
+          const guaranteedProfit = Math.round(overUnderStakes[0].potentialReturn - actualTotalStake);
+          
+          // Best odds for over/under
+          const overUnderBestOdds: BestOdds[] = [
+            { 
+              outcome: `Over ${threshold} Goals`, 
+              bookmaker: bestOverOdds.bookmaker, 
+              odds: bestOverOdds.odds_over ?? 0 
+            },
+            { 
+              outcome: `Under ${threshold} Goals`, 
+              bookmaker: bestUnderOdds.bookmaker, 
+              odds: bestUnderOdds.odds_under ?? 0 
+            }
+          ];
+          
+          // Calculate risk assessment
+          const riskAssessment = calculateRiskAssessment(thresholdOdds, overUnderArbitragePercentage);
+          
+          // Calculate confidence score
+          const confidenceScore = calculateConfidenceScore(thresholdOdds, overUnderArbitragePercentage);
+          
+          // Calculate expected value and volatility
+          const { expectedValue, volatility } = calculateAdvancedMetrics(overUnderStakes, totalStake);
+          
+          // Get the reference match for metadata
+          const refMatch = thresholdOdds[0];
+          
+          // Create the arbitrage opportunity
+          const overUnderOpportunity: ArbitrageOpportunity = {
+            id: `${refMatch.match_id}-ou${threshold}-${Date.now()}`,
+            matchId: refMatch.match_id,
+            matchName: refMatch.match_name,
+            teamHome: refMatch.team_home,
+            teamAway: refMatch.team_away,
+            league: refMatch.league,
+            matchTime: refMatch.match_time,
+            arbitragePercentage: overUnderArbitragePercentage,
+            profitPercentage,
+            guaranteedProfit,
+            totalStake: actualTotalStake,
+            stakes: overUnderStakes,
+            bookmakers: thresholdOdds.map(odd => ({
+              bookmaker: odd.bookmaker,
+              odds: odd.odds_over ?? 0 // Just using over odds as a reference
+            })),
+            bestOdds: overUnderBestOdds,
+            riskAssessment,
+            confidenceScore,
+            expectedValue,
+            volatility,
+            lastUpdated: new Date().toISOString(),
+            marketType: 'OVER_UNDER'
+          };
+          
+          opportunities.push(overUnderOpportunity);
+        });
+      }
       
       // Check if we have draw odds (3-way market)
       if (bestDrawOdds && bestDrawOdds.odds_draw && bestDrawOdds.odds_draw > 0) {
@@ -246,7 +380,8 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
         confidenceScore,
         expectedValue,
         volatility,
-        lastUpdated: new Date().toISOString()
+        lastUpdated: new Date().toISOString(),
+        marketType: '1X2'
       };
       
       opportunities.push(opportunity);

@@ -125,6 +125,12 @@ const OpportunityCardComponent = ({ opportunity }: OpportunityCardProps) => {
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
               <span>{opportunity.league}</span>
+              {/* Market type badge */}
+              <Badge variant="outline" className="bg-slate-100 dark:bg-slate-800">
+                {opportunity.marketType === 'OVER_UNDER' || opportunity.id.includes('-ou') 
+                  ? 'Over/Under' 
+                  : '1X2'}
+              </Badge>
               {opportunity.riskAssessment && (
                 <Badge className={getRiskBadgeVariant(opportunity.riskAssessment)}>
                   {opportunity.riskAssessment}

@@ -67,7 +67,11 @@ export const generateMockOdds = (): MatchOdds[] => {
       team_away: 'Chelsea',
       league: 'Premier League',
       match_time: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
-      true_probabilities: { home: 0.42, draw: 0.28, away: 0.30 }
+      true_probabilities: { home: 0.42, draw: 0.28, away: 0.30 },
+      over_under_probabilities: { 
+        '2.5': { over: 0.58, under: 0.42 },
+        '3.5': { over: 0.32, under: 0.68 }
+      }
     },
     {
       match_id: 'epl_002', 
@@ -76,7 +80,11 @@ export const generateMockOdds = (): MatchOdds[] => {
       team_away: 'Liverpool',
       league: 'Premier League',
       match_time: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),
-      true_probabilities: { home: 0.36, draw: 0.26, away: 0.38 }
+      true_probabilities: { home: 0.36, draw: 0.26, away: 0.38 },
+      over_under_probabilities: { 
+        '2.5': { over: 0.62, under: 0.38 },
+        '3.5': { over: 0.35, under: 0.65 }
+      }
     },
     {
       match_id: 'epl_003',
@@ -85,7 +93,11 @@ export const generateMockOdds = (): MatchOdds[] => {
       team_away: 'Newcastle', 
       league: 'Premier League',
       match_time: new Date(Date.now() + 1.5 * 24 * 60 * 60 * 1000).toISOString(),
-      true_probabilities: { home: 0.45, draw: 0.25, away: 0.30 }
+      true_probabilities: { home: 0.45, draw: 0.25, away: 0.30 },
+      over_under_probabilities: { 
+        '2.5': { over: 0.55, under: 0.45 },
+        '3.5': { over: 0.30, under: 0.70 }
+      }
     },
     {
       match_id: 'epl_004',
@@ -94,7 +106,12 @@ export const generateMockOdds = (): MatchOdds[] => {
       team_away: 'Leicester', 
       league: 'Premier League',
       match_time: new Date(Date.now() + 3.5 * 24 * 60 * 60 * 1000).toISOString(),
-      true_probabilities: { home: 0.55, draw: 0.23, away: 0.22 }
+      true_probabilities: { home: 0.55, draw: 0.23, away: 0.22 },
+      over_under_probabilities: { 
+        '1.5': { over: 0.80, under: 0.20 },
+        '2.5': { over: 0.60, under: 0.40 },
+        '3.5': { over: 0.35, under: 0.65 }
+      }
     },
     {
       match_id: 'epl_005',
@@ -247,79 +264,125 @@ export const generateMockOdds = (): MatchOdds[] => {
   // Generate odds for each match across bookmakers
   matches.forEach(match => {
     const trueProb = match.true_probabilities;
+    const overUnderProb = match.over_under_probabilities;
     
     // Convert true probabilities to fair odds
     const fairOdds = {
-      home: 1 / trueProb.home,
+      home: trueProb.home > 0 ? 1 / trueProb.home : 0,
       draw: trueProb.draw > 0 ? 1 / trueProb.draw : 0,
-      away: 1 / trueProb.away
+      away: trueProb.away > 0 ? 1 / trueProb.away : 0
     };
     
-    // Apply variance across bookmakers to create inefficiencies
-    bookmakers.forEach(bookmaker => {
-      const { margin, volatility } = BOOKMAKER_MARGINS[bookmaker as keyof typeof BOOKMAKER_MARGINS];
+    // For each bookmaker, generate slightly different odds
+    bookmakers.forEach((bookmaker, index) => {
+      // Get bookmaker margin and volatility
+      const bmInfo = BOOKMAKER_MARGINS[bookmaker as keyof typeof BOOKMAKER_MARGINS];
+      const margin = bmInfo.margin / 100; // Convert to decimal
+      const volatility = bmInfo.volatility;
       
-      // Create individual bookmaker variance using deterministic pseudo-random
-      const homeVariance = (pseudoRandom(match.match_id, `${bookmaker}-home`) * 2 - 1) * volatility;
-      const drawVariance = (pseudoRandom(match.match_id, `${bookmaker}-draw`) * 2 - 1) * volatility;
-      const awayVariance = (pseudoRandom(match.match_id, `${bookmaker}-away`) * 2 - 1) * volatility;
-      
-      // Apply margin to fair odds with variance
-      // Margin distributed according to market expectations (more on favorites)
-      const marginFactor = 1 + margin / 100;
-      
-      // Some bookmakers favor certain outcomes more
-      const favorHome = bookmaker === 'BetKing' || bookmaker === 'NairaBet';
-      const favorAway = bookmaker === '1xBet' || bookmaker === 'BetWay';
-      
-      // Distribute margin unevenly
-      const homeMarginDistribution = favorHome ? 0.8 : favorAway ? 1.2 : 1.0;
-      const drawMarginDistribution = 1.0;
-      const awayMarginDistribution = favorAway ? 0.8 : favorHome ? 1.2 : 1.0;
-      
-      // Calculate final odds with margins and variance
-      const finalOdds = {
-        home: fairOdds.home / ((marginFactor - 1) * homeMarginDistribution * 0.33 + 1) * (1 + homeVariance),
-        draw: fairOdds.draw > 0 ? fairOdds.draw / ((marginFactor - 1) * drawMarginDistribution * 0.33 + 1) * (1 + drawVariance) : 0,
-        away: fairOdds.away / ((marginFactor - 1) * awayMarginDistribution * 0.33 + 1) * (1 + awayVariance)
+      // Apply bookmaker margin and some random variation to the odds
+      const variation = {
+        home: 1 + (pseudoRandom(match.match_id, `${bookmaker}-home`) * 2 - 1) * volatility,
+        draw: 1 + (pseudoRandom(match.match_id, `${bookmaker}-draw`) * 2 - 1) * volatility,
+        away: 1 + (pseudoRandom(match.match_id, `${bookmaker}-away`) * 2 - 1) * volatility,
       };
       
-      // Round odds to realistic precision (bookmakers usually round to 0.05 or 0.01)
+      const rawOdds = {
+        home: fairOdds.home * (1 - margin) * variation.home,
+        draw: fairOdds.draw * (1 - margin) * variation.draw,
+        away: fairOdds.away * (1 - margin) * variation.away
+      };
+      
+      // Round to bookmaker precision
       const roundToBookmakerPrecision = (odd: number): number => {
-        // Different rounding patterns based on odds range
-        if (odd < 2) {
-          return Math.round(odd * 100) / 100; // Round to 0.01
-        } else if (odd < 3) {
-          return Math.round(odd * 20) / 20; // Round to 0.05
-        } else if (odd < 5) {
-          return Math.round(odd * 10) / 10; // Round to 0.1
+        if (odd <= 2) {
+          return Math.round(odd * 100) / 100; // Round to 2 decimal places for small odds
+        } else if (odd <= 10) {
+          return Math.round(odd * 20) / 20; // Round to 0.05 increments for medium odds
         } else {
-          return Math.round(odd * 5) / 5; // Round to 0.2
+          return Math.round(odd * 10) / 10; // Round to 0.1 increments for large odds
         }
       };
       
-      mockOdds.push({
-        id: `${match.match_id}_${bookmaker.toLowerCase().replace(/\s/g, '')}`,
+      const odds = {
+        home: roundToBookmakerPrecision(rawOdds.home),
+        draw: roundToBookmakerPrecision(rawOdds.draw),
+        away: roundToBookmakerPrecision(rawOdds.away)
+      };
+      
+      // Create the 1X2 match odds
+      const matchOdds: MatchOdds = {
+        id: `${match.match_id}-${bookmaker}-1x2`,
         match_id: match.match_id,
-        bookmaker: bookmaker,
+        bookmaker,
         match_name: match.match_name,
         team_home: match.team_home,
         team_away: match.team_away,
         league: match.league,
         match_time: match.match_time,
         market_type: '1X2',
-        odds_home: roundToBookmakerPrecision(finalOdds.home),
-        odds_away: roundToBookmakerPrecision(finalOdds.away),
-        odds_draw: finalOdds.draw > 0 ? roundToBookmakerPrecision(finalOdds.draw) : undefined,
+        odds_home: odds.home,
+        odds_draw: match.league === 'NBA' ? undefined : odds.draw, // No draw in NBA
+        odds_away: odds.away,
         updated_at: new Date().toISOString(),
-        
-        // Adding liquidity and suspension risk factors
-        liquidity: 5 + pseudoRandom(match.match_id, `${bookmaker}-liquidity`) * 5,
-        suspensionRisk: bookmaker === 'BetWay' || bookmaker === '1xBet' ? 
-          pseudoRandom(match.match_id, `${bookmaker}-risk`) * 3 : 
-          pseudoRandom(match.match_id, `${bookmaker}-risk`) * 5
-      })
-    })
+        liquidity: 10 - (pseudoRandom(match.match_id, `${bookmaker}-liquidity`) * 5), // 5-10 scale
+        suspensionRisk: 1 + Math.floor(pseudoRandom(match.match_id, `${bookmaker}-risk`) * 4) // 1-4 scale
+      };
+      
+      mockOdds.push(matchOdds);
+      
+      // Generate over/under goals odds if available
+      if (overUnderProb) {
+        Object.entries(overUnderProb).forEach(([threshold, probabilities]) => {
+          // Convert true probabilities to fair odds for over/under
+          const fairOverUnderOdds = {
+            over: probabilities.over > 0 ? 1 / probabilities.over : 0,
+            under: probabilities.under > 0 ? 1 / probabilities.under : 0
+          };
+          
+          // Apply bookmaker margin and random variation
+          const overUnderVariation = {
+            over: 1 + (pseudoRandom(match.match_id, `${bookmaker}-over-${threshold}`) * 2 - 1) * volatility,
+            under: 1 + (pseudoRandom(match.match_id, `${bookmaker}-under-${threshold}`) * 2 - 1) * volatility
+          };
+          
+          const rawOverUnderOdds = {
+            over: fairOverUnderOdds.over * (1 - margin) * overUnderVariation.over,
+            under: fairOverUnderOdds.under * (1 - margin) * overUnderVariation.under
+          };
+          
+          // Round to bookmaker precision
+          const overUnderOdds = {
+            over: roundToBookmakerPrecision(rawOverUnderOdds.over),
+            under: roundToBookmakerPrecision(rawOverUnderOdds.under)
+          };
+          
+          // Create the over/under match odds
+          const overUnderMatchOdds: MatchOdds = {
+            id: `${match.match_id}-${bookmaker}-ou-${threshold}`,
+            match_id: match.match_id,
+            bookmaker,
+            match_name: match.match_name,
+            team_home: match.team_home,
+            team_away: match.team_away,
+            league: match.league,
+            match_time: match.match_time,
+            market_type: 'OVER_UNDER',
+            odds_home: odds.home, // Including 1X2 odds for reference
+            odds_draw: match.league === 'NBA' ? undefined : odds.draw,
+            odds_away: odds.away,
+            goals_over_under: parseFloat(threshold),
+            odds_over: overUnderOdds.over,
+            odds_under: overUnderOdds.under,
+            updated_at: new Date().toISOString(),
+            liquidity: 9 - (pseudoRandom(match.match_id, `${bookmaker}-ou-liquidity`) * 4), // 5-9 scale
+            suspensionRisk: 1 + Math.floor(pseudoRandom(match.match_id, `${bookmaker}-ou-risk`) * 3) // 1-3 scale
+          };
+          
+          mockOdds.push(overUnderMatchOdds);
+        });
+      }
+    });
   })
 
   // Create intentional arbitrage opportunities
@@ -377,99 +440,71 @@ function createGuaranteedArbitrageOpportunities(mockOdds: MatchOdds[]) {
   const chelseaMatch = getMatchOdds('epl_004');
   
   if (chelseaMatch.length > 0) {
-    // Find different bookmakers
-    const betkingIndex = mockOdds.findIndex(odd => 
-      odd.match_id === 'epl_004' && odd.bookmaker === 'BetKing'
-    );
-    
-    const sportybetIndex = mockOdds.findIndex(odd => 
-      odd.match_id === 'epl_004' && odd.bookmaker === 'SportyBet'
-    );
-    
-    const nairabetIndex = mockOdds.findIndex(odd => 
-      odd.match_id === 'epl_004' && odd.bookmaker === 'NairaBet'
-    );
-    
-    if (betkingIndex >= 0 && sportybetIndex >= 0 && nairabetIndex >= 0) {
-      // BetKing has good home odds
-      mockOdds[betkingIndex].odds_home = 1.85; // 1/1.85 = 0.54
-      mockOdds[betkingIndex].odds_away = 4.10;
-      mockOdds[betkingIndex].odds_draw = 4.00;
-      
-      // SportyBet has good away odds
-      mockOdds[sportybetIndex].odds_home = 1.75;
-      mockOdds[sportybetIndex].odds_away = 4.50; // 1/4.50 = 0.22
-      mockOdds[sportybetIndex].odds_draw = 3.80;
-      
-      // NairaBet has good draw odds
-      mockOdds[nairabetIndex].odds_home = 1.80;
-      mockOdds[nairabetIndex].odds_away = 4.30;
-      mockOdds[nairabetIndex].odds_draw = 4.75; // 1/4.75 = 0.21
-      
-      // Combined: 0.54 + 0.22 + 0.21 = 0.97 < 1.0 (good arbitrage)
-    }
-  }
-  
-  // 3. Create a high-profit arbitrage on Brighton vs West Ham
-  const brightonMatch = getMatchOdds('epl_005');
-  
-  if (brightonMatch.length > 0) {
-    const betwayIndex = mockOdds.findIndex(odd => 
-      odd.match_id === 'epl_005' && odd.bookmaker === 'BetWay'
-    );
-    
-    const onexbetIndex = mockOdds.findIndex(odd => 
-      odd.match_id === 'epl_005' && odd.bookmaker === '1xBet'
-    );
-    
-    if (betwayIndex >= 0 && onexbetIndex >= 0) {
-      // BetWay has high home odds
-      mockOdds[betwayIndex].odds_home = 2.30; // 1/2.30 = 0.435
-      mockOdds[betwayIndex].odds_away = 3.10;
-      mockOdds[betwayIndex].odds_draw = 3.50;
-      
-      // 1xBet has high away odds
-      mockOdds[onexbetIndex].odds_home = 2.15;
-      mockOdds[onexbetIndex].odds_away = 3.40; // 1/3.40 = 0.294
-      mockOdds[onexbetIndex].odds_draw = 3.30;
-      
-      // Combined: 0.435 + 0.294 = 0.729 < 1.0 (high profit arbitrage ~27%)
-    }
-  }
-  
-  // 4. Create Nigerian league arbitrage opportunity
-  const npflMatch = getMatchOdds('npfl_003');
-  
-  if (npflMatch.length > 0) {
+    // Find Bet9ja odds
     const bet9jaIndex = mockOdds.findIndex(odd => 
-      odd.match_id === 'npfl_003' && odd.bookmaker === 'Bet9ja'
+      odd.match_id === 'epl_004' && odd.bookmaker === 'Bet9ja' && odd.market_type === '1X2'
     );
     
-    const accessbetIndex = mockOdds.findIndex(odd => 
-      odd.match_id === 'npfl_003' && odd.bookmaker === 'AccessBet'
+    // Find 1xBet odds
+    const onexbetIndex = mockOdds.findIndex(odd => 
+      odd.match_id === 'epl_004' && odd.bookmaker === '1xBet' && odd.market_type === '1X2'
     );
     
-    const msportIndex = mockOdds.findIndex(odd => 
-      odd.match_id === 'npfl_003' && odd.bookmaker === 'MSport'
+    // Find BetWay odds
+    const betwayIndex = mockOdds.findIndex(odd => 
+      odd.match_id === 'epl_004' && odd.bookmaker === 'BetWay' && odd.market_type === '1X2'
     );
     
-    if (bet9jaIndex >= 0 && accessbetIndex >= 0 && msportIndex >= 0) {
-      // Bet9ja has good home odds
-      mockOdds[bet9jaIndex].odds_home = 2.00; // 1/2.00 = 0.50
-      mockOdds[bet9jaIndex].odds_away = 3.60;
-      mockOdds[bet9jaIndex].odds_draw = 3.20;
+    // Modify the odds to create an arbitrage
+    if (bet9jaIndex >= 0 && onexbetIndex >= 0 && betwayIndex >= 0) {
+      // Set Bet9ja to have good home odds
+      mockOdds[bet9jaIndex].odds_home = 1.85; // 1/1.85 = 0.541
+      mockOdds[bet9jaIndex].odds_draw = 3.50;
+      mockOdds[bet9jaIndex].odds_away = 4.50;
       
-      // AccessBet has good away odds
-      mockOdds[accessbetIndex].odds_home = 1.85;
-      mockOdds[accessbetIndex].odds_away = 3.90; // 1/3.90 = 0.256
-      mockOdds[accessbetIndex].odds_draw = 3.30;
+      // Set 1xBet to have good draw odds
+      mockOdds[onexbetIndex].odds_home = 1.70;
+      mockOdds[onexbetIndex].odds_draw = 4.00; // 1/4.00 = 0.250
+      mockOdds[onexbetIndex].odds_away = 4.20;
       
-      // MSport has good draw odds
-      mockOdds[msportIndex].odds_home = 1.90;
-      mockOdds[msportIndex].odds_away = 3.70;
-      mockOdds[msportIndex].odds_draw = 3.95; // 1/3.95 = 0.253
+      // Set BetWay to have good away odds
+      mockOdds[betwayIndex].odds_home = 1.75;
+      mockOdds[betwayIndex].odds_draw = 3.60;
+      mockOdds[betwayIndex].odds_away = 5.00; // 1/5.00 = 0.200
       
-      // Combined: 0.50 + 0.256 + 0.253 = ~1.01 (tiny margin, close to arbitrage)
+      // Combined: 0.541 + 0.250 + 0.200 = 0.991 < 1.0 (good arbitrage)
+    }
+  }
+  
+  // 3. Create a realistic over/under arbitrage on Manchester United vs Liverpool
+  const manUtdMatch = getMatchOdds('epl_002');
+  
+  if (manUtdMatch.length > 0) {
+    // Find BetWay over 2.5 goals odds
+    const betwayOverIndex = mockOdds.findIndex(odd => 
+      odd.match_id === 'epl_002' && 
+      odd.bookmaker === 'BetWay' && 
+      odd.market_type === 'OVER_UNDER' && 
+      odd.goals_over_under === 2.5
+    );
+    
+    // Find Bet9ja under 2.5 goals odds
+    const bet9jaUnderIndex = mockOdds.findIndex(odd => 
+      odd.match_id === 'epl_002' && 
+      odd.bookmaker === 'Bet9ja' && 
+      odd.market_type === 'OVER_UNDER' && 
+      odd.goals_over_under === 2.5
+    );
+    
+    // Modify the odds to create an over/under arbitrage
+    if (betwayOverIndex >= 0 && bet9jaUnderIndex >= 0) {
+      // Set BetWay to have good over odds
+      mockOdds[betwayOverIndex].odds_over = 1.95; // 1/1.95 = 0.513
+      
+      // Set Bet9ja to have good under odds
+      mockOdds[bet9jaUnderIndex].odds_under = 2.10; // 1/2.10 = 0.476
+      
+      // Combined: 0.513 + 0.476 = 0.989 < 1.0 (good arbitrage)
     }
   }
 }

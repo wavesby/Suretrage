@@ -68,6 +68,7 @@ export const OpportunitiesView = () => {
   const [selectedBookmakers, setSelectedBookmakers] = useState<string[]>([])
   const [selectedLeagues, setSelectedLeagues] = useState<string[]>([])
   const [riskFilter, setRiskFilter] = useState<'all' | 'low' | 'medium' | 'high'>('all')
+  const [marketTypeFilter, setMarketTypeFilter] = useState<'all' | '1x2' | 'over/under'>('all')
 
   // Load initial preferences
   useEffect(() => {
@@ -113,7 +114,7 @@ export const OpportunitiesView = () => {
   // Apply filters when opportunities or filter criteria change
   useEffect(() => {
     applyFilters()
-  }, [opportunities, searchTerm, activeView, minProfit, minConfidence, selectedLeagues, riskFilter, sortBy, sortOrder])
+  }, [opportunities, searchTerm, activeView, minProfit, minConfidence, selectedLeagues, riskFilter, sortBy, sortOrder, marketTypeFilter])
 
   const loadOpportunities = useCallback(() => {
     if (!odds || odds.length === 0) {
@@ -244,6 +245,20 @@ export const OpportunitiesView = () => {
       });
     }
 
+    // We've already implemented the market type filter above
+
+    // Market type filter
+    if (marketTypeFilter !== 'all') {
+      filtered = filtered.filter(opp => {
+        if (marketTypeFilter === 'over/under') {
+          return opp.marketType === 'OVER_UNDER' || opp.id.includes('-ou');
+        } else if (marketTypeFilter === '1x2') {
+          return opp.marketType === '1X2' || (!opp.marketType && !opp.id.includes('-ou'));
+        }
+        return true;
+      });
+    }
+    
     // Apply sorting
     filtered.sort((a, b) => {
       let comparison = 0;
@@ -262,7 +277,7 @@ export const OpportunitiesView = () => {
     });
 
     setFilteredOpportunities(filtered)
-  }, [opportunities, searchTerm, activeView, minProfit, minConfidence, selectedLeagues, riskFilter, sortBy, sortOrder])
+  }, [opportunities, searchTerm, activeView, minProfit, minConfidence, selectedLeagues, riskFilter, sortBy, sortOrder, marketTypeFilter])
 
   const saveStakePreference = () => {
     // Store in localStorage directly instead of using context
@@ -419,6 +434,22 @@ export const OpportunitiesView = () => {
                 <DropdownMenuItem onClick={() => setRiskFilter('high')}>
                   High Risk Only
                   {riskFilter === 'high' && " ✓"}
+                </DropdownMenuItem>
+                
+                <DropdownMenuSeparator />
+                
+                <DropdownMenuLabel>Market Type</DropdownMenuLabel>
+                <DropdownMenuItem onClick={() => setMarketTypeFilter('all')}>
+                  All Markets
+                  {marketTypeFilter === 'all' && " ✓"}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setMarketTypeFilter('1x2')}>
+                  1X2 Markets Only
+                  {marketTypeFilter === '1x2' && " ✓"}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setMarketTypeFilter('over/under')}>
+                  Over/Under Markets Only
+                  {marketTypeFilter === 'over/under' && " ✓"}
                 </DropdownMenuItem>
                 
                 <DropdownMenuSeparator />
