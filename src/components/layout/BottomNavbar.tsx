@@ -1,50 +1,94 @@
-import { Home, Settings, Building2, LogOut, Users } from 'lucide-react'
+import { memo } from 'react'
+import { Home, Settings, BookOpen, User, Shield, Bell } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
-import { Button } from '@/components/ui/button'
+import { NotificationCenter } from './NotificationCenter'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 interface BottomNavbarProps {
   activeTab: string
   onTabChange: (tab: string) => void
 }
 
-export const BottomNavbar = ({ activeTab, onTabChange }: BottomNavbarProps) => {
-  const { signOut, isAdmin } = useAuth()
+// Define navigation items outside component to prevent recreation on each render
+const baseNavItems = [
+  {
+    name: 'opportunities',
+    label: 'Opportunities',
+    icon: <Home className="w-5 h-5" />,
+    tooltip: 'View arbitrage opportunities'
+  },
+  {
+    name: 'bookmakers',
+    label: 'Bookies',
+    icon: <BookOpen className="w-5 h-5" />,
+    tooltip: 'Select bookmakers to monitor'
+  },
+  {
+    name: 'settings',
+    label: 'Settings',
+    icon: <Settings className="w-5 h-5" />,
+    tooltip: 'Configure app settings'
+  }
+]
 
-  const tabs = [
-    { id: 'opportunities', label: 'Home', icon: Home },
-    { id: 'bookmakers', label: 'Bookies', icon: Building2 },
-    { id: 'settings', label: 'Settings', icon: Settings },
-    ...(isAdmin ? [{ id: 'admin', label: 'Admin', icon: Users }] : []),
-  ]
+const adminNavItem = {
+  name: 'admin',
+  label: 'Admin',
+  icon: <Shield className="w-5 h-5" />,
+  tooltip: 'Admin panel'
+}
+
+const BottomNavbarComponent = ({ activeTab, onTabChange }: BottomNavbarProps) => {
+  const { user, isAdmin } = useAuth()
+  
+  // Dynamically create navigation items based on user role
+  const navItems = isAdmin ? [...baseNavItems, adminNavItem] : baseNavItems
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border z-50">
-      <div className="flex items-center justify-around p-2">
-        {tabs.map((tab) => {
-          const Icon = tab.icon
-          return (
-            <Button
-              key={tab.id}
-              variant={activeTab === tab.id ? 'default' : 'ghost'}
-              size="sm"
-              className="flex flex-col items-center gap-1 h-auto py-2 px-3"
-              onClick={() => onTabChange(tab.id)}
-            >
-              <Icon className="h-4 w-4" />
-              <span className="text-xs">{tab.label}</span>
-            </Button>
-          )
-        })}
-        <Button
-          variant="ghost"
-          size="sm"
-          className="flex flex-col items-center gap-1 h-auto py-2 px-3 text-destructive"
-          onClick={signOut}
-        >
-          <LogOut className="h-4 w-4" />
-          <span className="text-xs">Logout</span>
-        </Button>
+    <div className="fixed bottom-0 left-0 z-50 w-full h-16 bg-background border-t border-border">
+      <div className="grid h-full grid-cols-4 mx-auto font-medium">
+        <TooltipProvider>
+          {navItems.map((item) => (
+            <Tooltip key={item.name} delayDuration={300}>
+              <TooltipTrigger asChild>
+                <button
+                  type="button"
+                  onClick={() => onTabChange(item.name)}
+                  className={`inline-flex flex-col items-center justify-center px-5 group ${
+                    activeTab === item.name
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-primary/70'
+                  }`}
+                >
+                  {item.icon}
+                  <span className="text-xs">{item.label}</span>
+                </button>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>{item.tooltip}</p>
+              </TooltipContent>
+            </Tooltip>
+          ))}
+          
+          {/* NotificationCenter in the last slot */}
+          <Tooltip delayDuration={300}>
+            <TooltipTrigger asChild>
+              <div className="inline-flex flex-col items-center justify-center px-5">
+                <div className="mb-1">
+                  <NotificationCenter />
+                </div>
+                <span className="text-xs text-muted-foreground">Alerts</span>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>Notifications and alerts</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
     </div>
   )
 }
+
+// Memoize the component to prevent unnecessary re-renders
+export const BottomNavbar = memo(BottomNavbarComponent);

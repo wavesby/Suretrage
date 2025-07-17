@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
-import { User, Bell, DollarSign, Save } from 'lucide-react'
+import { User, Bell, DollarSign, Save, Loader2 } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
 import { useNotifications } from '@/contexts/NotificationContext'
 import { supabase } from '@/lib/supabase'
 import { useToast } from '@/hooks/use-toast'
+import { useUserPreferences } from '@/contexts/UserPreferencesContext'
 
 export const SettingsView = () => {
   const [defaultStake, setDefaultStake] = useState(10000)
@@ -18,13 +19,25 @@ export const SettingsView = () => {
   const [saving, setSaving] = useState(false)
   const { user, signOut } = useAuth()
   const { enableNotifications, requestPermission } = useNotifications()
+  const { preferences, updatePreferences } = useUserPreferences()
   const { toast } = useToast()
 
+  // Load settings from user preferences and database
   useEffect(() => {
-    loadSettings()
-  }, [user])
+    // First load from user preferences (local storage)
+    if (preferences.defaultStake) {
+      setDefaultStake(preferences.defaultStake)
+    }
+    
+    // Then load from database if user is logged in
+    if (user) {
+      loadDatabaseSettings()
+    } else {
+      setLoading(false)
+    }
+  }, [user, preferences])
 
-  const loadSettings = async () => {
+  const loadDatabaseSettings = async () => {
     if (!user) return
     
     setLoading(true)
@@ -36,7 +49,8 @@ export const SettingsView = () => {
         .single()
 
       if (data && !error) {
-        setDefaultStake(data.default_stake || 10000)
+        // Only update if values exist in database
+        if (data.default_stake) setDefaultStake(data.default_stake)
         setSmsNotifications(data.sms_notifications || false)
         setPhoneNumber(data.phone_number || '')
       }
@@ -47,22 +61,31 @@ export const SettingsView = () => {
     }
   }
 
-  const saveSettings = async () => {
-    if (!user) return
-    
+  // Memoize save function to prevent unnecessary re-renders
+  const saveSettings = useCallback(async () => {
     setSaving(true)
+    
     try {
-      const { error } = await supabase
-        .from('user_preferences')
-        .upsert({
-          user_id: user.id,
-          default_stake: defaultStake,
-          sms_notifications: smsNotifications,
-          phone_number: phoneNumber,
-          updated_at: new Date().toISOString()
-        })
-
-      if (error) throw error
+      // Update local storage first (works even without login)
+      updatePreferences({
+        ...preferences,
+        defaultStake: defaultStake
+      })
+      
+      // Then update database if user is logged in
+      if (user) {
+        const { error } = await supabase
+          .from('user_preferences')
+          .upsert({
+            user_id: user.id,
+            default_stake: defaultStake,
+            sms_notifications: smsNotifications,
+            phone_number: phoneNumber,
+            updated_at: new Date().toISOString()
+          })
+  
+        if (error) throw error
+      }
 
       toast({
         title: "Settings Saved",
@@ -78,15 +101,29 @@ export const SettingsView = () => {
     } finally {
       setSaving(false)
     }
+  }, [defaultStake, smsNotifications, phoneNumber, user, updatePreferences, preferences, toast])
+
+  // Handle stake input with validation
+  const handleStakeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value)
+    if (!isNaN(value) && value >= 0) {
+      setDefaultStake(value)
+    }
+  }
+
+  // Handle phone number input with validation
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Allow only digits, +, spaces, and parentheses
+    const value = e.target.value.replace(/[^\d\s+()]/g, '')
+    setPhoneNumber(value)
   }
 
   if (loading) {
     return (
       <div className="p-4 pb-20">
-        <div className="animate-pulse space-y-4">
-          {[1, 2, 3].map(i => (
-            <div key={i} className="h-32 bg-muted rounded-lg" />
-          ))}
+        <div className="flex justify-center items-center h-64">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <span className="ml-2">Loading settings...</span>
         </div>
       </div>
     )
@@ -107,11 +144,11 @@ export const SettingsView = () => {
         <CardContent className="space-y-4">
           <div>
             <Label>Email</Label>
-            <Input value={user?.email || ''} disabled className="mt-1" />
+            <Input value={user?.email || 'Not logged in'} disabled className="mt-1" />
           </div>
           <div>
             <Label>Account Type</Label>
-            <Input value="Standard User" disabled className="mt-1" />
+            <Input value={user ? "Standard User" : "Guest"} disabled className="mt-1" />
           </div>
         </CardContent>
       </Card>
@@ -134,7 +171,7 @@ export const SettingsView = () => {
               id="default-stake"
               type="number"
               value={defaultStake}
-              onChange={(e) => setDefaultStake(Number(e.target.value))}
+              onChange={handleStakeChange}
               min="1000"
               step="1000"
               className="mt-1"
@@ -184,6 +221,7 @@ export const SettingsView = () => {
             <Switch
               checked={smsNotifications}
               onCheckedChange={setSmsNotifications}
+              disabled={!user}
             />
           </div>
           
@@ -195,7 +233,7 @@ export const SettingsView = () => {
                 type="tel"
                 placeholder="+234 XXX XXX XXXX"
                 value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                onChange={handlePhoneChange}
                 className="mt-1"
               />
               <p className="text-sm text-muted-foreground mt-1">
@@ -208,14 +246,25 @@ export const SettingsView = () => {
 
       {/* Save Button */}
       <Button onClick={saveSettings} disabled={saving} className="w-full">
-        <Save className="h-4 w-4 mr-2" />
-        {saving ? 'Saving...' : 'Save Settings'}
+        {saving ? (
+          <>
+            <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+            Saving...
+          </>
+        ) : (
+          <>
+            <Save className="h-4 w-4 mr-2" />
+            Save Settings
+          </>
+        )}
       </Button>
 
       {/* Sign Out */}
-      <Button variant="outline" onClick={signOut} className="w-full">
-        Sign Out
-      </Button>
+      {user && (
+        <Button variant="outline" onClick={signOut} className="w-full">
+          Sign Out
+        </Button>
+      )}
     </div>
   )
 }

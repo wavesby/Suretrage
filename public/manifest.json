@@ -1,40 +1,67 @@
 {
   "name": "Sport Arbitrage",
   "short_name": "SportArb",
-  "description": "Sports arbitrage opportunities for Nigerian bookmakers",
+  "description": "Find and act on sports arbitrage opportunities across multiple bookmakers",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#3b82f6",
-  "scope": "/",
-  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "48x48",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "/placeholder.svg",
-      "sizes": "192x192",
+      "src": "/favicon-small.svg",
+      "sizes": "16x16 32x32 48x48 72x72",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/placeholder.svg",
-      "sizes": "512x512",
+      "src": "/favicon.svg",
+      "sizes": "96x96 128x128 144x144 152x152 192x192 384x384 512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["sports", "finance", "productivity"],
   "shortcuts": [
     {
-      "name": "View Opportunities",
-      "short_name": "Opportunities",
-      "description": "View current arbitrage opportunities",
-      "url": "/",
-      "icons": [{ "src": "/placeholder.svg", "sizes": "96x96" }]
+      "name": "Opportunities",
+      "short_name": "Opps",
+      "description": "View arbitrage opportunities",
+      "url": "/?tab=opportunities",
+      "icons": [{ "src": "/placeholder.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Bookmakers",
+      "short_name": "Bookies",
+      "description": "Select bookmakers to monitor",
+      "url": "/?tab=bookmakers",
+      "icons": [{ "src": "/placeholder.svg", "sizes": "192x192" }]
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/opportunities.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Arbitrage Opportunities"
+    },
+    {
+      "src": "/screenshots/bookmakers.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Bookmaker Selection"
+    }
+  ],
+  "categories": ["finance", "sports", "utilities"],
+  "lang": "en-NG",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "iarc_rating_id": "",
+  "scope": "/",
+  "display_override": ["standalone", "window-controls-overlay"],
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
 }

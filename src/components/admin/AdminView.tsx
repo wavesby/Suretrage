@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Users, Database, Bell, Upload } from 'lucide-react'
+import { Users, Database, Bell, Upload, Loader2, RefreshCw } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/contexts/AuthContext'
 import { useToast } from '@/hooks/use-toast'
@@ -19,6 +19,7 @@ export const AdminView = () => {
   const [users, setUsers] = useState<UserProfile[]>([])
   const [loading, setLoading] = useState(true)
   const [seeding, setSeeding] = useState(false)
+  const [refreshing, setRefreshing] = useState(false)
   const { isAdmin } = useAuth()
   const { toast } = useToast()
 
@@ -28,8 +29,8 @@ export const AdminView = () => {
     }
   }, [isAdmin])
 
-  const loadUsers = async () => {
-    setLoading(true)
+  const loadUsers = useCallback(async () => {
+    setRefreshing(true)
     try {
       const { data, error } = await supabase
         .from('profiles')
@@ -38,6 +39,13 @@ export const AdminView = () => {
 
       if (error) throw error
       setUsers(data || [])
+      
+      if (!loading) {
+        toast({
+          title: "Users Refreshed",
+          description: `Loaded ${data?.length || 0} user profiles`
+        })
+      }
     } catch (error) {
       console.error('Error loading users:', error)
       toast({
@@ -47,10 +55,11 @@ export const AdminView = () => {
       })
     } finally {
       setLoading(false)
+      setRefreshing(false)
     }
-  }
+  }, [loading, toast])
 
-  const toggleUserAdmin = async (userId: string, currentIsAdmin: boolean) => {
+  const toggleUserAdmin = useCallback(async (userId: string, currentIsAdmin: boolean) => {
     try {
       const { error } = await supabase
         .from('profiles')
@@ -77,9 +86,9 @@ export const AdminView = () => {
         variant: "destructive"
       })
     }
-  }
+  }, [toast])
 
-  const handleSeedOdds = async () => {
+  const handleSeedOdds = useCallback(async () => {
     setSeeding(true)
     try {
       const success = await seedMockOdds()
@@ -101,7 +110,7 @@ export const AdminView = () => {
     } finally {
       setSeeding(false)
     }
-  }
+  }, [toast])
 
   if (!isAdmin) {
     return (
@@ -138,8 +147,17 @@ export const AdminView = () => {
               disabled={seeding}
               className="w-full"
             >
-              <Upload className="h-4 w-4 mr-2" />
-              {seeding ? 'Seeding...' : 'Seed Mock Odds'}
+              {seeding ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Seeding...
+                </>
+              ) : (
+                <>
+                  <Upload className="h-4 w-4 mr-2" />
+                  Seed Mock Odds
+                </>
+              )}
             </Button>
           </CardContent>
         </Card>
@@ -165,14 +183,28 @@ export const AdminView = () => {
 
       {/* User Management */}
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Users className="h-5 w-5" />
-            User Management
-          </CardTitle>
-          <CardDescription>
-            Manage user accounts and permissions
-          </CardDescription>
+        <CardHeader className="flex flex-row items-center justify-between">
+          <div>
+            <CardTitle className="flex items-center gap-2">
+              <Users className="h-5 w-5" />
+              User Management
+            </CardTitle>
+            <CardDescription>
+              Manage user accounts and permissions
+            </CardDescription>
+          </div>
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={() => loadUsers()}
+            disabled={refreshing}
+          >
+            {refreshing ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <RefreshCw className="h-4 w-4" />
+            )}
+          </Button>
         </CardHeader>
         <CardContent>
           {loading ? (
