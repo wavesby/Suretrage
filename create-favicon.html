@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SVG to ICO Converter</title>
+  <script>
+    // This is a simple script to convert SVG to canvas and then to ICO format
+    window.onload = function() {
+      const svgContent = `
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#0F172A"/>
+          <text x="16" y="21" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#3B82F6">SP</text>
+          <circle cx="16" cy="16" r="14" stroke="#60A5FA" stroke-width="1.5" stroke-opacity="0.6" fill="none"/>
+        </svg>
+      `;
+      
+      // Create an image from the SVG
+      const img = new Image();
+      img.src = 'data:image/svg+xml;base64,' + btoa(svgContent);
+      
+      img.onload = function() {
+        // Draw the image on a canvas
+        const canvas = document.createElement('canvas');
+        canvas.width = 32;
+        canvas.height = 32;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        
+        // Convert canvas to PNG
+        const pngData = canvas.toDataURL('image/png');
+        
+        // Display the PNG for download
+        document.getElementById('result').src = pngData;
+        document.getElementById('download').href = pngData;
+        document.getElementById('download').style.display = 'block';
+      };
+    };
+  </script>
+</head>
+<body>
+  <h1>SVG to ICO Converter</h1>
+  <p>Right-click on the image below and select "Save image as..." to save as PNG. Then use an online converter to convert to ICO.</p>
+  <img id="result" width="32" height="32" style="border: 1px solid black; padding: 10px;">
+  <a id="download" href="#" download="favicon.png" style="display: none;">Download PNG</a>
+</body>
+</html> 
