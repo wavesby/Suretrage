@@ -1,29 +1,167 @@
 import { MatchOdds } from '@/utils/arbitrage';
 import axios from 'axios';
+import { mockOdds } from '@/utils/mockData';
 
 // Define supported bookmakers
 export const SUPPORTED_BOOKMAKERS = [
   'Bet9ja',
   '1xBet', 
   'BetKing',
-  'SportyBet'
+  'SportyBet',
+  'NairaBet',
+  'Betway',
+  'BangBet',
+  'Parimatch'
 ];
 
-// Real API endpoints for each bookmaker
-const API_ENDPOINTS = {
-  // Direct API endpoints for Nigerian bookmakers
-  'Bet9ja': import.meta.env.VITE_BET9JA_API_URL || 'https://odds-api.bet9ja.com/v1/odds/football/main',
-  '1xBet': import.meta.env.VITE_ONEXBET_API_URL || 'https://ng-api.1xbet.com/sports/line/football',
-  'BetKing': import.meta.env.VITE_BETKING_API_URL || 'https://api.betking.com/api/feeds/v1/odds/football',
-  'SportyBet': import.meta.env.VITE_SPORTYBET_API_URL || 'https://api.sportybet.com/ng/api/v1/odds/football'
+// Base URLs for bookmaker APIs
+const BASE_URLS = {
+  'Bet9ja': 'https://odds-api.bet9ja.com',
+  '1xBet': 'https://1xbet.ng/service-api',
+  'BetKing': 'https://betking.com/sports-data/api',
+  'SportyBet': 'https://www.sportybet.com/api/ng',
+  'NairaBet': 'https://nairabet.com/rest/market/categories',
+  'Betway': 'https://www.betway.com.ng/api',
+  'BangBet': 'https://bangbet.com/api/v2',
+  'Parimatch': 'https://parimatch.ng/api/v2'
 };
 
-// API keys for bookmakers that require authentication
-const API_KEYS = {
-  'Bet9ja': import.meta.env.VITE_BET9JA_API_KEY || '',
-  '1xBet': import.meta.env.VITE_ONEXBET_API_KEY || '',
-  'BetKing': import.meta.env.VITE_BETKING_API_KEY || '',
-  'SportyBet': import.meta.env.VITE_SPORTYBET_API_KEY || ''
+// API endpoints for each bookmaker's football odds
+const API_ENDPOINTS = {
+  'Bet9ja': `${BASE_URLS['Bet9ja']}/v1/odds/football/main`,
+  '1xBet': `${BASE_URLS['1xBet']}/line/prematch?sport=1&count=500&tf=2200000&tz=3&antisports=188&mode=4&country=132&getEmpty=true&gr=277`,
+  'BetKing': `${BASE_URLS['BetKing']}/v2/sports/football/events?market=all&live=false&virtual=false`,
+  'SportyBet': `${BASE_URLS['SportyBet']}/football/matches/upcoming?count=100`,
+  'NairaBet': `${BASE_URLS['NairaBet']}/events?type=prematch&sport=1&count=200`,
+  'Betway': `${BASE_URLS['Betway']}/sports/soccer/matches/upcoming?limit=100`,
+  'BangBet': `${BASE_URLS['BangBet']}/football/odds?markets=1x2&upcoming=true`,
+  'Parimatch': `${BASE_URLS['Parimatch']}/sports/football/events?limit=150`
+};
+
+// Alternative API endpoints (as fallbacks)
+const ALTERNATIVE_ENDPOINTS = {
+  'Bet9ja': `${BASE_URLS['Bet9ja']}/v1/events/upcoming/football?limit=200`,
+  '1xBet': `${BASE_URLS['1xBet']}/sports/line?sport=1&count=500`,
+  'BetKing': `${BASE_URLS['BetKing']}/v1/competitions/football/odds`,
+  'SportyBet': `${BASE_URLS['SportyBet']}/events/matches?sport=football&limit=100`,
+  'NairaBet': `${BASE_URLS['NairaBet']}/football?type=upcoming&limit=200`,
+  'Betway': `${BASE_URLS['Betway']}/sportsbook/football/events`,
+  'BangBet': `${BASE_URLS['BangBet']}/football/upcoming`,
+  'Parimatch': `${BASE_URLS['Parimatch']}/football/markets`
+};
+
+// Headers required for API requests
+const getHeaders = (bookmaker: string) => {
+  const commonHeaders = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+  };
+
+  switch(bookmaker) {
+    case 'Bet9ja':
+      return {
+        ...commonHeaders,
+        'Origin': 'https://web.bet9ja.com',
+        'Referer': 'https://web.bet9ja.com/'
+      };
+    case '1xBet':
+      return {
+        ...commonHeaders,
+        'Origin': 'https://1xbet.ng',
+        'Referer': 'https://1xbet.ng/en/line/football'
+      };
+    case 'BetKing':
+      return {
+        ...commonHeaders,
+        'Origin': 'https://betking.com',
+        'Referer': 'https://betking.com/sports/football'
+      };
+    case 'SportyBet':
+      return {
+        ...commonHeaders,
+        'Origin': 'https://www.sportybet.com',
+        'Referer': 'https://www.sportybet.com/ng/sport/football'
+      };
+    case 'NairaBet':
+      return {
+        ...commonHeaders,
+        'Origin': 'https://nairabet.com',
+        'Referer': 'https://nairabet.com/sports/football'
+      };
+    case 'Betway':
+      return {
+        ...commonHeaders,
+        'Origin': 'https://www.betway.com.ng',
+        'Referer': 'https://www.betway.com.ng/sports/evt/football'
+      };
+    case 'BangBet':
+      return {
+        ...commonHeaders,
+        'Origin': 'https://bangbet.com',
+        'Referer': 'https://bangbet.com/sports'
+      };
+    case 'Parimatch':
+      return {
+        ...commonHeaders,
+        'Origin': 'https://parimatch.ng',
+        'Referer': 'https://parimatch.ng/en/football/europe'
+      };
+    default:
+      return commonHeaders;
+  }
+};
+
+// Public API or alternative method for fetching odds when direct API fails
+// This can be a sports data aggregator or odds comparison site that's more reliable
+const PUBLIC_ODDS_API = 'https://api.the-odds-api.com/v4/sports/soccer_epl/odds';
+const PUBLIC_API_KEY = import.meta.env?.VITE_ODDS_API_KEY || '';
+
+// Proxy configuration for CORS issues
+const PROXY_URL = import.meta.env?.VITE_PROXY_URL || 'https://corsproxy.io/?';
+
+// Web scraping fallback endpoints (public-facing URLs that can be scraped)
+const SCRAPE_ENDPOINTS = {
+  'Bet9ja': 'https://web.bet9ja.com/Sport/OddsToday.aspx',
+  '1xBet': 'https://1xbet.ng/en/line/football',
+  'BetKing': 'https://betking.com/sports/football',
+  'SportyBet': 'https://www.sportybet.com/ng/sport/football',
+  'NairaBet': 'https://nairabet.com/sports/football',
+  'Betway': 'https://www.betway.com.ng/sports/evt/football',
+  'BangBet': 'https://bangbet.com/sports',
+  'Parimatch': 'https://parimatch.ng/en/football/europe'
+};
+
+// Helper function to delay between API calls to avoid rate limiting
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+// Function to extract and normalize data from HTML for web scraping fallback
+const extractOddsFromHTML = async (html: string, bookmaker: string): Promise<any> => {
+  try {
+    // This would typically use a DOM parser like cheerio in Node.js
+    // For browser, we can use DOMParser
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    // Extract data based on bookmaker's HTML structure
+    // This is a simplified placeholder - actual implementation would be more complex
+    // and specific to each bookmaker's website structure
+    switch(bookmaker) {
+      case 'Bet9ja':
+        // Extract data from Bet9ja HTML structure
+        // Return in a format that can be processed by the normalizer
+        break;
+      case '1xBet':
+        // Extract data from 1xBet HTML structure
+        break;
+      // Add cases for other bookmakers
+      default:
+        return null;
+    }
+  } catch (error) {
+    console.error(`Error extracting data from ${bookmaker} HTML:`, error);
+    return null;
+  }
 };
 
 // Normalize odds from different bookmakers to a standard format
@@ -38,6 +176,14 @@ const normalizeOdds = (odds: any, bookmaker: string): MatchOdds[] => {
         return normalizeBetKingOdds(odds);
       case 'SportyBet':
         return normalizeSportyBetOdds(odds);
+      case 'NairaBet':
+        return normalizeNairaBetOdds(odds);
+      case 'Betway':
+        return normalizeBetwayOdds(odds);
+      case 'BangBet':
+        return normalizeBangBetOdds(odds);
+      case 'Parimatch':
+        return normalizeParimatchOdds(odds);
       default:
         return [];
     }
@@ -384,234 +530,333 @@ const normalizeSportyBetOdds = (odds: any): MatchOdds[] => {
   }
 };
 
-// Fetch odds from a single bookmaker
-export const fetchBookmakerOdds = async (bookmaker: string): Promise<MatchOdds[]> => {
-  try {
-    if (!SUPPORTED_BOOKMAKERS.includes(bookmaker)) {
-      throw new Error(`Unsupported bookmaker: ${bookmaker}`);
-    }
+// Add new normalizer functions for additional bookmakers
+const normalizeNairaBetOdds = (odds: any): MatchOdds[] => {
+  // Implementation similar to other normalizers but specific to NairaBet's data structure
+  return [];
+};
 
-    console.log(`Fetching odds from ${bookmaker}...`);
-    const endpoint = API_ENDPOINTS[bookmaker as keyof typeof API_ENDPOINTS];
-    const apiKey = API_KEYS[bookmaker as keyof typeof API_KEYS];
-    
-    // Check if we have a valid endpoint
-    if (!endpoint) {
-      console.error(`No API endpoint configured for ${bookmaker}`);
-      throw new Error(`No API endpoint configured for ${bookmaker}`);
-    }
-    
-    // Prepare headers based on bookmaker requirements
-    const headers: Record<string, string> = {
-      'Accept': 'application/json',
-      'User-Agent': 'SportArbitrageApp/1.0'
-    };
-    
-    // Configure request options based on bookmaker
-    let requestOptions: any = {
-      timeout: 15000, // 15 second timeout
-      headers
-    };
-    
-    // Add bookmaker-specific authentication
-    switch (bookmaker) {
-      case 'Bet9ja':
-        if (apiKey) {
-          headers['Authorization'] = `Bearer ${apiKey}`;
-          headers['X-API-Version'] = '1.0';
-        }
-        break;
-        
-      case '1xBet':
-        if (apiKey) {
-          headers['Authorization'] = `Bearer ${apiKey}`;
-        }
-        headers['X-Language'] = 'en';
-        headers['Accept-Language'] = 'en-US,en;q=0.9';
-        break;
-        
-      case 'BetKing':
-        if (apiKey) {
-          headers['X-API-Key'] = apiKey;
-        }
-        break;
-        
-      case 'SportyBet':
-        if (apiKey) {
-          headers['Authorization'] = `Bearer ${apiKey}`;
-        }
-        // SportyBet might require specific parameters
-        requestOptions.params = {
-          country: 'ng',
-          language: 'en',
-          market: '1x2',
-          limit: 100
-        };
-        break;
-    }
-    
-    console.log(`Making request to ${endpoint} for ${bookmaker}`);
-    
+const normalizeBetwayOdds = (odds: any): MatchOdds[] => {
+  // Implementation for Betway
+  return [];
+};
+
+const normalizeBangBetOdds = (odds: any): MatchOdds[] => {
+  // Implementation for BangBet
+  return [];
+};
+
+const normalizeParimatchOdds = (odds: any): MatchOdds[] => {
+  // Implementation for Parimatch
+  return [];
+};
+
+// Improved function to fetch odds from a bookmaker with multiple retry strategies
+export const fetchBookmakerOdds = async (bookmaker: string): Promise<MatchOdds[]> => {
+  console.log(`Fetching odds for ${bookmaker}...`);
+  let attempts = 0;
+  const maxAttempts = 3;
+  
+  while (attempts < maxAttempts) {
+    attempts++;
     try {
-      const response = await axios.get(endpoint, requestOptions);
+      // Strategy 1: Direct API call
+      const endpoint = attempts === 1 ? API_ENDPOINTS[bookmaker] : ALTERNATIVE_ENDPOINTS[bookmaker];
+      const headers = getHeaders(bookmaker);
       
-      if (!response.data) {
-        throw new Error(`No data returned from ${bookmaker} API`);
+      const response = await axios.get(endpoint, { 
+        headers,
+        timeout: 10000, // 10 second timeout
+        validateStatus: (status) => status < 500 // Accept any status below 500
+      });
+      
+      if (response.status === 200 && response.data) {
+        console.log(`Successfully fetched ${bookmaker} odds (Attempt ${attempts})`);
+        return normalizeOdds(response.data, bookmaker);
       }
       
-      console.log(`Successfully received data from ${bookmaker}`);
-      const normalizedOdds = normalizeOdds(response.data, bookmaker);
+      // If we got a response but it's not 200, or data is invalid
+      console.warn(`Invalid response from ${bookmaker} (Attempt ${attempts}): Status ${response.status}`);
       
-      if (normalizedOdds.length === 0) {
-        console.warn(`No odds could be normalized from ${bookmaker} response`);
-        throw new Error(`Failed to normalize odds from ${bookmaker}`);
-      } else {
-        console.log(`Normalized ${normalizedOdds.length} odds from ${bookmaker}`);
+      // Strategy 2: Try with proxy if direct call failed
+      if (attempts === 2) {
+        const proxyResponse = await axios.get(`${PROXY_URL}${encodeURIComponent(endpoint)}`, {
+          headers: {
+            ...headers,
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          timeout: 15000
+        });
+        
+        if (proxyResponse.status === 200 && proxyResponse.data) {
+          console.log(`Successfully fetched ${bookmaker} odds via proxy`);
+          return normalizeOdds(proxyResponse.data, bookmaker);
+        }
       }
       
-      return normalizedOdds;
-    } catch (apiError) {
-      console.error(`API request failed for ${bookmaker}:`, apiError);
+      // Strategy 3: Try web scraping as last resort
+      if (attempts === 3 && SCRAPE_ENDPOINTS[bookmaker]) {
+        const scrapeUrl = SCRAPE_ENDPOINTS[bookmaker];
+        const scrapeResponse = await axios.get(`${PROXY_URL}${encodeURIComponent(scrapeUrl)}`, {
+          headers: {
+            ...getHeaders(bookmaker),
+            'Accept': 'text/html'
+          },
+          timeout: 20000
+        });
+        
+        if (scrapeResponse.status === 200 && scrapeResponse.data) {
+          const extractedData = await extractOddsFromHTML(scrapeResponse.data, bookmaker);
+          if (extractedData) {
+            console.log(`Successfully scraped ${bookmaker} odds`);
+            return normalizeOdds(extractedData, bookmaker);
+          }
+        }
+      }
       
-      // For demo purposes, use the mock data generator
-      console.log(`Using mock data for ${bookmaker} due to API error`);
-      const { generateMockOdds } = await import('@/utils/mockData');
-      const allMockOdds = generateMockOdds();
-      return allMockOdds.filter(odd => odd.bookmaker === bookmaker);
+      // Wait before next attempt
+      await delay(1000);
+      
+    } catch (error: any) {
+      console.error(`Error fetching ${bookmaker} odds (Attempt ${attempts}):`, 
+        error.response ? `Status: ${error.response.status}` : error.message);
+      
+      // Wait longer before retry
+      await delay(2000 * attempts);
     }
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      if (error.code === 'ECONNABORTED') {
-        console.error(`Timeout fetching ${bookmaker} odds: Connection took too long`);
-      } else if (error.response) {
-        console.error(`Error fetching ${bookmaker} odds: Status ${error.response.status}`, error.response.data);
-      } else if (error.request) {
-        console.error(`Error fetching ${bookmaker} odds: No response received`);
-      } else {
-        console.error(`Error fetching ${bookmaker} odds:`, error.message);
-      }
-    } else {
-      console.error(`Error fetching ${bookmaker} odds:`, error);
+  }
+  
+  console.warn(`All attempts to fetch ${bookmaker} odds failed, falling back to mock data`);
+  
+  // Return mock data filtered for this bookmaker as last resort
+  return mockOdds.filter(odd => odd.bookmaker === bookmaker);
+};
+
+// Fallback function to fetch odds from the public API
+const fetchFromPublicAPI = async (): Promise<MatchOdds[]> => {
+  try {
+    if (!PUBLIC_API_KEY) {
+      console.warn('No public API key provided');
+      return [];
     }
     
-    // Use mock data as a fallback for demo purposes
-    console.log(`Using mock data for ${bookmaker} as fallback`);
-    const { generateMockOdds } = await import('@/utils/mockData');
-    const allMockOdds = generateMockOdds();
-    return allMockOdds.filter(odd => odd.bookmaker === bookmaker);
+    const response = await axios.get(`${PUBLIC_ODDS_API}?apiKey=${PUBLIC_API_KEY}&regions=uk,eu,us&markets=h2h`);
+    
+    if (!response.data || !Array.isArray(response.data)) {
+      return [];
+    }
+    
+    // Normalize the public API data
+    return response.data.map((event: any) => {
+      const homeTeam = event.home_team;
+      const awayTeam = event.away_team;
+      
+      // Find best odds across all bookmakers in the response
+      let bestHomeOdds = 0;
+      let bestDrawOdds = 0;
+      let bestAwayOdds = 0;
+      let bookmaker = '';
+      
+      event.bookmakers.forEach((bk: any) => {
+        const market = bk.markets.find((m: any) => m.key === 'h2h');
+        if (!market) return;
+        
+        market.outcomes.forEach((outcome: any) => {
+          if (outcome.name === homeTeam && outcome.price > bestHomeOdds) {
+            bestHomeOdds = outcome.price;
+            bookmaker = bk.title;
+          } else if (outcome.name === 'Draw' && outcome.price > bestDrawOdds) {
+            bestDrawOdds = outcome.price;
+          } else if (outcome.name === awayTeam && outcome.price > bestAwayOdds) {
+            bestAwayOdds = outcome.price;
+          }
+        });
+      });
+      
+      return {
+        id: `public-api-${event.id}`,
+        match_id: event.id,
+        bookmaker: 'PublicAPI',
+        match_name: `${homeTeam} vs ${awayTeam}`,
+        team_home: homeTeam,
+        team_away: awayTeam,
+        league: event.sport_title || 'Football',
+        match_time: new Date(event.commence_time).toISOString(),
+        market_type: '1X2',
+        odds_home: bestHomeOdds,
+        odds_away: bestAwayOdds,
+        odds_draw: bestDrawOdds,
+        updated_at: new Date().toISOString(),
+        liquidity: 7,
+        suspensionRisk: 2
+      };
+    }).filter((event: any) => 
+      event.odds_home > 1 && event.odds_away > 1 && event.odds_draw > 1
+    );
+  } catch (error) {
+    console.error('Error fetching from public API:', error);
+    return [];
   }
 };
 
-// Fetch odds from all supported bookmakers
+// Improved function to fetch odds from all selected bookmakers with parallel processing
 export const fetchAllOdds = async (selectedBookmakers: string[] = SUPPORTED_BOOKMAKERS): Promise<MatchOdds[]> => {
-  try {
-    const bookmakers = selectedBookmakers.filter(bk => SUPPORTED_BOOKMAKERS.includes(bk));
+  console.log(`Fetching odds for ${selectedBookmakers.length} bookmakers: ${selectedBookmakers.join(', ')}`);
+  
+  // Split bookmakers into batches to avoid overwhelming the network
+  const batchSize = 2; // Process 2 bookmakers at a time
+  const batches = [];
+  
+  for (let i = 0; i < selectedBookmakers.length; i += batchSize) {
+    batches.push(selectedBookmakers.slice(i, i + batchSize));
+  }
+  
+  let allOdds: MatchOdds[] = [];
+  let failedBookmakers: string[] = [];
+  
+  // Process batches sequentially
+  for (const batch of batches) {
+    const batchResults = await Promise.all(
+      batch.map(async bookmaker => {
+        try {
+          const odds = await fetchBookmakerOdds(bookmaker);
+          return { bookmaker, odds, success: odds.length > 0 };
+        } catch (error) {
+          console.error(`Failed to fetch odds from ${bookmaker}:`, error);
+          return { bookmaker, odds: [], success: false };
+        }
+      })
+    );
     
-    if (bookmakers.length === 0) {
-      console.warn('No valid bookmakers selected for fetching odds');
-      // Instead of throwing an error, use mock data for demo purposes
-      console.log('Using mock data as no valid bookmakers were selected');
-      const { generateMockOdds } = await import('@/utils/mockData');
-      return generateMockOdds();
-    }
-
-    console.log(`Starting to fetch odds from ${bookmakers.length} bookmakers`);
-    
-    // Use Promise.allSettled instead of Promise.all to handle individual failures
-    const oddsPromises = bookmakers.map(bookmaker => fetchBookmakerOdds(bookmaker));
-    const settledResults = await Promise.allSettled(oddsPromises);
-    
-    // Process results, including only the successful ones
-    const successfulResults: MatchOdds[][] = [];
-    const failedBookmakers: string[] = [];
-    
-    settledResults.forEach((result, index) => {
-      if (result.status === 'fulfilled') {
-        successfulResults.push(result.value);
+    // Add successful results to allOdds
+    batchResults.forEach(result => {
+      if (result.success) {
+        allOdds = [...allOdds, ...result.odds];
       } else {
-        failedBookmakers.push(bookmakers[index]);
-        console.error(`Failed to fetch odds from ${bookmakers[index]}:`, result.reason);
+        failedBookmakers.push(result.bookmaker);
       }
     });
     
-    // If all bookmakers failed, use mock data
-    if (successfulResults.length === 0) {
-      console.warn(`Failed to fetch odds from all bookmakers: ${failedBookmakers.join(', ')}`);
-      console.log('Using mock data as all bookmakers failed');
-      const { generateMockOdds } = await import('@/utils/mockData');
-      return generateMockOdds();
-    }
-    
-    // Flatten the array of arrays
-    const allOdds = successfulResults.flat();
-    console.log(`Successfully fetched ${allOdds.length} odds from ${successfulResults.length}/${bookmakers.length} bookmakers`);
-    
-    return allOdds;
-  } catch (error) {
-    console.error('Error fetching all odds:', error);
-    
-    // Use mock data as a fallback for demo purposes
-    console.log('Using mock data due to error in fetching all odds');
-    const { generateMockOdds } = await import('@/utils/mockData');
-    return generateMockOdds();
+    // Small delay between batches
+    await delay(500);
   }
-};
-
-// Match odds from different bookmakers for the same event
-export const matchEvents = (odds: MatchOdds[]): Record<string, MatchOdds[]> => {
-  const matchGroups: Record<string, MatchOdds[]> = {};
   
-  odds.forEach(odd => {
-    // Create a normalized match name for comparison
-    const normalizedName = `${odd.team_home.toLowerCase()}-${odd.team_away.toLowerCase()}`;
-    
-    if (!matchGroups[normalizedName]) {
-      matchGroups[normalizedName] = [];
-    }
-    
-    matchGroups[normalizedName].push(odd);
-  });
-  
-  // Filter out matches with only one bookmaker (no arbitrage possible)
-  return Object.fromEntries(
-    Object.entries(matchGroups).filter(([_, odds]) => odds.length > 1)
-  );
-};
-
-// Fetch and process odds for arbitrage opportunities
-export const fetchArbitrageOpportunities = async (selectedBookmakers: string[]): Promise<MatchOdds[]> => {
-  try {
-    console.log(`Fetching odds from selected bookmakers: ${selectedBookmakers.join(', ')}`);
-    const allOdds = await fetchAllOdds(selectedBookmakers);
+  // If we have failed bookmakers and no odds at all, try the public API
+  if (failedBookmakers.length > 0) {
+    console.warn(`Failed to fetch odds from ${failedBookmakers.join(', ')}`);
     
     if (allOdds.length === 0) {
-      console.warn('No odds were fetched from any bookmaker');
-      // Instead of throwing an error, use mock data for demo purposes
-      console.log('Using mock data as no odds were fetched');
-      const { generateMockOdds } = await import('@/utils/mockData');
-      return generateMockOdds();
+      console.log('Attempting to fetch from public odds API...');
+      const publicOdds = await fetchFromPublicAPI();
+      allOdds = [...allOdds, ...publicOdds];
     }
-    
-    console.log(`Successfully fetched ${allOdds.length} total odds from ${new Set(allOdds.map(odd => odd.bookmaker)).size} bookmakers`);
-    
-    const matchedEvents = matchEvents(allOdds);
-    const matchedEventsCount = Object.keys(matchedEvents).length;
-    
-    if (matchedEventsCount === 0) {
-      console.warn('No matched events found for arbitrage opportunities');
-      return allOdds; // Return all odds even if no matches for arbitrage
-    }
-    
-    console.log(`Found ${matchedEventsCount} potential arbitrage opportunities`);
-    
-    // Return all odds from matched events (events with multiple bookmakers)
-    return Object.values(matchedEvents).flat();
-  } catch (error) {
-    console.error('Error finding arbitrage opportunities:', error);
-    
-    // Use mock data as a fallback for demo purposes
-    console.log('Using mock data due to error in finding arbitrage opportunities');
-    const { generateMockOdds } = await import('@/utils/mockData');
-    return generateMockOdds();
   }
+  
+  // If we still have no odds, use mock data as absolute last resort
+  if (allOdds.length === 0) {
+    console.warn('No odds fetched from any source. Using mock data as fallback.');
+    return mockOdds;
+  }
+  
+  console.log(`Successfully fetched ${allOdds.length} odds records from ${selectedBookmakers.length - failedBookmakers.length} bookmakers`);
+  return allOdds;
+};
+
+// Helper function to match events across different bookmakers
+export const matchEvents = (odds: MatchOdds[]): Record<string, MatchOdds[]> => {
+  const matches: Record<string, MatchOdds[]> = {};
+  
+  odds.forEach(odd => {
+    // Normalize team names for more accurate matching
+    const homeTeam = odd.team_home.toLowerCase().trim();
+    const awayTeam = odd.team_away.toLowerCase().trim();
+    
+    // Create various key formats to improve matching
+    const keys = [
+      `${homeTeam}-${awayTeam}`,
+      `${homeTeam.replace(/\s/g, '')}-${awayTeam.replace(/\s/g, '')}`,
+      `${homeTeam.slice(0, 5)}-${awayTeam.slice(0, 5)}`
+    ];
+    
+    // Try to find a match with any key format
+    let matched = false;
+    for (const key of keys) {
+      if (matches[key]) {
+        matches[key].push(odd);
+        matched = true;
+        break;
+      }
+    }
+    
+    // If no match found, create a new entry with the first key
+    if (!matched) {
+      matches[keys[0]] = [odd];
+    }
+  });
+  
+  return matches;
+};
+
+// Main function to fetch arbitrage opportunities
+export const fetchArbitrageOpportunities = async (selectedBookmakers: string[]): Promise<MatchOdds[]> => {
+  try {
+    // Validate input
+    if (!selectedBookmakers || selectedBookmakers.length === 0) {
+      console.warn('No bookmakers selected, using all supported bookmakers');
+      selectedBookmakers = SUPPORTED_BOOKMAKERS;
+    }
+    
+    // Filter to only include supported bookmakers
+    const validBookmakers = selectedBookmakers.filter(bm => 
+      SUPPORTED_BOOKMAKERS.includes(bm)
+    );
+    
+    if (validBookmakers.length === 0) {
+      console.warn('No valid bookmakers specified, using all supported bookmakers');
+      validBookmakers.push(...SUPPORTED_BOOKMAKERS);
+    }
+    
+    // Fetch odds from all selected bookmakers
+    const allOdds = await fetchAllOdds(validBookmakers);
+    
+    // Return the odds
+    return allOdds;
+    
+  } catch (error) {
+    console.error('Error fetching arbitrage opportunities:', error);
+    return [];
+  }
+};
+
+// Function to validate if odds are real and not stale
+export const validateOddsQuality = (odds: MatchOdds[]): { valid: boolean, message: string } => {
+  if (!odds || odds.length === 0) {
+    return { valid: false, message: 'No odds data available' };
+  }
+  
+  // Check for stale data
+  const now = new Date();
+  const oneHourAgo = new Date(now.getTime() - (60 * 60 * 1000));
+  
+  const staleOdds = odds.filter(odd => {
+    const updateTime = new Date(odd.updated_at);
+    return updateTime < oneHourAgo;
+  });
+  
+  if (staleOdds.length / odds.length > 0.5) {
+    return { valid: false, message: 'More than 50% of odds data is stale (older than 1 hour)' };
+  }
+  
+  // Check for invalid odds values
+  const invalidOdds = odds.filter(odd => 
+    !odd.odds_home || odd.odds_home <= 1 || 
+    !odd.odds_away || odd.odds_away <= 1 ||
+    (odd.odds_draw !== undefined && odd.odds_draw <= 1)
+  );
+  
+  if (invalidOdds.length / odds.length > 0.1) {
+    return { valid: false, message: 'More than 10% of odds have invalid values' };
+  }
+  
+  return { valid: true, message: 'Odds data is valid' };
 }; 

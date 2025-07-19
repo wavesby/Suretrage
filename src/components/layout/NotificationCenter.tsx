@@ -1,267 +1,286 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Badge } from '@/components/ui/badge';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
+import { useNotifications } from '@/contexts/NotificationContext';
+import { useData } from '@/contexts/DataContext';
 import { 
   Bell, 
   X, 
-  CheckCheck, 
-  Trash2, 
-  Settings, 
-  AlertTriangle, 
-  Info,
-  TrendingUp,
-  Clock,
-  CheckCircle,
-  AlertCircle,
-  BellRing
-} from 'lucide-react'
-import { 
-  Popover, 
-  PopoverContent, 
-  PopoverTrigger 
-} from '@/components/ui/popover'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Switch } from '@/components/ui/switch'
-import { Slider } from '@/components/ui/slider'
-import { Separator } from '@/components/ui/separator'
-import { Card } from '@/components/ui/card'
-import { useNotifications, Notification } from '@/contexts/NotificationContext'
-import { formatDistanceToNow } from 'date-fns'
-import { useNavigate } from 'react-router-dom'
+  BellOff, 
+  MessageSquare, 
+  CheckCircle2, 
+  AlertTriangle,
+  Wifi,
+  WifiOff,
+  BarChart4,
+  RefreshCw
+} from 'lucide-react';
 
 export const NotificationCenter = () => {
-  const {
-    notifications,
-    unreadCount,
-    markAsRead,
-    markAllAsRead,
-    clearAll,
-    preferences,
-    updatePreferences,
-    subscribeToPushNotifications,
-    isSubscribedToPush
-  } = useNotifications()
+  const { notifications, clearNotifications, markAsRead, clearAll } = useNotifications();
+  const { lastRefreshStatus, connectionStatus, lastUpdated, isRefreshing, refreshOdds } = useData();
+  const [open, setOpen] = useState(false);
+  const [muted, setMuted] = useState(false);
+  const unreadCount = notifications.filter(n => !n.read).length;
 
-  const [open, setOpen] = useState(false)
-  const [showSettings, setShowSettings] = useState(false)
-  const navigate = useNavigate()
-
-  const getNotificationIcon = (type: Notification['type']) => {
-    switch(type) {
-      case 'success':
-        return <CheckCircle className="h-4 w-4 text-green-600" />
-      case 'info':
-        return <Info className="h-4 w-4 text-blue-600" />
-      case 'warning':
-        return <AlertCircle className="h-4 w-4 text-amber-600" />
-      case 'error':
-        return <AlertTriangle className="h-4 w-4 text-red-600" />
-      default:
-        return <BellRing className="h-4 w-4 text-muted-foreground" />
-    }
-  }
-
-  // Handle notification click
-  const handleNotificationClick = (notification: Notification) => {
-    markAsRead(notification.id)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && open) {
+        setOpen(false);
+      }
+    };
     
-    if (notification.link) {
-      navigate(notification.link)
-      setOpen(false)
-    }
-  }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [open]);
 
-  // Format timestamp
-  const formatTime = (timestamp: string) => {
-    try {
-      return formatDistanceToNow(new Date(timestamp), { addSuffix: true })
-    } catch (e) {
-      return 'recently'
+  const toggleOpen = () => setOpen(!open);
+  
+  const toggleMute = () => {
+    setMuted(!muted);
+    localStorage.setItem('notifications_muted', (!muted).toString());
+  };
+
+  const handleRefresh = () => {
+    refreshOdds(true);
+  };
+
+  // Restore mute preference
+  useEffect(() => {
+    const mutePref = localStorage.getItem('notifications_muted');
+    if (mutePref) {
+      setMuted(mutePref === 'true');
     }
-  }
+  }, []);
+
+  const getStatusIcon = () => {
+    if (isRefreshing) return <RefreshCw className="h-4 w-4 animate-spin text-blue-500" />;
+    
+    if (connectionStatus === 'offline') return <WifiOff className="h-4 w-4 text-red-500" />;
+    
+    if (connectionStatus === 'degraded') return <Wifi className="h-4 w-4 text-amber-500" />;
+    
+    if (lastRefreshStatus === 'failed') return <AlertTriangle className="h-4 w-4 text-red-500" />;
+    
+    if (lastRefreshStatus === 'partial') return <AlertTriangle className="h-4 w-4 text-amber-500" />;
+    
+    if (lastRefreshStatus === 'success') return <CheckCircle2 className="h-4 w-4 text-green-500" />;
+    
+    return <Wifi className="h-4 w-4 text-muted-foreground" />;
+  };
+
+  const getStatusMessage = () => {
+    if (isRefreshing) return "Refreshing odds data...";
+    
+    if (connectionStatus === 'offline') return "You are offline";
+    
+    if (connectionStatus === 'degraded') return "Limited connectivity";
+    
+    if (!lastUpdated) return "No data available";
+    
+    if (lastRefreshStatus === 'failed') return "Failed to update odds";
+    
+    if (lastRefreshStatus === 'partial') return "Partially updated odds";
+    
+    // Success or default case
+    const lastUpdateTime = lastUpdated ? new Date(lastUpdated).toLocaleTimeString([], { 
+      hour: '2-digit', 
+      minute: '2-digit'
+    }) : '';
+    
+    return `Last updated at ${lastUpdateTime}`;
+  };
 
   return (
-    <div>
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button size="icon" variant="ghost" className="relative">
-            <Bell className="h-5 w-5" />
-            {unreadCount > 0 && (
-              <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs">
-                {unreadCount > 9 ? '9+' : unreadCount}
-              </Badge>
-            )}
-          </Button>
-        </PopoverTrigger>
+    <>
+      {/* Notification Button */}
+      <Button 
+        variant="ghost" 
+        size="icon"
+        className="relative"
+        onClick={toggleOpen}
+        aria-label="Notifications"
+      >
+        {unreadCount > 0 && (
+          <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground rounded-full text-xs w-5 h-5 flex items-center justify-center">
+            {unreadCount}
+          </span>
+        )}
+        {muted ? <BellOff className="h-[1.2rem] w-[1.2rem]" /> : <Bell className="h-[1.2rem] w-[1.2rem]" />}
+      </Button>
+      
+      {/* Status Indicator */}
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={handleRefresh}
+        disabled={isRefreshing || connectionStatus === 'offline'}
+        className="ml-2 h-8 px-2 text-xs flex items-center gap-1.5 rounded-full border border-muted"
+      >
+        {getStatusIcon()}
+        <span className="max-sm:hidden">{getStatusMessage()}</span>
+      </Button>
 
-        <PopoverContent className="w-80 p-0" align="end">
-          {showSettings ? (
-            <div className="space-y-4 p-3">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-medium">Notification Settings</h3>
-                <Button variant="ghost" size="icon" onClick={() => setShowSettings(false)}>
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <div className="font-medium">In-App Notifications</div>
-                    <div className="text-xs text-muted-foreground">Show notifications in app</div>
+      {/* Notification Panel */}
+      {open && (
+        <div className="fixed inset-0 bg-black/20 z-50" onClick={() => setOpen(false)}>
+          <div 
+            className="absolute right-0 top-0 h-full w-full max-w-sm bg-background shadow-lg"
+            onClick={e => e.stopPropagation()}
+          >
+            <CardHeader className="pb-3 border-b">
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-lg font-medium">Notifications</CardTitle>
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center space-x-2">
+                    <Switch 
+                      id="mute" 
+                      checked={muted}
+                      onCheckedChange={toggleMute}
+                    />
+                    <Label htmlFor="mute">Mute</Label>
                   </div>
-                  <Switch 
-                    checked={preferences.inApp} 
-                    onCheckedChange={(checked) => updatePreferences({ inApp: checked })} 
-                  />
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={() => setOpen(false)}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
                 </div>
+              </div>
+            </CardHeader>
+
+            <CardContent className="p-0">
+              <div className="flex items-center justify-between p-4 border-b">
+                <div className="flex items-center gap-2">
+                  <MessageSquare className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm font-medium">{notifications.length} Notifications</span>
+                  {unreadCount > 0 && (
+                    <Badge variant="secondary" className="text-xs">
+                      {unreadCount} unread
+                    </Badge>
+                  )}
+                </div>
+                {notifications.length > 0 && (
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={clearAll}
+                    className="h-8 text-xs"
+                  >
+                    Clear all
+                  </Button>
+                )}
+              </div>
+
+              {/* Data Status Card */}
+              <div className="p-4 border-b">
+                <h4 className="text-sm font-medium mb-2 flex items-center gap-2">
+                  <BarChart4 className="h-4 w-4 text-muted-foreground" />
+                  Odds Data Status
+                </h4>
                 
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <div className="font-medium">Push Notifications</div>
-                    <div className="text-xs text-muted-foreground">
-                      {isSubscribedToPush ? 'Browser notifications enabled' : 'Enable browser notifications'}
+                <div className="bg-muted/50 p-3 rounded-md flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    {getStatusIcon()}
+                    <div>
+                      <div className="text-sm font-medium">{getStatusMessage()}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {connectionStatus === 'online' ? 'Connection is stable' : 
+                         connectionStatus === 'degraded' ? 'Some services unavailable' :
+                         'Check your internet connection'}
+                      </div>
                     </div>
                   </div>
-                  <Switch 
-                    checked={preferences.push && isSubscribedToPush} 
-                    onCheckedChange={(checked) => {
-                      if (checked && !isSubscribedToPush) {
-                        subscribeToPushNotifications();
-                      } else {
-                        updatePreferences({ push: checked });
-                      }
-                    }}
-                  />
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <div className="font-medium">Email Notifications</div>
-                    <div className="text-xs text-muted-foreground">Receive email alerts</div>
-                  </div>
-                  <Switch 
-                    checked={preferences.email} 
-                    onCheckedChange={(checked) => updatePreferences({ email: checked })}
-                  />
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <div className="font-medium">SMS Notifications</div>
-                    <div className="text-xs text-muted-foreground">Receive SMS alerts</div>
-                  </div>
-                  <Switch 
-                    checked={preferences.sms} 
-                    onCheckedChange={(checked) => updatePreferences({ sms: checked })}
-                  />
-                </div>
-                
-                <Separator />
-                
-                <div>
-                  <div className="font-medium mb-2">Minimum Profit Threshold</div>
-                  <div className="flex items-center gap-4">
-                    <Slider
-                      value={[preferences.minProfitThreshold]}
-                      min={0.5}
-                      max={10}
-                      step={0.5}
-                      onValueChange={(value) => updatePreferences({ minProfitThreshold: value[0] })}
-                      className="flex-1"
-                    />
-                    <span className="text-sm font-medium w-12 text-right">
-                      {preferences.minProfitThreshold}%
-                    </span>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Only notify for opportunities with profit above this threshold
-                  </p>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <>
-              <div className="flex items-center justify-between p-3 border-b">
-                <h3 className="font-medium">Notifications</h3>
-                <div className="flex gap-1">
-                  <Button variant="ghost" size="icon" onClick={markAllAsRead} title="Mark all as read">
-                    <CheckCheck className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" onClick={clearAll} title="Clear all">
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" onClick={() => setShowSettings(true)} title="Settings">
-                    <Settings className="h-4 w-4" />
+                  
+                  <Button 
+                    variant="secondary" 
+                    size="sm" 
+                    onClick={handleRefresh}
+                    disabled={isRefreshing || connectionStatus === 'offline'}
+                    className={isRefreshing ? "opacity-70" : ""}
+                  >
+                    <RefreshCw className={`h-4 w-4 mr-1 ${isRefreshing ? "animate-spin" : ""}`} />
+                    {isRefreshing ? "Refreshing..." : "Refresh"}
                   </Button>
                 </div>
               </div>
-              
-              <div className="max-h-80 overflow-y-auto">
+
+              {/* Notifications List */}
+              <ScrollArea className="h-[calc(100vh-12rem)]">
                 {notifications.length === 0 ? (
-                  <div className="p-4 text-center text-muted-foreground">
+                  <div className="flex flex-col items-center justify-center p-8 text-center text-muted-foreground">
+                    <BellOff className="h-10 w-10 mb-3 opacity-30" />
                     <p>No notifications yet</p>
-                    <p className="text-xs mt-1">New arbitrage opportunities will appear here</p>
+                    <p className="text-xs mt-1">New arbitrage opportunities and system alerts will appear here</p>
                   </div>
                 ) : (
-                  <div>
+                  <div className="divide-y">
                     {notifications.map(notification => (
                       <div 
                         key={notification.id} 
-                        className={`p-3 border-b hover:bg-accent/50 transition-colors cursor-pointer ${
-                          notification.read ? '' : 'bg-accent/20'
-                        }`}
-                        onClick={() => handleNotificationClick(notification)}
+                        className={`p-4 ${notification.read ? '' : 'bg-primary/5'}`}
+                        onClick={() => markAsRead(notification.id)}
                       >
-                        <div className="flex gap-3">
-                          <div className="flex-shrink-0 pt-1">
-                            {getNotificationIcon(notification.type)}
+                        <div className="flex items-start gap-3">
+                          <div className={`
+                            p-1 rounded-full shrink-0
+                            ${notification.type === 'opportunity' ? 'bg-green-100 text-green-700' : 
+                              notification.type === 'warning' ? 'bg-amber-100 text-amber-700' : 
+                              notification.type === 'error' ? 'bg-red-100 text-red-700' : 
+                              'bg-blue-100 text-blue-700'}
+                          `}>
+                            {notification.icon || 
+                              (notification.type === 'opportunity' ? <BarChart4 className="h-4 w-4" /> :
+                               notification.type === 'warning' ? <AlertTriangle className="h-4 w-4" /> :
+                               notification.type === 'error' ? <AlertTriangle className="h-4 w-4" /> :
+                               <MessageSquare className="h-4 w-4" />)
+                            }
                           </div>
-                          <div className="flex-1 space-y-1">
-                            <div className="font-medium text-sm">{notification.title}</div>
-                            <div className="text-sm">{notification.message}</div>
-                            <div className="text-xs text-muted-foreground">
-                              {formatTime(notification.timestamp)}
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <h5 className="font-medium text-sm">{notification.title}</h5>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="h-6 w-6"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  clearNotifications([notification.id]);
+                                }}
+                              >
+                                <X className="h-3 w-3" />
+                              </Button>
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-1">{notification.message}</p>
+                            <div className="flex items-center justify-between mt-2">
+                              <span className="text-xs text-muted-foreground">
+                                {new Date(notification.timestamp).toLocaleTimeString([], { 
+                                  hour: '2-digit', 
+                                  minute: '2-digit' 
+                                })}
+                              </span>
+                              {!notification.read && (
+                                <Badge variant="outline" className="text-[10px] h-4 bg-primary/10">New</Badge>
+                              )}
                             </div>
                           </div>
-                          {!notification.read && (
-                            <div className="flex-shrink-0">
-                              <div className="h-2 w-2 rounded-full bg-primary"></div>
-                            </div>
-                          )}
                         </div>
                       </div>
                     ))}
                   </div>
                 )}
-              </div>
-              
-              {notifications.length > 0 && (
-                <div className="p-2 border-t">
-                  <div className="flex justify-between text-xs text-muted-foreground">
-                    <span>{notifications.length} notification{notifications.length !== 1 ? 's' : ''}</span>
-                    <Button 
-                      variant="link" 
-                      size="sm" 
-                      className="p-0 h-auto text-xs"
-                      onClick={() => setShowSettings(true)}
-                    >
-                      Notification settings
-                    </Button>
-                  </div>
-                </div>
-              )}
-            </>
-          )}
-        </PopoverContent>
-      </Popover>
-    </div>
-  )
-} 
+              </ScrollArea>
+            </CardContent>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}; 
