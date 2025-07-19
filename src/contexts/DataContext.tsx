@@ -210,37 +210,15 @@ export const DataProvider = ({ children }: DataProviderProps) => {
           variant: "destructive"
         });
       }
-      
-      // Keep using existing odds if we have them
-      if (odds.length === 0 && showToast) {
-        toast({
-          title: "No data available",
-          description: "Unable to fetch odds data. Please check your network connection.",
-          variant: "destructive"
-        });
-      }
     } finally {
       setIsLoading(false);
       setIsRefreshing(false);
     }
   };
 
-  // Load initial data if empty
+  // Load initial data on mount
   useEffect(() => {
-    if (odds.length === 0) {
-      refreshOdds(false); // Don't show toast on initial load
-    } else {
-      // Set last updated time from cached data
-      const latestOdd = odds.reduce((latest, odd) => {
-        const oddDate = new Date(odd.updated_at);
-        const latestDate = latest ? new Date(latest.updated_at) : new Date(0);
-        return oddDate > latestDate ? odd : latest;
-      }, null as MatchOdds | null);
-      
-      if (latestOdd) {
-        setLastUpdated(new Date(latestOdd.updated_at));
-      }
-    }
+    refreshOdds(false); // Don't show toast on initial load
   }, []);
 
   return (

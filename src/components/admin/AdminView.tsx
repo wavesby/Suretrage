@@ -1,252 +1,275 @@
-import { useState, useEffect, useCallback } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Users, Database, Bell, Upload, Loader2, RefreshCw } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
+import { useState } from 'react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { useToast } from "@/hooks/use-toast"
 import { useAuth } from '@/contexts/AuthContext'
-import { useToast } from '@/hooks/use-toast'
-import { seedMockOdds } from '@/utils/mockData'
-
-interface UserProfile {
-  id: string
-  email: string
-  is_admin: boolean
-  created_at: string
-}
+import { supabase } from '@/lib/supabase'
+import { useData } from '@/contexts/DataContext'
 
 export const AdminView = () => {
-  const [users, setUsers] = useState<UserProfile[]>([])
-  const [loading, setLoading] = useState(true)
-  const [seeding, setSeeding] = useState(false)
-  const [refreshing, setRefreshing] = useState(false)
-  const { isAdmin } = useAuth()
+  const { isAdmin, user } = useAuth()
+  const { refreshOdds } = useData()
+  const [activeTab, setActiveTab] = useState('users')
+  const [loading, setLoading] = useState(false)
+  const [users, setUsers] = useState<any[]>([])
+  const [systemStatus, setSystemStatus] = useState<Record<string, any>>({
+    supabaseStatus: 'checking',
+    apiStatus: 'checking',
+    lastSync: null
+  })
   const { toast } = useToast()
 
-  useEffect(() => {
-    if (isAdmin) {
-      loadUsers()
-    }
-  }, [isAdmin])
-
-  const loadUsers = useCallback(async () => {
-    setRefreshing(true)
+  // Fetch users
+  const fetchUsers = async () => {
+    setLoading(true)
     try {
       const { data, error } = await supabase
         .from('profiles')
         .select('*')
         .order('created_at', { ascending: false })
-
-      if (error) throw error
-      setUsers(data || [])
       
-      if (!loading) {
-        toast({
-          title: "Users Refreshed",
-          description: `Loaded ${data?.length || 0} user profiles`
-        })
-      }
+      if (error) throw error
+      
+      setUsers(data || [])
     } catch (error) {
-      console.error('Error loading users:', error)
+      console.error('Error fetching users:', error)
       toast({
-        title: "Loading Failed",
-        description: "Failed to load users",
+        title: "Failed to fetch users",
+        description: "Check the console for more details",
         variant: "destructive"
       })
     } finally {
       setLoading(false)
-      setRefreshing(false)
     }
-  }, [loading, toast])
+  }
 
-  const toggleUserAdmin = useCallback(async (userId: string, currentIsAdmin: boolean) => {
+  // Check system status
+  const checkSystemStatus = async () => {
+    setLoading(true)
+    const status = { ...systemStatus }
+    
+    // Check Supabase connection
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({ is_admin: !currentIsAdmin })
-        .eq('id', userId)
+      const { data, error } = await supabase.from('profiles').select('count', { count: 'exact', head: true })
+      status.supabaseStatus = error ? 'error' : 'operational'
+    } catch (e) {
+      status.supabaseStatus = 'error'
+    }
+    
+    // Check API connection
+    try {
+      await refreshOdds(false) // Refresh odds without toast
+      status.apiStatus = 'operational'
+      status.lastSync = new Date().toISOString()
+    } catch (e) {
+      status.apiStatus = 'error'
+    }
+    
+    setSystemStatus(status)
+    setLoading(false)
+  }
 
-      if (error) throw error
-
-      setUsers(prev => prev.map(user => 
-        user.id === userId 
-          ? { ...user, is_admin: !currentIsAdmin }
-          : user
-      ))
-
+  // Sync real-time data
+  const syncRealTimeData = async () => {
+    setLoading(true)
+    try {
+      // Get the latest odds data
+      await refreshOdds(true) // Show toast notification
+      
       toast({
-        title: "User Updated",
-        description: `User ${!currentIsAdmin ? 'granted' : 'removed'} admin access`
+        title: "Data Synchronized",
+        description: "Successfully fetched latest real-time odds data",
+        variant: "default"
+      })
+      
+      // Update last sync time
+      setSystemStatus({
+        ...systemStatus,
+        lastSync: new Date().toISOString()
       })
     } catch (error) {
-      console.error('Error updating user:', error)
+      console.error('Error syncing data:', error)
       toast({
-        title: "Update Failed",
-        description: "Failed to update user privileges",
-        variant: "destructive"
-      })
-    }
-  }, [toast])
-
-  const handleSeedOdds = useCallback(async () => {
-    setSeeding(true)
-    try {
-      const success = await seedMockOdds()
-      if (success) {
-        toast({
-          title: "Mock Data Seeded",
-          description: "Successfully loaded mock odds data"
-        })
-      } else {
-        throw new Error('Failed to seed data')
-      }
-    } catch (error) {
-      console.error('Error seeding odds:', error)
-      toast({
-        title: "Seeding Failed",
-        description: "Failed to seed mock odds data",
+        title: "Sync Failed",
+        description: "Failed to fetch real-time odds data",
         variant: "destructive"
       })
     } finally {
-      setSeeding(false)
+      setLoading(false)
     }
-  }, [toast])
+  }
 
+  // If not admin, show access denied
   if (!isAdmin) {
     return (
-      <div className="p-4 pb-20">
-        <Card>
-          <CardContent className="p-8 text-center">
-            <h3 className="text-lg font-medium mb-2">Access Denied</h3>
-            <p className="text-muted-foreground">You don't have admin privileges</p>
-          </CardContent>
-        </Card>
+      <div className="flex flex-col items-center justify-center min-h-[80vh] p-4">
+        <h2 className="text-2xl font-bold mb-2">Access Denied</h2>
+        <p className="text-muted-foreground mb-6">You don't have permission to access the admin area.</p>
+        <Badge variant="destructive">Requires Admin Access</Badge>
       </div>
     )
   }
-
+  
   return (
-    <div className="p-4 pb-20 space-y-6">
-      <h1 className="text-2xl font-bold">Admin Panel</h1>
-
-      {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Database className="h-5 w-5" />
-              Mock Data
-            </CardTitle>
-            <CardDescription>
-              Seed the database with sample odds data
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button 
-              onClick={handleSeedOdds}
-              disabled={seeding}
-              className="w-full"
-            >
-              {seeding ? (
-                <>
-                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Seeding...
-                </>
+    <div className="container max-w-screen-xl mx-auto p-4 pb-24">
+      <h1 className="text-3xl font-bold mb-2">Admin Dashboard</h1>
+      <p className="text-muted-foreground mb-6">Manage users and system settings</p>
+      
+      <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="w-full">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="users">Users</TabsTrigger>
+          <TabsTrigger value="system">System Status</TabsTrigger>
+          <TabsTrigger value="data">Data Management</TabsTrigger>
+        </TabsList>
+        
+        {/* Users Tab */}
+        <TabsContent value="users" className="space-y-4 mt-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>User Management</CardTitle>
+              <CardDescription>View and manage user accounts</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button 
+                onClick={fetchUsers} 
+                disabled={loading} 
+                className="mb-4"
+              >
+                {loading ? "Loading..." : "Load Users"}
+              </Button>
+              
+              {users.length > 0 ? (
+                <div className="rounded-md border">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Email</TableHead>
+                        <TableHead>Role</TableHead>
+                        <TableHead>Joined</TableHead>
+                        <TableHead>Status</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {users.map((user) => (
+                        <TableRow key={user.id}>
+                          <TableCell>{user.email}</TableCell>
+                          <TableCell>
+                            {user.is_admin ? (
+                              <Badge variant="default">Admin</Badge>
+                            ) : (
+                              <Badge variant="secondary">User</Badge>
+                            )}
+                          </TableCell>
+                          <TableCell>
+                            {new Date(user.created_at).toLocaleDateString()}
+                          </TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                              Active
+                            </Badge>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               ) : (
-                <>
-                  <Upload className="h-4 w-4 mr-2" />
-                  Seed Mock Odds
-                </>
+                <p className="text-muted-foreground">No users loaded. Click "Load Users" to view user data.</p>
               )}
-            </Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Bell className="h-5 w-5" />
-              Notifications
-            </CardTitle>
-            <CardDescription>
-              Send alerts to all users
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button variant="outline" className="w-full" disabled>
-              <Bell className="h-4 w-4 mr-2" />
-              Send Alert (Coming Soon)
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* User Management */}
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between">
-          <div>
-            <CardTitle className="flex items-center gap-2">
-              <Users className="h-5 w-5" />
-              User Management
-            </CardTitle>
-            <CardDescription>
-              Manage user accounts and permissions
-            </CardDescription>
-          </div>
-          <Button 
-            variant="outline" 
-            size="sm"
-            onClick={() => loadUsers()}
-            disabled={refreshing}
-          >
-            {refreshing ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <RefreshCw className="h-4 w-4" />
-            )}
-          </Button>
-        </CardHeader>
-        <CardContent>
-          {loading ? (
-            <div className="space-y-4">
-              {[1, 2, 3].map(i => (
-                <div key={i} className="animate-pulse h-16 bg-muted rounded" />
-              ))}
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {users.map(user => (
-                <div key={user.id} className="flex items-center justify-between p-3 border rounded">
-                  <div>
-                    <div className="font-medium">{user.email}</div>
-                    <div className="text-sm text-muted-foreground">
-                      Joined: {new Date(user.created_at).toLocaleDateString()}
+            </CardContent>
+          </Card>
+        </TabsContent>
+        
+        {/* System Status Tab */}
+        <TabsContent value="system" className="space-y-4 mt-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>System Status</CardTitle>
+              <CardDescription>View the status of system components</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button 
+                onClick={checkSystemStatus} 
+                disabled={loading} 
+                className="mb-4"
+              >
+                {loading ? "Checking..." : "Check Status"}
+              </Button>
+              
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-4 rounded-lg border">
+                    <div className="text-sm font-medium text-muted-foreground mb-1">Database Connection</div>
+                    <div className="flex items-center">
+                      <div className={`h-3 w-3 rounded-full mr-2 ${
+                        systemStatus.supabaseStatus === 'operational' ? 'bg-green-500' : 
+                        systemStatus.supabaseStatus === 'error' ? 'bg-red-500' : 'bg-yellow-500'
+                      }`} />
+                      <span className="font-medium">
+                        {systemStatus.supabaseStatus === 'operational' ? 'Operational' : 
+                         systemStatus.supabaseStatus === 'error' ? 'Error' : 'Checking...'}
+                      </span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Badge variant={user.is_admin ? 'default' : 'secondary'}>
-                      {user.is_admin ? 'Admin' : 'User'}
-                    </Badge>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => toggleUserAdmin(user.id, user.is_admin)}
-                    >
-                      {user.is_admin ? 'Remove Admin' : 'Make Admin'}
-                    </Button>
+                  
+                  <div className="p-4 rounded-lg border">
+                    <div className="text-sm font-medium text-muted-foreground mb-1">API Connection</div>
+                    <div className="flex items-center">
+                      <div className={`h-3 w-3 rounded-full mr-2 ${
+                        systemStatus.apiStatus === 'operational' ? 'bg-green-500' : 
+                        systemStatus.apiStatus === 'error' ? 'bg-red-500' : 'bg-yellow-500'
+                      }`} />
+                      <span className="font-medium">
+                        {systemStatus.apiStatus === 'operational' ? 'Operational' : 
+                         systemStatus.apiStatus === 'error' ? 'Error' : 'Checking...'}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              ))}
-              
-              {users.length === 0 && (
-                <div className="text-center py-8 text-muted-foreground">
-                  No users found
+                
+                <div className="p-4 rounded-lg border">
+                  <div className="text-sm font-medium text-muted-foreground mb-1">Last Data Sync</div>
+                  <div className="font-medium">
+                    {systemStatus.lastSync ? new Date(systemStatus.lastSync).toLocaleString() : 'Never'}
+                  </div>
                 </div>
-              )}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+                
+                <div className="p-4 rounded-lg border">
+                  <div className="text-sm font-medium text-muted-foreground mb-1">Current Admin</div>
+                  <div className="font-medium">{user?.email}</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+        
+        {/* Data Management Tab */}
+        <TabsContent value="data" className="space-y-4 mt-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Data Management</CardTitle>
+              <CardDescription>Manage real-time data synchronization</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="p-4 rounded-lg border bg-muted/30">
+                <h3 className="font-medium mb-2">Real-Time Data</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Manually sync real-time odds data from all configured bookmakers.
+                </p>
+                <Button 
+                  onClick={syncRealTimeData}
+                  disabled={loading}
+                >
+                  {loading ? "Syncing..." : "Sync Real-Time Data"}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   )
 }

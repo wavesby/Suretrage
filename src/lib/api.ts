@@ -1,6 +1,5 @@
 import { MatchOdds } from '@/utils/arbitrage';
 import axios from 'axios';
-import { mockOdds } from '@/utils/mockData';
 
 // Define supported bookmakers
 export const SUPPORTED_BOOKMAKERS = [
@@ -16,10 +15,10 @@ export const SUPPORTED_BOOKMAKERS = [
 
 // Base URLs for bookmaker APIs
 const BASE_URLS = {
-  'Bet9ja': 'https://odds-api.bet9ja.com',
-  '1xBet': 'https://1xbet.ng/service-api',
-  'BetKing': 'https://betking.com/sports-data/api',
-  'SportyBet': 'https://www.sportybet.com/api/ng',
+  'Bet9ja': import.meta.env?.VITE_BET9JA_API_URL || 'https://odds-api.bet9ja.com',
+  '1xBet': import.meta.env?.VITE_ONEXBET_API_URL || 'https://1xbet.ng/service-api',
+  'BetKing': import.meta.env?.VITE_BETKING_API_URL || 'https://betking.com/sports-data/api',
+  'SportyBet': import.meta.env?.VITE_SPORTYBET_API_URL || 'https://www.sportybet.com/api/ng',
   'NairaBet': 'https://nairabet.com/rest/market/categories',
   'Betway': 'https://www.betway.com.ng/api',
   'BangBet': 'https://bangbet.com/api/v2',
@@ -63,25 +62,29 @@ const getHeaders = (bookmaker: string) => {
       return {
         ...commonHeaders,
         'Origin': 'https://web.bet9ja.com',
-        'Referer': 'https://web.bet9ja.com/'
+        'Referer': 'https://web.bet9ja.com/',
+        'Authorization': `Bearer ${import.meta.env?.VITE_BET9JA_API_KEY || ''}`
       };
     case '1xBet':
       return {
         ...commonHeaders,
         'Origin': 'https://1xbet.ng',
-        'Referer': 'https://1xbet.ng/en/line/football'
+        'Referer': 'https://1xbet.ng/en/line/football',
+        'Authorization': `Bearer ${import.meta.env?.VITE_ONEXBET_API_KEY || ''}`
       };
     case 'BetKing':
       return {
         ...commonHeaders,
         'Origin': 'https://betking.com',
-        'Referer': 'https://betking.com/sports/football'
+        'Referer': 'https://betking.com/sports/football',
+        'X-API-Key': import.meta.env?.VITE_BETKING_API_KEY || ''
       };
     case 'SportyBet':
       return {
         ...commonHeaders,
         'Origin': 'https://www.sportybet.com',
-        'Referer': 'https://www.sportybet.com/ng/sport/football'
+        'Referer': 'https://www.sportybet.com/ng/sport/football',
+        'Authorization': `Bearer ${import.meta.env?.VITE_SPORTYBET_API_KEY || ''}`
       };
     case 'NairaBet':
       return {
@@ -532,23 +535,270 @@ const normalizeSportyBetOdds = (odds: any): MatchOdds[] => {
 
 // Add new normalizer functions for additional bookmakers
 const normalizeNairaBetOdds = (odds: any): MatchOdds[] => {
-  // Implementation similar to other normalizers but specific to NairaBet's data structure
-  return [];
+  try {
+    if (!odds || !odds.data || !Array.isArray(odds.data.events)) {
+      console.error('Invalid NairaBet data structure');
+      return [];
+    }
+
+    return odds.data.events
+      .filter((event: any) => {
+        return event && 
+               event.id && 
+               event.name && 
+               event.markets && 
+               Array.isArray(event.markets);
+      })
+      .map((event: any) => {
+        // Find the 1X2 market
+        const market1X2 = event.markets.find((m: any) => 
+          m.type === '1X2' || 
+          m.name === 'Match Result' || 
+          m.name === 'Match Winner'
+        );
+        
+        if (!market1X2 || !market1X2.selections || market1X2.selections.length < 3) {
+          return null;
+        }
+        
+        // Find home, draw, away selections
+        const home = market1X2.selections.find((s: any) => 
+          s.name === 'Home' || 
+          s.name === '1' || 
+          s.type === 'HOME'
+        );
+        
+        const draw = market1X2.selections.find((s: any) => 
+          s.name === 'Draw' || 
+          s.name === 'X' || 
+          s.type === 'DRAW'
+        );
+        
+        const away = market1X2.selections.find((s: any) => 
+          s.name === 'Away' || 
+          s.name === '2' || 
+          s.type === 'AWAY'
+        );
+        
+        if (!home || !draw || !away) {
+          return null;
+        }
+        
+        // Parse team names from event name
+        const teams = event.name.split(' vs ');
+        const homeTeam = teams[0] || event.homeTeam || 'Home';
+        const awayTeam = teams[1] || event.awayTeam || 'Away';
+        
+        return {
+          id: `nairabet-${event.id}`,
+          match_id: event.id.toString(),
+          bookmaker: 'NairaBet',
+          match_name: event.name,
+          team_home: homeTeam,
+          team_away: awayTeam,
+          league: event.competition || event.tournament?.name || event.category?.name || 'Football',
+          match_time: new Date(event.startTime || event.startDate).toISOString(),
+          market_type: '1X2',
+          odds_home: parseFloat(home.price || home.odds),
+          odds_away: parseFloat(away.price || away.odds),
+          odds_draw: parseFloat(draw.price || draw.odds),
+          updated_at: new Date().toISOString(),
+          liquidity: 7,
+          suspensionRisk: 3
+        };
+      })
+      .filter((event: any) => event !== null);
+  } catch (error) {
+    console.error('Error in normalizeNairaBetOdds:', error);
+    return [];
+  }
 };
 
 const normalizeBetwayOdds = (odds: any): MatchOdds[] => {
-  // Implementation for Betway
-  return [];
+  try {
+    if (!odds || !odds.events || !Array.isArray(odds.events)) {
+      console.error('Invalid Betway data structure');
+      return [];
+    }
+
+    return odds.events
+      .filter((event: any) => {
+        return event && 
+               event.id && 
+               event.name && 
+               event.markets && 
+               Array.isArray(event.markets);
+      })
+      .map((event: any) => {
+        // Find the 1X2 market
+        const market1X2 = event.markets.find((m: any) => 
+          m.type === 'match_result' || 
+          m.name === '1X2' || 
+          m.key === 'three_way_result'
+        );
+        
+        if (!market1X2 || !market1X2.outcomes || market1X2.outcomes.length < 3) {
+          return null;
+        }
+        
+        const home = market1X2.outcomes.find((o: any) => o.type === '1');
+        const draw = market1X2.outcomes.find((o: any) => o.type === 'X');
+        const away = market1X2.outcomes.find((o: any) => o.type === '2');
+        
+        if (!home || !draw || !away) {
+          return null;
+        }
+        
+        // Parse team information
+        const teams = event.name.split(' v ');
+        const homeTeam = teams[0] || event.participants?.find((p: any) => p.type === 'home')?.name || 'Home';
+        const awayTeam = teams[1] || event.participants?.find((p: any) => p.type === 'away')?.name || 'Away';
+        
+        return {
+          id: `betway-${event.id}`,
+          match_id: event.id.toString(),
+          bookmaker: 'Betway',
+          match_name: event.name,
+          team_home: homeTeam,
+          team_away: awayTeam,
+          league: event.competition?.name || event.category?.name || 'Football',
+          match_time: new Date(event.start_time || event.scheduled_start).toISOString(),
+          market_type: '1X2',
+          odds_home: parseFloat(home.price || home.odds),
+          odds_away: parseFloat(away.price || away.odds),
+          odds_draw: parseFloat(draw.price || draw.odds),
+          updated_at: new Date().toISOString(),
+          liquidity: 8,
+          suspensionRisk: 2
+        };
+      })
+      .filter((event: any) => event !== null);
+  } catch (error) {
+    console.error('Error in normalizeBetwayOdds:', error);
+    return [];
+  }
 };
 
 const normalizeBangBetOdds = (odds: any): MatchOdds[] => {
-  // Implementation for BangBet
-  return [];
+  try {
+    if (!odds || !odds.data || !Array.isArray(odds.data.matches)) {
+      console.error('Invalid BangBet data structure');
+      return [];
+    }
+
+    return odds.data.matches
+      .filter((match: any) => {
+        return match && 
+               match.id && 
+               match.name && 
+               match.markets && 
+               Array.isArray(match.markets);
+      })
+      .map((match: any) => {
+        // Find the 1X2 market
+        const market1X2 = match.markets.find((m: any) => 
+          m.type === '1x2' || 
+          m.name === 'Match Result'
+        );
+        
+        if (!market1X2 || !market1X2.selections || market1X2.selections.length < 3) {
+          return null;
+        }
+        
+        const home = market1X2.selections.find((s: any) => s.type === 'home');
+        const draw = market1X2.selections.find((s: any) => s.type === 'draw');
+        const away = market1X2.selections.find((s: any) => s.type === 'away');
+        
+        if (!home || !draw || !away) {
+          return null;
+        }
+        
+        return {
+          id: `bangbet-${match.id}`,
+          match_id: match.id.toString(),
+          bookmaker: 'BangBet',
+          match_name: match.name,
+          team_home: match.home_team || match.teams?.home?.name || 'Home',
+          team_away: match.away_team || match.teams?.away?.name || 'Away',
+          league: match.competition?.name || match.tournament || 'Football',
+          match_time: new Date(match.start_time || match.scheduled_start).toISOString(),
+          market_type: '1X2',
+          odds_home: parseFloat(home.odds || home.price),
+          odds_away: parseFloat(away.odds || away.price),
+          odds_draw: parseFloat(draw.odds || draw.price),
+          updated_at: new Date().toISOString(),
+          liquidity: 6,
+          suspensionRisk: 4
+        };
+      })
+      .filter((match: any) => match !== null);
+  } catch (error) {
+    console.error('Error in normalizeBangBetOdds:', error);
+    return [];
+  }
 };
 
 const normalizeParimatchOdds = (odds: any): MatchOdds[] => {
-  // Implementation for Parimatch
-  return [];
+  try {
+    if (!odds || !odds.data || !Array.isArray(odds.data.events)) {
+      console.error('Invalid Parimatch data structure');
+      return [];
+    }
+
+    return odds.data.events
+      .filter((event: any) => {
+        return event && 
+               event.id && 
+               event.name && 
+               event.markets && 
+               Array.isArray(event.markets);
+      })
+      .map((event: any) => {
+        // Find the 1X2 market
+        const market1X2 = event.markets.find((m: any) => 
+          m.type === '1x2' || 
+          m.name === 'Match Result' || 
+          m.key === 'three_way'
+        );
+        
+        if (!market1X2 || !market1X2.selections || market1X2.selections.length < 3) {
+          return null;
+        }
+        
+        const home = market1X2.selections.find((s: any) => s.type === '1');
+        const draw = market1X2.selections.find((s: any) => s.type === 'X');
+        const away = market1X2.selections.find((s: any) => s.type === '2');
+        
+        if (!home || !draw || !away) {
+          return null;
+        }
+        
+        // Parse team names from event name
+        const teams = event.name.split(' vs ');
+        
+        return {
+          id: `parimatch-${event.id}`,
+          match_id: event.id.toString(),
+          bookmaker: 'Parimatch',
+          match_name: event.name,
+          team_home: teams[0] || event.home_team || 'Home',
+          team_away: teams[1] || event.away_team || 'Away',
+          league: event.league?.name || event.tournament?.name || 'Football',
+          match_time: new Date(event.start_time || event.scheduled_start).toISOString(),
+          market_type: '1X2',
+          odds_home: parseFloat(home.odds || home.price),
+          odds_away: parseFloat(away.odds || away.price),
+          odds_draw: parseFloat(draw.odds || draw.price),
+          updated_at: new Date().toISOString(),
+          liquidity: 7,
+          suspensionRisk: 3
+        };
+      })
+      .filter((event: any) => event !== null);
+  } catch (error) {
+    console.error('Error in normalizeParimatchOdds:', error);
+    return [];
+  }
 };
 
 // Improved function to fetch odds from a bookmaker with multiple retry strategies
@@ -626,10 +876,9 @@ export const fetchBookmakerOdds = async (bookmaker: string): Promise<MatchOdds[]
     }
   }
   
-  console.warn(`All attempts to fetch ${bookmaker} odds failed, falling back to mock data`);
-  
-  // Return mock data filtered for this bookmaker as last resort
-  return mockOdds.filter(odd => odd.bookmaker === bookmaker);
+  console.error(`All attempts to fetch ${bookmaker} odds failed`);
+  // Return empty array if all attempts fail - no more mock fallback
+  return [];
 };
 
 // Fallback function to fetch odds from the public API
@@ -752,10 +1001,10 @@ export const fetchAllOdds = async (selectedBookmakers: string[] = SUPPORTED_BOOK
     }
   }
   
-  // If we still have no odds, use mock data as absolute last resort
+  // If we still have no odds, return empty array - no more mock fallback
   if (allOdds.length === 0) {
-    console.warn('No odds fetched from any source. Using mock data as fallback.');
-    return mockOdds;
+    console.warn('No odds fetched from any source.');
+    return [];
   }
   
   console.log(`Successfully fetched ${allOdds.length} odds records from ${selectedBookmakers.length - failedBookmakers.length} bookmakers`);

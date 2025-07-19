@@ -16,25 +16,6 @@ interface AuthContextType {
   updateUserProfile: (profile: Partial<User>) => Promise<void>
 }
 
-interface DemoUser {
-  id: string
-  email: string
-  created_at: string
-  updated_at: string
-  email_confirmed_at: string
-  name?: string
-  avatar_url?: string
-  user_metadata?: { role?: string } // Added for mock user metadata
-}
-
-interface DemoSession {
-  access_token: string
-  refresh_token: string
-  expires_in: number
-  token_type: string
-  user: DemoUser
-}
-
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export const useAuth = () => {
@@ -79,35 +60,29 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setIsLoading(true);
       
       try {
-        // Check for mock data in localStorage first
-        const mockUser = localStorage.getItem('sportarb_mock_user');
-        const mockSession = localStorage.getItem('sportarb_mock_session');
-        
-        if (mockUser && mockSession) {
-          const parsedUser = JSON.parse(mockUser);
-          const parsedSession = JSON.parse(mockSession);
-          
-          setUser(parsedUser as any);
-          setSession(parsedSession as any);
-          setIsAdmin(isUserAdmin(parsedUser as any));
+        if (!isSupabaseConfigured()) {
+          console.error("Supabase is not configured. Authentication will not work.");
+          toast({
+            title: "Authentication Error",
+            description: "Authentication system is not configured. Please contact support.",
+            variant: "destructive"
+          });
           setIsLoading(false);
           return;
         }
         
-        // If no mock data, try to get current Supabase session
-        if (isSupabaseConfigured()) {
-          const { data: { session: currentSession }, error } = await supabase.auth.getSession();
-          
-          if (error) {
-            console.error('Error getting session:', error);
-            return;
-          }
-          
-          if (currentSession) {
-            setSession(currentSession);
-            setUser(currentSession.user);
-            setIsAdmin(isUserAdmin(currentSession.user));
-          }
+        // Get current Supabase session
+        const { data: { session: currentSession }, error } = await supabase.auth.getSession();
+        
+        if (error) {
+          console.error('Error getting session:', error);
+          return;
+        }
+        
+        if (currentSession) {
+          setSession(currentSession);
+          setUser(currentSession.user);
+          setIsAdmin(isUserAdmin(currentSession.user));
         }
       } catch (error) {
         console.error('Error initializing auth:', error);
@@ -145,10 +120,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       setIsLoading(true);
       
-      // Check if Supabase is properly configured, if not use mock auth
       if (!isSupabaseConfigured()) {
-        useMockAuth(email);
-        return;
+        toast({
+          title: "Authentication Error",
+          description: "Authentication system is not configured. Please contact support.",
+          variant: "destructive"
+        });
+        throw new Error("Supabase is not configured");
       }
       
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -176,15 +154,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         });
       }
     } catch (error: any) {
-      // If Supabase is not configured or there are connection issues, fall back to mock auth
-      if (error.message?.includes('Failed to fetch') || 
-          error.message?.includes('NetworkError') || 
-          error.message?.includes('Invalid login credentials') ||
-          error.message?.includes('API URL')) {
-        useMockAuth(email);
-      } else {
-        throw error;
-      }
+      console.error('Sign in error:', error.message);
+      throw error;
     } finally {
       setIsLoading(false);
     }
@@ -194,10 +165,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       setIsLoading(true);
       
-      // Check if Supabase is properly configured, if not use mock auth
       if (!isSupabaseConfigured()) {
-        useMockAuth(email);
-        return;
+        toast({
+          title: "Authentication Error",
+          description: "Authentication system is not configured. Please contact support.",
+          variant: "destructive"
+        });
+        throw new Error("Supabase is not configured");
       }
       
       const { data, error } = await supabase.auth.signUp({
@@ -229,15 +203,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setIsAdmin(isUserAdmin(data.user));
       }
     } catch (error: any) {
-      // If Supabase is not configured or there are connection issues, fall back to mock auth
-      if (error.message?.includes('Failed to fetch') || 
-          error.message?.includes('NetworkError') || 
-          error.message?.includes('Invalid login credentials') ||
-          error.message?.includes('API URL')) {
-        useMockAuth(email);
-      } else {
-        throw error;
-      }
+      console.error('Sign up error:', error.message);
+      throw error;
     } finally {
       setIsLoading(false);
     }
@@ -247,34 +214,41 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       setIsLoading(true);
       
-      // Clear mock data from localStorage
-      localStorage.removeItem('sportarb_mock_user');
-      localStorage.removeItem('sportarb_mock_session');
-      
-      // If using real Supabase, sign out there too
-      if (isSupabaseConfigured()) {
-        const { error } = await supabase.auth.signOut();
-        
-        if (error) {
-          toast({
-            title: "Sign out failed",
-            description: error.message,
-            variant: "destructive"
-          });
-          throw error;
-        }
+      if (!isSupabaseConfigured()) {
+        toast({
+          title: "Authentication Error",
+          description: "Authentication system is not configured. Please contact support.",
+          variant: "destructive"
+        });
+        throw new Error("Supabase is not configured");
       }
       
+      // Always clear local data
       setUser(null);
       setSession(null);
       setIsAdmin(false);
       
+      const { error } = await supabase.auth.signOut();
+      
+      if (error) {
+        toast({
+          title: "Error signing out",
+          description: error.message,
+          variant: "destructive"
+        });
+        throw error;
+      }
+      
       toast({
         title: "Signed out",
-        description: "You have been successfully signed out"
+        description: "You have been successfully signed out",
       });
     } catch (error: any) {
-      console.error('Error signing out:', error);
+      console.error('Sign out error:', error.message);
+      // Even if there's an error, we should still clear the local session
+      setUser(null);
+      setSession(null);
+      setIsAdmin(false);
     } finally {
       setIsLoading(false);
     }
@@ -284,13 +258,22 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       setIsLoading(true);
       
+      if (!isSupabaseConfigured()) {
+        toast({
+          title: "Authentication Error",
+          description: "Authentication system is not configured. Please contact support.",
+          variant: "destructive"
+        });
+        throw new Error("Supabase is not configured");
+      }
+      
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: `${window.location.origin}/reset-password`,
       });
       
       if (error) {
         toast({
-          title: "Password reset failed",
+          title: "Error resetting password",
           description: error.message,
           variant: "destructive"
         });
@@ -299,10 +282,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       
       toast({
         title: "Password reset email sent",
-        description: "Check your email for a link to reset your password"
+        description: "Check your email for the password reset link",
       });
     } catch (error: any) {
-      console.error('Error resetting password:', error);
+      console.error('Password reset error:', error.message);
+      throw error;
     } finally {
       setIsLoading(false);
     }
@@ -312,13 +296,20 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       setIsLoading(true);
       
-      const { data, error } = await supabase.auth.updateUser({
-        data: profile
-      });
+      if (!isSupabaseConfigured()) {
+        toast({
+          title: "Authentication Error",
+          description: "Authentication system is not configured. Please contact support.",
+          variant: "destructive"
+        });
+        throw new Error("Supabase is not configured");
+      }
+      
+      const { data, error } = await supabase.auth.updateUser(profile);
       
       if (error) {
         toast({
-          title: "Profile update failed",
+          title: "Error updating profile",
           description: error.message,
           variant: "destructive"
         });
@@ -331,61 +322,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         
         toast({
           title: "Profile updated",
-          description: "Your profile has been successfully updated"
+          description: "Your profile has been successfully updated",
         });
       }
     } catch (error: any) {
-      console.error('Error updating profile:', error);
+      console.error('Profile update error:', error.message);
+      throw error;
     } finally {
       setIsLoading(false);
     }
-  }
-
-  // Mock authentication for development when Supabase is not available
-  const useMockAuth = (email: string) => {
-    // Create mock user with default values if email is empty
-    const safeEmail = email || 'demo@example.com';
-    
-    // Determine if user is admin based on email
-    const userIsAdmin = safeEmail.includes('admin');
-    
-    // Create mock user
-    const mockUser: DemoUser = {
-      id: 'mock-user-' + Math.random().toString(36).substring(2, 9),
-      email: safeEmail,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      email_confirmed_at: new Date().toISOString(),
-      name: safeEmail.split('@')[0],
-      avatar_url: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(safeEmail)}`,
-    }
-    
-    // Add admin metadata if applicable
-    if (userIsAdmin) {
-      mockUser.user_metadata = { role: 'admin' };
-    }
-    
-    const mockSession: DemoSession = {
-      access_token: 'mock-token-' + Math.random().toString(36).substring(2, 9),
-      refresh_token: 'mock-refresh-' + Math.random().toString(36).substring(2, 9),
-      expires_in: 3600,
-      token_type: 'bearer',
-      user: mockUser,
-    }
-    
-    // Set state
-    setUser(mockUser as any);
-    setSession(mockSession as any);
-    setIsAdmin(userIsAdmin);
-    
-    // Store in localStorage for persistence
-    localStorage.setItem('sportarb_mock_user', JSON.stringify(mockUser));
-    localStorage.setItem('sportarb_mock_session', JSON.stringify(mockSession));
-    
-    toast({
-      title: "Welcome!",
-      description: `Successfully logged in as ${userIsAdmin ? 'admin' : 'user'} (demo mode)`
-    });
   }
 
   return (
@@ -402,5 +347,5 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }}>
       {children}
     </AuthContext.Provider>
-  )
+  );
 }
