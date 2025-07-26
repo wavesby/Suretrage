@@ -1,0 +1,781 @@
+[
+  {
+    "id": "7a658ea87b4d915ed844b28da7d2993c",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-23T16:30:00Z",
+    "home_team": "Genoa",
+    "away_team": "Lecce",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:57Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Genoa",
+                "price": 2.08
+              },
+              {
+                "name": "Lecce",
+                "price": 4.17
+              },
+              {
+                "name": "Draw",
+                "price": 3.4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.28,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.73,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4efa457bb478d27dd6d65f1e995bf5ae",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-23T16:30:00Z",
+    "home_team": "Sassuolo",
+    "away_team": "Napoli",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:57Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Napoli",
+                "price": 1.51
+              },
+              {
+                "name": "Sassuolo",
+                "price": 7.16
+              },
+              {
+                "name": "Draw",
+                "price": 4.63
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.94,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5717a8bfc9f21ea6787da9293ecdb4ad",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-23T18:45:00Z",
+    "home_team": "AC Milan",
+    "away_team": "Cremonese",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:57Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "AC Milan",
+                "price": 1.44
+              },
+              {
+                "name": "Cremonese",
+                "price": 7.9
+              },
+              {
+                "name": "Draw",
+                "price": 5.1
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.7,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.33,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7b9513d902d1a775fcf02ed14d3ecf2f",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-23T18:45:00Z",
+    "home_team": "AS Roma",
+    "away_team": "Bologna",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:57Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 2.21
+              },
+              {
+                "name": "Bologna",
+                "price": 3.79
+              },
+              {
+                "name": "Draw",
+                "price": 3.35
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.21,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.78,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6f77d356b8d69db92c7d8bb4eef01f5c",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T13:00:00Z",
+    "home_team": "AC Milan",
+    "away_team": "Cremonese",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "AC Milan",
+                "price": 1.38
+              },
+              {
+                "name": "Cremonese",
+                "price": 7
+              },
+              {
+                "name": "Draw",
+                "price": 4.75
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "496e3fceabaae6029c0a23ff5520fb1c",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T13:00:00Z",
+    "home_team": "AS Roma",
+    "away_team": "Bologna",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 2.05
+              },
+              {
+                "name": "Bologna",
+                "price": 3.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.25
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4f4ab56e4910a957e9d9c01d36477739",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T13:00:00Z",
+    "home_team": "Genoa",
+    "away_team": "Lecce",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "Genoa",
+                "price": 2
+              },
+              {
+                "name": "Lecce",
+                "price": 3.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1681112efa60161d64e5f6d748830a56",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T13:00:00Z",
+    "home_team": "Udinese",
+    "away_team": "Hellas Verona",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "Hellas Verona",
+                "price": 3.75
+              },
+              {
+                "name": "Udinese",
+                "price": 2.05
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1453ca4ee62264f59d9f3181d10ac8ad",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T13:00:00Z",
+    "home_team": "Inter Milan",
+    "away_team": "Torino",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "Inter Milan",
+                "price": 1.4
+              },
+              {
+                "name": "Torino",
+                "price": 7
+              },
+              {
+                "name": "Draw",
+                "price": 4.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b60897d4cbdc07855a46a1bb520d78bb",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T13:00:00Z",
+    "home_team": "Sassuolo",
+    "away_team": "Napoli",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "Napoli",
+                "price": 1.45
+              },
+              {
+                "name": "Sassuolo",
+                "price": 6.5
+              },
+              {
+                "name": "Draw",
+                "price": 4.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3585107a897d05342af0596325ea0a35",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T16:30:00Z",
+    "home_team": "Cagliari",
+    "away_team": "Fiorentina",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:57Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Cagliari",
+                "price": 3.22
+              },
+              {
+                "name": "Fiorentina",
+                "price": 2.45
+              },
+              {
+                "name": "Draw",
+                "price": 3.38
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.12,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.84,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "Cagliari",
+                "price": 3
+              },
+              {
+                "name": "Fiorentina",
+                "price": 2.3
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cb1545f23891ab4cd7f639221a0a152f",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T16:30:00Z",
+    "home_team": "Como",
+    "away_team": "Lazio",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:57Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Como",
+                "price": 2.77
+              },
+              {
+                "name": "Lazio",
+                "price": 2.77
+              },
+              {
+                "name": "Draw",
+                "price": 3.4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.86,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "Como",
+                "price": 2.6
+              },
+              {
+                "name": "Lazio",
+                "price": 2.6
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a6d06a886371a723b6dd04a541b360fb",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T18:45:00Z",
+    "home_team": "Atalanta BC",
+    "away_team": "Pisa",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "Atalanta BC",
+                "price": 1.4
+              },
+              {
+                "name": "Pisa",
+                "price": 7
+              },
+              {
+                "name": "Draw",
+                "price": 4.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3ed3ecdae784a95f5078851a8a211a39",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-24T18:45:00Z",
+    "home_team": "Juventus",
+    "away_team": "Parma",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:57Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Juventus",
+                "price": 1.47
+              },
+              {
+                "name": "Parma",
+                "price": 7.7
+              },
+              {
+                "name": "Draw",
+                "price": 4.84
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.81,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.17,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:03Z",
+            "outcomes": [
+              {
+                "name": "Juventus",
+                "price": 1.4
+              },
+              {
+                "name": "Parma",
+                "price": 7
+              },
+              {
+                "name": "Draw",
+                "price": 4.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f78d4e5a5101834625585fc6d1376c89",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-25T16:30:00Z",
+    "home_team": "Udinese",
+    "away_team": "Hellas Verona",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:57Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Hellas Verona",
+                "price": 4.21
+              },
+              {
+                "name": "Udinese",
+                "price": 2.11
+              },
+              {
+                "name": "Draw",
+                "price": 3.29
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.24,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.76,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f6050ded85182a39727a1ca894fed887",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy",
+    "commence_time": "2025-08-25T18:45:00Z",
+    "home_team": "Inter Milan",
+    "away_team": "Torino",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:57Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Inter Milan",
+                "price": 1.45
+              },
+              {
+                "name": "Torino",
+                "price": 8
+              },
+              {
+                "name": "Draw",
+                "price": 4.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.76,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.23,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

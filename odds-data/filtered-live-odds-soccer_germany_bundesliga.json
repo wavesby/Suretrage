@@ -1,0 +1,655 @@
+[
+  {
+    "id": "b7595997eb85dcbc3a4e4eb020f315dd",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-22T18:30:00Z",
+    "home_team": "Bayern Munich",
+    "away_team": "RB Leipzig",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:38Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Bayern Munich",
+                "price": 1.32
+              },
+              {
+                "name": "RB Leipzig",
+                "price": 9.75
+              },
+              {
+                "name": "Draw",
+                "price": 6.46
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.92,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 2.02,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Bayern Munich",
+                "price": 1.29
+              },
+              {
+                "name": "RB Leipzig",
+                "price": 8
+              },
+              {
+                "name": "Draw",
+                "price": 5.75
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2b9ab502221f28a483bd6e15c912aa8a",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-23T13:30:00Z",
+    "home_team": "1. FC Heidenheim",
+    "away_team": "VfL Wolfsburg",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "1. FC Heidenheim",
+                "price": 2.8
+              },
+              {
+                "name": "VfL Wolfsburg",
+                "price": 2.38
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:38Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "1. FC Heidenheim",
+                "price": 3
+              },
+              {
+                "name": "VfL Wolfsburg",
+                "price": 2.48
+              },
+              {
+                "name": "Draw",
+                "price": 3.58
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.8,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.18,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b2fff8ea253f0c94af5756895b7f149",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-23T13:30:00Z",
+    "home_team": "FSV Mainz 05",
+    "away_team": "1. FC Köln",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "1. FC Köln",
+                "price": 3.8
+              },
+              {
+                "name": "FSV Mainz 05",
+                "price": 1.85
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "45c1a5890b03f21bc137340dabc4a7d3",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-23T13:30:00Z",
+    "home_team": "SC Freiburg",
+    "away_team": "Augsburg",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Augsburg",
+                "price": 4
+              },
+              {
+                "name": "SC Freiburg",
+                "price": 1.8
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:38Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Augsburg",
+                "price": 4.68
+              },
+              {
+                "name": "SC Freiburg",
+                "price": 1.81
+              },
+              {
+                "name": "Draw",
+                "price": 4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.92,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.02,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4b5bf052ddefb56d61c95922406bfa13",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-23T13:30:00Z",
+    "home_team": "Bayer Leverkusen",
+    "away_team": "TSG Hoffenheim",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Bayer Leverkusen",
+                "price": 1.4
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "price": 6
+              },
+              {
+                "name": "Draw",
+                "price": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:38Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Bayer Leverkusen",
+                "price": 1.49
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "price": 6.53
+              },
+              {
+                "name": "Draw",
+                "price": 5.19
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.15,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 1.82,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8a9a476c07fc5ec49a8aaf314e9dd632",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-23T13:30:00Z",
+    "home_team": "FC St. Pauli",
+    "away_team": "Borussia Dortmund",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Borussia Dortmund",
+                "price": 1.7
+              },
+              {
+                "name": "FC St. Pauli",
+                "price": 4.33
+              },
+              {
+                "name": "Draw",
+                "price": 3.8
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:38Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Borussia Dortmund",
+                "price": 1.76
+              },
+              {
+                "name": "FC St. Pauli",
+                "price": 4.83
+              },
+              {
+                "name": "Draw",
+                "price": 4.17
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.78,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.21,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "65d056ea3a51f7e6e81d67d53087f003",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-23T13:30:00Z",
+    "home_team": "Borussia Monchengladbach",
+    "away_team": "Hamburger SV",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Borussia Monchengladbach",
+                "price": 2.05
+              },
+              {
+                "name": "Hamburger SV",
+                "price": 3.2
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a81fc1a653444c18ddbfa894d842571c",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-23T13:30:00Z",
+    "home_team": "Eintracht Frankfurt",
+    "away_team": "Werder Bremen",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Eintracht Frankfurt",
+                "price": 1.85
+              },
+              {
+                "name": "Werder Bremen",
+                "price": 3.6
+              },
+              {
+                "name": "Draw",
+                "price": 3.8
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:38Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Eintracht Frankfurt",
+                "price": 1.9
+              },
+              {
+                "name": "Werder Bremen",
+                "price": 4.12
+              },
+              {
+                "name": "Draw",
+                "price": 4.08
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.64,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.47,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d17accb4fb59e0c9b4af9a7328e3b265",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-23T13:30:00Z",
+    "home_team": "Union Berlin",
+    "away_team": "VfB Stuttgart",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Union Berlin",
+                "price": 3.1
+              },
+              {
+                "name": "VfB Stuttgart",
+                "price": 2.1
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:38Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Union Berlin",
+                "price": 3.48
+              },
+              {
+                "name": "VfB Stuttgart",
+                "price": 2.17
+              },
+              {
+                "name": "Draw",
+                "price": 3.75
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.74,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.26,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "60ea480412d4008ff39ff071fe31e864",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany",
+    "commence_time": "2025-08-24T15:30:00Z",
+    "home_team": "Borussia Monchengladbach",
+    "away_team": "Hamburger SV",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:38Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Borussia Monchengladbach",
+                "price": 2.17
+              },
+              {
+                "name": "Hamburger SV",
+                "price": 3.29
+              },
+              {
+                "name": "Draw",
+                "price": 3.98
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.42,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 1.66,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

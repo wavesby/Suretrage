@@ -1,0 +1,4127 @@
+[
+  {
+    "id": "f37021de21572159764157dbf2e5ae62",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-15T19:00:00Z",
+    "home_team": "Liverpool",
+    "away_team": "Bournemouth",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 8.15
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 5.66
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.13,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 1.8,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 7.26
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5.64
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.87,
+                "point": 3.25
+              },
+              {
+                "name": "Under",
+                "price": 1.97,
+                "point": 3.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 7
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.36
+              },
+              {
+                "name": "Draw",
+                "price": 5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.4,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.62,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 8
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5.55
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 7
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 7.25
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.11,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 1.76,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ef104c6285d1e04833a848d273a7b4ae",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T11:30:00Z",
+    "home_team": "Aston Villa",
+    "away_team": "Newcastle United",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 2.38
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.88
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.66,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.37,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 2.35
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.87
+              },
+              {
+                "name": "Draw",
+                "price": 3.62
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.99,
+                "point": 3
+              },
+              {
+                "name": "Under",
+                "price": 1.85,
+                "point": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 2.3
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.7
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.57,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.15,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 2.34
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.83
+              },
+              {
+                "name": "Draw",
+                "price": 3.78
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 2.3
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 2.35
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.85
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.98,
+                "point": 3
+              },
+              {
+                "name": "Under",
+                "price": 1.85,
+                "point": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ad4a48da31810362af7fe32298725571",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T14:00:00Z",
+    "home_team": "Brighton and Hove Albion",
+    "away_team": "Fulham",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.86
+              },
+              {
+                "name": "Fulham",
+                "price": 4.33
+              },
+              {
+                "name": "Draw",
+                "price": 3.87
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.76,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.19,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.82
+              },
+              {
+                "name": "Fulham",
+                "price": 4.09
+              },
+              {
+                "name": "Draw",
+                "price": 3.87
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.89,
+                "point": 2.75
+              },
+              {
+                "name": "Under",
+                "price": 1.94,
+                "point": 2.75
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.85
+              },
+              {
+                "name": "Fulham",
+                "price": 4
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.7,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.83
+              },
+              {
+                "name": "Fulham",
+                "price": 4.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.8
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.8
+              },
+              {
+                "name": "Fulham",
+                "price": 4
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.82
+              },
+              {
+                "name": "Fulham",
+                "price": 4.1
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.18,
+                "point": 3
+              },
+              {
+                "name": "Under",
+                "price": 1.7,
+                "point": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "08ec2d2a8e67840bb3ab0e733ef2f58f",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T14:00:00Z",
+    "home_team": "Tottenham Hotspur",
+    "away_team": "Burnley",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Burnley",
+                "price": 9.35
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 5.19
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.68,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.33,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Burnley",
+                "price": 7.46
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 4.99
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.02,
+                "point": 3
+              },
+              {
+                "name": "Under",
+                "price": 1.83,
+                "point": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Burnley",
+                "price": 8.5
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 4.8
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.6,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.15,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Burnley",
+                "price": 9.2
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5.1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Burnley",
+                "price": 7.5
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 4.75
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Burnley",
+                "price": 7.5
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.02,
+                "point": 3
+              },
+              {
+                "name": "Under",
+                "price": 1.82,
+                "point": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "86a8812bc657e2b8c75bf77880a5cf3d",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T14:00:00Z",
+    "home_team": "Sunderland",
+    "away_team": "West Ham United",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "price": 3.26
+              },
+              {
+                "name": "West Ham United",
+                "price": 2.3
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.9,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "price": 3.17
+              },
+              {
+                "name": "West Ham United",
+                "price": 2.24
+              },
+              {
+                "name": "Draw",
+                "price": 3.46
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.85,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.98,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "price": 3.1
+              },
+              {
+                "name": "West Ham United",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.8,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.85,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "price": 3.2
+              },
+              {
+                "name": "West Ham United",
+                "price": 2.26
+              },
+              {
+                "name": "Draw",
+                "price": 3.44
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "price": 3.1
+              },
+              {
+                "name": "West Ham United",
+                "price": 2.2
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "price": 3.15
+              },
+              {
+                "name": "West Ham United",
+                "price": 2.24
+              },
+              {
+                "name": "Draw",
+                "price": 3.45
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.87,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.95,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7f3f540489885d028ec9395ba46ee95b",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T16:30:00Z",
+    "home_team": "Wolverhampton Wanderers",
+    "away_team": "Manchester City",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Manchester City",
+                "price": 1.5
+              },
+              {
+                "name": "Wolverhampton Wanderers",
+                "price": 6.67
+              },
+              {
+                "name": "Draw",
+                "price": 4.79
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.69,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.31,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Manchester City",
+                "price": 1.47
+              },
+              {
+                "name": "Wolverhampton Wanderers",
+                "price": 5.95
+              },
+              {
+                "name": "Draw",
+                "price": 4.83
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.81,
+                "point": 2.75
+              },
+              {
+                "name": "Under",
+                "price": 2.04,
+                "point": 2.75
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Manchester City",
+                "price": 1.44
+              },
+              {
+                "name": "Wolverhampton Wanderers",
+                "price": 6
+              },
+              {
+                "name": "Draw",
+                "price": 4.4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.57,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.2,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Manchester City",
+                "price": 1.47
+              },
+              {
+                "name": "Wolverhampton Wanderers",
+                "price": 6.55
+              },
+              {
+                "name": "Draw",
+                "price": 4.7
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Manchester City",
+                "price": 1.48
+              },
+              {
+                "name": "Wolverhampton Wanderers",
+                "price": 5.75
+              },
+              {
+                "name": "Draw",
+                "price": 4.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Manchester City",
+                "price": 1.47
+              },
+              {
+                "name": "Wolverhampton Wanderers",
+                "price": 6
+              },
+              {
+                "name": "Draw",
+                "price": 4.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.08,
+                "point": 3
+              },
+              {
+                "name": "Under",
+                "price": 1.78,
+                "point": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eb357add4cbd1823e64186800ab46b13",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "Nottingham Forest",
+    "away_team": "Brentford",
+    "bookmakers": [
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Brentford",
+                "price": 3.2
+              },
+              {
+                "name": "Nottingham Forest",
+                "price": 2.1
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.75,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.95,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Brentford",
+                "price": 3.3
+              },
+              {
+                "name": "Nottingham Forest",
+                "price": 2.09
+              },
+              {
+                "name": "Draw",
+                "price": 3.72
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.93,
+                "point": 2.75
+              },
+              {
+                "name": "Under",
+                "price": 1.9,
+                "point": 2.75
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Brentford",
+                "price": 3.3
+              },
+              {
+                "name": "Nottingham Forest",
+                "price": 2.12
+              },
+              {
+                "name": "Draw",
+                "price": 3.7
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Brentford",
+                "price": 3.36
+              },
+              {
+                "name": "Nottingham Forest",
+                "price": 2.16
+              },
+              {
+                "name": "Draw",
+                "price": 3.77
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.79,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.15,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "96395d8faab66cf7b72830844f66eda7",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "Chelsea",
+    "away_team": "Crystal Palace",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.62
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 5.55
+              },
+              {
+                "name": "Draw",
+                "price": 4.38
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.76,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.19,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.58
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 5.38
+              },
+              {
+                "name": "Draw",
+                "price": 4.2
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.88,
+                "point": 2.75
+              },
+              {
+                "name": "Under",
+                "price": 1.95,
+                "point": 2.75
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.57
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 5
+              },
+              {
+                "name": "Draw",
+                "price": 4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.67,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.05,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.59
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 5.45
+              },
+              {
+                "name": "Draw",
+                "price": 4.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.57
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 5.25
+              },
+              {
+                "name": "Draw",
+                "price": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.58
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 5.4
+              },
+              {
+                "name": "Draw",
+                "price": 4.2
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.14,
+                "point": 3
+              },
+              {
+                "name": "Under",
+                "price": 1.72,
+                "point": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4c489c20064afdb4a5623dff80c6c2d7",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-17T15:30:00Z",
+    "home_team": "Manchester United",
+    "away_team": "Arsenal",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.18
+              },
+              {
+                "name": "Manchester United",
+                "price": 3.48
+              },
+              {
+                "name": "Draw",
+                "price": 3.56
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.93,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.97,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.12
+              },
+              {
+                "name": "Manchester United",
+                "price": 3.38
+              },
+              {
+                "name": "Draw",
+                "price": 3.54
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.89,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.94,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.15
+              },
+              {
+                "name": "Manchester United",
+                "price": 3.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.85,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.8,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.14
+              },
+              {
+                "name": "Manchester United",
+                "price": 3.42
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.1
+              },
+              {
+                "name": "Manchester United",
+                "price": 3.3
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.12
+              },
+              {
+                "name": "Manchester United",
+                "price": 3.35
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.87,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.95,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "92020926e46ec2ebdc748d01a37a17b2",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-18T19:00:00Z",
+    "home_team": "Leeds United",
+    "away_team": "Everton",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Everton",
+                "price": 2.78
+              },
+              {
+                "name": "Leeds United",
+                "price": 2.65
+              },
+              {
+                "name": "Draw",
+                "price": 3.46
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.07,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.84,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Everton",
+                "price": 2.74
+              },
+              {
+                "name": "Leeds United",
+                "price": 2.6
+              },
+              {
+                "name": "Draw",
+                "price": 3.33
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.05,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.8,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Everton",
+                "price": 2.7
+              },
+              {
+                "name": "Leeds United",
+                "price": 2.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.25
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.95,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.75,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Everton",
+                "price": 2.73
+              },
+              {
+                "name": "Leeds United",
+                "price": 2.6
+              },
+              {
+                "name": "Draw",
+                "price": 3.4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Everton",
+                "price": 2.7
+              },
+              {
+                "name": "Leeds United",
+                "price": 2.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Everton",
+                "price": 2.74
+              },
+              {
+                "name": "Leeds United",
+                "price": 2.6
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.08,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.78,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c4198d00081ef7586ec5088c547a23dd",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-15T17:00:00Z",
+    "home_team": "Girona",
+    "away_team": "Rayo Vallecano",
+    "bookmakers": [
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "Girona",
+                "price": 2.29
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 3.24
+              },
+              {
+                "name": "Draw",
+                "price": 3.34
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Girona",
+                "price": 2.36
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 3.33
+              },
+              {
+                "name": "Draw",
+                "price": 3.44
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.18,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.8,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Girona",
+                "price": 2.33
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 3.24
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.85,
+                "point": 2.25
+              },
+              {
+                "name": "Under",
+                "price": 1.98,
+                "point": 2.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:40:33Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Girona",
+                "price": 2.33
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 3.2
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.85,
+                "point": 2.25
+              },
+              {
+                "name": "Under",
+                "price": 1.98,
+                "point": 2.25
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3723cad1a66e1ce8f0ef45f79a7c32bb",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-15T19:30:00Z",
+    "home_team": "Villarreal",
+    "away_team": "Oviedo",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Oviedo",
+                "price": 9.6
+              },
+              {
+                "name": "Villarreal",
+                "price": 1.41
+              },
+              {
+                "name": "Draw",
+                "price": 4.96
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.94,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "Oviedo",
+                "price": 9.3
+              },
+              {
+                "name": "Villarreal",
+                "price": 1.37
+              },
+              {
+                "name": "Draw",
+                "price": 4.8
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Oviedo",
+                "price": 8.86
+              },
+              {
+                "name": "Villarreal",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 4.59
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.9,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.93,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:40:33Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Oviedo",
+                "price": 9
+              },
+              {
+                "name": "Villarreal",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 4.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.89,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.93,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e173887f1a12b6a0e98cb16edd5fd4ba",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-16T15:00:00Z",
+    "home_team": "Alavés",
+    "away_team": "Levante",
+    "bookmakers": [
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "Alavés",
+                "price": 2.19
+              },
+              {
+                "name": "Levante",
+                "price": 3.78
+              },
+              {
+                "name": "Draw",
+                "price": 3.08
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:34Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Alavés",
+                "price": 2.2
+              },
+              {
+                "name": "Levante",
+                "price": 3.6
+              },
+              {
+                "name": "Draw",
+                "price": 2.9
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.5,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.44,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Alavés",
+                "price": 2.19
+              },
+              {
+                "name": "Levante",
+                "price": 3.49
+              },
+              {
+                "name": "Draw",
+                "price": 3.26
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.93,
+                "point": 2
+              },
+              {
+                "name": "Under",
+                "price": 1.91,
+                "point": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:40:33Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Alavés",
+                "price": 2.19
+              },
+              {
+                "name": "Levante",
+                "price": 3.45
+              },
+              {
+                "name": "Draw",
+                "price": 3.25
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.91,
+                "point": 2
+              },
+              {
+                "name": "Under",
+                "price": 1.91,
+                "point": 2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "98738a501162833cfda3dd5987e7bbe8",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-16T17:30:00Z",
+    "home_team": "Mallorca",
+    "away_team": "Barcelona",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.63
+              },
+              {
+                "name": "Mallorca",
+                "price": 5.66
+              },
+              {
+                "name": "Draw",
+                "price": 4.46
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.73,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.28,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:34Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.6
+              },
+              {
+                "name": "Mallorca",
+                "price": 5
+              },
+              {
+                "name": "Draw",
+                "price": 4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.7,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.05,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.58
+              },
+              {
+                "name": "Mallorca",
+                "price": 5.25
+              },
+              {
+                "name": "Draw",
+                "price": 4.28
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.88,
+                "point": 2.75
+              },
+              {
+                "name": "Under",
+                "price": 1.95,
+                "point": 2.75
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.58
+              },
+              {
+                "name": "Mallorca",
+                "price": 5.5
+              },
+              {
+                "name": "Draw",
+                "price": 4.33
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:40:33Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.58
+              },
+              {
+                "name": "Mallorca",
+                "price": 5.3
+              },
+              {
+                "name": "Draw",
+                "price": 4.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.87,
+                "point": 2.75
+              },
+              {
+                "name": "Under",
+                "price": 1.95,
+                "point": 2.75
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f3d481ed9bd49829718585f6b372cf67",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-16T19:30:00Z",
+    "home_team": "Valencia",
+    "away_team": "Real Sociedad",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Real Sociedad",
+                "price": 3.02
+              },
+              {
+                "name": "Valencia",
+                "price": 2.86
+              },
+              {
+                "name": "Draw",
+                "price": 2.98
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.7,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.33,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:23Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:23Z",
+            "outcomes": [
+              {
+                "name": "Real Sociedad",
+                "price": 2.9
+              },
+              {
+                "name": "Valencia",
+                "price": 2.62
+              },
+              {
+                "name": "Draw",
+                "price": 2.8
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:34Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Real Sociedad",
+                "price": 2.9
+              },
+              {
+                "name": "Valencia",
+                "price": 2.75
+              },
+              {
+                "name": "Draw",
+                "price": 2.8
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.8,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.4,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Real Sociedad",
+                "price": 2.95
+              },
+              {
+                "name": "Valencia",
+                "price": 2.74
+              },
+              {
+                "name": "Draw",
+                "price": 2.91
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.86,
+                "point": 1.75
+              },
+              {
+                "name": "Under",
+                "price": 1.97,
+                "point": 1.75
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "Real Sociedad",
+                "price": 2.94
+              },
+              {
+                "name": "Valencia",
+                "price": 2.78
+              },
+              {
+                "name": "Draw",
+                "price": 2.89
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:40:33Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Real Sociedad",
+                "price": 2.93
+              },
+              {
+                "name": "Valencia",
+                "price": 2.73
+              },
+              {
+                "name": "Draw",
+                "price": 2.9
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.87,
+                "point": 1.75
+              },
+              {
+                "name": "Under",
+                "price": 1.95,
+                "point": 1.75
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bf93792eb89a9564cef6a853f0a12e28",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-17T15:00:00Z",
+    "home_team": "Celta Vigo",
+    "away_team": "Getafe",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 1.75
+              },
+              {
+                "name": "Getafe",
+                "price": 5.55
+              },
+              {
+                "name": "Draw",
+                "price": 3.79
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.51,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.62,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:23Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:23Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 1.61
+              },
+              {
+                "name": "Getafe",
+                "price": 5.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:34Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 1.62
+              },
+              {
+                "name": "Getafe",
+                "price": 5.8
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.3,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.57,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 1.62
+              },
+              {
+                "name": "Getafe",
+                "price": 5.8
+              },
+              {
+                "name": "Draw",
+                "price": 3.77
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.81,
+                "point": 2
+              },
+              {
+                "name": "Under",
+                "price": 2.03,
+                "point": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 1.7
+              },
+              {
+                "name": "Getafe",
+                "price": 5.4
+              },
+              {
+                "name": "Draw",
+                "price": 3.68
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:40:33Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 1.62
+              },
+              {
+                "name": "Getafe",
+                "price": 5.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.75
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.82,
+                "point": 2
+              },
+              {
+                "name": "Under",
+                "price": 2.02,
+                "point": 2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "464babcb400ae952b588caadda9c36e7",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-17T17:30:00Z",
+    "home_team": "Athletic Bilbao",
+    "away_team": "Sevilla",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.74
+              },
+              {
+                "name": "Sevilla",
+                "price": 5.51
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.24,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.76,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:23Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:23Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.67
+              },
+              {
+                "name": "Sevilla",
+                "price": 5
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:34Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.67
+              },
+              {
+                "name": "Sevilla",
+                "price": 5
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.05,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.7,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.65
+              },
+              {
+                "name": "Sevilla",
+                "price": 5.54
+              },
+              {
+                "name": "Draw",
+                "price": 3.73
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.93,
+                "point": 2.25
+              },
+              {
+                "name": "Under",
+                "price": 1.91,
+                "point": 2.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.69
+              },
+              {
+                "name": "Sevilla",
+                "price": 5.35
+              },
+              {
+                "name": "Draw",
+                "price": 3.74
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:40:33Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.65
+              },
+              {
+                "name": "Sevilla",
+                "price": 5.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.75
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.91,
+                "point": 2.25
+              },
+              {
+                "name": "Under",
+                "price": 1.91,
+                "point": 2.25
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0595f56cfe72699dc094ca05733d7b92",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-17T19:30:00Z",
+    "home_team": "Espanyol",
+    "away_team": "Atlético Madrid",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Atlético Madrid",
+                "price": 1.61
+              },
+              {
+                "name": "Espanyol",
+                "price": 6.53
+              },
+              {
+                "name": "Draw",
+                "price": 4.17
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.2,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.78,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:23Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:23Z",
+            "outcomes": [
+              {
+                "name": "Atlético Madrid",
+                "price": 1.5
+              },
+              {
+                "name": "Espanyol",
+                "price": 6
+              },
+              {
+                "name": "Draw",
+                "price": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:34Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Atlético Madrid",
+                "price": 1.55
+              },
+              {
+                "name": "Espanyol",
+                "price": 6
+              },
+              {
+                "name": "Draw",
+                "price": 3.8
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.7,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Atlético Madrid",
+                "price": 1.53
+              },
+              {
+                "name": "Espanyol",
+                "price": 6.46
+              },
+              {
+                "name": "Draw",
+                "price": 4.06
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.86,
+                "point": 2.25
+              },
+              {
+                "name": "Under",
+                "price": 1.98,
+                "point": 2.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "Atlético Madrid",
+                "price": 1.56
+              },
+              {
+                "name": "Espanyol",
+                "price": 6.35
+              },
+              {
+                "name": "Draw",
+                "price": 4.05
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:40:33Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Atlético Madrid",
+                "price": 1.53
+              },
+              {
+                "name": "Espanyol",
+                "price": 6.5
+              },
+              {
+                "name": "Draw",
+                "price": 4.05
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.85,
+                "point": 2.25
+              },
+              {
+                "name": "Under",
+                "price": 1.98,
+                "point": 2.25
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "82a64ba0ed7b1303620d3a5c7569b434",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-18T19:00:00Z",
+    "home_team": "Elche CF",
+    "away_team": "Real Betis",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.67
+              },
+              {
+                "name": "Real Betis",
+                "price": 2.14
+              },
+              {
+                "name": "Draw",
+                "price": 3.62
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.86,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:23Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:23Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.5
+              },
+              {
+                "name": "Real Betis",
+                "price": 2.05
+              },
+              {
+                "name": "Draw",
+                "price": 3.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.76
+              },
+              {
+                "name": "Real Betis",
+                "price": 2.08
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.8,
+                "point": 2.25
+              },
+              {
+                "name": "Under",
+                "price": 2.05,
+                "point": 2.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:34Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.5
+              },
+              {
+                "name": "Real Betis",
+                "price": 2.05
+              },
+              {
+                "name": "Draw",
+                "price": 3.4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.75,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.56
+              },
+              {
+                "name": "Real Betis",
+                "price": 2.08
+              },
+              {
+                "name": "Draw",
+                "price": 3.52
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:40:33Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.75
+              },
+              {
+                "name": "Real Betis",
+                "price": 2.08
+              },
+              {
+                "name": "Draw",
+                "price": 3.25
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.8,
+                "point": 2.25
+              },
+              {
+                "name": "Under",
+                "price": 2.05,
+                "point": 2.25
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f87448c662690574c9930af99d743f4b",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-19T19:00:00Z",
+    "home_team": "Real Madrid",
+    "away_team": "CA Osasuna",
+    "bookmakers": [
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:58Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:58Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 12.75
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.24
+              },
+              {
+                "name": "Draw",
+                "price": 6.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:34Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 11
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.25
+              },
+              {
+                "name": "Draw",
+                "price": 6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:34Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.57,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.3,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 13.5
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.26
+              },
+              {
+                "name": "Draw",
+                "price": 6.65
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.63,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.49,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 10.81
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.24
+              },
+              {
+                "name": "Draw",
+                "price": 6.2
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.95,
+                "point": 3
+              },
+              {
+                "name": "Under",
+                "price": 1.87,
+                "point": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

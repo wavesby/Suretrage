@@ -1,0 +1,227 @@
+[
+  {
+    "id": "f37021de21572159764157dbf2e5ae62",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-15T19:00:00Z",
+    "home_team": "Liverpool",
+    "away_team": "Bournemouth",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 8.15
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 5.66
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.13,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 1.8,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-24T20:41:11Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 7.26
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5.64
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.87,
+                "point": 3.25
+              },
+              {
+                "name": "Under",
+                "price": 1.97,
+                "point": 3.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 7
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.36
+              },
+              {
+                "name": "Draw",
+                "price": 5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.4,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.62,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathon Bet",
+        "last_update": "2025-07-24T20:40:47Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:47Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 8
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5.55
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-24T20:40:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:40:56Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 7
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "bovada",
+        "title": "Bovada",
+        "last_update": "2025-07-24T20:41:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 7.25
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-24T20:41:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.11,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 1.76,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "isLive": false
+  }
+]

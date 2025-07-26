@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-07-19T23:38:06.531Z",
+  "endpoints": {
+    "/health": {
+      "statusCode": 200,
+      "duration": 3,
+      "dataSize": null,
+      "isMockData": false
+    },
+    "/api/odds/1xbet": {
+      "statusCode": 200,
+      "duration": 5769,
+      "dataSize": 20,
+      "isMockData": true
+    },
+    "/api/odds/sportybet": {
+      "statusCode": 200,
+      "duration": 5469,
+      "dataSize": 20,
+      "isMockData": true
+    },
+    "/api/odds/all": {
+      "statusCode": 200,
+      "duration": 5,
+      "dataSize": 40,
+      "isMockData": true
+    }
+  }
+}

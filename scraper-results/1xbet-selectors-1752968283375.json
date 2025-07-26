@@ -1,0 +1,24 @@
+{
+  "potentialMatchContainers": [
+    ".header-navigation-section",
+    ".header-navigation__item",
+    ".header-navigation-section-link",
+    ".ui-caption--weight-500",
+    ".ui-caption--uppercase",
+    ".ui-caption--no-wrap",
+    ".header-navigation-section-link__label",
+    ".header-navigation-section-link__angle",
+    ".header-navigation-section-dropdown--size-m",
+    ".header-navigation-section-dropdown--theme-gray-100",
+    ".header-navigation-section__dropdown",
+    ".header-navigation-section-dropdown",
+    ".header-navigation-links__item",
+    ".header-navigation-links__link",
+    ".header-navigation-section-dropdown__more",
+    ".ui-button",
+    ".ui-button--size-m",
+    ".ui-button--theme-gray",
+    ".ui-button--uppercase",
+    ".ui-button--rounded"
+  ]
+}

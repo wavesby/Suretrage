@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
-import { LoginForm } from '@/components/auth/LoginForm'
+import LoginForm from '@/components/auth/LoginForm'
 import { BottomNavbar } from '@/components/layout/BottomNavbar'
 import { OpportunitiesView } from '@/components/opportunities/OpportunitiesView'
 import { BookmakerSelection } from '@/components/bookmakers/BookmakerSelection'
@@ -8,11 +8,10 @@ import { SettingsView } from '@/components/settings/SettingsView'
 import { AdminView } from '@/components/admin/AdminView'
 
 const Index = () => {
-  const { user, loading } = useAuth()
+  const { user, isLoading } = useAuth()
   const [activeTab, setActiveTab] = useState('opportunities')
-  const [isLogin, setIsLogin] = useState(true)
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
@@ -24,7 +23,11 @@ const Index = () => {
   }
 
   if (!user) {
-    return <LoginForm onToggleMode={() => setIsLogin(!isLogin)} isLogin={isLogin} />
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-primary/5 to-accent/10">
+        <LoginForm />
+      </div>
+    )
   }
 
   const renderContent = () => {

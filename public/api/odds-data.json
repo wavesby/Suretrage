@@ -1,0 +1,1722 @@
+[
+  {
+    "id": "real_match_1_1753536472941",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-07-27T13:27:52.941Z",
+    "home_team": "Arsenal",
+    "away_team": "Manchester City",
+    "bookmakers": [
+      {
+        "key": "bet365",
+        "title": "Bet365",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.4108430544651305
+              },
+              {
+                "name": "Manchester City",
+                "price": 3.721436618126071
+              },
+              {
+                "name": "Draw",
+                "price": 3.6670920871973625
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.924235876676017,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9142902820477605,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 3.557017895165381
+              },
+              {
+                "name": "Manchester City",
+                "price": 1.8756606300130159
+              },
+              {
+                "name": "Draw",
+                "price": 3.047466436427006
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.2586604801513372,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9521856770306962,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 1.900555872846188
+              },
+              {
+                "name": "Manchester City",
+                "price": 3.271592423880953
+              },
+              {
+                "name": "Draw",
+                "price": 2.9093312303975774
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.3316060174939044,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.288096622870403,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "Williamhill",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 3.062279037553342
+              },
+              {
+                "name": "Manchester City",
+                "price": 3.621849306988931
+              },
+              {
+                "name": "Draw",
+                "price": 2.954693209797092
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.9165587358100236,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.261694922058718,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathonbet",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 4.175506588733326
+              },
+              {
+                "name": "Manchester City",
+                "price": 3.2922808691240517
+              },
+              {
+                "name": "Draw",
+                "price": 3.0989370845344606
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1238478091416866,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.0057653491343523,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "real_match_2_1753536472943",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-07-28T13:27:52.941Z",
+    "home_team": "Liverpool",
+    "away_team": "Chelsea",
+    "bookmakers": [
+      {
+        "key": "bet365",
+        "title": "Bet365",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Liverpool",
+                "price": 3.0256251451764964
+              },
+              {
+                "name": "Chelsea",
+                "price": 1.9871901791787212
+              },
+              {
+                "name": "Draw",
+                "price": 3.824322703817558
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.2202027887273674,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.015518957848734,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Liverpool",
+                "price": 2.329937613267982
+              },
+              {
+                "name": "Chelsea",
+                "price": 2.7733501503153075
+              },
+              {
+                "name": "Draw",
+                "price": 3.665518410483803
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1719037007884396,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.1538318548276147,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Liverpool",
+                "price": 3.6275376076682693
+              },
+              {
+                "name": "Chelsea",
+                "price": 3.488574770842215
+              },
+              {
+                "name": "Draw",
+                "price": 3.7610179130342747
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.0861602923441747,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.7581721656227884,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "Williamhill",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Liverpool",
+                "price": 2.7064298318159725
+              },
+              {
+                "name": "Chelsea",
+                "price": 3.849097584672082
+              },
+              {
+                "name": "Draw",
+                "price": 3.8622862374563742
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.7727773494610595,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.1192927692342205,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathonbet",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Liverpool",
+                "price": 1.8870763100719707
+              },
+              {
+                "name": "Chelsea",
+                "price": 1.9185839173509063
+              },
+              {
+                "name": "Draw",
+                "price": 4.065231041560494
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.348548041098555,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.2918994053438726,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "real_match_3_1753536472944",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-07-29T13:27:52.941Z",
+    "home_team": "Manchester United",
+    "away_team": "Tottenham",
+    "bookmakers": [
+      {
+        "key": "bet365",
+        "title": "Bet365",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Manchester United",
+                "price": 2.030123419042731
+              },
+              {
+                "name": "Tottenham",
+                "price": 3.696688997065782
+              },
+              {
+                "name": "Draw",
+                "price": 3.411957027004044
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.0227434540416493,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9314493167967175,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Manchester United",
+                "price": 2.4564347376745053
+              },
+              {
+                "name": "Tottenham",
+                "price": 2.8398046348327775
+              },
+              {
+                "name": "Draw",
+                "price": 3.3791916183166
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.9812002239810258,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9073848912552829,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Manchester United",
+                "price": 1.9387692053244443
+              },
+              {
+                "name": "Tottenham",
+                "price": 1.8007531943309543
+              },
+              {
+                "name": "Draw",
+                "price": 3.9987179685602916
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.954969235122961,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9916581181860042,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "Williamhill",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Manchester United",
+                "price": 1.936917628163863
+              },
+              {
+                "name": "Tottenham",
+                "price": 2.648503783333941
+              },
+              {
+                "name": "Draw",
+                "price": 4.230171848938385
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.062095915490469,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9134086994040007,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathonbet",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Manchester United",
+                "price": 3.1394335770577273
+              },
+              {
+                "name": "Tottenham",
+                "price": 2.3232304253361766
+              },
+              {
+                "name": "Draw",
+                "price": 2.9764923278035553
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1343904181032505,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.0480373218329855,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "real_match_4_1753536472944",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-07-30T13:27:52.941Z",
+    "home_team": "Newcastle",
+    "away_team": "Brighton",
+    "bookmakers": [
+      {
+        "key": "bet365",
+        "title": "Bet365",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Newcastle",
+                "price": 2.2797395808067646
+              },
+              {
+                "name": "Brighton",
+                "price": 2.993916560479864
+              },
+              {
+                "name": "Draw",
+                "price": 2.8176961927632087
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.9696543320046915,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.7514984870664725,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Newcastle",
+                "price": 2.2821116992655064
+              },
+              {
+                "name": "Brighton",
+                "price": 2.2929709475573063
+              },
+              {
+                "name": "Draw",
+                "price": 3.6620234543200136
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.8437633421450725,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.1716544891627265,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Newcastle",
+                "price": 2.4545090220032075
+              },
+              {
+                "name": "Brighton",
+                "price": 3.536379043633165
+              },
+              {
+                "name": "Draw",
+                "price": 3.83358285316305
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1806621821815733,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.8300849782142607,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "Williamhill",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Newcastle",
+                "price": 3.3366917951160975
+              },
+              {
+                "name": "Brighton",
+                "price": 2.9620735488363876
+              },
+              {
+                "name": "Draw",
+                "price": 3.189612435726268
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.8168310754031356,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.7596102014813089,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathonbet",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Newcastle",
+                "price": 2.9897121012297587
+              },
+              {
+                "name": "Brighton",
+                "price": 3.0689140394185728
+              },
+              {
+                "name": "Draw",
+                "price": 3.536235533098736
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.2109816233347006,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.8327137185994145,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "real_match_5_1753536472944",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-07-31T13:27:52.941Z",
+    "home_team": "West Ham",
+    "away_team": "Aston Villa",
+    "bookmakers": [
+      {
+        "key": "bet365",
+        "title": "Bet365",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "West Ham",
+                "price": 3.6861869428691403
+              },
+              {
+                "name": "Aston Villa",
+                "price": 2.25927965711609
+              },
+              {
+                "name": "Draw",
+                "price": 3.366363732242136
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.7702089985425533,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.89753153364339,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "West Ham",
+                "price": 3.3021281500060766
+              },
+              {
+                "name": "Aston Villa",
+                "price": 3.4110011979810366
+              },
+              {
+                "name": "Draw",
+                "price": 3.474760515376016
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.825072310076606,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.7632386926199115,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "West Ham",
+                "price": 3.397909785349653
+              },
+              {
+                "name": "Aston Villa",
+                "price": 2.1624041414621633
+              },
+              {
+                "name": "Draw",
+                "price": 3.333232605367639
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.843032408973737,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.3221205139527807,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "Williamhill",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "West Ham",
+                "price": 2.0706068103676856
+              },
+              {
+                "name": "Aston Villa",
+                "price": 2.287016102350582
+              },
+              {
+                "name": "Draw",
+                "price": 3.957856155144715
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.2673387641997955,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.239319810057137,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathonbet",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "West Ham",
+                "price": 4.026314525489884
+              },
+              {
+                "name": "Aston Villa",
+                "price": 1.9645759165961931
+              },
+              {
+                "name": "Draw",
+                "price": 3.7775402550316834
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1930889160398057,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.2309749250114983,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "real_match_6_1753536472944",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga",
+    "commence_time": "2025-08-01T13:27:52.941Z",
+    "home_team": "Real Madrid",
+    "away_team": "Barcelona",
+    "bookmakers": [
+      {
+        "key": "bet365",
+        "title": "Bet365",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Real Madrid",
+                "price": 1.9996136879214088
+              },
+              {
+                "name": "Barcelona",
+                "price": 3.124457338597531
+              },
+              {
+                "name": "Draw",
+                "price": 3.6756373570899745
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.0825814894006807,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9155914149635669,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Real Madrid",
+                "price": 3.758473925244104
+              },
+              {
+                "name": "Barcelona",
+                "price": 4.17352594401298
+              },
+              {
+                "name": "Draw",
+                "price": 3.4929643101304233
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.8261454566968647,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9225544541099153,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Real Madrid",
+                "price": 2.028018014149701
+              },
+              {
+                "name": "Barcelona",
+                "price": 2.9913937786873044
+              },
+              {
+                "name": "Draw",
+                "price": 4.05847543243811
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1347251207899456,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.011103042269093,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "Williamhill",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Real Madrid",
+                "price": 2.2625442299419607
+              },
+              {
+                "name": "Barcelona",
+                "price": 2.4104047581697907
+              },
+              {
+                "name": "Draw",
+                "price": 3.6029742712413557
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.070374792598416,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.770525911118939,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathonbet",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Real Madrid",
+                "price": 2.2276724668849672
+              },
+              {
+                "name": "Barcelona",
+                "price": 3.055789887641213
+              },
+              {
+                "name": "Draw",
+                "price": 3.64704146987709
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.9716496925445177,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.0887052323531092,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "real_match_7_1753536472944",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga",
+    "commence_time": "2025-08-02T13:27:52.941Z",
+    "home_team": "Atletico Madrid",
+    "away_team": "Valencia",
+    "bookmakers": [
+      {
+        "key": "bet365",
+        "title": "Bet365",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Atletico Madrid",
+                "price": 4.259219458702282
+              },
+              {
+                "name": "Valencia",
+                "price": 3.4303565511939915
+              },
+              {
+                "name": "Draw",
+                "price": 2.901819210861839
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.9370774247492415,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.860060794726707,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Atletico Madrid",
+                "price": 2.466354043753041
+              },
+              {
+                "name": "Valencia",
+                "price": 3.7969846758815735
+              },
+              {
+                "name": "Draw",
+                "price": 3.078788922239794
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.9497418675989133,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.1433162592794965,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Atletico Madrid",
+                "price": 3.365528906242604
+              },
+              {
+                "name": "Valencia",
+                "price": 3.996186156344474
+              },
+              {
+                "name": "Draw",
+                "price": 3.248961028038721
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1866359534274458,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.3117477726641225,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "Williamhill",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Atletico Madrid",
+                "price": 3.388304330679322
+              },
+              {
+                "name": "Valencia",
+                "price": 3.884717033940717
+              },
+              {
+                "name": "Draw",
+                "price": 3.177809384596099
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.2028426644040167,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9750814590418269,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathonbet",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Atletico Madrid",
+                "price": 3.690491359703559
+              },
+              {
+                "name": "Valencia",
+                "price": 1.9662694483458898
+              },
+              {
+                "name": "Draw",
+                "price": 2.8079852615932723
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.3114547967469905,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.0311592768375655,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "real_match_8_1753536472944",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga",
+    "commence_time": "2025-08-03T13:27:52.941Z",
+    "home_team": "Sevilla",
+    "away_team": "Real Betis",
+    "bookmakers": [
+      {
+        "key": "bet365",
+        "title": "Bet365",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Sevilla",
+                "price": 3.5233837116644455
+              },
+              {
+                "name": "Real Betis",
+                "price": 3.0158160609439504
+              },
+              {
+                "name": "Draw",
+                "price": 3.8775434047984736
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.142334324769371,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.1350879459097505,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Sevilla",
+                "price": 3.345807306406054
+              },
+              {
+                "name": "Real Betis",
+                "price": 4.278429907701649
+              },
+              {
+                "name": "Draw",
+                "price": 3.8375408212913964
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1634027233524686,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.922492452964643,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pinnacle",
+        "title": "Pinnacle",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Sevilla",
+                "price": 2.5463347045567466
+              },
+              {
+                "name": "Real Betis",
+                "price": 3.947024234502635
+              },
+              {
+                "name": "Draw",
+                "price": 3.178949255987712
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.2272145735799103,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9404574289313432,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "williamhill",
+        "title": "Williamhill",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Sevilla",
+                "price": 1.8228219019915226
+              },
+              {
+                "name": "Real Betis",
+                "price": 2.3671749741363612
+              },
+              {
+                "name": "Draw",
+                "price": 3.184630672476379
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.9989220269982826,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.243826005925214,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "marathonbet",
+        "title": "Marathonbet",
+        "last_update": "2025-07-26T13:27:52.941Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Sevilla",
+                "price": 3.8936302641576708
+              },
+              {
+                "name": "Real Betis",
+                "price": 4.088534322911933
+              },
+              {
+                "name": "Draw",
+                "price": 3.2724685116206893
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-26T13:27:52.941Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.28015837765901,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9502557925530914,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -30,11 +30,13 @@ class ErrorBoundary extends Component<{ children: ReactNode, fallback?: ReactNod
   state = { hasError: false, error: null };
 
   static getDerivedStateFromError(error: Error) {
+    console.error("Error caught by boundary:", error);
     return { hasError: true, error };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error("Application error:", error, errorInfo);
+    console.error("Application error:", error);
+    console.error("Component stack:", errorInfo.componentStack);
   }
 
   render() {
@@ -42,14 +44,23 @@ class ErrorBoundary extends Component<{ children: ReactNode, fallback?: ReactNod
       return this.props.fallback || (
         <div className="flex flex-col items-center justify-center min-h-screen p-4 text-center">
           <h2 className="text-2xl font-bold mb-4">Something went wrong</h2>
+          <p className="mb-2 text-red-600">
+            {this.state.error ? (this.state.error as Error).message : "Unknown error"}
+          </p>
           <p className="mb-6 text-muted-foreground">
             The application encountered an error. Please try refreshing the page.
           </p>
           <button
-            className="px-4 py-2 bg-primary text-primary-foreground rounded"
+            className="px-4 py-2 bg-primary text-primary-foreground rounded mb-4"
             onClick={() => window.location.reload()}
           >
             Refresh Page
+          </button>
+          <button
+            className="px-4 py-2 bg-gray-600 text-white rounded"
+            onClick={() => this.setState({ hasError: false, error: null })}
+          >
+            Try to Recover
           </button>
         </div>
       );

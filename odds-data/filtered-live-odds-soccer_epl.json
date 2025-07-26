@@ -1,0 +1,737 @@
+[
+  {
+    "id": "f37021de21572159764157dbf2e5ae62",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-15T19:00:00Z",
+    "home_team": "Liverpool",
+    "away_team": "Bournemouth",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 8.15
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 5.66
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.13,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 1.8,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 7
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ef104c6285d1e04833a848d273a7b4ae",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T11:30:00Z",
+    "home_team": "Aston Villa",
+    "away_team": "Newcastle United",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 2.38
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.88
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.66,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.37,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 2.3
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ad4a48da31810362af7fe32298725571",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T14:00:00Z",
+    "home_team": "Brighton and Hove Albion",
+    "away_team": "Fulham",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.86
+              },
+              {
+                "name": "Fulham",
+                "price": 4.33
+              },
+              {
+                "name": "Draw",
+                "price": 3.87
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.76,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.19,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.8
+              },
+              {
+                "name": "Fulham",
+                "price": 4
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "08ec2d2a8e67840bb3ab0e733ef2f58f",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T14:00:00Z",
+    "home_team": "Tottenham Hotspur",
+    "away_team": "Burnley",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Burnley",
+                "price": 9.35
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 5.19
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.68,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.33,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Burnley",
+                "price": 7.5
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 4.75
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "86a8812bc657e2b8c75bf77880a5cf3d",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T14:00:00Z",
+    "home_team": "Sunderland",
+    "away_team": "West Ham United",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "price": 3.26
+              },
+              {
+                "name": "West Ham United",
+                "price": 2.3
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.89,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.01,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "price": 3.1
+              },
+              {
+                "name": "West Ham United",
+                "price": 2.2
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7f3f540489885d028ec9395ba46ee95b",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-16T16:30:00Z",
+    "home_team": "Wolverhampton Wanderers",
+    "away_team": "Manchester City",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Manchester City",
+                "price": 1.5
+              },
+              {
+                "name": "Wolverhampton Wanderers",
+                "price": 6.67
+              },
+              {
+                "name": "Draw",
+                "price": 4.79
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.69,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.31,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Manchester City",
+                "price": 1.48
+              },
+              {
+                "name": "Wolverhampton Wanderers",
+                "price": 5.75
+              },
+              {
+                "name": "Draw",
+                "price": 4.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eb357add4cbd1823e64186800ab46b13",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "Nottingham Forest",
+    "away_team": "Brentford",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Brentford",
+                "price": 3.19
+              },
+              {
+                "name": "Nottingham Forest",
+                "price": 2.24
+              },
+              {
+                "name": "Draw",
+                "price": 3.75
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.79,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.15,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "96395d8faab66cf7b72830844f66eda7",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "Chelsea",
+    "away_team": "Crystal Palace",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.62
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 5.55
+              },
+              {
+                "name": "Draw",
+                "price": 4.38
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.76,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.19,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.57
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 5.25
+              },
+              {
+                "name": "Draw",
+                "price": 4
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4c489c20064afdb4a5623dff80c6c2d7",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-17T15:30:00Z",
+    "home_team": "Manchester United",
+    "away_team": "Arsenal",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.18
+              },
+              {
+                "name": "Manchester United",
+                "price": 3.48
+              },
+              {
+                "name": "Draw",
+                "price": 3.56
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.93,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.97,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.1
+              },
+              {
+                "name": "Manchester United",
+                "price": 3.3
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "92020926e46ec2ebdc748d01a37a17b2",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-08-18T19:00:00Z",
+    "home_team": "Leeds United",
+    "away_team": "Everton",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Everton",
+                "price": 2.78
+              },
+              {
+                "name": "Leeds United",
+                "price": 2.65
+              },
+              {
+                "name": "Draw",
+                "price": 3.46
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.07,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.84,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:40Z",
+            "outcomes": [
+              {
+                "name": "Everton",
+                "price": 2.7
+              },
+              {
+                "name": "Leeds United",
+                "price": 2.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

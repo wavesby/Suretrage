@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Supabase Connection Issues</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #1E40AF;
+            border-bottom: 2px solid #1E40AF;
+            padding-bottom: 0.5rem;
+        }
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .info {
+            background-color: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .warning {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        button {
+            background-color: #2563EB;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #1D4ED8;
+        }
+        #log {
+            background-color: #1E293B;
+            color: #E5E7EB;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            height: 200px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+        .success {
+            color: #10B981;
+        }
+        .error {
+            color: #EF4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sport Arbitrage - Supabase Connection Fix</h1>
+        
+        <div class="info">
+            <p>This tool will fix connection issues with Supabase by:</p>
+            <ul>
+                <li>Clearing cached credentials with incorrect URLs</li>
+                <li>Updating environment variables</li>
+                <li>Forcing correct Supabase configuration</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <p><strong>Important:</strong> After running this fix, you'll need to:</p>
+            <ol>
+                <li>Refresh your main application page</li>
+                <li>Log in again if you were previously logged in</li>
+            </ol>
+        </div>
+
+        <button id="runFix">Run Supabase Connection Fix</button>
+        <button id="clearStorage">Clear ALL Browser Storage</button>
+        <button id="openApp">Open Application</button>
+
+        <h3>Log Output:</h3>
+        <div id="log"></div>
+    </div>
+
+    <script>
+        const logElement = document.getElementById('log');
+        
+        // Override console.log to display in our log div
+        const originalLog = console.log;
+        console.log = function() {
+            const args = Array.from(arguments);
+            originalLog.apply(console, args);
+            
+            const message = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
+            ).join(' ');
+            
+            const logLine = document.createElement('div');
+            logLine.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            logElement.appendChild(logLine);
+            logElement.scrollTop = logElement.scrollHeight;
+        };
+
+        // Override console.error to display in our log div
+        const originalError = console.error;
+        console.error = function() {
+            const args = Array.from(arguments);
+            originalError.apply(console, args);
+            
+            const message = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
+            ).join(' ');
+            
+            const logLine = document.createElement('div');
+            logLine.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            logLine.classList.add('error');
+            logElement.appendChild(logLine);
+            logElement.scrollTop = logElement.scrollHeight;
+        };
+
+        // Button event handlers
+        document.getElementById('runFix').addEventListener('click', function() {
+            console.log('Running Supabase fix script...');
+            
+            try {
+                // Insert the fix code from fix-supabase.js
+                function fixSupabase() {
+                    try {
+                        console.log('🔍 Checking for Supabase URL issues...');
+                        
+                        // 1. Check if placeholder URLs are in localStorage
+                        const keysToCheck = [
+                            'supabase.auth.token',
+                            'auth_session',
+                            'auth_user',
+                            'supabaseSession',
+                            'notificationPreferences',
+                            'notifications'
+                        ];
+                        
+                        let fixedItems = 0;
+                        
+                        // Fix localStorage items
+                        keysToCheck.forEach(key => {
+                            try {
+                                const value = localStorage.getItem(key);
+                                if (value && typeof value === 'string') {
+                                    if (value.includes('your-supabase-url') || value.includes('your-anon-key')) {
+                                        console.log(`📝 Found placeholder Supabase URL in localStorage key: ${key}`);
+                                        localStorage.removeItem(key);
+                                        fixedItems++;
+                                    }
+                                }
+                            } catch (e) {
+                                console.error(`Error checking localStorage key ${key}:`, e);
+                            }
+                        });
+                        
+                        // 2. Clean all sessionStorage too
+                        try {
+                            sessionStorage.clear();
+                            console.log('🧹 Cleared sessionStorage');
+                        } catch (e) {
+                            console.error('Error clearing sessionStorage:', e);
+                        }
+                        
+                        // 3. Replace any global reference to the placeholder URL
+                        if (typeof window !== 'undefined') {
+                            if (window.SUPABASE_URL && window.SUPABASE_URL.includes('your-supabase-url')) {
+                                window.SUPABASE_URL = 'https://mgafiaiqnzrgyarxmjjw.supabase.co';
+                                fixedItems++;
+                            }
+                            
+                            if (window.SUPABASE_KEY && window.SUPABASE_KEY.includes('your-anon-key')) {
+                                window.SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1nYWZpYWlxbnpyZ3lhcnhtamp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI2MjE1MTIsImV4cCI6MjA2ODE5NzUxMn0.4jUz8gNhzDixhndOGV5thl8KSpuSKlRXNWu5T3BTEV';
+                                fixedItems++;
+                            }
+                        }
+                        
+                        // 4. Update environment variables if possible
+                        if (typeof process !== 'undefined' && process.env) {
+                            if (process.env.VITE_SUPABASE_URL && process.env.VITE_SUPABASE_URL.includes('your-supabase-url')) {
+                                process.env.VITE_SUPABASE_URL = 'https://mgafiaiqnzrgyarxmjjw.supabase.co';
+                                fixedItems++;
+                            }
+                            
+                            if (process.env.VITE_SUPABASE_ANON_KEY && process.env.VITE_SUPABASE_ANON_KEY.includes('your-anon-key')) {
+                                process.env.VITE_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1nYWZpYWlxbnpyZ3lhcnhtamp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI2MjE1MTIsImV4cCI6MjA2ODE5NzUxMn0.4jUz8gNhzDixhndOGV5thl8KSpuSKlRXNWu5T3BTEV';
+                                fixedItems++;
+                            }
+                        }
+                        
+                        // 5. Force environment variables through window
+                        if (typeof window !== 'undefined') {
+                            window.env = window.env || {};
+                            window.env.VITE_SUPABASE_URL = 'https://mgafiaiqnzrgyarxmjjw.supabase.co';
+                            window.env.VITE_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1nYWZpYWlxbnpyZ3lhcnhtamp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI2MjE1MTIsImV4cCI6MjA2ODE5NzUxMn0.4jUz8gNhzDixhndOGV5thl8KSpuSKlRXNWu5T3BTEV';
+                        }
+                        
+                        // 6. Fix any Supabase client in window
+                        if (typeof window !== 'undefined' && window.supabaseClient) {
+                            console.log('📊 Found Supabase client in window, updating configuration...');
+                            window.supabaseClient = null; // Force recreation with correct URL
+                            fixedItems++;
+                        }
+                        
+                        const logLine = document.createElement('div');
+                        logLine.textContent = `${new Date().toLocaleTimeString()}: ✅ Supabase URL check complete. Fixed ${fixedItems} issues.`;
+                        logLine.classList.add('success');
+                        logElement.appendChild(logLine);
+                        logElement.scrollTop = logElement.scrollHeight;
+                        
+                        console.log(`✅ Supabase URL check complete. Fixed ${fixedItems} issues.`);
+                        return fixedItems;
+                    } catch (error) {
+                        console.error('Error in fixSupabase script:', error);
+                        return 0;
+                    }
+                }
+                
+                const fixedItems = fixSupabase();
+                
+                const logLine = document.createElement('div');
+                logLine.textContent = `${new Date().toLocaleTimeString()}: 🔄 Fix completed! ${fixedItems} issues fixed.`;
+                logLine.classList.add('success');
+                logElement.appendChild(logLine);
+                logElement.scrollTop = logElement.scrollHeight;
+                
+            } catch (error) {
+                console.error('Error executing fix script:', error);
+            }
+        });
+
+        document.getElementById('clearStorage').addEventListener('click', function() {
+            try {
+                localStorage.clear();
+                sessionStorage.clear();
+                console.log('✅ Successfully cleared all browser storage!');
+                
+                const logLine = document.createElement('div');
+                logLine.textContent = `${new Date().toLocaleTimeString()}: ✅ Browser storage cleared. You should now refresh the application.`;
+                logLine.classList.add('success');
+                logElement.appendChild(logLine);
+                logElement.scrollTop = logElement.scrollHeight;
+            } catch (error) {
+                console.error('Error clearing storage:', error);
+            }
+        });
+
+        document.getElementById('openApp').addEventListener('click', function() {
+            window.location.href = '/';
+        });
+
+        // Log that the page loaded
+        console.log('Supabase Connection Fix tool loaded successfully!');
+        console.log('Click "Run Supabase Connection Fix" to start fixing connection issues.');
+    </script>
+</body>
+</html> 

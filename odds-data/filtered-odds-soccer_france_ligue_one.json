@@ -1,0 +1,589 @@
+[
+  {
+    "id": "3416268fbd4e7145b06aee2a0d4051bb",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-15T18:45:00Z",
+    "home_team": "Rennes",
+    "away_team": "Marseille",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:42Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Marseille",
+                "price": 2.07
+              },
+              {
+                "name": "Rennes",
+                "price": 3.52
+              },
+              {
+                "name": "Draw",
+                "price": 4.01
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.65,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.44,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:26Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:26Z",
+            "outcomes": [
+              {
+                "name": "Marseille",
+                "price": 2
+              },
+              {
+                "name": "Rennes",
+                "price": 3.3
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "570c8ff9509c7981e1d9f257e2a19267",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-16T17:00:00Z",
+    "home_team": "AS Monaco",
+    "away_team": "Le Havre",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:42Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "AS Monaco",
+                "price": 1.4
+              },
+              {
+                "name": "Le Havre",
+                "price": 8.4
+              },
+              {
+                "name": "Draw",
+                "price": 5.55
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.49,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 1.63,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3708a0b105707e447d8057ff0309104f",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-16T19:05:00Z",
+    "home_team": "Nice",
+    "away_team": "Toulouse",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:42Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Nice",
+                "price": 1.82
+              },
+              {
+                "name": "Toulouse",
+                "price": 4.79
+              },
+              {
+                "name": "Draw",
+                "price": 3.87
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.99,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.95,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "35575f2cd5687181a5f79dcaeb37408c",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "AS Monaco",
+    "away_team": "Le Havre",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:26Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:26Z",
+            "outcomes": [
+              {
+                "name": "AS Monaco",
+                "price": 1.38
+              },
+              {
+                "name": "Le Havre",
+                "price": 7
+              },
+              {
+                "name": "Draw",
+                "price": 4.75
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fdd9fa9a13ffbcc0e5948c36805e79f7",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "Angers",
+    "away_team": "Paris FC",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:26Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:26Z",
+            "outcomes": [
+              {
+                "name": "Angers",
+                "price": 2.7
+              },
+              {
+                "name": "Paris FC",
+                "price": 2.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d6d557ea85d3e9c023d55a5a9d17c655",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "Auxerre",
+    "away_team": "Lorient",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:42Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Auxerre",
+                "price": 2.47
+              },
+              {
+                "name": "Lorient",
+                "price": 3.09
+              },
+              {
+                "name": "Draw",
+                "price": 3.48
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.94,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:26Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:26Z",
+            "outcomes": [
+              {
+                "name": "Auxerre",
+                "price": 2.38
+              },
+              {
+                "name": "Lorient",
+                "price": 2.8
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a0775198ed65a25646a663f75d3eda26",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "Brest",
+    "away_team": "Lille",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:42Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Brest",
+                "price": 4.12
+              },
+              {
+                "name": "Lille",
+                "price": 1.95
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.94,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:26Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:26Z",
+            "outcomes": [
+              {
+                "name": "Brest",
+                "price": 3.6
+              },
+              {
+                "name": "Lille",
+                "price": 1.91
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "11e8905d8fd5980cf8e6ffda89470fc4",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "Metz",
+    "away_team": "Strasbourg",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:42Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Metz",
+                "price": 3.17
+              },
+              {
+                "name": "Strasbourg",
+                "price": 2.42
+              },
+              {
+                "name": "Draw",
+                "price": 3.48
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.96,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.98,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:26Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:26Z",
+            "outcomes": [
+              {
+                "name": "Metz",
+                "price": 3
+              },
+              {
+                "name": "Strasbourg",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7d46b3d24c88845c6de2e820955527f3",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-17T13:00:00Z",
+    "home_team": "Nice",
+    "away_team": "Toulouse",
+    "bookmakers": [
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:26Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:26Z",
+            "outcomes": [
+              {
+                "name": "Nice",
+                "price": 1.75
+              },
+              {
+                "name": "Toulouse",
+                "price": 4.33
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8bb891813435319b6148aae3176019cc",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France",
+    "commence_time": "2025-08-17T15:00:00Z",
+    "home_team": "Nantes",
+    "away_team": "Paris Saint Germain",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:42Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Nantes",
+                "price": 9.1
+              },
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.36
+              },
+              {
+                "name": "Draw",
+                "price": 5.81
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:42Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.26,
+                "point": 3.5
+              },
+              {
+                "name": "Under",
+                "price": 1.75,
+                "point": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:26Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:26Z",
+            "outcomes": [
+              {
+                "name": "Nantes",
+                "price": 7.5
+              },
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.33
+              },
+              {
+                "name": "Draw",
+                "price": 5.25
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

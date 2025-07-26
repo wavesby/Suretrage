@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fix Supabase Connection</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 2rem; }
+    button { padding: 0.5rem 1rem; background: #0284c7; color: white; border: none; border-radius: 0.25rem; cursor: pointer; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Fix Supabase Connection</h1>
+  <button id="fix">Apply Fix Now</button>
+  <button id="clearStorage">Clear All Storage</button>
+  <button id="goToApp">Go to Application</button>
+  <div id="log" style="margin-top: 1rem; padding: 1rem; background: #f1f5f9; border-radius: 0.25rem; height: 200px; overflow: auto;"></div>
+  
+  <script>
+    const log = (msg, type) => {
+      const div = document.createElement('div');
+      div.textContent = msg;
+      if (type) div.classList.add(type);
+      document.getElementById('log').appendChild(div);
+    }
+    
+    document.getElementById('fix').addEventListener('click', () => {
+      log('Applying fixes...');
+      
+      // Fix environment variables in localStorage
+      window.VITE_SUPABASE_URL = 'https://mgafiaiqnzrgyarxmjjw.supabase.co';
+      window.VITE_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1nYWZpYWlxbnpyZ3lhcnhtamp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI2MjE1MTIsImV4cCI6MjA2ODE5NzUxMn0.4jUz8gNhzDixhndOGV5thl8KSpuSKlRXNWu5T3BTEV';
+      
+      // Clean problem items in localStorage
+      try {
+        let cleaned = 0;
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          const value = localStorage.getItem(key);
+          if (value && typeof value === 'string' && 
+              (value.includes('your-supabase-url') || value.includes('your-anon-key'))) {
+            localStorage.removeItem(key);
+            log(`Removed problematic item: ${key}`, 'success');
+            cleaned++;
+          }
+        }
+        log(`Cleaned ${cleaned} items from localStorage`, 'success');
+      } catch (e) {
+        log(`Error cleaning localStorage: ${e}`, 'error');
+      }
+      
+      // Clear sessionStorage
+      try {
+        sessionStorage.clear();
+        log('Cleared sessionStorage', 'success');
+      } catch (e) {
+        log(`Error clearing sessionStorage: ${e}`, 'error');
+      }
+      
+      log('Fix complete! Please reload the application.', 'success');
+    });
+    
+    document.getElementById('clearStorage').addEventListener('click', () => {
+      try {
+        localStorage.clear();
+        sessionStorage.clear();
+        log('All browser storage cleared!', 'success');
+      } catch (e) {
+        log(`Error clearing storage: ${e}`, 'error');
+      }
+    });
+    
+    document.getElementById('goToApp').addEventListener('click', () => {
+      window.location.href = '/';
+    });
+  </script>
+</body>
+</html>

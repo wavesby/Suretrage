@@ -1,0 +1,3350 @@
+{
+  "soccer_epl": [
+    {
+      "id": "f37021de21572159764157dbf2e5ae62",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-15T19:00:00Z",
+      "home_team": "Liverpool",
+      "away_team": "Bournemouth",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Bournemouth",
+                  "price": 8.15
+                },
+                {
+                  "name": "Liverpool",
+                  "price": 1.38
+                },
+                {
+                  "name": "Draw",
+                  "price": 5.66
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.13,
+                  "point": 3.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.8,
+                  "point": 3.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Bournemouth",
+                  "price": 7
+                },
+                {
+                  "name": "Liverpool",
+                  "price": 1.35
+                },
+                {
+                  "name": "Draw",
+                  "price": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef104c6285d1e04833a848d273a7b4ae",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-16T11:30:00Z",
+      "home_team": "Aston Villa",
+      "away_team": "Newcastle United",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Aston Villa",
+                  "price": 2.38
+                },
+                {
+                  "name": "Newcastle United",
+                  "price": 2.88
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.66,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.37,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Aston Villa",
+                  "price": 2.3
+                },
+                {
+                  "name": "Newcastle United",
+                  "price": 2.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ad4a48da31810362af7fe32298725571",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-16T14:00:00Z",
+      "home_team": "Brighton and Hove Albion",
+      "away_team": "Fulham",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Brighton and Hove Albion",
+                  "price": 1.86
+                },
+                {
+                  "name": "Fulham",
+                  "price": 4.33
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.76,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.19,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Brighton and Hove Albion",
+                  "price": 1.8
+                },
+                {
+                  "name": "Fulham",
+                  "price": 4
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08ec2d2a8e67840bb3ab0e733ef2f58f",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-16T14:00:00Z",
+      "home_team": "Tottenham Hotspur",
+      "away_team": "Burnley",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Burnley",
+                  "price": 9.35
+                },
+                {
+                  "name": "Tottenham Hotspur",
+                  "price": 1.38
+                },
+                {
+                  "name": "Draw",
+                  "price": 5.19
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.68,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.33,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Burnley",
+                  "price": 7.5
+                },
+                {
+                  "name": "Tottenham Hotspur",
+                  "price": 1.35
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.75
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "86a8812bc657e2b8c75bf77880a5cf3d",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-16T14:00:00Z",
+      "home_team": "Sunderland",
+      "away_team": "West Ham United",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Sunderland",
+                  "price": 3.26
+                },
+                {
+                  "name": "West Ham United",
+                  "price": 2.3
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.5
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.89,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.01,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Sunderland",
+                  "price": 3.1
+                },
+                {
+                  "name": "West Ham United",
+                  "price": 2.2
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7f3f540489885d028ec9395ba46ee95b",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-16T16:30:00Z",
+      "home_team": "Wolverhampton Wanderers",
+      "away_team": "Manchester City",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Manchester City",
+                  "price": 1.5
+                },
+                {
+                  "name": "Wolverhampton Wanderers",
+                  "price": 6.67
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.79
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.69,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.31,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Manchester City",
+                  "price": 1.48
+                },
+                {
+                  "name": "Wolverhampton Wanderers",
+                  "price": 5.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb357add4cbd1823e64186800ab46b13",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-17T13:00:00Z",
+      "home_team": "Nottingham Forest",
+      "away_team": "Brentford",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Brentford",
+                  "price": 3.19
+                },
+                {
+                  "name": "Nottingham Forest",
+                  "price": 2.24
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.75
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.79,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.15,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "96395d8faab66cf7b72830844f66eda7",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-17T13:00:00Z",
+      "home_team": "Chelsea",
+      "away_team": "Crystal Palace",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Chelsea",
+                  "price": 1.62
+                },
+                {
+                  "name": "Crystal Palace",
+                  "price": 5.55
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.38
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.76,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.19,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Chelsea",
+                  "price": 1.57
+                },
+                {
+                  "name": "Crystal Palace",
+                  "price": 5.25
+                },
+                {
+                  "name": "Draw",
+                  "price": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c489c20064afdb4a5623dff80c6c2d7",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-17T15:30:00Z",
+      "home_team": "Manchester United",
+      "away_team": "Arsenal",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Arsenal",
+                  "price": 2.18
+                },
+                {
+                  "name": "Manchester United",
+                  "price": 3.48
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.56
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.93,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.97,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Arsenal",
+                  "price": 2.1
+                },
+                {
+                  "name": "Manchester United",
+                  "price": 3.3
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92020926e46ec2ebdc748d01a37a17b2",
+      "sport_key": "soccer_epl",
+      "sport_title": "EPL",
+      "commence_time": "2025-08-18T19:00:00Z",
+      "home_team": "Leeds United",
+      "away_team": "Everton",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Everton",
+                  "price": 2.78
+                },
+                {
+                  "name": "Leeds United",
+                  "price": 2.65
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.46
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:37Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.07,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.84,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Everton",
+                  "price": 2.7
+                },
+                {
+                  "name": "Leeds United",
+                  "price": 2.5
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "soccer_spain_la_liga": [
+    {
+      "id": "c4198d00081ef7586ec5088c547a23dd",
+      "sport_key": "soccer_spain_la_liga",
+      "sport_title": "La Liga - Spain",
+      "commence_time": "2025-08-15T17:00:00Z",
+      "home_team": "Girona",
+      "away_team": "Rayo Vallecano",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Girona",
+                  "price": 2.31
+                },
+                {
+                  "name": "Rayo Vallecano",
+                  "price": 3.44
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.44
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.18,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.8,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3723cad1a66e1ce8f0ef45f79a7c32bb",
+      "sport_key": "soccer_spain_la_liga",
+      "sport_title": "La Liga - Spain",
+      "commence_time": "2025-08-15T19:30:00Z",
+      "home_team": "Villarreal",
+      "away_team": "Oviedo",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Oviedo",
+                  "price": 9.35
+                },
+                {
+                  "name": "Villarreal",
+                  "price": 1.41
+                },
+                {
+                  "name": "Draw",
+                  "price": 5
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.93,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.01,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "98738a501162833cfda3dd5987e7bbe8",
+      "sport_key": "soccer_spain_la_liga",
+      "sport_title": "La Liga - Spain",
+      "commence_time": "2025-08-16T17:30:00Z",
+      "home_team": "Mallorca",
+      "away_team": "Barcelona",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Barcelona",
+                  "price": 1.62
+                },
+                {
+                  "name": "Mallorca",
+                  "price": 5.76
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.47
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.73,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.28,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3d481ed9bd49829718585f6b372cf67",
+      "sport_key": "soccer_spain_la_liga",
+      "sport_title": "La Liga - Spain",
+      "commence_time": "2025-08-16T19:30:00Z",
+      "home_team": "Valencia",
+      "away_team": "Real Sociedad",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Real Sociedad",
+                  "price": 3.02
+                },
+                {
+                  "name": "Valencia",
+                  "price": 2.86
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.98
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.7,
+                  "point": 1.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.33,
+                  "point": 1.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:27Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:27Z",
+              "outcomes": [
+                {
+                  "name": "Real Sociedad",
+                  "price": 2.9
+                },
+                {
+                  "name": "Valencia",
+                  "price": 2.62
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.8
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf93792eb89a9564cef6a853f0a12e28",
+      "sport_key": "soccer_spain_la_liga",
+      "sport_title": "La Liga - Spain",
+      "commence_time": "2025-08-17T15:00:00Z",
+      "home_team": "Celta Vigo",
+      "away_team": "Getafe",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Celta Vigo",
+                  "price": 1.85
+                },
+                {
+                  "name": "Getafe",
+                  "price": 5.2
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.52
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.51,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.62,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:27Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:27Z",
+              "outcomes": [
+                {
+                  "name": "Celta Vigo",
+                  "price": 1.75
+                },
+                {
+                  "name": "Getafe",
+                  "price": 4.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "464babcb400ae952b588caadda9c36e7",
+      "sport_key": "soccer_spain_la_liga",
+      "sport_title": "La Liga - Spain",
+      "commence_time": "2025-08-17T17:30:00Z",
+      "home_team": "Athletic Bilbao",
+      "away_team": "Sevilla",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Athletic Bilbao",
+                  "price": 1.74
+                },
+                {
+                  "name": "Sevilla",
+                  "price": 5.51
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.24,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.76,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:27Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:27Z",
+              "outcomes": [
+                {
+                  "name": "Athletic Bilbao",
+                  "price": 1.67
+                },
+                {
+                  "name": "Sevilla",
+                  "price": 5
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0595f56cfe72699dc094ca05733d7b92",
+      "sport_key": "soccer_spain_la_liga",
+      "sport_title": "La Liga - Spain",
+      "commence_time": "2025-08-17T19:30:00Z",
+      "home_team": "Espanyol",
+      "away_team": "Atlético Madrid",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Atlético Madrid",
+                  "price": 1.64
+                },
+                {
+                  "name": "Espanyol",
+                  "price": 6.33
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.05
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.2,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.78,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:27Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:27Z",
+              "outcomes": [
+                {
+                  "name": "Atlético Madrid",
+                  "price": 1.57
+                },
+                {
+                  "name": "Espanyol",
+                  "price": 5.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.75
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82a64ba0ed7b1303620d3a5c7569b434",
+      "sport_key": "soccer_spain_la_liga",
+      "sport_title": "La Liga - Spain",
+      "commence_time": "2025-08-18T19:00:00Z",
+      "home_team": "Elche CF",
+      "away_team": "Real Betis",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Elche CF",
+                  "price": 3.67
+                },
+                {
+                  "name": "Real Betis",
+                  "price": 2.14
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.62
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.1,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.86,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:27Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:27Z",
+              "outcomes": [
+                {
+                  "name": "Elche CF",
+                  "price": 3.6
+                },
+                {
+                  "name": "Real Betis",
+                  "price": 2
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f87448c662690574c9930af99d743f4b",
+      "sport_key": "soccer_spain_la_liga",
+      "sport_title": "La Liga - Spain",
+      "commence_time": "2025-08-19T19:00:00Z",
+      "home_team": "Real Madrid",
+      "away_team": "CA Osasuna",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "CA Osasuna",
+                  "price": 13.5
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.26
+                },
+                {
+                  "name": "Draw",
+                  "price": 6.65
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.63,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.49,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "soccer_italy_serie_a": [
+    {
+      "id": "7a658ea87b4d915ed844b28da7d2993c",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-23T16:30:00Z",
+      "home_team": "Genoa",
+      "away_team": "Lecce",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Genoa",
+                  "price": 2.08
+                },
+                {
+                  "name": "Lecce",
+                  "price": 4.17
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.4
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.28,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.73,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4efa457bb478d27dd6d65f1e995bf5ae",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-23T16:30:00Z",
+      "home_team": "Sassuolo",
+      "away_team": "Napoli",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Napoli",
+                  "price": 1.51
+                },
+                {
+                  "name": "Sassuolo",
+                  "price": 7.16
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.63
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.94,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5717a8bfc9f21ea6787da9293ecdb4ad",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-23T18:45:00Z",
+      "home_team": "AC Milan",
+      "away_team": "Cremonese",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "AC Milan",
+                  "price": 1.44
+                },
+                {
+                  "name": "Cremonese",
+                  "price": 7.9
+                },
+                {
+                  "name": "Draw",
+                  "price": 5.1
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.7,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.33,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b9513d902d1a775fcf02ed14d3ecf2f",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-23T18:45:00Z",
+      "home_team": "AS Roma",
+      "away_team": "Bologna",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "AS Roma",
+                  "price": 2.21
+                },
+                {
+                  "name": "Bologna",
+                  "price": 3.79
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.35
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.21,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.78,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f77d356b8d69db92c7d8bb4eef01f5c",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T13:00:00Z",
+      "home_team": "AC Milan",
+      "away_team": "Cremonese",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "AC Milan",
+                  "price": 1.38
+                },
+                {
+                  "name": "Cremonese",
+                  "price": 7
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.75
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "496e3fceabaae6029c0a23ff5520fb1c",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T13:00:00Z",
+      "home_team": "AS Roma",
+      "away_team": "Bologna",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "AS Roma",
+                  "price": 2.05
+                },
+                {
+                  "name": "Bologna",
+                  "price": 3.5
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.25
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f4ab56e4910a957e9d9c01d36477739",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T13:00:00Z",
+      "home_team": "Genoa",
+      "away_team": "Lecce",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "Genoa",
+                  "price": 2
+                },
+                {
+                  "name": "Lecce",
+                  "price": 3.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1681112efa60161d64e5f6d748830a56",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T13:00:00Z",
+      "home_team": "Udinese",
+      "away_team": "Hellas Verona",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "Hellas Verona",
+                  "price": 3.75
+                },
+                {
+                  "name": "Udinese",
+                  "price": 2.05
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1453ca4ee62264f59d9f3181d10ac8ad",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T13:00:00Z",
+      "home_team": "Inter Milan",
+      "away_team": "Torino",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "Inter Milan",
+                  "price": 1.4
+                },
+                {
+                  "name": "Torino",
+                  "price": 7
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b60897d4cbdc07855a46a1bb520d78bb",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T13:00:00Z",
+      "home_team": "Sassuolo",
+      "away_team": "Napoli",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "Napoli",
+                  "price": 1.45
+                },
+                {
+                  "name": "Sassuolo",
+                  "price": 6.5
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3585107a897d05342af0596325ea0a35",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T16:30:00Z",
+      "home_team": "Cagliari",
+      "away_team": "Fiorentina",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Cagliari",
+                  "price": 3.22
+                },
+                {
+                  "name": "Fiorentina",
+                  "price": 2.45
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.38
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.12,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.84,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "Cagliari",
+                  "price": 3
+                },
+                {
+                  "name": "Fiorentina",
+                  "price": 2.3
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb1545f23891ab4cd7f639221a0a152f",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T16:30:00Z",
+      "home_team": "Como",
+      "away_team": "Lazio",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Como",
+                  "price": 2.77
+                },
+                {
+                  "name": "Lazio",
+                  "price": 2.77
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.4
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.1,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.86,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "Como",
+                  "price": 2.6
+                },
+                {
+                  "name": "Lazio",
+                  "price": 2.6
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a6d06a886371a723b6dd04a541b360fb",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T18:45:00Z",
+      "home_team": "Atalanta BC",
+      "away_team": "Pisa",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "Atalanta BC",
+                  "price": 1.4
+                },
+                {
+                  "name": "Pisa",
+                  "price": 7
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ed3ecdae784a95f5078851a8a211a39",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-24T18:45:00Z",
+      "home_team": "Juventus",
+      "away_team": "Parma",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Juventus",
+                  "price": 1.47
+                },
+                {
+                  "name": "Parma",
+                  "price": 7.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.84
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.81,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.17,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:03Z",
+              "outcomes": [
+                {
+                  "name": "Juventus",
+                  "price": 1.4
+                },
+                {
+                  "name": "Parma",
+                  "price": 7
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f78d4e5a5101834625585fc6d1376c89",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-25T16:30:00Z",
+      "home_team": "Udinese",
+      "away_team": "Hellas Verona",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Hellas Verona",
+                  "price": 4.21
+                },
+                {
+                  "name": "Udinese",
+                  "price": 2.11
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.29
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.24,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.76,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6050ded85182a39727a1ca894fed887",
+      "sport_key": "soccer_italy_serie_a",
+      "sport_title": "Serie A - Italy",
+      "commence_time": "2025-08-25T18:45:00Z",
+      "home_team": "Inter Milan",
+      "away_team": "Torino",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Inter Milan",
+                  "price": 1.45
+                },
+                {
+                  "name": "Torino",
+                  "price": 8
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.94
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.76,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.23,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "soccer_germany_bundesliga": [
+    {
+      "id": "b7595997eb85dcbc3a4e4eb020f315dd",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-22T18:30:00Z",
+      "home_team": "Bayern Munich",
+      "away_team": "RB Leipzig",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:38Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Bayern Munich",
+                  "price": 1.32
+                },
+                {
+                  "name": "RB Leipzig",
+                  "price": 9.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 6.46
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.92,
+                  "point": 3.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.02,
+                  "point": 3.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Bayern Munich",
+                  "price": 1.29
+                },
+                {
+                  "name": "RB Leipzig",
+                  "price": 8
+                },
+                {
+                  "name": "Draw",
+                  "price": 5.75
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2b9ab502221f28a483bd6e15c912aa8a",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-23T13:30:00Z",
+      "home_team": "1. FC Heidenheim",
+      "away_team": "VfL Wolfsburg",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "1. FC Heidenheim",
+                  "price": 2.8
+                },
+                {
+                  "name": "VfL Wolfsburg",
+                  "price": 2.38
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:38Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "1. FC Heidenheim",
+                  "price": 3
+                },
+                {
+                  "name": "VfL Wolfsburg",
+                  "price": 2.48
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.58
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.8,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.18,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b2fff8ea253f0c94af5756895b7f149",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-23T13:30:00Z",
+      "home_team": "FSV Mainz 05",
+      "away_team": "1. FC Köln",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "1. FC Köln",
+                  "price": 3.8
+                },
+                {
+                  "name": "FSV Mainz 05",
+                  "price": 1.85
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "45c1a5890b03f21bc137340dabc4a7d3",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-23T13:30:00Z",
+      "home_team": "SC Freiburg",
+      "away_team": "Augsburg",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Augsburg",
+                  "price": 4
+                },
+                {
+                  "name": "SC Freiburg",
+                  "price": 1.8
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:38Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Augsburg",
+                  "price": 4.68
+                },
+                {
+                  "name": "SC Freiburg",
+                  "price": 1.81
+                },
+                {
+                  "name": "Draw",
+                  "price": 4
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.92,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.02,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b5bf052ddefb56d61c95922406bfa13",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-23T13:30:00Z",
+      "home_team": "Bayer Leverkusen",
+      "away_team": "TSG Hoffenheim",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Bayer Leverkusen",
+                  "price": 1.4
+                },
+                {
+                  "name": "TSG Hoffenheim",
+                  "price": 6
+                },
+                {
+                  "name": "Draw",
+                  "price": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:38Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Bayer Leverkusen",
+                  "price": 1.49
+                },
+                {
+                  "name": "TSG Hoffenheim",
+                  "price": 6.53
+                },
+                {
+                  "name": "Draw",
+                  "price": 5.19
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.15,
+                  "point": 3.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.82,
+                  "point": 3.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a9a476c07fc5ec49a8aaf314e9dd632",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-23T13:30:00Z",
+      "home_team": "FC St. Pauli",
+      "away_team": "Borussia Dortmund",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Borussia Dortmund",
+                  "price": 1.7
+                },
+                {
+                  "name": "FC St. Pauli",
+                  "price": 4.33
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:38Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Borussia Dortmund",
+                  "price": 1.76
+                },
+                {
+                  "name": "FC St. Pauli",
+                  "price": 4.83
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.17
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.78,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.21,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "65d056ea3a51f7e6e81d67d53087f003",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-23T13:30:00Z",
+      "home_team": "Borussia Monchengladbach",
+      "away_team": "Hamburger SV",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Borussia Monchengladbach",
+                  "price": 2.05
+                },
+                {
+                  "name": "Hamburger SV",
+                  "price": 3.2
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a81fc1a653444c18ddbfa894d842571c",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-23T13:30:00Z",
+      "home_team": "Eintracht Frankfurt",
+      "away_team": "Werder Bremen",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Eintracht Frankfurt",
+                  "price": 1.85
+                },
+                {
+                  "name": "Werder Bremen",
+                  "price": 3.6
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:38Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Eintracht Frankfurt",
+                  "price": 1.9
+                },
+                {
+                  "name": "Werder Bremen",
+                  "price": 4.12
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.08
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.64,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.47,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d17accb4fb59e0c9b4af9a7328e3b265",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-23T13:30:00Z",
+      "home_team": "Union Berlin",
+      "away_team": "VfB Stuttgart",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:40Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:40Z",
+              "outcomes": [
+                {
+                  "name": "Union Berlin",
+                  "price": 3.1
+                },
+                {
+                  "name": "VfB Stuttgart",
+                  "price": 2.1
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:38Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Union Berlin",
+                  "price": 3.48
+                },
+                {
+                  "name": "VfB Stuttgart",
+                  "price": 2.17
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.75
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.74,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.26,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60ea480412d4008ff39ff071fe31e864",
+      "sport_key": "soccer_germany_bundesliga",
+      "sport_title": "Bundesliga - Germany",
+      "commence_time": "2025-08-24T15:30:00Z",
+      "home_team": "Borussia Monchengladbach",
+      "away_team": "Hamburger SV",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:38Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Borussia Monchengladbach",
+                  "price": 2.17
+                },
+                {
+                  "name": "Hamburger SV",
+                  "price": 3.29
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.98
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:38Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.42,
+                  "point": 3.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.66,
+                  "point": 3.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "soccer_france_ligue_one": [
+    {
+      "id": "3416268fbd4e7145b06aee2a0d4051bb",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-15T18:45:00Z",
+      "home_team": "Rennes",
+      "away_team": "Marseille",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:42Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Marseille",
+                  "price": 2.07
+                },
+                {
+                  "name": "Rennes",
+                  "price": 3.52
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.01
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.65,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.44,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:26Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:26Z",
+              "outcomes": [
+                {
+                  "name": "Marseille",
+                  "price": 2
+                },
+                {
+                  "name": "Rennes",
+                  "price": 3.3
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "570c8ff9509c7981e1d9f257e2a19267",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-16T17:00:00Z",
+      "home_team": "AS Monaco",
+      "away_team": "Le Havre",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:42Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.4
+                },
+                {
+                  "name": "Le Havre",
+                  "price": 8.4
+                },
+                {
+                  "name": "Draw",
+                  "price": 5.55
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.49,
+                  "point": 3.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.63,
+                  "point": 3.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3708a0b105707e447d8057ff0309104f",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-16T19:05:00Z",
+      "home_team": "Nice",
+      "away_team": "Toulouse",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:42Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Nice",
+                  "price": 1.82
+                },
+                {
+                  "name": "Toulouse",
+                  "price": 4.79
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.99,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.95,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "35575f2cd5687181a5f79dcaeb37408c",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-17T13:00:00Z",
+      "home_team": "AS Monaco",
+      "away_team": "Le Havre",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:26Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:26Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.38
+                },
+                {
+                  "name": "Le Havre",
+                  "price": 7
+                },
+                {
+                  "name": "Draw",
+                  "price": 4.75
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fdd9fa9a13ffbcc0e5948c36805e79f7",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-17T13:00:00Z",
+      "home_team": "Angers",
+      "away_team": "Paris FC",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:26Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:26Z",
+              "outcomes": [
+                {
+                  "name": "Angers",
+                  "price": 2.7
+                },
+                {
+                  "name": "Paris FC",
+                  "price": 2.5
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d6d557ea85d3e9c023d55a5a9d17c655",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-17T13:00:00Z",
+      "home_team": "Auxerre",
+      "away_team": "Lorient",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:42Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Auxerre",
+                  "price": 2.47
+                },
+                {
+                  "name": "Lorient",
+                  "price": 3.09
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.48
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.94,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:26Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:26Z",
+              "outcomes": [
+                {
+                  "name": "Auxerre",
+                  "price": 2.38
+                },
+                {
+                  "name": "Lorient",
+                  "price": 2.8
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a0775198ed65a25646a663f75d3eda26",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-17T13:00:00Z",
+      "home_team": "Brest",
+      "away_team": "Lille",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:42Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Brest",
+                  "price": 4.12
+                },
+                {
+                  "name": "Lille",
+                  "price": 1.95
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.94,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:26Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:26Z",
+              "outcomes": [
+                {
+                  "name": "Brest",
+                  "price": 3.6
+                },
+                {
+                  "name": "Lille",
+                  "price": 1.91
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11e8905d8fd5980cf8e6ffda89470fc4",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-17T13:00:00Z",
+      "home_team": "Metz",
+      "away_team": "Strasbourg",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:42Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Metz",
+                  "price": 3.17
+                },
+                {
+                  "name": "Strasbourg",
+                  "price": 2.42
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.48
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.96,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.98,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:26Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:26Z",
+              "outcomes": [
+                {
+                  "name": "Metz",
+                  "price": 3
+                },
+                {
+                  "name": "Strasbourg",
+                  "price": 2.25
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d46b3d24c88845c6de2e820955527f3",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-17T13:00:00Z",
+      "home_team": "Nice",
+      "away_team": "Toulouse",
+      "bookmakers": [
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:26Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:26Z",
+              "outcomes": [
+                {
+                  "name": "Nice",
+                  "price": 1.75
+                },
+                {
+                  "name": "Toulouse",
+                  "price": 4.33
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8bb891813435319b6148aae3176019cc",
+      "sport_key": "soccer_france_ligue_one",
+      "sport_title": "Ligue 1 - France",
+      "commence_time": "2025-08-17T15:00:00Z",
+      "home_team": "Nantes",
+      "away_team": "Paris Saint Germain",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2025-07-21T04:25:42Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Nantes",
+                  "price": 9.1
+                },
+                {
+                  "name": "Paris Saint Germain",
+                  "price": 1.36
+                },
+                {
+                  "name": "Draw",
+                  "price": 5.81
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2025-07-21T04:25:42Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.26,
+                  "point": 3.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.75,
+                  "point": 3.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2025-07-21T04:25:26Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2025-07-21T04:25:26Z",
+              "outcomes": [
+                {
+                  "name": "Nantes",
+                  "price": 7.5
+                },
+                {
+                  "name": "Paris Saint Germain",
+                  "price": 1.33
+                },
+                {
+                  "name": "Draw",
+                  "price": 5.25
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

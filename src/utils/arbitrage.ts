@@ -6,8 +6,10 @@ export interface MatchOdds {
   match_id: string;
   bookmaker: string;
   match_name: string;
-  team_home: string;
-  team_away: string;
+  team_home?: string;
+  team_away?: string;
+  home_team?: string; // Added for compatibility with server response
+  away_team?: string; // Added for compatibility with server response
   league: string;
   match_time: string;
   market_type: string;
@@ -35,6 +37,7 @@ export interface ArbitrageOpportunity {
   arbitragePercentage: number;
   profitPercentage: number;
   guaranteedProfit: number;
+  profitAmount: number; // Added for profit calculation
   totalStake: number;
   stakes: StakeDistribution[];
   bookmakers: BookmakerInfo[];
@@ -88,7 +91,7 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
     
     odds.forEach(odd => {
       // Create a normalized match key for grouping
-      const matchKey = `${odd.team_home.toLowerCase()}-${odd.team_away.toLowerCase()}`;
+      const matchKey = `${odd.team_home?.toLowerCase() || odd.home_team?.toLowerCase()}-${odd.team_away?.toLowerCase() || odd.away_team?.toLowerCase()}`;
       
       if (!matchGroups[matchKey]) {
         matchGroups[matchKey] = [];
@@ -225,8 +228,8 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
             id: `${refMatch.match_id}-ou${threshold}-${Date.now()}`,
             matchId: refMatch.match_id,
             matchName: refMatch.match_name,
-            teamHome: refMatch.team_home,
-            teamAway: refMatch.team_away,
+            teamHome: refMatch.team_home || refMatch.home_team || '',
+            teamAway: refMatch.team_away || refMatch.away_team || '',
             league: refMatch.league,
             matchTime: refMatch.match_time,
             arbitragePercentage: overUnderArbitragePercentage,
@@ -244,7 +247,8 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
             expectedValue,
             volatility,
             lastUpdated: new Date().toISOString(),
-            marketType: 'OVER_UNDER'
+            marketType: 'OVER_UNDER',
+            profitAmount: guaranteedProfit // Add profitAmount property
           };
           
           opportunities.push(overUnderOpportunity);
@@ -362,8 +366,8 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
         id: `${refMatch.match_id}-${Date.now()}`,
         matchId: refMatch.match_id,
         matchName: refMatch.match_name,
-        teamHome: refMatch.team_home,
-        teamAway: refMatch.team_away,
+        teamHome: refMatch.team_home || refMatch.home_team || '',
+        teamAway: refMatch.team_away || refMatch.away_team || '',
         league: refMatch.league,
         matchTime: refMatch.match_time,
         arbitragePercentage,
@@ -381,7 +385,8 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
         expectedValue,
         volatility,
         lastUpdated: new Date().toISOString(),
-        marketType: '1X2'
+        marketType: '1X2',
+        profitAmount: guaranteedProfit // Add profitAmount property
       };
       
       opportunities.push(opportunity);
@@ -523,6 +528,43 @@ const calculateAdvancedMetrics = (stakes: StakeDistribution[], totalStake: numbe
     console.error('Error calculating advanced metrics:', error);
     return { expectedValue: 0, volatility: 0 };
   }
+};
+
+/**
+ * Calculate the implied probability from odds
+ * @param odds - The decimal odds
+ * @returns The implied probability as a percentage
+ */
+export const calculateImpliedProbability = (odds: number): number => {
+  if (!odds || odds <= 0) return 0;
+  return (1 / odds) * 100;
+};
+
+/**
+ * Calculate the Kelly Criterion stake
+ * @param odds - The decimal odds
+ * @param probability - The estimated probability of winning (0-1)
+ * @param bankroll - The total bankroll
+ * @returns The recommended stake amount
+ */
+export const calculateKelly = (odds: number, probability: number, bankroll: number = 1): number => {
+  if (!odds || odds <= 1 || !probability || probability <= 0 || probability >= 1 || !bankroll || bankroll <= 0) {
+    return 0;
+  }
+  
+  // Kelly formula: (bp - q) / b
+  // where b = odds - 1, p = probability of winning, q = probability of losing (1 - p)
+  const b = odds - 1;
+  const p = probability;
+  const q = 1 - p;
+  
+  const kellyFraction = (b * p - q) / b;
+  
+  // Cap the Kelly stake at 25% of bankroll as a safety measure
+  const cappedKellyFraction = Math.min(kellyFraction, 0.25);
+  
+  // Return 0 for negative Kelly (unfavorable bets)
+  return cappedKellyFraction > 0 ? cappedKellyFraction * bankroll : 0;
 };
 
 /**

@@ -1,0 +1,1532 @@
+{
+  "bizCode": 10000,
+  "message": "0#0",
+  "data": {
+    "moreEvents": false,
+    "tournaments": [
+      {
+        "id": "sr:tournament:338",
+        "name": "Super Cup",
+        "eventSize": 1,
+        "events": [
+          {
+            "eventId": "sr:match:61278631",
+            "gameId": "21818",
+            "productStatus": "0#0",
+            "estimateStartTime": 1753029000000,
+            "status": 0,
+            "matchStatus": "Not start",
+            "homeTeamId": "sr:competitor:4860",
+            "homeTeamName": "Union Gilloise",
+            "awayTeamName": "Club Brugge",
+            "awayTeamId": "sr:competitor:2888",
+            "sport": {
+              "id": "sr:sport:1",
+              "name": "Football",
+              "category": {
+                "id": "sr:category:33",
+                "name": "Belgium",
+                "tournament": {
+                  "id": "sr:tournament:338",
+                  "name": "Super Cup"
+                }
+              }
+            },
+            "totalMarketSize": 230,
+            "markets": [
+              {
+                "id": "1",
+                "product": 3,
+                "desc": "1X2",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Which team will win the match. Overtime not included.",
+                "title": "1,X,2",
+                "name": "1X2",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "1",
+                    "odds": "2.60",
+                    "probability": "0.3630430000",
+                    "isActive": 1,
+                    "desc": "Home"
+                  },
+                  {
+                    "id": "2",
+                    "odds": "3.20",
+                    "probability": "0.2924950000",
+                    "isActive": 1,
+                    "desc": "Draw"
+                  },
+                  {
+                    "id": "3",
+                    "odds": "2.75",
+                    "probability": "0.3444620000",
+                    "isActive": 1,
+                    "desc": "Away"
+                  }
+                ],
+                "farNearOdds": 0,
+                "marketExtendVOS": [
+                  {
+                    "name": "1UP",
+                    "rootMarketId": "1",
+                    "nodeMarketId": "60200",
+                    "notSupport": false
+                  },
+                  {
+                    "name": "2UP",
+                    "rootMarketId": "1",
+                    "nodeMarketId": "60100",
+                    "notSupport": false
+                  }
+                ],
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "60200",
+                "product": 3,
+                "desc": "1X2 - 1UP",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "1UP will reward you earlier if your team takes a one-goal lead, e.g. 1-0, 2-1. Once settled, the final result no longer matters - win, lose or draw!\n\nBetting on the draw in this market is the same as in regular 1X2, it is resulted on the full-time score regardless of how and when any goals are scored (which is why the odds are the same).",
+                "title": "",
+                "name": "1X2 - 1UP",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "1",
+                    "odds": "1.74",
+                    "probability": "0.5407123846",
+                    "isActive": 1,
+                    "cashOutIsActive": 1,
+                    "desc": "Home"
+                  },
+                  {
+                    "id": "2",
+                    "odds": "3.20",
+                    "probability": "0.2924950000",
+                    "isActive": 1,
+                    "desc": "Draw"
+                  },
+                  {
+                    "id": "3",
+                    "odds": "1.78",
+                    "probability": "0.5246277092",
+                    "isActive": 1,
+                    "cashOutIsActive": 1,
+                    "desc": "Away"
+                  }
+                ],
+                "farNearOdds": 0,
+                "marketExtendVOS": [
+                  {
+                    "name": "1UP",
+                    "rootMarketId": "1",
+                    "nodeMarketId": "60200",
+                    "notSupport": false
+                  },
+                  {
+                    "name": "2UP",
+                    "rootMarketId": "1",
+                    "nodeMarketId": "60100",
+                    "notSupport": false
+                  }
+                ],
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "60100",
+                "product": 3,
+                "desc": "1X2 - 2UP",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "2UP will reward you earlier if your team takes a two-goal lead, e.g. 2-0, 0-2, 3-1, 1-3. Once settled, the final result no longer matters - win, lose or draw!\n\nIf a match is abandoned and a team has gone two or more goals ahead then bets on that selection will still be paid as winners.\n\nSportyBet reserves the right to void bets/selections if we identify any suspected illegal activity, bonus abuse, or violations of our terms and conditions.",
+                "title": "",
+                "name": "1X2 - 2UP",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "1",
+                    "odds": "2.49",
+                    "probability": "0.3788744514",
+                    "isActive": 1,
+                    "desc": "Home"
+                  },
+                  {
+                    "id": "2",
+                    "odds": "3.20",
+                    "probability": "0.2924950000",
+                    "isActive": 1,
+                    "desc": "Draw"
+                  },
+                  {
+                    "id": "3",
+                    "odds": "2.63",
+                    "probability": "0.3604362250",
+                    "isActive": 1,
+                    "desc": "Away"
+                  }
+                ],
+                "farNearOdds": 0,
+                "marketExtendVOS": [
+                  {
+                    "name": "1UP",
+                    "rootMarketId": "1",
+                    "nodeMarketId": "60200",
+                    "notSupport": false
+                  },
+                  {
+                    "name": "2UP",
+                    "rootMarketId": "1",
+                    "nodeMarketId": "60100",
+                    "notSupport": false
+                  }
+                ],
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=1",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "1.08",
+                    "probability": "0.8988920000",
+                    "isActive": 1,
+                    "desc": "Over 1"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "7.40",
+                    "probability": "0.1011080000",
+                    "isActive": 1,
+                    "desc": "Under 1"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=2",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "1.48",
+                    "probability": "0.6446140000",
+                    "isActive": 1,
+                    "desc": "Over 2"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "2.60",
+                    "probability": "0.3553860000",
+                    "isActive": 1,
+                    "desc": "Under 2"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=3",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "2.70",
+                    "probability": "0.3406380000",
+                    "isActive": 1,
+                    "desc": "Over 3"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.45",
+                    "probability": "0.6593620000",
+                    "isActive": 1,
+                    "desc": "Under 3"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=4",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "5.70",
+                    "probability": "0.1443162383",
+                    "isActive": 1,
+                    "desc": "Over 4"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.13",
+                    "probability": "0.8556837716",
+                    "isActive": 1,
+                    "desc": "Under 4"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=5",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "11.00",
+                    "probability": "0.0548529926",
+                    "isActive": 1,
+                    "desc": "Over 5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.03",
+                    "probability": "0.9451472073",
+                    "isActive": 1,
+                    "desc": "Under 5"
+                  }
+                ],
+                "farNearOdds": -1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=0.5",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "1.06",
+                    "probability": "0.9171890000",
+                    "isActive": 1,
+                    "desc": "Over 0.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "8.50",
+                    "probability": "0.0828114000",
+                    "isActive": 1,
+                    "desc": "Under 0.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=1.5",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "1.31",
+                    "probability": "0.7360641725",
+                    "isActive": 1,
+                    "desc": "Over 1.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "3.40",
+                    "probability": "0.2639359985",
+                    "isActive": 1,
+                    "desc": "Under 1.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=2.5",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 1,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "1.97",
+                    "probability": "0.4784350000",
+                    "isActive": 1,
+                    "desc": "Over 2.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.81",
+                    "probability": "0.5215650000",
+                    "isActive": 1,
+                    "desc": "Under 2.5"
+                  }
+                ],
+                "farNearOdds": 1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=3.5",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "3.33",
+                    "probability": "0.2694490000",
+                    "isActive": 1,
+                    "desc": "Over 3.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.32",
+                    "probability": "0.7305510000",
+                    "isActive": 1,
+                    "desc": "Under 3.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=4.5",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "6.40",
+                    "probability": "0.1236674727",
+                    "isActive": 1,
+                    "desc": "Over 4.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.11",
+                    "probability": "0.8763326262",
+                    "isActive": 1,
+                    "desc": "Under 4.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "18",
+                "specifier": "total=5.5",
+                "product": 3,
+                "desc": "Over/Under",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether the total number of goals scored in regular time is over/under a given line. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. The whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "Goals,Over,Under",
+                "name": "Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "11.00",
+                    "probability": "0.0513433831",
+                    "isActive": 1,
+                    "desc": "Over 5.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.03",
+                    "probability": "0.9486573672",
+                    "isActive": 1,
+                    "desc": "Under 5.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "10",
+                "product": 3,
+                "desc": "Double Chance",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict the match result combining two of the three possible outcomes (1X, X2 or 12).",
+                "title": "1X,12,X2",
+                "name": "Double Chance",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "9",
+                    "odds": "1.42",
+                    "probability": "0.6565774874",
+                    "isActive": 1,
+                    "desc": "Home or Draw"
+                  },
+                  {
+                    "id": "10",
+                    "odds": "1.34",
+                    "probability": "0.7056195832",
+                    "isActive": 1,
+                    "desc": "Home or Away"
+                  },
+                  {
+                    "id": "11",
+                    "odds": "1.46",
+                    "probability": "0.6378029814",
+                    "isActive": 1,
+                    "desc": "Draw or Away"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "14",
+                "specifier": "hcp=0:1",
+                "product": 3,
+                "desc": "Handicap 0:1",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict the winner in regular time taking in consideration the handicap in brackets. ",
+                "title": "Handicap,1,X,2",
+                "name": "Handicap",
+                "favourite": 1,
+                "outcomes": [
+                  {
+                    "id": "1711",
+                    "odds": "5.30",
+                    "probability": "0.1639800000",
+                    "isActive": 1,
+                    "desc": "Home (0:1)"
+                  },
+                  {
+                    "id": "1712",
+                    "odds": "4.40",
+                    "probability": "0.1981000000",
+                    "isActive": 1,
+                    "desc": "Draw (0:1)"
+                  },
+                  {
+                    "id": "1713",
+                    "odds": "1.48",
+                    "probability": "0.6379200000",
+                    "isActive": 1,
+                    "desc": "Away (0:1)"
+                  }
+                ],
+                "farNearOdds": 1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "14",
+                "specifier": "hcp=0:2",
+                "product": 3,
+                "desc": "Handicap 0:2",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict the winner in regular time taking in consideration the handicap in brackets. ",
+                "title": "Handicap,1,X,2",
+                "name": "Handicap",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "1711",
+                    "odds": "13.00",
+                    "probability": "0.0584271000",
+                    "isActive": 1,
+                    "desc": "Home (0:2)"
+                  },
+                  {
+                    "id": "1712",
+                    "odds": "7.25",
+                    "probability": "0.1055530000",
+                    "isActive": 1,
+                    "desc": "Draw (0:2)"
+                  },
+                  {
+                    "id": "1713",
+                    "odds": "1.14",
+                    "probability": "0.8360200000",
+                    "isActive": 1,
+                    "desc": "Away (0:2)"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "14",
+                "specifier": "hcp=0:3",
+                "product": 3,
+                "desc": "Handicap 0:3",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict the winner in regular time taking in consideration the handicap in brackets. ",
+                "title": "Handicap,1,X,2",
+                "name": "Handicap",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "1711",
+                    "odds": "28.00",
+                    "probability": "0.0170439667",
+                    "isActive": 1,
+                    "desc": "Home (0:3)"
+                  },
+                  {
+                    "id": "1712",
+                    "odds": "12.00",
+                    "probability": "0.0418016449",
+                    "isActive": 1,
+                    "desc": "Draw (0:3)"
+                  },
+                  {
+                    "id": "1713",
+                    "odds": "1.03",
+                    "probability": "0.9411546238",
+                    "isActive": 1,
+                    "desc": "Away (0:3)"
+                  }
+                ],
+                "farNearOdds": -1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "14",
+                "specifier": "hcp=1:0",
+                "product": 3,
+                "desc": "Handicap 1:0",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict the winner in regular time taking in consideration the handicap in brackets. ",
+                "title": "Handicap,1,X,2",
+                "name": "Handicap",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "1711",
+                    "odds": "1.44",
+                    "probability": "0.6563934602",
+                    "isActive": 1,
+                    "desc": "Home (1:0)"
+                  },
+                  {
+                    "id": "1712",
+                    "odds": "4.50",
+                    "probability": "0.1919827871",
+                    "isActive": 1,
+                    "desc": "Draw (1:0)"
+                  },
+                  {
+                    "id": "1713",
+                    "odds": "5.70",
+                    "probability": "0.1516237643",
+                    "isActive": 1,
+                    "desc": "Away (1:0)"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "14",
+                "specifier": "hcp=2:0",
+                "product": 3,
+                "desc": "Handicap 2:0",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict the winner in regular time taking in consideration the handicap in brackets. ",
+                "title": "Handicap,1,X,2",
+                "name": "Handicap",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "1711",
+                    "odds": "1.13",
+                    "probability": "0.8484290000",
+                    "isActive": 1,
+                    "desc": "Home (2:0)"
+                  },
+                  {
+                    "id": "1712",
+                    "odds": "7.50",
+                    "probability": "0.0990664000",
+                    "isActive": 1,
+                    "desc": "Draw (2:0)"
+                  },
+                  {
+                    "id": "1713",
+                    "odds": "14.00",
+                    "probability": "0.0525050000",
+                    "isActive": 1,
+                    "desc": "Away (2:0)"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "19",
+                "specifier": "total=0.5",
+                "product": 3,
+                "desc": "Union Gilloise Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by the Home team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Home O/U",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "1.30",
+                    "probability": "0.7348710000",
+                    "isActive": 1,
+                    "desc": "Over 0.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "3.33",
+                    "probability": "0.2651290000",
+                    "isActive": 1,
+                    "desc": "Under 0.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "19",
+                "specifier": "total=1.5",
+                "product": 3,
+                "desc": "Union Gilloise Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by the Home team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Home O/U",
+                "favourite": 1,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "2.40",
+                    "probability": "0.3795670000",
+                    "isActive": 1,
+                    "desc": "Over 1.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.53",
+                    "probability": "0.6204330000",
+                    "isActive": 1,
+                    "desc": "Under 1.5"
+                  }
+                ],
+                "farNearOdds": 1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "19",
+                "specifier": "total=2.5",
+                "product": 3,
+                "desc": "Union Gilloise Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by the Home team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Home O/U",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "5.40",
+                    "probability": "0.1466600000",
+                    "isActive": 1,
+                    "desc": "Over 2.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.13",
+                    "probability": "0.8533400000",
+                    "isActive": 1,
+                    "desc": "Under 2.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "19",
+                "specifier": "total=3.5",
+                "product": 3,
+                "desc": "Union Gilloise Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by the Home team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Home O/U",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "11.00",
+                    "probability": "0.0450087000",
+                    "isActive": 1,
+                    "desc": "Over 3.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.02",
+                    "probability": "0.9549910000",
+                    "isActive": 1,
+                    "desc": "Under 3.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "19",
+                "specifier": "total=4.5",
+                "product": 3,
+                "desc": "Union Gilloise Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by the Home team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Home O/U",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "14.00",
+                    "probability": "0.0093331543",
+                    "isActive": 1,
+                    "desc": "Over 4.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.01",
+                    "probability": "0.9906695183",
+                    "isActive": 1,
+                    "desc": "Under 4.5"
+                  }
+                ],
+                "farNearOdds": -1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "20",
+                "specifier": "total=0.5",
+                "product": 3,
+                "desc": "Brugge Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by Away team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Away O/U",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "1.32",
+                    "probability": "0.7240508229",
+                    "isActive": 1,
+                    "desc": "Over 0.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "3.20",
+                    "probability": "0.2759492753",
+                    "isActive": 1,
+                    "desc": "Under 0.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "20",
+                "specifier": "total=1.5",
+                "product": 3,
+                "desc": "Brugge Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by Away team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Away O/U",
+                "favourite": 1,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "2.50",
+                    "probability": "0.3654870000",
+                    "isActive": 1,
+                    "desc": "Over 1.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.50",
+                    "probability": "0.6345130000",
+                    "isActive": 1,
+                    "desc": "Under 1.5"
+                  }
+                ],
+                "farNearOdds": 1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "20",
+                "specifier": "total=2.5",
+                "product": 3,
+                "desc": "Brugge Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by Away team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Away O/U",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "5.70",
+                    "probability": "0.1373940000",
+                    "isActive": 1,
+                    "desc": "Over 2.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.12",
+                    "probability": "0.8626060000",
+                    "isActive": 1,
+                    "desc": "Under 2.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "20",
+                "specifier": "total=3.5",
+                "product": 3,
+                "desc": "Brugge Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by Away team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Away O/U",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "11.50",
+                    "probability": "0.0409433000",
+                    "isActive": 1,
+                    "desc": "Over 3.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.02",
+                    "probability": "0.9590570000",
+                    "isActive": 1,
+                    "desc": "Under 3.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "20",
+                "specifier": "total=4.5",
+                "product": 3,
+                "desc": "Brugge Over/Under",
+                "status": 0,
+                "group": "Goals",
+                "groupId": "171121144758MGI11271357",
+                "marketGuide": "Predict whether the total number of goals scored by Away team in regular time is over/under a given line.",
+                "title": "",
+                "name": "Away O/U",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "14.00",
+                    "probability": "0.0093127397",
+                    "isActive": 1,
+                    "desc": "Over 4.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.01",
+                    "probability": "0.9906899833",
+                    "isActive": 1,
+                    "desc": "Under 4.5"
+                  }
+                ],
+                "farNearOdds": -1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "29",
+                "product": 3,
+                "desc": "GG/NG",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether both teams will score in the match at regular time. *Yes (GG both teams score) *No (NG any team not to score ).",
+                "title": "GG,NG",
+                "name": "GG/NG",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "74",
+                    "odds": "1.72",
+                    "probability": "0.5418540000",
+                    "isActive": 1,
+                    "desc": "Yes"
+                  },
+                  {
+                    "id": "76",
+                    "odds": "2.00",
+                    "probability": "0.4581460000",
+                    "isActive": 1,
+                    "desc": "No"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "60010",
+                "product": 3,
+                "desc": "Any Team To Score 2 or More Goals in a Row",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether any team will score 2 or more goals in a row.",
+                "title": "Any To Score 2+ Goals in a Row",
+                "name": "",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "74",
+                    "odds": "1.79",
+                    "probability": "0.5323756154",
+                    "isActive": 1,
+                    "desc": "Yes"
+                  },
+                  {
+                    "id": "76",
+                    "odds": "2.03",
+                    "probability": "0.4676243845",
+                    "isActive": 1,
+                    "desc": "No"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "60020",
+                "product": 3,
+                "desc": "Any Team To Score 3 or More Goals in a Row",
+                "status": 0,
+                "group": "Main",
+                "groupId": "171121135724MGI11262166",
+                "marketGuide": "Predict whether any team will score 3 or more goals in a row.",
+                "title": "Any To Score 3+ Goals in a Row",
+                "name": "",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "74",
+                    "odds": "4.93",
+                    "probability": "0.1766101032",
+                    "isActive": 1,
+                    "desc": "Yes"
+                  },
+                  {
+                    "id": "76",
+                    "odds": "1.18",
+                    "probability": "0.8233898967",
+                    "isActive": 1,
+                    "desc": "No"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "60",
+                "product": 3,
+                "desc": "1st Half - 1X2",
+                "status": 0,
+                "group": "Half",
+                "groupId": "171121154448MGI11275318",
+                "marketGuide": "Which team will win the 1st Half.",
+                "title": "",
+                "name": "1st Half - 1X2",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "1",
+                    "odds": "3.20",
+                    "probability": "0.2879750000",
+                    "isActive": 1,
+                    "desc": "Home"
+                  },
+                  {
+                    "id": "2",
+                    "odds": "2.15",
+                    "probability": "0.4361370000",
+                    "isActive": 1,
+                    "desc": "Draw"
+                  },
+                  {
+                    "id": "3",
+                    "odds": "3.33",
+                    "probability": "0.2758880000",
+                    "isActive": 1,
+                    "desc": "Away"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "68",
+                "specifier": "total=1",
+                "product": 3,
+                "desc": "1st Half - Over/Under",
+                "status": 0,
+                "group": "Half",
+                "groupId": "171121154448MGI11275318",
+                "marketGuide": "Predict whether the total number of goals scored in 1st Half is over/under a given line. Quarter line (0.75; 1.25; 1.75 etc.) can be settled as won, lost or half won/half lost while the other half of the stake is returned. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. Whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "",
+                "name": "1st Half - Over/Under",
+                "favourite": 1,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "1.87",
+                    "probability": "0.4995020000",
+                    "isActive": 1,
+                    "desc": "Over 1"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.87",
+                    "probability": "0.5004980000",
+                    "isActive": 1,
+                    "desc": "Under 1"
+                  }
+                ],
+                "farNearOdds": 1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "68",
+                "specifier": "total=2",
+                "product": 3,
+                "desc": "1st Half - Over/Under",
+                "status": 0,
+                "group": "Half",
+                "groupId": "171121154448MGI11275318",
+                "marketGuide": "Predict whether the total number of goals scored in 1st Half is over/under a given line. Quarter line (0.75; 1.25; 1.75 etc.) can be settled as won, lost or half won/half lost while the other half of the stake is returned. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. Whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "",
+                "name": "1st Half - Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "5.50",
+                    "probability": "0.1425070000",
+                    "isActive": 1,
+                    "desc": "Over 2"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.12",
+                    "probability": "0.8574930000",
+                    "isActive": 1,
+                    "desc": "Under 2"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "68",
+                "specifier": "total=3",
+                "product": 3,
+                "desc": "1st Half - Over/Under",
+                "status": 2,
+                "group": "Half",
+                "groupId": "171121154448MGI11275318",
+                "marketGuide": "Predict whether the total number of goals scored in 1st Half is over/under a given line. Quarter line (0.75; 1.25; 1.75 etc.) can be settled as won, lost or half won/half lost while the other half of the stake is returned. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. Whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "",
+                "name": "1st Half - Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "15.00",
+                    "probability": "0.0310000000",
+                    "isActive": 1,
+                    "desc": "Over 3"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.01",
+                    "probability": "0.9690000000",
+                    "isActive": 1,
+                    "desc": "Under 3"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_GENIUS",
+                "lastOddsChangeTime": 1752756356987,
+                "banned": false
+              },
+              {
+                "id": "68",
+                "specifier": "total=0.5",
+                "product": 3,
+                "desc": "1st Half - Over/Under",
+                "status": 0,
+                "group": "Half",
+                "groupId": "171121154448MGI11275318",
+                "marketGuide": "Predict whether the total number of goals scored in 1st Half is over/under a given line. Quarter line (0.75; 1.25; 1.75 etc.) can be settled as won, lost or half won/half lost while the other half of the stake is returned. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. Whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "",
+                "name": "1st Half - Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "1.41",
+                    "probability": "0.6776660000",
+                    "isActive": 1,
+                    "desc": "Over 0.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "2.80",
+                    "probability": "0.3223340000",
+                    "isActive": 1,
+                    "desc": "Under 0.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "68",
+                "specifier": "total=1.5",
+                "product": 3,
+                "desc": "1st Half - Over/Under",
+                "status": 0,
+                "group": "Half",
+                "groupId": "171121154448MGI11275318",
+                "marketGuide": "Predict whether the total number of goals scored in 1st Half is over/under a given line. Quarter line (0.75; 1.25; 1.75 etc.) can be settled as won, lost or half won/half lost while the other half of the stake is returned. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. Whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "",
+                "name": "1st Half - Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "2.80",
+                    "probability": "0.3216930000",
+                    "isActive": 1,
+                    "desc": "Over 1.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.40",
+                    "probability": "0.6783070000",
+                    "isActive": 1,
+                    "desc": "Under 1.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "68",
+                "specifier": "total=2.5",
+                "product": 3,
+                "desc": "1st Half - Over/Under",
+                "status": 0,
+                "group": "Half",
+                "groupId": "171121154448MGI11275318",
+                "marketGuide": "Predict whether the total number of goals scored in 1st Half is over/under a given line. Quarter line (0.75; 1.25; 1.75 etc.) can be settled as won, lost or half won/half lost while the other half of the stake is returned. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. Whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "",
+                "name": "1st Half - Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "6.60",
+                    "probability": "0.1130090311",
+                    "isActive": 1,
+                    "desc": "Over 2.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.09",
+                    "probability": "0.8869912943",
+                    "isActive": 1,
+                    "desc": "Under 2.5"
+                  }
+                ],
+                "farNearOdds": -1,
+                "sourceType": "BET_RADAR",
+                "lastOddsChangeTime": 1752985843302,
+                "banned": false
+              },
+              {
+                "id": "68",
+                "specifier": "total=3.5",
+                "product": 3,
+                "desc": "1st Half - Over/Under",
+                "status": 2,
+                "group": "Half",
+                "groupId": "171121154448MGI11275318",
+                "marketGuide": "Predict whether the total number of goals scored in 1st Half is over/under a given line. Quarter line (0.75; 1.25; 1.75 etc.) can be settled as won, lost or half won/half lost while the other half of the stake is returned. Half line (0.5; 1.5; 2.5 etc.) can be settled as won or lost. Whole line (1; 2; 3 etc.) can be settled as won, lost or void. For further information please refer to the “How to Play” section.",
+                "title": "",
+                "name": "1st Half - Over/Under",
+                "favourite": 0,
+                "outcomes": [
+                  {
+                    "id": "12",
+                    "odds": "15.00",
+                    "probability": "0.0280000000",
+                    "isActive": 1,
+                    "desc": "Over 3.5"
+                  },
+                  {
+                    "id": "13",
+                    "odds": "1.01",
+                    "probability": "0.9720000000",
+                    "isActive": 1,
+                    "desc": "Under 3.5"
+                  }
+                ],
+                "farNearOdds": 0,
+                "sourceType": "BET_GENIUS",
+                "lastOddsChangeTime": 1752756356987,
+                "banned": false
+              }
+            ],
+            "bookingStatus": "Booked",
+            "topTeam": false,
+            "homeTeamIcon": "https://s.sporty.net/common/main/res/d365219580e37a748f275d67a6f41f7b.png",
+            "awayTeamIcon": "https://s.sporty.net/common/main/res/a5bf0dc0309af2897cae3668616bfaa4.png",
+            "commentsNum": 0,
+            "topicId": 79628879,
+            "fixtureVenue": {
+              "name": "Stade Joseph Marien"
+            },
+            "giftGrabActivityResultVO": {
+              "activityEnabled": false,
+              "enabled": false
+            },
+            "ai": false,
+            "bgEvent": false,
+            "matchTrackerNotAllowed": false,
+            "eventSource": {
+              "preMatchSource": {
+                "sourceType": "BET_RADAR",
+                "sourceId": "61278631"
+              },
+              "liveSource": {
+                "sourceType": "BET_RADAR",
+                "sourceId": "61278631"
+              }
+            },
+            "banned": false
+          }
+        ],
+        "categoryName": "Belgium",
+        "categoryId": "sr:category:33",
+        "tournamentIcon": "https://s.sporty.net/common/main/res/fd88c6eebfafaea040be0581a8b8e043.png"
+      }
+    ]
+  }
+}

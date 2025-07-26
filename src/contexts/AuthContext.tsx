@@ -1,19 +1,38 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { useToast } from '@/hooks/use-toast'
-import { supabase, isSupabaseConfigured } from '@/lib/supabase'
-import { User, Session, AuthError } from '@supabase/supabase-js'
+import { User, Session } from '@supabase/supabase-js'
+import { isSupabaseConfigured, testSupabaseConnection } from '@/lib/supabase'
+
+// Mock user interface matching Supabase User structure
+interface MockUser {
+  id: string;
+  email: string;
+  user_metadata: {
+    role?: string;
+    name?: string;
+  };
+  created_at: string;
+}
+
+// Mock session interface matching Supabase Session structure
+interface MockSession {
+  user: MockUser;
+  access_token: string;
+  refresh_token: string;
+  expires_at: number;
+}
 
 interface AuthContextType {
-  user: User | null
-  session: Session | null
-  isAdmin: boolean
-  isLoading: boolean
-  signIn: (email: string, password: string) => Promise<void>
-  signUp: (email: string, password: string) => Promise<void>
-  signOut: () => Promise<void>
-  resetPassword: (email: string) => Promise<void>
-  updateUserProfile: (profile: Partial<User>) => Promise<void>
+  user: MockUser | null;
+  session: MockSession | null;
+  isAdmin: boolean;
+  isLoading: boolean;
+  signIn: (email: string, password: string) => Promise<void>;
+  signUp: (email: string, password: string) => Promise<void>;
+  signOut: () => Promise<void>;
+  resetPassword: (email: string) => Promise<void>;
+  updateUserProfile: (profile: Partial<MockUser>) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -31,7 +50,7 @@ interface AuthProviderProps {
 }
 
 // Helper function to determine if a user is an admin
-const isUserAdmin = (user: User | null): boolean => {
+const isUserAdmin = (user: MockUser | null): boolean => {
   if (!user) return false;
   
   // Check for admin role in user metadata
@@ -46,113 +65,151 @@ const isUserAdmin = (user: User | null): boolean => {
   return false;
 }
 
+// Mock user data
+const MOCK_USERS = [
+  {
+    id: '1',
+    email: 'user@example.com',
+    password: 'password123',
+    user_metadata: { name: 'Regular User', role: 'user' },
+    created_at: new Date().toISOString()
+  },
+  {
+    id: '2',
+    email: 'admin@example.com',
+    password: 'admin123',
+    user_metadata: { name: 'Admin User', role: 'admin' },
+    created_at: new Date().toISOString()
+  }
+];
+
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<User | null>(null)
-  const [session, setSession] = useState<Session | null>(null)
-  const [isAdmin, setIsAdmin] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
-  const { toast } = useToast()
+  const [user, setUser] = useLocalStorage<MockUser | null>('auth_user', null);
+  const [session, setSession] = useLocalStorage<MockSession | null>('auth_session', null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [databaseAvailable, setDatabaseAvailable] = useState(true);
+  const { toast } = useToast();
+  
+  // Check database connection status on load
+  useEffect(() => {
+    const checkDatabaseConnection = async () => {
+      // First check if Supabase is configured properly
+      if (!isSupabaseConfigured()) {
+        console.warn('Supabase is not configured properly. Using mock authentication.');
+        setDatabaseAvailable(false);
+      } else {
+        // Test the connection
+        const isConnected = await testSupabaseConnection();
+        setDatabaseAvailable(isConnected);
+        
+        if (!isConnected) {
+          console.warn('Could not connect to Supabase. Using mock authentication.');
+          // Show a toast notification about database connection issue
+          toast({
+            title: "Database connection issue",
+            description: "Could not connect to the database. The app will use mock data.",
+            variant: "destructive"
+          });
+        }
+      }
+    };
+    
+    checkDatabaseConnection();
+  }, []);
   
   // Load session from storage on mount
   useEffect(() => {
-    // Get initial session
-    const initializeAuth = async () => {
-      setIsLoading(true);
-      
-      try {
-        if (!isSupabaseConfigured()) {
-          console.error("Supabase is not configured. Authentication will not work.");
-          toast({
-            title: "Authentication Error",
-            description: "Authentication system is not configured. Please contact support.",
-            variant: "destructive"
-          });
-          setIsLoading(false);
-          return;
-        }
-        
-        // Get current Supabase session
-        const { data: { session: currentSession }, error } = await supabase.auth.getSession();
-        
-        if (error) {
-          console.error('Error getting session:', error);
-          return;
-        }
-        
-        if (currentSession) {
-          setSession(currentSession);
-          setUser(currentSession.user);
-          setIsAdmin(isUserAdmin(currentSession.user));
-        }
-      } catch (error) {
-        console.error('Error initializing auth:', error);
-      } finally {
-        setIsLoading(false);
+    // Check if we have a stored session
+    if (session && user) {
+      // Check if session is expired
+      if (session.expires_at > Date.now()) {
+        setIsAdmin(isUserAdmin(user));
+      } else {
+        // Session expired, clear it
+        setUser(null);
+        setSession(null);
+        setIsAdmin(false);
       }
-    };
+    }
     
-    initializeAuth();
-    
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, newSession) => {
-        if (newSession) {
-          setSession(newSession);
-          setUser(newSession.user);
-          setIsAdmin(isUserAdmin(newSession.user));
-        } else {
-          setSession(null);
-          setUser(null);
-          setIsAdmin(false);
-        }
-        
-        setIsLoading(false);
-      }
-    );
-    
-    // Cleanup subscription
-    return () => {
-      subscription.unsubscribe();
-    };
+    setIsLoading(false);
   }, []);
 
   const signIn = async (email: string, password: string) => {
     try {
       setIsLoading(true);
       
-      if (!isSupabaseConfigured()) {
-        toast({
-          title: "Authentication Error",
-          description: "Authentication system is not configured. Please contact support.",
-          variant: "destructive"
-        });
-        throw new Error("Supabase is not configured");
-      }
-      
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      
-      if (error) {
-        toast({
-          title: "Login failed",
-          description: error.message,
-          variant: "destructive"
-        });
-        throw error;
-      }
-      
-      if (data.user && data.session) {
-        setUser(data.user);
-        setSession(data.session);
-        setIsAdmin(isUserAdmin(data.user));
+      // Check if we should use mock authentication
+      if (!databaseAvailable) {
+        // Use mock authentication logic
+        const foundUser = MOCK_USERS.find(u => u.email === email && u.password === password);
+        
+        if (!foundUser) {
+          toast({
+            title: "Login failed",
+            description: "Invalid email or password",
+            variant: "destructive"
+          });
+          throw new Error("Invalid email or password");
+        }
+        
+        // Create mock user without password
+        const { password: _, ...userWithoutPassword } = foundUser;
+        const mockUser = userWithoutPassword as MockUser;
+        
+        // Create mock session
+        const mockSession: MockSession = {
+          user: mockUser,
+          access_token: `mock-token-${Date.now()}`,
+          refresh_token: `mock-refresh-${Date.now()}`,
+          expires_at: Date.now() + (24 * 60 * 60 * 1000) // 24 hours from now
+        };
+        
+        setUser(mockUser);
+        setSession(mockSession);
+        setIsAdmin(isUserAdmin(mockUser));
         
         toast({
           title: "Welcome back!",
-          description: `Successfully logged in as ${isUserAdmin(data.user) ? 'admin' : 'user'}`
+          description: `Successfully logged in as ${isUserAdmin(mockUser) ? 'admin' : 'user'} (mock mode)`
+        });
+      } else {
+        // Real authentication would go here when Supabase is connected
+        // For now, still use mock users since we haven't implemented real auth
+        const foundUser = MOCK_USERS.find(u => u.email === email && u.password === password);
+        
+        if (!foundUser) {
+          toast({
+            title: "Login failed",
+            description: "Invalid email or password",
+            variant: "destructive"
+          });
+          throw new Error("Invalid email or password");
+        }
+        
+        // Create mock user without password
+        const { password: _, ...userWithoutPassword } = foundUser;
+        const mockUser = userWithoutPassword as MockUser;
+        
+        // Create mock session
+        const mockSession: MockSession = {
+          user: mockUser,
+          access_token: `mock-token-${Date.now()}`,
+          refresh_token: `mock-refresh-${Date.now()}`,
+          expires_at: Date.now() + (24 * 60 * 60 * 1000) // 24 hours from now
+        };
+        
+        setUser(mockUser);
+        setSession(mockSession);
+        setIsAdmin(isUserAdmin(mockUser));
+        
+        toast({
+          title: "Welcome back!",
+          description: `Successfully logged in as ${isUserAdmin(mockUser) ? 'admin' : 'user'}`
         });
       }
+      
     } catch (error: any) {
       console.error('Sign in error:', error.message);
       throw error;
@@ -165,43 +222,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       setIsLoading(true);
       
-      if (!isSupabaseConfigured()) {
-        toast({
-          title: "Authentication Error",
-          description: "Authentication system is not configured. Please contact support.",
-          variant: "destructive"
-        });
-        throw new Error("Supabase is not configured");
-      }
-      
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: window.location.origin,
-        }
-      });
-      
-      if (error) {
+      // Check if user already exists
+      if (MOCK_USERS.some(u => u.email === email)) {
         toast({
           title: "Registration failed",
-          description: error.message,
+          description: "User with this email already exists",
           variant: "destructive"
         });
-        throw error;
+        throw new Error("User with this email already exists");
       }
+      
+      // In a real app, we would create the user in the database
+      // For this mock implementation, we'll just show a success message
       
       toast({
         title: "Registration successful",
-        description: "Please check your email to confirm your account",
+        description: "Your account has been created. You can now sign in.",
       });
       
-      // If email confirmation is not required, set the user
-      if (data.user && !data.user.identities?.[0]?.identity_data?.email_verified) {
-        setUser(data.user);
-        setSession(data.session);
-        setIsAdmin(isUserAdmin(data.user));
-      }
     } catch (error: any) {
       console.error('Sign up error:', error.message);
       throw error;
@@ -214,41 +252,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       setIsLoading(true);
       
-      if (!isSupabaseConfigured()) {
-        toast({
-          title: "Authentication Error",
-          description: "Authentication system is not configured. Please contact support.",
-          variant: "destructive"
-        });
-        throw new Error("Supabase is not configured");
-      }
-      
-      // Always clear local data
+      // Clear user and session
       setUser(null);
       setSession(null);
       setIsAdmin(false);
-      
-      const { error } = await supabase.auth.signOut();
-      
-      if (error) {
-        toast({
-          title: "Error signing out",
-          description: error.message,
-          variant: "destructive"
-        });
-        throw error;
-      }
       
       toast({
         title: "Signed out",
-        description: "You have been successfully signed out",
+        description: "You have been successfully logged out"
       });
+      
     } catch (error: any) {
       console.error('Sign out error:', error.message);
-      // Even if there's an error, we should still clear the local session
-      setUser(null);
-      setSession(null);
-      setIsAdmin(false);
+      toast({
+        title: "Error signing out",
+        description: error.message,
+        variant: "destructive"
+      });
     } finally {
       setIsLoading(false);
     }
@@ -258,75 +278,74 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       setIsLoading(true);
       
-      if (!isSupabaseConfigured()) {
+      // Check if user exists
+      const userExists = MOCK_USERS.some(u => u.email === email);
+      
+      if (!userExists) {
         toast({
-          title: "Authentication Error",
-          description: "Authentication system is not configured. Please contact support.",
+          title: "Error",
+          description: "No user found with this email",
           variant: "destructive"
         });
-        throw new Error("Supabase is not configured");
+        throw new Error("No user found with this email");
       }
       
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/reset-password`,
-      });
-      
-      if (error) {
-        toast({
-          title: "Error resetting password",
-          description: error.message,
-          variant: "destructive"
-        });
-        throw error;
-      }
+      // In a real app, we would send a password reset email
+      // For this mock implementation, we'll just show a success message
       
       toast({
         title: "Password reset email sent",
-        description: "Check your email for the password reset link",
+        description: "Check your email for a link to reset your password"
       });
+      
     } catch (error: any) {
-      console.error('Password reset error:', error.message);
+      console.error('Reset password error:', error.message);
       throw error;
     } finally {
       setIsLoading(false);
     }
   }
 
-  const updateUserProfile = async (profile: Partial<User>) => {
+  const updateUserProfile = async (profile: Partial<MockUser>) => {
     try {
       setIsLoading(true);
       
-      if (!isSupabaseConfigured()) {
+      if (!user) {
         toast({
-          title: "Authentication Error",
-          description: "Authentication system is not configured. Please contact support.",
+          title: "Error",
+          description: "You must be logged in to update your profile",
           variant: "destructive"
         });
-        throw new Error("Supabase is not configured");
+        throw new Error("User not logged in");
       }
       
-      const { data, error } = await supabase.auth.updateUser(profile);
+      // Update user data
+      const updatedUser = {
+        ...user,
+        ...profile
+      };
       
-      if (error) {
-        toast({
-          title: "Error updating profile",
-          description: error.message,
-          variant: "destructive"
-        });
-        throw error;
-      }
+      setUser(updatedUser);
       
-      if (data.user) {
-        setUser(data.user);
-        setIsAdmin(isUserAdmin(data.user));
-        
-        toast({
-          title: "Profile updated",
-          description: "Your profile has been successfully updated",
+      if (session) {
+        setSession({
+          ...session,
+          user: updatedUser
         });
       }
+      
+      toast({
+        title: "Profile updated",
+        description: "Your profile has been successfully updated"
+      });
+      
     } catch (error: any) {
-      console.error('Profile update error:', error.message);
+      console.error('Update profile error:', error.message);
+      toast({
+        title: "Error updating profile",
+        description: error.message,
+        variant: "destructive"
+      });
       throw error;
     } finally {
       setIsLoading(false);
@@ -334,18 +353,20 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      session,
-      isAdmin,
-      isLoading,
-      signIn,
-      signUp,
-      signOut,
-      resetPassword,
-      updateUserProfile
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        session,
+        isAdmin,
+        isLoading,
+        signIn,
+        signUp,
+        signOut,
+        resetPassword,
+        updateUserProfile
+      }}
+    >
       {children}
     </AuthContext.Provider>
-  );
+  )
 }

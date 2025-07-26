@@ -1,0 +1,586 @@
+[
+  {
+    "id": "c4198d00081ef7586ec5088c547a23dd",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-15T17:00:00Z",
+    "home_team": "Girona",
+    "away_team": "Rayo Vallecano",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Girona",
+                "price": 2.31
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 3.44
+              },
+              {
+                "name": "Draw",
+                "price": 3.44
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.18,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.8,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3723cad1a66e1ce8f0ef45f79a7c32bb",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-15T19:30:00Z",
+    "home_team": "Villarreal",
+    "away_team": "Oviedo",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Oviedo",
+                "price": 9.35
+              },
+              {
+                "name": "Villarreal",
+                "price": 1.41
+              },
+              {
+                "name": "Draw",
+                "price": 5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.93,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.01,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "98738a501162833cfda3dd5987e7bbe8",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-16T17:30:00Z",
+    "home_team": "Mallorca",
+    "away_team": "Barcelona",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.62
+              },
+              {
+                "name": "Mallorca",
+                "price": 5.76
+              },
+              {
+                "name": "Draw",
+                "price": 4.47
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.73,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.28,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f3d481ed9bd49829718585f6b372cf67",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-16T19:30:00Z",
+    "home_team": "Valencia",
+    "away_team": "Real Sociedad",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Real Sociedad",
+                "price": 3.02
+              },
+              {
+                "name": "Valencia",
+                "price": 2.86
+              },
+              {
+                "name": "Draw",
+                "price": 2.98
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.7,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.33,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:27Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:27Z",
+            "outcomes": [
+              {
+                "name": "Real Sociedad",
+                "price": 2.9
+              },
+              {
+                "name": "Valencia",
+                "price": 2.62
+              },
+              {
+                "name": "Draw",
+                "price": 2.8
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bf93792eb89a9564cef6a853f0a12e28",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-17T15:00:00Z",
+    "home_team": "Celta Vigo",
+    "away_team": "Getafe",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 1.85
+              },
+              {
+                "name": "Getafe",
+                "price": 5.2
+              },
+              {
+                "name": "Draw",
+                "price": 3.52
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.51,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.62,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:27Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:27Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 1.75
+              },
+              {
+                "name": "Getafe",
+                "price": 4.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "464babcb400ae952b588caadda9c36e7",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-17T17:30:00Z",
+    "home_team": "Athletic Bilbao",
+    "away_team": "Sevilla",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.74
+              },
+              {
+                "name": "Sevilla",
+                "price": 5.51
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.24,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.76,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:27Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:27Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.67
+              },
+              {
+                "name": "Sevilla",
+                "price": 5
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0595f56cfe72699dc094ca05733d7b92",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-17T19:30:00Z",
+    "home_team": "Espanyol",
+    "away_team": "Atlético Madrid",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Atlético Madrid",
+                "price": 1.64
+              },
+              {
+                "name": "Espanyol",
+                "price": 6.33
+              },
+              {
+                "name": "Draw",
+                "price": 4.05
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.2,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.78,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:27Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:27Z",
+            "outcomes": [
+              {
+                "name": "Atlético Madrid",
+                "price": 1.57
+              },
+              {
+                "name": "Espanyol",
+                "price": 5.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.75
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "82a64ba0ed7b1303620d3a5c7569b434",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-18T19:00:00Z",
+    "home_team": "Elche CF",
+    "away_team": "Real Betis",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.67
+              },
+              {
+                "name": "Real Betis",
+                "price": 2.14
+              },
+              {
+                "name": "Draw",
+                "price": 3.62
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.1,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.86,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:27Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:27Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.6
+              },
+              {
+                "name": "Real Betis",
+                "price": 2
+              },
+              {
+                "name": "Draw",
+                "price": 3.4
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f87448c662690574c9930af99d743f4b",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain",
+    "commence_time": "2025-08-19T19:00:00Z",
+    "home_team": "Real Madrid",
+    "away_team": "CA Osasuna",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:56Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 13.5
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.26
+              },
+              {
+                "name": "Draw",
+                "price": 6.65
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.63,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.49,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

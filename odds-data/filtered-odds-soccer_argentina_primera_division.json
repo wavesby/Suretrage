@@ -1,0 +1,1370 @@
+[
+  {
+    "id": "a71ada4902349f4b976770a6e186fc5d",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-21T22:00:00Z",
+    "home_team": "Estudiantes",
+    "away_team": "Atlético Huracán",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Atlético Huracán",
+                "price": 3.9
+              },
+              {
+                "name": "Estudiantes",
+                "price": 2.15
+              },
+              {
+                "name": "Draw",
+                "price": 3.02
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.57,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.19,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Atlético Huracán",
+                "price": 3.75
+              },
+              {
+                "name": "Estudiantes",
+                "price": 2.15
+              },
+              {
+                "name": "Draw",
+                "price": 2.9
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c69e7c1a5839f2d04605cc366d8e21a1",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-22T00:15:00Z",
+    "home_team": "Defensa y Justicia",
+    "away_team": "Aldosivi Mar del Plata",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Aldosivi Mar del Plata",
+                "price": 4.68
+              },
+              {
+                "name": "Defensa y Justicia",
+                "price": 1.84
+              },
+              {
+                "name": "Draw",
+                "price": 3.38
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.27,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.63,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Aldosivi Mar del Plata",
+                "price": 4.33
+              },
+              {
+                "name": "Defensa y Justicia",
+                "price": 1.83
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0a9e420e4d73f13bd90fb208ee00cd45",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-22T00:15:00Z",
+    "home_team": "San Martin de San Juan",
+    "away_team": "Deportivo Riestra",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Deportivo Riestra",
+                "price": 3.72
+              },
+              {
+                "name": "San Martin de San Juan",
+                "price": 2.38
+              },
+              {
+                "name": "Draw",
+                "price": 2.76
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.8,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.01,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Deportivo Riestra",
+                "price": 3.6
+              },
+              {
+                "name": "San Martin de San Juan",
+                "price": 2.3
+              },
+              {
+                "name": "Draw",
+                "price": 2.7
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "11e7104ac5fab64e20b889451c9abc45",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-25T22:00:00Z",
+    "home_team": "Sarmiento de Junin",
+    "away_team": "Lanus",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Lanus",
+                "price": 2.43
+              },
+              {
+                "name": "Sarmiento de Junin",
+                "price": 3.42
+              },
+              {
+                "name": "Draw",
+                "price": 2.88
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.6,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.33,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Lanus",
+                "price": 2.4
+              },
+              {
+                "name": "Sarmiento de Junin",
+                "price": 3.2
+              },
+              {
+                "name": "Draw",
+                "price": 2.8
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "39e6f4ab0daedb0fc25bd67f922d686e",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-26T00:15:00Z",
+    "home_team": "Independiente Rivadavia",
+    "away_team": "Belgrano de Cordoba",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Belgrano de Cordoba",
+                "price": 3.77
+              },
+              {
+                "name": "Independiente Rivadavia",
+                "price": 2.12
+              },
+              {
+                "name": "Draw",
+                "price": 3.18
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.45,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.55,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Belgrano de Cordoba",
+                "price": 3.6
+              },
+              {
+                "name": "Independiente Rivadavia",
+                "price": 2.05
+              },
+              {
+                "name": "Draw",
+                "price": 3.1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7fde4bce2b95a22a6b5926e3cea1bb66",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-26T00:15:00Z",
+    "home_team": "Union Santa Fe",
+    "away_team": "CA Tigre BA",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "CA Tigre BA",
+                "price": 3.46
+              },
+              {
+                "name": "Union Santa Fe",
+                "price": 2.27
+              },
+              {
+                "name": "Draw",
+                "price": 3.1
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.56,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.42,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "CA Tigre BA",
+                "price": 3.25
+              },
+              {
+                "name": "Union Santa Fe",
+                "price": 2.3
+              },
+              {
+                "name": "Draw",
+                "price": 2.9
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1b9075cc79f67fa660786eb7e72ef2e8",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-26T17:30:00Z",
+    "home_team": "Aldosivi Mar del Plata",
+    "away_team": "Newells Old Boys",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Aldosivi Mar del Plata",
+                "price": 2.46
+              },
+              {
+                "name": "Newells Old Boys",
+                "price": 2.97
+              },
+              {
+                "name": "Draw",
+                "price": 3.25
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.25,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.64,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Aldosivi Mar del Plata",
+                "price": 2.3
+              },
+              {
+                "name": "Newells Old Boys",
+                "price": 2.9
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "47cd77bb3366b9098af469cecea57004",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-26T19:45:00Z",
+    "home_team": "Rosario Central",
+    "away_team": "San Martin de San Juan",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Rosario Central",
+                "price": 1.45
+              },
+              {
+                "name": "San Martin de San Juan",
+                "price": 8.5
+              },
+              {
+                "name": "Draw",
+                "price": 4.1
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.45,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.55,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Rosario Central",
+                "price": 1.44
+              },
+              {
+                "name": "San Martin de San Juan",
+                "price": 7.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.8
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f96450fda740945d612d15285b989ffb",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-26T22:00:00Z",
+    "home_team": "Platense",
+    "away_team": "Argentinos Juniors",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Argentinos Juniors",
+                "price": 2.66
+              },
+              {
+                "name": "Platense",
+                "price": 2.98
+              },
+              {
+                "name": "Draw",
+                "price": 2.91
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.68,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.18,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Argentinos Juniors",
+                "price": 2.6
+              },
+              {
+                "name": "Platense",
+                "price": 2.9
+              },
+              {
+                "name": "Draw",
+                "price": 2.8
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d15417db2c53dbb872f3abce83617a34",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-26T22:00:00Z",
+    "home_team": "Velez Sarsfield BA",
+    "away_team": "Instituto de Córdoba",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Instituto de Córdoba",
+                "price": 3.8
+              },
+              {
+                "name": "Velez Sarsfield BA",
+                "price": 2.15
+              },
+              {
+                "name": "Draw",
+                "price": 3.08
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.55,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.45,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Instituto de Córdoba",
+                "price": 3.6
+              },
+              {
+                "name": "Velez Sarsfield BA",
+                "price": 2.1
+              },
+              {
+                "name": "Draw",
+                "price": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8d37d9e05dab63c8055abd6375fb92a0",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-27T00:15:00Z",
+    "home_team": "Racing Club",
+    "away_team": "Estudiantes",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Estudiantes",
+                "price": 3.8
+              },
+              {
+                "name": "Racing Club",
+                "price": 2.04
+              },
+              {
+                "name": "Draw",
+                "price": 3.35
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.27,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.63,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Estudiantes",
+                "price": 3.6
+              },
+              {
+                "name": "Racing Club",
+                "price": 2
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5cd5dd95288c4e2b9b364903c1327388",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-27T19:00:00Z",
+    "home_team": "Gimnasia La Plata",
+    "away_team": "Independiente",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Gimnasia La Plata",
+                "price": 3.15
+              },
+              {
+                "name": "Independiente",
+                "price": 2.47
+              },
+              {
+                "name": "Draw",
+                "price": 3.02
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.44,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.46,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Gimnasia La Plata",
+                "price": 3.1
+              },
+              {
+                "name": "Independiente",
+                "price": 2.38
+              },
+              {
+                "name": "Draw",
+                "price": 2.9
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b8fe3680075da542208a0d616cc5c8f1",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-27T19:00:00Z",
+    "home_team": "Talleres",
+    "away_team": "Godoy Cruz",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Godoy Cruz",
+                "price": 3.98
+              },
+              {
+                "name": "Talleres",
+                "price": 2.17
+              },
+              {
+                "name": "Draw",
+                "price": 2.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.6,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.33,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Godoy Cruz",
+                "price": 3.8
+              },
+              {
+                "name": "Talleres",
+                "price": 2
+              },
+              {
+                "name": "Draw",
+                "price": 3.1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "98aab24608de5ab80eecb4bdb0cb391d",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-27T21:30:00Z",
+    "home_team": "Atlético Huracán",
+    "away_team": "Boca Juniors",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Atlético Huracán",
+                "price": 2.55
+              },
+              {
+                "name": "Boca Juniors",
+                "price": 2.98
+              },
+              {
+                "name": "Draw",
+                "price": 3.08
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.47,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.42,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Atlético Huracán",
+                "price": 2.5
+              },
+              {
+                "name": "Boca Juniors",
+                "price": 2.88
+              },
+              {
+                "name": "Draw",
+                "price": 2.9
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "efbd8969be2dc134537ac85316e829c1",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-27T23:45:00Z",
+    "home_team": "River Plate",
+    "away_team": "San Lorenzo",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "River Plate",
+                "price": 1.66
+              },
+              {
+                "name": "San Lorenzo",
+                "price": 5.85
+              },
+              {
+                "name": "Draw",
+                "price": 3.58
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.34,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.5,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "River Plate",
+                "price": 1.65
+              },
+              {
+                "name": "San Lorenzo",
+                "price": 5.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.4
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "15cc3a142bcc49927ad7efaa06cf6592",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-28T19:00:00Z",
+    "home_team": "Deportivo Riestra",
+    "away_team": "Atlético Tucuman",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Atlético Tucuman",
+                "price": 3.66
+              },
+              {
+                "name": "Deportivo Riestra",
+                "price": 2.23
+              },
+              {
+                "name": "Draw",
+                "price": 3.02
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.63,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.27,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Atlético Tucuman",
+                "price": 3.6
+              },
+              {
+                "name": "Deportivo Riestra",
+                "price": 2.15
+              },
+              {
+                "name": "Draw",
+                "price": 2.9
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "058b7a395224e2adb2968e8786717701",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-28T21:00:00Z",
+    "home_team": "Central Córdoba",
+    "away_team": "Defensa y Justicia",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Central Córdoba",
+                "price": 2.24
+              },
+              {
+                "name": "Defensa y Justicia",
+                "price": 3.35
+              },
+              {
+                "name": "Draw",
+                "price": 3.26
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.2,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.67,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Central Córdoba",
+                "price": 2.15
+              },
+              {
+                "name": "Defensa y Justicia",
+                "price": 3.2
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9c0922d38b2af4566e575837678f1277",
+    "sport_key": "soccer_argentina_primera_division",
+    "sport_title": "Primera División - Argentina",
+    "commence_time": "2025-07-28T23:00:00Z",
+    "home_team": "Banfield",
+    "away_team": "Barracas Central",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "title": "1xBet",
+        "last_update": "2025-07-21T04:25:15Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Banfield",
+                "price": 2.47
+              },
+              {
+                "name": "Barracas Central",
+                "price": 3.19
+              },
+              {
+                "name": "Draw",
+                "price": 2.99
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2025-07-21T04:25:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.56,
+                "point": 1.5
+              },
+              {
+                "name": "Under",
+                "price": 2.21,
+                "point": 1.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betway",
+        "title": "Betway",
+        "last_update": "2025-07-21T04:25:30Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2025-07-21T04:25:30Z",
+            "outcomes": [
+              {
+                "name": "Banfield",
+                "price": 2.4
+              },
+              {
+                "name": "Barracas Central",
+                "price": 2.9
+              },
+              {
+                "name": "Draw",
+                "price": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

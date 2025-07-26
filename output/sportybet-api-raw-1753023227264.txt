@@ -1,0 +1,244 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, target-densitydpi=high-dpi,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" >
+<style type="text/css">
+/* For Nginx */
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.error-page-container {
+  width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+  color: #9ca0ab;
+  font-family: AvenirNext-Medium, Arial, sans-serif;
+}
+
+.error-page-container .page-head {
+  padding: 0 15% 0 20%;
+  padding-top: 75px;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  .error-page-container .page-head {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 30px 0 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .error-page-container .page-head .error-title-container {
+    width: 100%;
+    text-align: center;
+  }
+}
+.error-page-container .page-head .error-title-container .error-title-1 {
+  font-size: 250px;
+  line-height: 0.8;
+}
+@media screen and (max-width: 767px) {
+  .error-page-container .page-head .error-title-container .error-title-1 {
+    font-size: 72px;
+    line-height: 0.83;
+    font-weight: bold;
+  }
+}
+.error-page-container .page-head .error-title-container .error-title-2 {
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+}
+@media screen and (max-width: 767px) {
+  .error-page-container .page-head .error-title-container .error-title-2 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.56;
+  }
+}
+.error-page-container .page-head .img-container {
+  vertical-align: middle;
+  display: inline-block;
+}
+@media screen and (max-width: 767px) {
+  .error-page-container .page-head .img-container {
+    max-width: 100%;
+    margin-bottom: 36px;
+  }
+}
+.error-page-container .page-head .img-container img {
+  width: 100%;
+}
+.error-page-container .page-body {
+  padding: 0 15% 0 20%;
+  padding-top: 75px;
+}
+@media screen and (max-width: 767px) {
+  .error-page-container .page-body {
+    padding: 10px 10%;
+  }
+}
+.error-page-container .page-body .error-message-title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: left;
+  font-family: AvenirNext-DemiBold;
+}
+@media screen and (max-width: 767px) {
+  .error-page-container .page-body .error-message-title {
+    font-size: 26px;
+  }
+}
+.error-page-container .page-body .error-message {
+  margin-top: 17px;
+  font-size: 30px;
+  line-height: 1.5;
+  text-align: left;
+  font-family: AvenirNext-Regular;
+}
+.error-page-container .page-body .error-message a {
+  color: #1273eb;
+  text-decoration: none;
+}
+@media screen and (max-width: 767px) {
+  .error-page-container .page-body .error-message {
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 0;
+  }
+}
+
+.error-page-container.encore {
+  background-color: #100E26;
+}
+
+.error-page-container.encore .page-body .error-message a {
+  color: #9ff611;
+}
+
+.error-page-container .page-head .img-container img.hide {
+  display: none;
+}
+
+</style>
+</head>
+<body class="ke" data-gr-c-s-loaded="true">
+  <div class="error-page-container">
+    <div class="page-head">
+      <div class="error-title-container">
+        <div class="error-title-1">
+          40X
+        </div>
+        <div class="error-title-2">ERROR</div>
+      </div>
+      <div class="img-container">
+        <img class="hide" src="//s.sporty.net/global/main/modules/main/desktop/page40x/img/encore_400.5abd6107a0.png" />
+        <img class="hide" src="//s.sporty.net/global/main/modules/main/desktop/page40x/img/PC_400.5e714c1b8c.jpg" />
+      </div>
+    </div>
+    <div class="page-body">
+      <div class="error-message-title">
+        OOPS...
+      </div>
+      <div class="error-message">
+        <span class="error-message-part-1">
+          The page and ball you're looking for doesn't exist. Please go back to the home page and enjoy your matches, we are waiting for you there!
+        </span>
+        <a id="back-btn">Go Back</a><br>
+        <span class="error-message-part-2">
+          Or you can visit <a></a> for the ultimate live sports experience. 
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var getLocaleCookie = function() {
+      if (window.location.pathname && window.location.pathname.indexOf('/br/') !== -1) {
+        return 'pt-br';
+      }
+      var cookies = document.cookie.split('; ');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].split('=');
+        if (cookie[0] === 'locale') return cookie[1];
+      }
+      return null;
+    }
+
+    var fetchCMSPage = function() {
+      var locale = getLocaleCookie();
+      var country = window.location.pathname.split('/')[1];
+      if (country === 'modules') country = 'int';
+      var url = 'https://' + window.location.host + '/' + country + '/m/cms/pages/export/page_errors';
+      if (locale && locale !== 'default') url += '?locale=' + locale;
+      return fetch(url)
+        .then(r => r.json())
+        .then(({ keys }) => keys)
+        .catch(() => null);
+    }
+
+    var isDomain = function(domainList) {
+      return domainList.some(d => window.location.host.includes(d))
+    }
+
+    var editHTMLBrand = function() {
+      var container = document.querySelector('.error-page-container');
+      var imgElements = document.querySelectorAll('img');
+      var linkElement1 = document.querySelector('#back-btn');
+      var linkElement2 = document.querySelector('.error-message-part-2 a');
+      if (!linkElement2) linkElement2 = {};
+      var isEncore = isDomain(['football', 'encore']);
+
+      linkElement1.href = window.location.origin;
+      if (isEncore) {
+        container.classList.add('encore');
+        imgElements[0].classList.remove('hide');
+        linkElement2.textContent = 'Football.com';
+        linkElement2.href = 'https://www.football.com';
+      } else {
+        imgElements[1].classList.remove('hide');
+        linkElement2.textContent = 'Sporty.com';
+        linkElement2.href = 'https://www.sporty.com';
+      }
+    }
+
+    editHTMLBrand();
+
+    fetchCMSPage()
+      .then((keys) => {
+        var errorTitleElement = document.querySelector('.error-title-2');
+        var errorMessageTitleElement = document.querySelector('.error-message-title');
+        var errorMessageElement1 = document.querySelector('.error-message-part-1');
+        var backButtonElement = document.querySelector('#back-btn');
+        var errorMessageElement2 = document.querySelector('.error-message-part-2');
+
+        if (keys['error_uppercase'] && keys['error_uppercase'].value) {
+          errorTitleElement.textContent = keys['error_uppercase'].value;
+        }
+        if (keys['error_40x_message_title'] && keys['error_40x_message_title'].value) {
+          errorMessageTitleElement.textContent = keys['error_40x_message_title'].value;
+        }
+        if (keys['error_40x_message_1'] && keys['error_40x_message_1'].value) {
+          errorMessageElement1.textContent = keys['error_40x_message_1'].value;
+        }
+        if (keys['go_back'] && keys['go_back'].value) {
+          backButtonElement.textContent = keys['go_back'].value;
+        }
+        if (keys['error_40x_message_2'] && keys['error_40x_message_2'].value) {
+          errorMessageElement2.innerHTML = keys['error_40x_message_2'].value;
+        }
+
+        editHTMLBrand();
+      });
+  }())
+  </script>
+</body>
+</html>

@@ -10,23 +10,33 @@ import { useUserPreferences } from '@/contexts/UserPreferencesContext'
 import { useData } from '@/contexts/DataContext'
 import { Search } from 'lucide-react'
 
-// Expanded bookmaker list with proper branding colors
+// Updated bookmaker list with accurate Odds API bookmakers
 const bookmakers = [
-  { id: 'bet9ja', name: 'Bet9ja', color: 'bg-green-600', region: 'nigeria' },
-  { id: '1xbet', name: '1xBet', color: 'bg-blue-600', region: 'international' },
-  { id: 'betking', name: 'BetKing', color: 'bg-purple-600', region: 'nigeria' },
+  // African/Nigerian bookmakers
+  { id: '1xbet', name: '1xBet', color: 'bg-blue-600', region: 'africa' },
+  { id: 'onexbet', name: '1xBet', color: 'bg-blue-600', region: 'africa' }, // Alternative API key for 1xBet
   { id: 'sportybet', name: 'SportyBet', color: 'bg-red-600', region: 'nigeria' },
+  { id: 'betway', name: 'Betway', color: 'bg-black', region: 'africa' },
+  { id: 'betway_africa', name: 'Betway Africa', color: 'bg-black', region: 'africa' },
+  
+  // International bookmakers available in the API
+  { id: 'pinnacle', name: 'Pinnacle', color: 'bg-green-600', region: 'international' },
+  { id: 'bet365', name: 'Bet365', color: 'bg-green-600', region: 'international' },
+  { id: 'marathonbet', name: 'Marathonbet', color: 'bg-purple-600', region: 'international' },
+  { id: 'williamhill', name: 'William Hill', color: 'bg-blue-600', region: 'international' },
+  { id: 'bovada', name: 'Bovada', color: 'bg-red-800', region: 'international' },
+  { id: 'fanduel', name: 'FanDuel', color: 'bg-blue-500', region: 'international' },
+  { id: 'matchbook', name: 'Matchbook', color: 'bg-red-600', region: 'international' },
+  { id: 'unibet', name: 'Unibet', color: 'bg-green-500', region: 'international' },
+  { id: 'draftkings', name: 'DraftKings', color: 'bg-green-700', region: 'international' },
+  
+  // Adding these even if they may not be in the API yet, for future compatibility
+  { id: 'bet9ja', name: 'Bet9ja', color: 'bg-green-600', region: 'nigeria' },
+  { id: 'betking', name: 'BetKing', color: 'bg-purple-600', region: 'nigeria' },
   { id: 'nairabet', name: 'NairaBet', color: 'bg-yellow-600', region: 'nigeria' },
-  { id: 'merrybet', name: 'MerryBet', color: 'bg-orange-600', region: 'nigeria' },
-  { id: 'betway', name: 'BetWay', color: 'bg-black', region: 'international' },
   { id: 'bangbet', name: 'BangBet', color: 'bg-pink-600', region: 'nigeria' },
-  { id: 'accessbet', name: 'AccessBet', color: 'bg-emerald-600', region: 'nigeria' },
-  { id: 'betwinner', name: 'BetWinner', color: 'bg-cyan-600', region: 'international' },
-  { id: 'betano', name: 'Betano', color: 'bg-teal-600', region: 'international' },
-  { id: 'superbet', name: 'SuperBet', color: 'bg-rose-600', region: 'nigeria' },
   { id: 'parimatch', name: 'Parimatch', color: 'bg-amber-600', region: 'international' },
-  { id: 'livescore', name: 'LiveScore Bet', color: 'bg-indigo-600', region: 'international' },
-  { id: 'msport', name: 'MSport', color: 'bg-lime-600', region: 'nigeria' },
+  { id: 'parimatch_africa', name: 'Parimatch Africa', color: 'bg-amber-600', region: 'africa' },
 ]
 
 export const BookmakerSelection = () => {
@@ -144,9 +154,10 @@ export const BookmakerSelection = () => {
           </CardHeader>
           
           <Tabs value={activeTab} onValueChange={setActiveTab} className="px-6">
-            <TabsList className="grid grid-cols-3 mb-4">
+            <TabsList className="grid grid-cols-4 mb-4">
               <TabsTrigger value="all">All</TabsTrigger>
-              <TabsTrigger value="nigeria">Nigerian</TabsTrigger>
+              <TabsTrigger value="africa">Africa</TabsTrigger>
+              <TabsTrigger value="nigeria">Nigeria</TabsTrigger>
               <TabsTrigger value="international">International</TabsTrigger>
             </TabsList>
           </Tabs>

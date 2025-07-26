@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .loading {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <h1>API Test</h1>
+    
+    <div>
+        <button id="testHealth">Test Health Endpoint</button>
+        <button id="testOdds">Test Odds Endpoint</button>
+        <button id="test1xBet">Test 1xBet Endpoint</button>
+        <button id="testBetway">Test Betway Endpoint</button>
+    </div>
+    
+    <div id="status"></div>
+    
+    <h2>Response:</h2>
+    <pre id="response">Click a button to test the API...</pre>
+    
+    <script>
+        const API_URL = 'http://localhost:3001';
+        const statusElement = document.getElementById('status');
+        const responseElement = document.getElementById('response');
+        
+        // Helper function to update status
+        function updateStatus(message, type) {
+            statusElement.textContent = message;
+            statusElement.className = type;
+        }
+        
+        // Helper function to make API requests
+        async function makeRequest(url) {
+            updateStatus('Loading...', 'loading');
+            
+            try {
+                console.log(`Fetching from: ${url}`);
+                const response = await fetch(url);
+                console.log('Response status:', response.status);
+                
+                const data = await response.json();
+                responseElement.textContent = JSON.stringify(data, null, 2);
+                
+                updateStatus(`Success! Status: ${response.status}`, 'success');
+                return data;
+            } catch (error) {
+                console.error('Error:', error);
+                responseElement.textContent = `Error: ${error.message}\n\nCheck the console for more details.`;
+                updateStatus(`Error: ${error.message}`, 'error');
+                return null;
+            }
+        }
+        
+        // Add event listeners to buttons
+        document.getElementById('testHealth').addEventListener('click', () => {
+            makeRequest(`${API_URL}/health`);
+        });
+        
+        document.getElementById('testOdds').addEventListener('click', () => {
+            makeRequest(`${API_URL}/api/odds`);
+        });
+        
+        document.getElementById('test1xBet').addEventListener('click', () => {
+            makeRequest(`${API_URL}/api/odds/1xbet`);
+        });
+        
+        document.getElementById('testBetway').addEventListener('click', () => {
+            makeRequest(`${API_URL}/api/odds/betway`);
+        });
+    </script>
+</body>
+</html> 

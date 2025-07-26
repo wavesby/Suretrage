@@ -1,67 +1,22 @@
 {
   "name": "Sport Arbitrage",
   "short_name": "SportArb",
-  "description": "Find and act on sports arbitrage opportunities across multiple bookmakers",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0f172a",
-  "orientation": "portrait-primary",
+  "theme_color": "#3b82f6",
   "icons": [
     {
-      "src": "/favicon-small.svg",
-      "sizes": "16x16 32x32 48x48 72x72",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    },
-    {
       "src": "/favicon.svg",
-      "sizes": "96x96 128x128 144x144 152x152 192x192 384x384 512x512",
+      "sizes": "48x48 72x72 96x96 128x128 256x256",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Opportunities",
-      "short_name": "Opps",
-      "description": "View arbitrage opportunities",
-      "url": "/?tab=opportunities",
-      "icons": [{ "src": "/placeholder.svg", "sizes": "192x192" }]
+      "purpose": "any"
     },
     {
-      "name": "Bookmakers",
-      "short_name": "Bookies",
-      "description": "Select bookmakers to monitor",
-      "url": "/?tab=bookmakers",
-      "icons": [{ "src": "/placeholder.svg", "sizes": "192x192" }]
+      "src": "/favicon-small.svg",
+      "sizes": "16x16 32x32",
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
-  ],
-  "screenshots": [
-    {
-      "src": "/screenshots/opportunities.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Arbitrage Opportunities"
-    },
-    {
-      "src": "/screenshots/bookmakers.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Bookmaker Selection"
-    }
-  ],
-  "categories": ["finance", "sports", "utilities"],
-  "lang": "en-NG",
-  "dir": "ltr",
-  "prefer_related_applications": false,
-  "related_applications": [],
-  "iarc_rating_id": "",
-  "scope": "/",
-  "display_override": ["standalone", "window-controls-overlay"],
-  "edge_side_panel": {
-    "preferred_width": 400
-  }
+  ]
 }

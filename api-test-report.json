@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-07-20T12:47:54.480Z",
+  "sportyBetTest": {
+    "success": true,
+    "matchCount": 20,
+    "idPrefixCount": 0,
+    "duplicateTeamsCount": 0,
+    "missingYearCount": 20
+  },
+  "allOddsTest": {
+    "success": true,
+    "matchCount": 40,
+    "sportyBetCount": 20,
+    "sportyBetIdPrefixCount": 0
+  }
+}

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
-import { fetchArbitrageOpportunities, SUPPORTED_BOOKMAKERS, validateOddsQuality } from '@/lib/api'
+import { fetchArbitrageOpportunities, SUPPORTED_BOOKMAKERS, validateOddsQuality, fetchAllOddsFromServer } from '@/lib/api'
 import { MatchOdds } from '@/utils/arbitrage'
 import { useToast } from '@/hooks/use-toast'
 
@@ -49,7 +49,7 @@ interface DataProviderProps {
 
 export const DataProvider = ({ children }: DataProviderProps) => {
   const [odds, setOdds] = useLocalStorage<MatchOdds[]>('bookmakerOdds', [])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true) // Start with loading state
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
   const [refreshInterval, setRefreshInterval] = useLocalStorage<number>('refreshInterval', 30000)
@@ -122,22 +122,108 @@ export const DataProvider = ({ children }: DataProviderProps) => {
     setIsLoading(true);
     setIsRefreshing(true);
     
+    // Track whether we found valid data
+    let foundValidData = false;
+    
     try {
-      // Get selected bookmakers from local storage
-      const storedPrefs = localStorage.getItem('userPreferences');
-      let selectedBookmakers = SUPPORTED_BOOKMAKERS;
+      // Try all available methods to get odds data
+      let newOdds: MatchOdds[] = [];
       
-      if (storedPrefs) {
-        const prefs = JSON.parse(storedPrefs);
-        if (prefs.selectedBookmakers && prefs.selectedBookmakers.length > 0) {
-          selectedBookmakers = prefs.selectedBookmakers;
+      // Method 1: Try to load data from localStorage first as immediate fallback
+      try {
+        const cachedOddsStr = localStorage.getItem('bookmakerOdds');
+        if (cachedOddsStr) {
+          const cachedOdds = JSON.parse(cachedOddsStr);
+          if (Array.isArray(cachedOdds) && cachedOdds.length > 0) {
+            console.log('Using cached odds from localStorage while fetching fresh data');
+            // Use cached odds temporarily while we fetch fresh data
+            setOdds(cachedOdds);
+            setIsLoading(false); // Show something to the user quickly
+          }
         }
+      } catch (e) {
+        console.error('Error loading cached odds from localStorage', e);
       }
       
-      console.log(`Fetching odds for bookmakers: ${selectedBookmakers.join(', ')}`);
-      
-      // Fetch real-time odds for arbitrage opportunities
-      const newOdds = await fetchArbitrageOpportunities(selectedBookmakers);
+      // Method 2: Try to get data directly from the API server (fastest)
+      try {
+        console.log('Attempting to get data directly from API server...');
+        console.log('Trying direct API URL: http://localhost:3001/api/odds');
+        newOdds = await fetchAllOddsFromServer();
+        console.log('Data fetched successfully, items:', newOdds?.length || 0);
+        foundValidData = true;
+      } catch (directError: any) {
+        console.error('Error using direct API URL:', directError);
+        
+        // Method 3: Try with relative URL
+        try {
+          console.log('Trying relative API URL: /api/odds');
+          const response = await fetch('/api/odds', { 
+            headers: { 'Accept': 'application/json' },
+            signal: AbortSignal.timeout(10000) // 10 second timeout
+          });
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          
+          const data = await response.json();
+          newOdds = Array.isArray(data) ? data : data.events || [];
+          console.log('Data fetched with relative URL, items:', newOdds?.length || 0);
+          foundValidData = true;
+        } catch (relativeError: any) {
+          console.error('Error using relative API URL:', relativeError);
+          
+          // Method 4: Fetch data for individual bookmakers
+          try {
+            console.log('Trying individual bookmaker endpoints');
+            
+            // Get selected bookmakers from local storage
+            const storedPrefs = localStorage.getItem('userPreferences');
+            let selectedBookmakers = SUPPORTED_BOOKMAKERS.slice(0, 3); // Limit to top 3 by default
+            
+            if (storedPrefs) {
+              try {
+                const prefs = JSON.parse(storedPrefs);
+                if (prefs.selectedBookmakers && prefs.selectedBookmakers.length > 0) {
+                  selectedBookmakers = prefs.selectedBookmakers;
+                }
+              } catch (e) {
+                console.error('Error parsing stored preferences:', e);
+              }
+            }
+            
+            console.log(`Fetching odds for bookmakers: ${selectedBookmakers.join(', ')}`);
+            
+            // Fetch odds for each bookmaker individually
+            const bookmakerPromises = selectedBookmakers.map(async (bookmaker) => {
+              try {
+                const url = `/api/odds/${bookmaker.toLowerCase()}`;
+                console.log(`Fetching from ${url}`);
+                const response = await fetch(url, { 
+                  headers: { 'Accept': 'application/json' },
+                  signal: AbortSignal.timeout(8000)
+                });
+                
+                if (!response.ok) return [];
+                
+                const data = await response.json();
+                return Array.isArray(data) ? data : [];
+              } catch (error) {
+                console.error(`Error fetching ${bookmaker} odds:`, error);
+                return [];
+              }
+            });
+            
+            const bookmakerResults = await Promise.all(bookmakerPromises);
+            newOdds = bookmakerResults.flat();
+            console.log('Combined individual bookmaker data, items:', newOdds?.length || 0);
+            foundValidData = newOdds.length > 0;
+          } catch (individualError) {
+            console.error('Error fetching individual bookmaker data:', individualError);
+          }
+        }
+      }
       
       // Validate the quality of the odds data
       const { valid, message } = validateOddsQuality(newOdds);
@@ -154,10 +240,13 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         if (showToast) {
           toast({
             title: "Data updated",
-            description: `Successfully fetched odds from ${selectedBookmakers.length} bookmakers`,
+            description: `Successfully fetched ${newOdds.length} odds events`,
             variant: "default"
           });
         }
+        
+        // Store in localStorage for offline fallback
+        localStorage.setItem('bookmakerOdds', JSON.stringify(newOdds));
       } else if (newOdds.length > 0) {
         // We got some data but it may be lower quality
         console.warn(`Odds data quality issue: ${message}`);
@@ -166,31 +255,59 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         setLastRefreshStatus('partial');
         setConnectionStatus('degraded');
         
+        // Store in localStorage for offline fallback
+        localStorage.setItem('bookmakerOdds', JSON.stringify(newOdds));
+        
         if (showToast) {
           toast({
             title: "Data partially updated",
             description: "Some odds data may be outdated or incomplete",
-            variant: "warning"
+            variant: "destructive" // Changed from "warning" to "destructive"
           });
         }
-      } else {
-        // No valid data returned
+      } else if (!foundValidData) {
+        // No valid data returned - try to use what's already in state
         console.error("No valid odds data received");
         setLastRefreshStatus('failed');
         setRefreshAttempts(prev => prev + 1);
         setConnectionStatus('degraded');
         
-        // Only show error toast on manual refresh
-        if (showToast) {
-          toast({
-            title: "Refresh failed",
-            description: "Failed to fetch odds data. Retrying in background.",
-            variant: "destructive"
-          });
+        // Check if we already have data to use
+        if (odds.length === 0) {
+          // If we have no data at all, show a clear error
+          if (showToast) {
+            toast({
+              title: "No odds data available",
+              description: "Please check your connection or try again later.",
+              variant: "destructive"
+            });
+          }
+        } else {
+          // We have existing data, so just show a warning that it couldn't be refreshed
+          if (showToast) {
+            toast({
+              title: "Refresh failed",
+              description: "Using existing odds data. Will retry in background.",
+              variant: "destructive"
+            });
+          }
         }
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error refreshing odds:', error);
+      
+      // More detailed error logging
+      if (error.response) {
+        console.error('API Error Response:', {
+          status: error.response.status,
+          data: error.response.data
+        });
+      } else if (error.request) {
+        console.error('No response received from API:', error.request);
+      } else {
+        console.error('Request setup error:', error.message);
+      }
+      
       setLastRefreshStatus('failed');
       setRefreshAttempts(prev => prev + 1);
       
@@ -202,11 +319,17 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         setConnectionStatus('degraded');
       }
       
-      // Show error message to user only if showToast is true
-      if (showToast) {
+      // Show error message to user only if showToast is true and we don't have existing data
+      if (showToast && odds.length === 0) {
         toast({
           title: "Refresh failed",
           description: "Failed to fetch odds data. Please check your connection and try again.",
+          variant: "destructive"
+        });
+      } else if (showToast) {
+        toast({
+          title: "Refresh failed",
+          description: "Using existing odds data. Will retry in background.",
           variant: "destructive"
         });
       }
@@ -218,7 +341,12 @@ export const DataProvider = ({ children }: DataProviderProps) => {
 
   // Load initial data on mount
   useEffect(() => {
-    refreshOdds(false); // Don't show toast on initial load
+    // Small delay to allow the UI to render first
+    const timer = setTimeout(() => {
+      refreshOdds(false); // Don't show toast on initial load
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -237,4 +365,4 @@ export const DataProvider = ({ children }: DataProviderProps) => {
       {children}
     </DataContext.Provider>
   );
-}
+};
