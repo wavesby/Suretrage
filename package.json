@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "server": "node server.js",
     "start": "concurrently \"npm run server\" \"npm run dev\"",
+    "vercel-build": "vite build",
     "test:server": "node test-server.js",
     "update-selectors": "node update-selectors.js",
     "validate": "node validate-code.js",

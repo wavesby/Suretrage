@@ -2,9 +2,26 @@
 
 An application for detecting and tracking sports arbitrage betting opportunities.
 
+## 🚀 Quick Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/Sport-arbitrage)
+
+**Important**: After deployment, you MUST set environment variables in Vercel. See [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) for complete instructions.
+
 ## Overview
 
 This application helps users identify profitable arbitrage betting opportunities across different bookmakers. By monitoring odds from multiple sources, the app can detect situations where the differences in bookmaker odds create guaranteed profit possibilities.
+
+## ⚡ Production Deployment
+
+The app is now optimized for Vercel deployment with:
+- ✅ Serverless API functions
+- ✅ The Odds API integration
+- ✅ Real-time odds data
+- ✅ CORS-enabled endpoints
+- ✅ Environment variable support
+
+**For Vercel deployment instructions, see [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)**
 
 ## Key Features
 
@@ -17,143 +34,152 @@ This application helps users identify profitable arbitrage betting opportunities
 
 ## Technical Details
 
+### Architecture
+
+**Local Development:**
+```
+Frontend (Vite) → Express Server → Web Scrapers + The Odds API
+```
+
+**Production (Vercel):**
+```
+Frontend (Static) → Serverless Functions → The Odds API
+```
+
 ### Bookmaker Data Integration
 
-The application uses a robust and fault-tolerant system for fetching odds data from bookmakers:
+The application uses a robust and fault-tolerant system for fetching odds data:
 
-- **Web Scraping Engine**: Uses Playwright to extract real-time odds data from bookmaker websites
-- **The Odds API Integration**: Uses the Odds API to fetch odds from multiple bookmakers
-- **Proxy Server Architecture**: Dedicated Node.js server to handle scraping and data processing
-- **Caching System**: File-based caching to reduce load on bookmaker websites and API requests
-- **Rate limiting protection**: Implements delays and batched requests to avoid IP blocks
-- **User Agent Rotation**: Rotates user agents to avoid detection
-- **Robust error handling**: Automatically retries failed requests with exponential backoff
-- **Data normalization**: Standardizes different bookmaker data formats for consistent processing
-- **Data quality validation**: Ensures odds data meets quality standards before processing
+- **🔄 The Odds API Integration**: Primary data source for production
+- **🤖 Web Scraping Engine**: Uses Playwright for local development (1xBet, SportyBet)
+- **⚡ Serverless Functions**: Vercel-optimized API endpoints
+- **📊 Data Normalization**: Standardizes different bookmaker data formats
+- **🔍 Quality Validation**: Ensures odds data meets quality standards
+- **🎯 Arbitrage Detection**: Advanced algorithms for opportunity identification
 
 ### Odds Data Flow
 
 1. User selects bookmakers to monitor
-2. Proxy server fetches data from each selected bookmaker using either web scraping or The Odds API
-3. Data is normalized into a consistent format
-4. Quality checks are performed to ensure data is valid and recent
-5. Arbitrage opportunities are calculated and displayed to the user
+2. **Production**: Serverless functions fetch from The Odds API
+3. **Development**: Express server scrapes websites + API calls
+4. Data is normalized into consistent format
+5. Quality checks ensure data validity
+6. Arbitrage opportunities calculated and displayed
 
-### The Odds API Integration
+## Installation & Setup
 
-The application now supports fetching odds data through The Odds API, which provides a more reliable and efficient way to get bookmaker data compared to web scraping.
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- (Optional) The Odds API key for real data
 
-#### Setting up The Odds API
+### Local Development
 
-1. Sign up for an API key at [The Odds API](https://the-odds-api.com/)
-2. Create a `.env` file in the project root (copy from `.env.example`)
-3. Add your API key to the `.env` file: `ODDS_API_KEY=your_api_key_here`
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/Sport-arbitrage.git
+   cd Sport-arbitrage
+   ```
 
-#### Running The Odds API integration
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-```bash
-# Get a list of all available sports
-node run-odds-api.js sports
+3. **Set up environment variables**
+   ```bash
+   cp env.example .env.local
+   # Edit .env.local with your API keys
+   ```
 
-# Fetch odds for target sports
-node run-odds-api.js odds
+4. **Start the application**
+   ```bash
+   npm run start
+   ```
 
-# Fetch odds for specific bookmakers
-node run-odds-api.js bookmakers 1xbet sportybet
+This will start both the Express server (port 3001) and Vite dev server (port 5173).
 
-# Prepare data for arbitrage detection
-node run-odds-api.js arbitrage 1xbet sportybet
+### Production Deployment (Vercel)
+
+See [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) for complete deployment instructions.
+
+## Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `ODDS_API_KEY` | The Odds API key | Production |
+| `VITE_SUPABASE_URL` | Supabase database URL | Optional |
+| `VITE_SUPABASE_ANON_KEY` | Supabase anonymous key | Optional |
+| `VITE_PROXY_SERVER` | API server URL for production | Production |
+
+## API Endpoints
+
+### Production (Vercel)
+- `GET /api/odds` - Fetch all odds data
+- `GET /api/health` - Health check
+- `POST /api/refresh-odds` - Refresh odds data
+
+### Development (Express Server)
+- `GET /api/odds` - All odds with caching
+- `GET /api/odds/:bookmaker` - Specific bookmaker
+- `POST /api/refresh-odds` - Force refresh
+- `GET /health` - Health check
+
+## Project Structure
+
+```
+Sport-arbitrage/
+├── src/                          # Frontend React app
+│   ├── components/              # React components
+│   ├── lib/                     # API integration
+│   ├── utils/                   # Arbitrage calculations
+│   └── contexts/                # React contexts
+├── api/                         # Vercel serverless functions
+│   ├── odds.js                  # Main odds endpoint
+│   ├── health.js               # Health check
+│   └── refresh-odds.js         # Refresh endpoint
+├── server.js                   # Express server (development)
+├── vercel.json                 # Vercel configuration
+└── docs/                       # Documentation
 ```
 
-#### Available bookmakers through The Odds API
+## Features in Detail
 
-The Odds API provides access to a wide range of bookmakers. The integration script will attempt to match your requested bookmakers with what's available in the API. Major bookmakers like 1xBet, Betway, and others are available.
+### Arbitrage Detection
+- Calculates implied probabilities
+- Identifies profit opportunities
+- Risk assessment and stake optimization
+- Multi-market analysis
 
-Run the `node find-nigeria-bookmakers.js` script to identify bookmakers available for Nigerian markets.
+### Bookmaker Support
+- **Production**: Via The Odds API (20+ bookmakers)
+- **Development**: Direct scraping (1xBet, SportyBet, etc.)
+- Automatic data validation and normalization
 
-### Supported Bookmakers
+### User Interface
+- Clean, responsive design
+- Real-time updates
+- Filtering and sorting
+- Mobile-optimized
 
-- 1xBet (fully implemented)
-- SportyBet (fully implemented)
-- Bet9ja (coming soon)
-- BetKing (coming soon)
-- NairaBet (coming soon)
-- Betway (coming soon)
-- BangBet (coming soon)
-- Parimatch (coming soon)
+## Contributing
 
-## Development
-
-### Tech Stack
-
-- React 18 with TypeScript
-- Vite build system
-- TailwindCSS for styling
-- Shadcn UI components
-- React Context API for state management
-- React Router for navigation
-- Axios for HTTP requests
-- Supabase for backend (authentication, database)
-- Playwright for web scraping
-- Express for the proxy server
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/sport-arbitrage.git
-
-# Navigate to project directory
-cd sport-arbitrage
-
-# Install dependencies
-npm install
-
-# Install Playwright browsers
-npx playwright install chromium
-
-# Create .env file (copy from .env.example)
-cp .env.example .env
-```
-
-### Running the Application
-
-```bash
-# Start both proxy server and frontend (recommended)
-./start.sh
-
-# Or run them separately
-# Terminal 1: Start the proxy server
-npm run server
-
-# Terminal 2: Start the frontend
-npm run dev
-```
-
-### Testing the Server
-
-```bash
-# Test the proxy server endpoints
-node test-server.js
-```
-
-## Deployment
-
-The application is configured as a Progressive Web App (PWA) and can be deployed to any static hosting service. The proxy server should be deployed separately on a server with Node.js support.
-
-```bash
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-## Documentation
-
-- [Real Data Implementation](README-REAL-DATA.md) - Detailed documentation on the real data implementation
-- [Real Data Solution](REAL-DATA-SOLUTION.md) - Implementation of real data solution using The Odds API exclusively
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test locally with `npm run start`
+5. Submit a pull request
 
 ## License
 
-MIT
+This project is licensed under the MIT License.
+
+## Support
+
+- 📖 Full documentation: [DOCUMENTATION.md](DOCUMENTATION.md)
+- 🚀 Deployment guide: [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)
+- 🔧 Installation help: [INSTALLATION.md](INSTALLATION.md)
+
+---
+
+**🎯 Ready to find arbitrage opportunities? Deploy to Vercel in minutes!**

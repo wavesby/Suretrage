@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "ODDS_API_KEY": "@odds-api-key",
+    "VITE_SUPABASE_URL": "@vite-supabase-url",
+    "VITE_SUPABASE_ANON_KEY": "@vite-supabase-anon-key"
+  },
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 60
+    }
+  }
+} 

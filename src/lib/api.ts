@@ -31,7 +31,8 @@ export const SUPPORTED_BOOKMAKERS = [
 ];
 
 // Proxy server URL - update this with your actual server URL
-const PROXY_SERVER = import.meta.env?.VITE_PROXY_SERVER || 'http://localhost:3001';
+const PROXY_SERVER = import.meta.env?.VITE_PROXY_SERVER || 
+  (import.meta.env.PROD ? '' : 'http://localhost:3001'); // Use relative URLs in production
 
 // Add console logs for debugging
 console.log('Using proxy server URL:', PROXY_SERVER);
