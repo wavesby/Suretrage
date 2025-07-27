@@ -75,6 +75,6 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Plugin configuration (optional - Netlify handles functions automatically)
-# [[plugins]]
-#   package = "@netlify/plugin-functions-install-core" 
+# Plugin configuration for functions
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core" 

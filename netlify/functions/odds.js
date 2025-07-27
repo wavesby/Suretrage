@@ -1,5 +1,5 @@
 // Netlify Function for odds data
-const { Headers } = require('undici');
+import { Headers } from 'undici';
 
 // Default Nigerian bookmakers for The Odds API
 const DEFAULT_NIGERIAN_BOOKMAKERS = ['1xbet', 'betway', 'sportybet', 'pinnacle'];
