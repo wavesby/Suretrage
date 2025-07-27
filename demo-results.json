@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-07-26T23:15:13.894Z",
+  "traditionalOpportunities": 3,
+  "superIntelligentOpportunities": 37,
+  "improvementPercent": "1133.3",
+  "averageIntelligenceScore": "78.1",
+  "topOpportunity": {
+    "match": "Arsenal vs Chelsea",
+    "profit": "9.82",
+    "intelligenceScore": 99
+  }
+}

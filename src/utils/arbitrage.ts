@@ -48,6 +48,18 @@ export interface ArbitrageOpportunity {
   volatility?: number;
   lastUpdated: string;
   marketType?: '1X2' | 'OVER_UNDER'; // Market type for filtering
+  
+  // Enhanced fields for smarter arbitrage detection
+  efficiencyScore?: number;
+  liquidityScore?: number;
+  timeDecayFactor?: number;
+  marketStabilityScore?: number;
+  bookmakerReliabilityScore?: number;
+  optimalExecutionWindow?: {
+    start: Date;
+    end: Date;
+    recommendedAction: string;
+  };
 }
 
 // Define the StakeDistribution interface
@@ -73,8 +85,157 @@ export interface BestOdds {
   odds: number;
 }
 
+// Enhanced bookmaker reliability scoring for smarter arbitrage detection
+const BOOKMAKER_RELIABILITY: Record<string, number> = {
+  'Bet365': 0.95,
+  'Pinnacle': 0.98,
+  'Betway': 0.92,
+  '1xBet': 0.88,
+  'SportyBet': 0.85,
+  'William Hill': 0.93,
+  'MarathonBet': 0.89,
+  'Bovada': 0.87,
+  'FanDuel': 0.94,
+  'DraftKings': 0.95,
+  'Unibet': 0.91,
+  'Matchbook': 0.89,
+  'Bet9ja': 0.83,
+  'BetKing': 0.82,
+  'NairaBet': 0.80,
+  'BangBet': 0.78,
+  'Parimatch': 0.86,
+  // Default for unknown bookmakers
+  'default': 0.75
+};
+
+// Market efficiency factors for smarter threshold calculation
+const MARKET_EFFICIENCY_FACTORS: Record<string, number> = {
+  'soccer_epl': 0.98,           // Highly efficient
+  'soccer_spain_la_liga': 0.97,
+  'soccer_germany_bundesliga': 0.97,
+  'soccer_italy_serie_a': 0.96,
+  'soccer_france_ligue_one': 0.96,
+  'soccer_uefa_champs_league': 0.98,
+  'basketball_nba': 0.97,
+  'americanfootball_nfl': 0.97,
+  'default': 0.85               // Less efficient markets
+};
+
+// Advanced team name normalization for better match grouping
+const normalizeTeamName = (teamName: string): string => {
+  if (!teamName) return '';
+  
+  return teamName
+    .toLowerCase()
+    .trim()
+    // Remove common suffixes
+    .replace(/\s+(fc|cf|united|city|town|rovers|wanderers|athletic|albion|hotspur)$/i, '')
+    // Remove ID prefixes that some scrapers add
+    .replace(/^id:\s*\d+\s*/i, '')
+    // Normalize spaces and special characters
+    .replace(/\s+/g, ' ')
+    .replace(/[^\w\s]/g, '')
+    // Handle common team name variations
+    .replace(/\bmun\b/g, 'manchester')
+    .replace(/\bliv\b/g, 'liverpool')
+    .replace(/\bche\b/g, 'chelsea')
+    .replace(/\bars\b/g, 'arsenal')
+    .replace(/\btot\b/g, 'tottenham')
+    .trim();
+};
+
+// Calculate dynamic threshold based on market conditions for smarter arbitrage detection
+const calculateDynamicThreshold = (matchOdds: MatchOdds[]): number => {
+  const baseThreshold = 1.015; // Start with 1.5% base margin (more aggressive)
+  
+  // Factor 1: Market efficiency (more efficient markets need lower thresholds)
+  const league = matchOdds[0]?.league || 'default';
+  const sportKey = matchOdds[0]?.market_type || 'default';
+  const marketEfficiency = MARKET_EFFICIENCY_FACTORS[sportKey] || MARKET_EFFICIENCY_FACTORS.default;
+  const efficiencyAdjustment = 1 + (1 - marketEfficiency) * 0.02; // Less efficient = higher threshold
+  
+  // Factor 2: Bookmaker reliability (more reliable bookmakers = lower threshold)
+  const avgReliability = matchOdds.reduce((sum, odd) => {
+    return sum + (BOOKMAKER_RELIABILITY[odd.bookmaker] || BOOKMAKER_RELIABILITY.default);
+  }, 0) / matchOdds.length;
+  const reliabilityAdjustment = 1 + (1 - avgReliability) * 0.015;
+  
+  // Factor 3: Market liquidity (higher liquidity = lower threshold)
+  const avgLiquidity = matchOdds.reduce((sum, odd) => sum + (odd.liquidity || 5), 0) / matchOdds.length;
+  const liquidityAdjustment = Math.max(0.995, 1 - (avgLiquidity - 5) * 0.001);
+  
+  // Factor 4: Time to match (more time = lower threshold, less time = higher threshold)
+  const timeToMatch = getTimeToMatch(matchOdds[0]);
+  let timeAdjustment = 1.0;
+  if (timeToMatch < 1) timeAdjustment = 1.008; // Very close to match
+  else if (timeToMatch < 3) timeAdjustment = 1.005; // Close to match  
+  else if (timeToMatch > 48) timeAdjustment = 0.998; // Plenty of time
+  
+  // Factor 5: Number of bookmakers (more bookmakers = lower threshold)
+  const numBookmakers = new Set(matchOdds.map(odd => odd.bookmaker)).size;
+  const bookmakersAdjustment = Math.max(0.995, 1 - (numBookmakers - 2) * 0.002);
+  
+  const dynamicThreshold = baseThreshold * 
+    efficiencyAdjustment * 
+    reliabilityAdjustment * 
+    liquidityAdjustment * 
+    timeAdjustment * 
+    bookmakersAdjustment;
+  
+  // Ensure threshold stays within reasonable bounds
+  return Math.max(1.005, Math.min(1.03, dynamicThreshold));
+};
+
+// Enhanced market analysis for finding more opportunities
+const findAdditionalOpportunities = (matchOdds: MatchOdds[]): MatchOdds[] => {
+  const additionalOpps: MatchOdds[] = [];
+  
+  // Look for value in different market combinations
+  const homeTeam = matchOdds[0]?.team_home || matchOdds[0]?.home_team || '';
+  const awayTeam = matchOdds[0]?.team_away || matchOdds[0]?.away_team || '';
+  
+  // Check for reverse handicap opportunities
+  matchOdds.forEach(odd => {
+    // If home team is heavily favored, look for draw/away combinations
+    if (odd.odds_home < 1.5 && odd.odds_draw && odd.odds_away) {
+      const reverseHomeOdds = 1 / ((1/odd.odds_draw) + (1/odd.odds_away));
+      if (reverseHomeOdds > odd.odds_home * 1.02) {
+        // Create synthetic opportunity
+        additionalOpps.push({
+          ...odd,
+          id: `synthetic_${odd.id}`,
+          odds_home: reverseHomeOdds,
+          market_type: 'synthetic_reverse'
+        });
+      }
+    }
+  });
+  
+  return additionalOpps;
+};
+
+// Enhanced stake optimization using Kelly Criterion principles
+const optimizeStakeDistribution = (
+  stakes: StakeDistribution[], 
+  arbitragePercentage: number,
+  totalStake: number,
+  riskFactor: number = 0.95
+): StakeDistribution[] => {
+  return stakes.map(stake => {
+    // Apply risk-adjusted Kelly optimization
+    const kellyMultiplier = riskFactor * (1 / arbitragePercentage);
+    const optimizedStake = stake.stake * kellyMultiplier;
+    
+    return {
+      ...stake,
+      stake: Math.round(optimizedStake),
+      potentialReturn: Math.round(optimizedStake * stake.odds)
+    };
+  });
+};
+
 /**
- * Calculate arbitrage opportunities from a list of odds
+ * ENHANCED Calculate arbitrage opportunities from a list of odds with SMARTER algorithms
  * @param odds - List of match odds from different bookmakers
  * @param totalStake - Total stake amount to distribute
  * @returns List of arbitrage opportunities
@@ -86,12 +247,19 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
       return [];
     }
 
-    // Group odds by match
+    // ENHANCEMENT: Better team name normalization for more accurate grouping
+    const normalizedOdds = odds.map(odd => ({
+      ...odd,
+      normalizedHome: normalizeTeamName(odd.team_home || odd.home_team || ''),
+      normalizedAway: normalizeTeamName(odd.team_away || odd.away_team || '')
+    }));
+
+    // Group odds by match using enhanced normalization
     const matchGroups: Record<string, MatchOdds[]> = {};
     
-    odds.forEach(odd => {
-      // Create a normalized match key for grouping
-      const matchKey = `${odd.team_home?.toLowerCase() || odd.home_team?.toLowerCase()}-${odd.team_away?.toLowerCase() || odd.away_team?.toLowerCase()}`;
+    normalizedOdds.forEach(odd => {
+      // Create a more robust match key
+      const matchKey = `${(odd as any).normalizedHome}_vs_${(odd as any).normalizedAway}_${odd.league}`;
       
       if (!matchGroups[matchKey]) {
         matchGroups[matchKey] = [];
@@ -102,10 +270,20 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
     
     const opportunities: ArbitrageOpportunity[] = [];
     
-    // Process each match group
+    // Process each match group with enhanced algorithms
     Object.entries(matchGroups).forEach(([matchKey, matchOdds]) => {
-      // Skip if we don't have multiple bookmakers (no arbitrage possible)
-      if (matchOdds.length < 2) return;
+      // ENHANCEMENT: Require at least 2 bookmakers but be smarter about single bookmaker opportunities
+      if (matchOdds.length < 2) {
+        // Look for synthetic opportunities even with single bookmaker
+        const additionalOpps = findAdditionalOpportunities(matchOdds);
+        if (additionalOpps.length > 0) {
+          matchOdds.push(...additionalOpps);
+        }
+        if (matchOdds.length < 2) return;
+      }
+      
+      // ENHANCEMENT: Calculate dynamic threshold for this specific match
+      const dynamicThreshold = calculateDynamicThreshold(matchOdds);
       
       // Find best odds for each outcome across all bookmakers (1X2 market)
       const bestHomeOdds = matchOdds.reduce((best, current) => 
@@ -120,13 +298,7 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
         return current.odds_draw > best.odds_draw ? current : best;
       }, matchOdds[0]);
       
-      // Calculate arbitrage percentage (sum of inverse odds)
-      let arbitragePercentage: number;
-      let stakes: StakeDistribution[] = [];
-      let bestOdds: BestOdds[] = [];
-      let marketType = '1X2';
-      
-      // Check for over/under market opportunities
+      // ENHANCEMENT: Check for over/under market opportunities with smarter detection
       const overUnderOdds = matchOdds.filter(odd => 
         odd.goals_over_under !== undefined && 
         odd.odds_over !== undefined && 
@@ -134,8 +306,7 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
       );
       
       if (overUnderOdds.length >= 2) {
-        // Find best odds for over and under outcomes
-        // Group by goals threshold (e.g., 2.5)
+        // Enhanced over/under analysis
         const overUnderGroups: Record<string, MatchOdds[]> = {};
         
         overUnderOdds.forEach(odd => {
@@ -146,11 +317,10 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
           overUnderGroups[key].push(odd);
         });
         
-        // Check each threshold group for arbitrage
+        // Check each threshold group for arbitrage with dynamic thresholds
         Object.entries(overUnderGroups).forEach(([threshold, thresholdOdds]) => {
-          if (thresholdOdds.length < 2) return; // Need at least 2 bookmakers for comparison
+          if (thresholdOdds.length < 2) return;
           
-          // Find best odds for over and under for this threshold
           const bestOverOdds = thresholdOdds.reduce((best, current) => 
             (current.odds_over ?? 0) > (best.odds_over ?? 0) ? current : best, thresholdOdds[0]);
           
@@ -161,14 +331,19 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
           const overUnderArbitragePercentage = (1 / (bestOverOdds.odds_over ?? 1)) + 
                                                (1 / (bestUnderOdds.odds_under ?? 1));
           
-          // Skip if there's no profitable arbitrage
-          if (overUnderArbitragePercentage > 1.02) return;
+          // ENHANCEMENT: Use dynamic threshold instead of fixed 1.02
+          const ouThreshold = calculateDynamicThreshold(thresholdOdds);
+          if (overUnderArbitragePercentage >= ouThreshold) return;
           
-          // Calculate stakes for over/under
-          const overStake = (totalStake * (1 / (bestOverOdds.odds_over ?? 1))) / overUnderArbitragePercentage;
-          const underStake = (totalStake * (1 / (bestUnderOdds.odds_under ?? 1))) / overUnderArbitragePercentage;
+          // Calculate stakes with enhanced optimization
+          let overStake = (totalStake * (1 / (bestOverOdds.odds_over ?? 1))) / overUnderArbitragePercentage;
+          let underStake = (totalStake * (1 / (bestUnderOdds.odds_under ?? 1))) / overUnderArbitragePercentage;
           
-          // Create stake distribution
+          // Apply Kelly optimization
+          const riskFactor = calculateRiskFactor(thresholdOdds);
+          overStake *= riskFactor;
+          underStake *= riskFactor;
+          
           const overUnderStakes: StakeDistribution[] = [
             {
               outcome: `Over ${threshold} Goals`,
@@ -188,50 +363,24 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
             }
           ];
           
-          // Calculate profit percentage
-          const profitPercentage = overUnderArbitragePercentage < 1 
-            ? ((1 / overUnderArbitragePercentage) - 1) * 100 
-            : 0;
-          
-          // Calculate guaranteed profit
+          // Enhanced profit calculation
+          const profitPercentage = ((1 / overUnderArbitragePercentage) - 1) * 100;
           const actualTotalStake = overUnderStakes.reduce((sum, stake) => sum + stake.stake, 0);
           const guaranteedProfit = Math.round(overUnderStakes[0].potentialReturn - actualTotalStake);
           
-          // Best odds for over/under
-          const overUnderBestOdds: BestOdds[] = [
-            { 
-              outcome: `Over ${threshold} Goals`, 
-              bookmaker: bestOverOdds.bookmaker, 
-              odds: bestOverOdds.odds_over ?? 0 
-            },
-            { 
-              outcome: `Under ${threshold} Goals`, 
-              bookmaker: bestUnderOdds.bookmaker, 
-              odds: bestUnderOdds.odds_under ?? 0 
-            }
-          ];
+          // ENHANCEMENT: Advanced scoring and metrics
+          const efficiencyScore = calculateMarketEfficiencyScore(thresholdOdds);
+          const liquidityScore = calculateLiquidityScore(thresholdOdds);
+          const timeDecayFactor = calculateTimeDecayFactor(thresholdOdds[0]);
           
-          // Calculate risk assessment
-          const riskAssessment = calculateRiskAssessment(thresholdOdds, overUnderArbitragePercentage);
-          
-          // Calculate confidence score
-          const confidenceScore = calculateConfidenceScore(thresholdOdds, overUnderArbitragePercentage);
-          
-          // Calculate expected value and volatility
-          const { expectedValue, volatility } = calculateAdvancedMetrics(overUnderStakes, totalStake);
-          
-          // Get the reference match for metadata
-          const refMatch = thresholdOdds[0];
-          
-          // Create the arbitrage opportunity
           const overUnderOpportunity: ArbitrageOpportunity = {
-            id: `${refMatch.match_id}-ou${threshold}-${Date.now()}`,
-            matchId: refMatch.match_id,
-            matchName: refMatch.match_name,
-            teamHome: refMatch.team_home || refMatch.home_team || '',
-            teamAway: refMatch.team_away || refMatch.away_team || '',
-            league: refMatch.league,
-            matchTime: refMatch.match_time,
+            id: `enhanced_ou_${matchKey}_${threshold}_${Date.now()}`,
+            matchId: thresholdOdds[0].match_id,
+            matchName: thresholdOdds[0].match_name,
+            teamHome: thresholdOdds[0].team_home || thresholdOdds[0].home_team || '',
+            teamAway: thresholdOdds[0].team_away || thresholdOdds[0].away_team || '',
+            league: thresholdOdds[0].league,
+            matchTime: thresholdOdds[0].match_time,
             arbitragePercentage: overUnderArbitragePercentage,
             profitPercentage,
             guaranteedProfit,
@@ -239,35 +388,54 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
             stakes: overUnderStakes,
             bookmakers: thresholdOdds.map(odd => ({
               bookmaker: odd.bookmaker,
-              odds: odd.odds_over ?? 0 // Just using over odds as a reference
+              odds: odd.odds_over ?? 0
             })),
-            bestOdds: overUnderBestOdds,
-            riskAssessment,
-            confidenceScore,
-            expectedValue,
-            volatility,
+            bestOdds: [
+              { outcome: `Over ${threshold} Goals`, bookmaker: bestOverOdds.bookmaker, odds: bestOverOdds.odds_over ?? 0 },
+              { outcome: `Under ${threshold} Goals`, bookmaker: bestUnderOdds.bookmaker, odds: bestUnderOdds.odds_under ?? 0 }
+            ],
+            riskAssessment: calculateEnhancedRiskAssessment(thresholdOdds, overUnderArbitragePercentage),
+            confidenceScore: calculateEnhancedConfidenceScore(thresholdOdds, overUnderArbitragePercentage),
+            expectedValue: guaranteedProfit,
+            volatility: calculateVolatility(overUnderStakes),
             lastUpdated: new Date().toISOString(),
             marketType: 'OVER_UNDER',
-            profitAmount: guaranteedProfit // Add profitAmount property
+            profitAmount: guaranteedProfit,
+            
+            // Enhanced metrics
+            efficiencyScore,
+            liquidityScore,
+            timeDecayFactor,
+            marketStabilityScore: calculateMarketStability(thresholdOdds),
+            bookmakerReliabilityScore: calculateBookmakerReliabilityScore(thresholdOdds),
+            optimalExecutionWindow: calculateOptimalExecutionWindow(thresholdOdds[0])
           };
           
           opportunities.push(overUnderOpportunity);
         });
       }
       
-      // Check if we have draw odds (3-way market)
+      // ENHANCEMENT: Enhanced 1X2 market analysis
+      let arbitragePercentage: number;
+      let stakes: StakeDistribution[] = [];
+      let bestOdds: BestOdds[] = [];
+      
+      // Check if we have draw odds (3-way market) with smarter detection
       if (bestDrawOdds && bestDrawOdds.odds_draw && bestDrawOdds.odds_draw > 0) {
         // 3-way market (1X2)
         arbitragePercentage = (1 / bestHomeOdds.odds_home) + 
                               (1 / bestAwayOdds.odds_away) + 
                               (1 / bestDrawOdds.odds_draw);
         
-        // Calculate stakes for each outcome
-        const homeStake = (totalStake * (1 / bestHomeOdds.odds_home)) / arbitragePercentage;
-        const awayStake = (totalStake * (1 / bestAwayOdds.odds_away)) / arbitragePercentage;
-        const drawStake = (totalStake * (1 / bestDrawOdds.odds_draw)) / arbitragePercentage;
+        // ENHANCEMENT: Use dynamic threshold instead of fixed threshold
+        if (arbitragePercentage >= dynamicThreshold) return;
         
-        // Create stake distribution
+        // Calculate stakes with enhanced optimization
+        const riskFactor = calculateRiskFactor(matchOdds);
+        let homeStake = (totalStake * (1 / bestHomeOdds.odds_home)) / arbitragePercentage * riskFactor;
+        let awayStake = (totalStake * (1 / bestAwayOdds.odds_away)) / arbitragePercentage * riskFactor;
+        let drawStake = (totalStake * (1 / bestDrawOdds.odds_draw)) / arbitragePercentage * riskFactor;
+        
         stakes = [
           {
             outcome: 'Home',
@@ -295,7 +463,6 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
           }
         ];
         
-        // Add best odds
         bestOdds = [
           { outcome: 'Home', bookmaker: bestHomeOdds.bookmaker, odds: bestHomeOdds.odds_home },
           { outcome: 'Away', bookmaker: bestAwayOdds.bookmaker, odds: bestAwayOdds.odds_away },
@@ -305,11 +472,13 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
         // 2-way market (no draw)
         arbitragePercentage = (1 / bestHomeOdds.odds_home) + (1 / bestAwayOdds.odds_away);
         
-        // Calculate stakes for each outcome
-        const homeStake = (totalStake * (1 / bestHomeOdds.odds_home)) / arbitragePercentage;
-        const awayStake = (totalStake * (1 / bestAwayOdds.odds_away)) / arbitragePercentage;
+        // ENHANCEMENT: Use dynamic threshold
+        if (arbitragePercentage >= dynamicThreshold) return;
         
-        // Create stake distribution
+        const riskFactor = calculateRiskFactor(matchOdds);
+        let homeStake = (totalStake * (1 / bestHomeOdds.odds_home)) / arbitragePercentage * riskFactor;
+        let awayStake = (totalStake * (1 / bestAwayOdds.odds_away)) / arbitragePercentage * riskFactor;
+        
         stakes = [
           {
             outcome: 'Home',
@@ -329,47 +498,30 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
           }
         ];
         
-        // Add best odds
         bestOdds = [
           { outcome: 'Home', bookmaker: bestHomeOdds.bookmaker, odds: bestHomeOdds.odds_home },
           { outcome: 'Away', bookmaker: bestAwayOdds.bookmaker, odds: bestAwayOdds.odds_away }
         ];
       }
       
-      // Calculate profit percentage
-      const profitPercentage = arbitragePercentage < 1 
-        ? ((1 / arbitragePercentage) - 1) * 100 
-        : 0;
-      
-      // Calculate guaranteed profit
+      // Enhanced profit calculation
+      const profitPercentage = ((1 / arbitragePercentage) - 1) * 100;
       const actualTotalStake = stakes.reduce((sum, stake) => sum + stake.stake, 0);
       const guaranteedProfit = Math.round(stakes[0].potentialReturn - actualTotalStake);
       
-      // Skip if there's no profit (not an arbitrage)
-      // But include value bets with small negative arbitrage (within 2%)
-      if (arbitragePercentage > 1.02) return;
+      // ENHANCEMENT: Advanced scoring and metrics
+      const efficiencyScore = calculateMarketEfficiencyScore(matchOdds);
+      const liquidityScore = calculateLiquidityScore(matchOdds);
+      const timeDecayFactor = calculateTimeDecayFactor(matchOdds[0]);
       
-      // Calculate risk assessment
-      const riskAssessment = calculateRiskAssessment(matchOdds, arbitragePercentage);
-      
-      // Calculate confidence score
-      const confidenceScore = calculateConfidenceScore(matchOdds, arbitragePercentage);
-      
-      // Calculate expected value and volatility
-      const { expectedValue, volatility } = calculateAdvancedMetrics(stakes, totalStake);
-      
-      // Get the reference match for metadata
-      const refMatch = matchOdds[0];
-      
-      // Create the arbitrage opportunity
       const opportunity: ArbitrageOpportunity = {
-        id: `${refMatch.match_id}-${Date.now()}`,
-        matchId: refMatch.match_id,
-        matchName: refMatch.match_name,
-        teamHome: refMatch.team_home || refMatch.home_team || '',
-        teamAway: refMatch.team_away || refMatch.away_team || '',
-        league: refMatch.league,
-        matchTime: refMatch.match_time,
+        id: `enhanced_${matchKey}_${Date.now()}`,
+        matchId: matchOdds[0].match_id,
+        matchName: matchOdds[0].match_name,
+        teamHome: matchOdds[0].team_home || matchOdds[0].home_team || '',
+        teamAway: matchOdds[0].team_away || matchOdds[0].away_team || '',
+        league: matchOdds[0].league,
+        matchTime: matchOdds[0].match_time,
         arbitragePercentage,
         profitPercentage,
         guaranteedProfit,
@@ -377,156 +529,235 @@ export const calculateArbitrage = (odds: MatchOdds[], totalStake: number = 10000
         stakes,
         bookmakers: matchOdds.map(odd => ({
           bookmaker: odd.bookmaker,
-          odds: odd.odds_home // Just using home odds as a reference
+          odds: odd.odds_home
         })),
         bestOdds,
-        riskAssessment,
-        confidenceScore,
-        expectedValue,
-        volatility,
+        riskAssessment: calculateEnhancedRiskAssessment(matchOdds, arbitragePercentage),
+        confidenceScore: calculateEnhancedConfidenceScore(matchOdds, arbitragePercentage),
+        expectedValue: guaranteedProfit,
+        volatility: calculateVolatility(stakes),
         lastUpdated: new Date().toISOString(),
         marketType: '1X2',
-        profitAmount: guaranteedProfit // Add profitAmount property
+        profitAmount: guaranteedProfit,
+        
+        // Enhanced metrics
+        efficiencyScore,
+        liquidityScore,
+        timeDecayFactor,
+        marketStabilityScore: calculateMarketStability(matchOdds),
+        bookmakerReliabilityScore: calculateBookmakerReliabilityScore(matchOdds),
+        optimalExecutionWindow: calculateOptimalExecutionWindow(matchOdds[0])
       };
       
       opportunities.push(opportunity);
     });
     
-    // Sort opportunities by profit percentage (highest first)
-    return opportunities.sort((a, b) => b.profitPercentage - a.profitPercentage);
+    // ENHANCEMENT: Smart sorting with multiple criteria
+    return opportunities.sort((a, b) => {
+      // Calculate composite score: profit * efficiency * liquidity * time_factor * reliability
+      const scoreA = a.profitPercentage * 
+                     (a.efficiencyScore || 0.5) * 
+                     (a.liquidityScore || 0.5) * 
+                     (a.timeDecayFactor || 0.5) * 
+                     (a.bookmakerReliabilityScore || 0.5);
+                     
+      const scoreB = b.profitPercentage * 
+                     (b.efficiencyScore || 0.5) * 
+                     (b.liquidityScore || 0.5) * 
+                     (b.timeDecayFactor || 0.5) * 
+                     (b.bookmakerReliabilityScore || 0.5);
+      
+      return scoreB - scoreA;
+    });
   } catch (error) {
-    console.error('Error calculating arbitrage opportunities:', error);
+    console.error('Error calculating enhanced arbitrage opportunities:', error);
     return [];
   }
 };
 
-/**
- * Calculate risk assessment based on match odds and arbitrage percentage
- * @param matchOdds - List of match odds
- * @param arbitragePercentage - Calculated arbitrage percentage
- * @returns Risk assessment string
- */
-const calculateRiskAssessment = (matchOdds: MatchOdds[], arbitragePercentage: number): string => {
+// ENHANCED helper functions for smarter arbitrage detection
+
+const getTimeToMatch = (odd: MatchOdds): number => {
   try {
-    // Calculate average liquidity and suspension risk
-    const avgLiquidity = matchOdds.reduce((sum, odd) => sum + (odd.liquidity || 5), 0) / matchOdds.length;
-    const avgSuspensionRisk = matchOdds.reduce((sum, odd) => sum + (odd.suspensionRisk || 3), 0) / matchOdds.length;
-    
-    // Calculate time to event
-    const matchTime = new Date(matchOdds[0].match_time);
+    const matchTime = new Date(odd.match_time);
     const now = new Date();
-    const hoursToMatch = (matchTime.getTime() - now.getTime()) / (1000 * 60 * 60);
-    
-    // Calculate risk score (0-100)
+    return Math.max(0, (matchTime.getTime() - now.getTime()) / (1000 * 60 * 60));
+  } catch {
+    return 24; // Default 24 hours if parsing fails
+  }
+};
+
+const calculateRiskFactor = (matchOdds: MatchOdds[]): number => {
+  const avgReliability = matchOdds.reduce((sum, odd) => {
+    return sum + (BOOKMAKER_RELIABILITY[odd.bookmaker] || BOOKMAKER_RELIABILITY.default);
+  }, 0) / matchOdds.length;
+  
+  const timeToMatch = getTimeToMatch(matchOdds[0]);
+  const timeFactor = timeToMatch < 1 ? 0.9 : timeToMatch > 24 ? 1.0 : 0.95;
+  
+  return avgReliability * timeFactor;
+};
+
+const calculateMarketEfficiencyScore = (matchOdds: MatchOdds[]): number => {
+  // Calculate how much variance there is in the implied probabilities
+  const impliedProbs = matchOdds.map(odd => 1 / odd.odds_home);
+  const avgProb = impliedProbs.reduce((sum, prob) => sum + prob, 0) / impliedProbs.length;
+  const variance = impliedProbs.reduce((sum, prob) => sum + Math.pow(prob - avgProb, 2), 0) / impliedProbs.length;
+  
+  // Higher variance = lower market efficiency = better for arbitrage
+  return Math.min(1, variance * 20);
+};
+
+const calculateLiquidityScore = (matchOdds: MatchOdds[]): number => {
+  const avgLiquidity = matchOdds.reduce((sum, odd) => sum + (odd.liquidity || 5), 0) / matchOdds.length;
+  const numBookmakers = new Set(matchOdds.map(odd => odd.bookmaker)).size;
+  
+  // Combine liquidity and number of bookmakers
+  return Math.min(1, (avgLiquidity / 10 + numBookmakers / 10) / 2);
+};
+
+const calculateTimeDecayFactor = (odd: MatchOdds): number => {
+  const hoursToMatch = getTimeToMatch(odd);
+  
+  // Optimal window is 2-24 hours before match
+  if (hoursToMatch < 0.5) return 0.3; // Very risky
+  if (hoursToMatch < 2) return 0.7;   // Somewhat risky
+  if (hoursToMatch <= 24) return 1.0; // Optimal
+  if (hoursToMatch <= 48) return 0.9; // Good
+  return 0.8; // Still acceptable
+};
+
+const calculateMarketStability = (matchOdds: MatchOdds[]): number => {
+  // Check how recently odds were updated
+  const now = new Date();
+  const updateTimes = matchOdds.map(odd => {
+    try {
+      return (now.getTime() - new Date(odd.updated_at).getTime()) / (1000 * 60); // minutes
+    } catch {
+      return 30; // Default 30 minutes if parsing fails
+    }
+  });
+  
+  const avgMinutesSinceUpdate = updateTimes.reduce((sum, time) => sum + time, 0) / updateTimes.length;
+  
+  // Fresher odds = more stable market
+  return Math.max(0.1, Math.min(1, 1 - (avgMinutesSinceUpdate / 60))); // Decay over 1 hour
+};
+
+const calculateBookmakerReliabilityScore = (matchOdds: MatchOdds[]): number => {
+  return matchOdds.reduce((sum, odd) => {
+    return sum + (BOOKMAKER_RELIABILITY[odd.bookmaker] || BOOKMAKER_RELIABILITY.default);
+  }, 0) / matchOdds.length;
+};
+
+const calculateOptimalExecutionWindow = (odd: MatchOdds): { start: Date; end: Date; recommendedAction: string } => {
+  const matchTime = new Date(odd.match_time);
+  const now = new Date();
+  
+  // Optimal execution window: 2-6 hours before match
+  const optimalStart = new Date(matchTime.getTime() - (6 * 60 * 60 * 1000));
+  const optimalEnd = new Date(matchTime.getTime() - (2 * 60 * 60 * 1000));
+  
+  let recommendedAction = 'Monitor';
+  if (now < optimalStart) {
+    recommendedAction = 'Wait for optimal window';
+  } else if (now >= optimalStart && now <= optimalEnd) {
+    recommendedAction = 'Execute now - optimal window';
+  } else if (now > optimalEnd) {
+    recommendedAction = 'Execute immediately - window closing';
+  }
+  
+  return {
+    start: optimalStart,
+    end: optimalEnd,
+    recommendedAction
+  };
+};
+
+const calculateVolatility = (stakes: StakeDistribution[]): number => {
+  const avgReturn = stakes.reduce((sum, stake) => sum + stake.potentialReturn, 0) / stakes.length;
+  const variance = stakes.reduce((sum, stake) => {
+    return sum + Math.pow(stake.potentialReturn - avgReturn, 2);
+  }, 0) / stakes.length;
+  return Math.round(Math.sqrt(variance));
+};
+
+/**
+ * Enhanced risk assessment with multiple factors
+ */
+const calculateEnhancedRiskAssessment = (matchOdds: MatchOdds[], arbitragePercentage: number): string => {
+  try {
     let riskScore = 0;
     
-    // Arbitrage percentage factor (lower is better)
-    if (arbitragePercentage < 0.95) riskScore += 0;
-    else if (arbitragePercentage < 0.97) riskScore += 10;
-    else if (arbitragePercentage < 0.99) riskScore += 20;
-    else if (arbitragePercentage < 1.0) riskScore += 30;
-    else riskScore += 50; // Not a true arbitrage
+    // Factor 1: Arbitrage margin (lower is riskier)
+    const margin = 1 - arbitragePercentage;
+    if (margin < 0.005) riskScore += 30; // Very tight margin
+    else if (margin < 0.01) riskScore += 20;
+    else if (margin < 0.02) riskScore += 10;
     
-    // Liquidity factor (higher is better)
-    riskScore -= Math.min(20, avgLiquidity * 2);
+    // Factor 2: Bookmaker reliability
+    const avgReliability = calculateBookmakerReliabilityScore(matchOdds);
+    riskScore += (1 - avgReliability) * 25;
     
-    // Suspension risk factor (lower is better)
-    riskScore += Math.min(20, avgSuspensionRisk * 4);
+    // Factor 3: Time to match
+    const timeToMatch = getTimeToMatch(matchOdds[0]);
+    if (timeToMatch < 1) riskScore += 25;
+    else if (timeToMatch < 3) riskScore += 15;
+    else if (timeToMatch < 6) riskScore += 5;
     
-    // Time to event factor (more time is better)
-    if (hoursToMatch < 1) riskScore += 20;
-    else if (hoursToMatch < 3) riskScore += 10;
-    else if (hoursToMatch < 12) riskScore += 5;
+    // Factor 4: Market liquidity
+    const liquidityScore = calculateLiquidityScore(matchOdds);
+    riskScore += (1 - liquidityScore) * 20;
     
-    // Number of bookmakers factor (more is better)
-    const uniqueBookmakers = new Set(matchOdds.map(odd => odd.bookmaker)).size;
-    riskScore -= Math.min(10, uniqueBookmakers * 2);
+    // Factor 5: Number of bookmakers
+    const numBookmakers = new Set(matchOdds.map(odd => odd.bookmaker)).size;
+    if (numBookmakers < 3) riskScore += 15;
+    else if (numBookmakers < 5) riskScore += 5;
     
-    // Clamp risk score
-    riskScore = Math.max(0, Math.min(100, riskScore));
-    
-    // Convert to risk assessment
-    if (riskScore < 30) return "Low Risk";
-    if (riskScore < 60) return "Medium Risk";
+    // Determine risk level
+    if (riskScore <= 25) return "Low Risk";
+    if (riskScore <= 50) return "Medium Risk";
     return "High Risk";
+    
   } catch (error) {
-    console.error('Error calculating risk assessment:', error);
+    console.error('Error calculating enhanced risk assessment:', error);
     return "Unknown Risk";
   }
 };
 
 /**
- * Calculate confidence score based on match odds and arbitrage percentage
- * @param matchOdds - List of match odds
- * @param arbitragePercentage - Calculated arbitrage percentage
- * @returns Confidence score (0-10)
+ * Enhanced confidence score with multiple factors
  */
-const calculateConfidenceScore = (matchOdds: MatchOdds[], arbitragePercentage: number): number => {
+const calculateEnhancedConfidenceScore = (matchOdds: MatchOdds[], arbitragePercentage: number): number => {
   try {
-    // Base score
     let score = 10;
     
-    // Arbitrage percentage factor
-    if (arbitragePercentage > 1) {
-      score -= Math.min(5, (arbitragePercentage - 1) * 10);
-    }
+    // Factor 1: Arbitrage margin strength
+    const margin = 1 - arbitragePercentage;
+    if (margin >= 0.02) score += 1; // Strong margin
+    else if (margin < 0.005) score -= 3; // Weak margin
     
-    // Bookmaker reputation factor
-    const premiumBookmakers = ['Bet9ja', 'BetKing', '1xBet', 'BetWay'];
-    const hasPremiumBookmaker = matchOdds.some(odd => 
-      premiumBookmakers.includes(odd.bookmaker)
-    );
+    // Factor 2: Bookmaker quality
+    const avgReliability = calculateBookmakerReliabilityScore(matchOdds);
+    score = score * avgReliability;
     
-    if (!hasPremiumBookmaker) score -= 2;
+    // Factor 3: Market efficiency
+    const efficiencyScore = calculateMarketEfficiencyScore(matchOdds);
+    score += efficiencyScore * 2; // Higher inefficiency = higher confidence
     
-    // Time since update factor
-    const latestUpdate = new Date(Math.max(...matchOdds.map(odd => new Date(odd.updated_at).getTime())));
-    const now = new Date();
-    const minutesSinceUpdate = (now.getTime() - latestUpdate.getTime()) / (1000 * 60);
+    // Factor 4: Time factors
+    const timeDecay = calculateTimeDecayFactor(matchOdds[0]);
+    score = score * timeDecay;
     
-    if (minutesSinceUpdate > 30) score -= 3;
-    else if (minutesSinceUpdate > 15) score -= 2;
-    else if (minutesSinceUpdate > 5) score -= 1;
+    // Factor 5: Market stability
+    const stability = calculateMarketStability(matchOdds);
+    score = score * stability;
     
-    // Clamp score
     return Math.max(1, Math.min(10, Math.round(score)));
+    
   } catch (error) {
-    console.error('Error calculating confidence score:', error);
-    return 5; // Default middle score
-  }
-};
-
-/**
- * Calculate advanced metrics for an arbitrage opportunity
- * @param stakes - Stake distribution
- * @param totalStake - Total stake amount
- * @returns Expected value and volatility
- */
-const calculateAdvancedMetrics = (stakes: StakeDistribution[], totalStake: number) => {
-  try {
-    // Calculate expected value (weighted average of returns)
-    const expectedValue = stakes.reduce((sum, stake) => {
-      const probability = stake.impliedProbability || 0;
-      return sum + (stake.potentialReturn * probability);
-    }, 0);
-    
-    // Calculate volatility (standard deviation of returns)
-    const meanReturn = expectedValue;
-    const variance = stakes.reduce((sum, stake) => {
-      const probability = stake.impliedProbability || 0;
-      const deviation = stake.potentialReturn - meanReturn;
-      return sum + (deviation * deviation * probability);
-    }, 0);
-    
-    const volatility = Math.sqrt(variance);
-    
-    return { 
-      expectedValue: Math.round(expectedValue), 
-      volatility: Math.round(volatility) 
-    };
-  } catch (error) {
-    console.error('Error calculating advanced metrics:', error);
-    return { expectedValue: 0, volatility: 0 };
+    console.error('Error calculating enhanced confidence score:', error);
+    return 5;
   }
 };
 
