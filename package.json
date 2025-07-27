@@ -17,6 +17,7 @@
     "netlify:build": "netlify build",
     "netlify:deploy": "netlify deploy",
     "netlify:deploy:prod": "netlify deploy --prod",
+    "verify:build": "node scripts/verify-build.js",
     "test:server": "node test-server.js",
     "update-selectors": "node update-selectors.js",
     "validate": "node validate-code.js",

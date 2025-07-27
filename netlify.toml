@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "npm ci && npm run build"
   functions = "netlify/functions"
 
 [dev]
@@ -74,8 +74,7 @@
 # Environment variables (these will be set in Netlify dashboard)
 [build.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = "--prefix=/opt/buildhome/node_modules"
 
-# Plugin configuration
-[[plugins]]
-  package = "@netlify/plugin-functions-install-core" 
+# Plugin configuration (optional - Netlify handles functions automatically)
+# [[plugins]]
+#   package = "@netlify/plugin-functions-install-core" 
