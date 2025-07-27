@@ -1,0 +1,81 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+  functions = "netlify/functions"
+
+[dev]
+  command = "npm run dev"
+  port = 5173
+  publish = "dist"
+  functions = "netlify/functions"
+
+# Redirect API calls to Netlify Functions
+[[redirects]]
+  from = "/api/odds"
+  to = "/.netlify/functions/odds"
+  status = 200
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+
+[[redirects]]
+  from = "/api/refresh-odds"
+  to = "/.netlify/functions/refresh-odds"
+  status = 200
+
+[[redirects]]
+  from = "/api/odds/*"
+  to = "/.netlify/functions/odds-bookmaker"
+  status = 200
+
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: wss:;"
+
+# Cache headers for static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# API headers with CORS
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Max-Age = "86400"
+
+# Environment variables (these will be set in Netlify dashboard)
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--prefix=/opt/buildhome/node_modules"
+
+# Plugin configuration
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core" 

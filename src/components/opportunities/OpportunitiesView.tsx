@@ -22,13 +22,22 @@ import {
   Filter, 
   SlidersHorizontal, 
   ChevronDown, 
-  ArrowUpDown, 
   Percent,
   Clock,
-  BarChart3,
   Settings2,
   Gauge,
-  WifiOff
+  WifiOff,
+  Sparkles,
+  Zap,
+  Target,
+  Activity,
+  Brain,
+  Cpu,
+  HelpCircle,
+  Info,
+  TrendingUp,
+  Users,
+  BarChart3
 } from 'lucide-react'
 import { OpportunityCard } from './OpportunityCard'
 import { ArbitrageOpportunity, MatchOdds, calculateArbitrage, hasArbitrageExpired, formatCurrency } from '@/utils/arbitrage'
@@ -38,6 +47,12 @@ import { useNotifications } from '@/contexts/NotificationContext'
 import { useUserPreferences } from '@/contexts/UserPreferencesContext'
 import { useToast } from '@/hooks/use-toast'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { 
+  Tooltip, 
+  TooltipContent, 
+  TooltipProvider, 
+  TooltipTrigger 
+} from '@/components/ui/tooltip'
 
 export const OpportunitiesView = () => {
   // Context hooks
@@ -245,8 +260,6 @@ export const OpportunitiesView = () => {
       });
     }
 
-    // We've already implemented the market type filter above
-
     // Market type filter
     if (marketTypeFilter !== 'all') {
       filtered = filtered.filter(opp => {
@@ -294,8 +307,6 @@ export const OpportunitiesView = () => {
   // Recalculate opportunities when stake changes
   const handleStakeChange = (value: number) => {
     setStakeAmount(value)
-    // We don't need to recalculate immediately as stake changes
-    // This will be done when user clicks "Save" or refreshes data
   }
 
   // Extract unique leagues for filtering
@@ -328,279 +339,381 @@ export const OpportunitiesView = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <Card className="mb-6">
-        <CardHeader className="pb-3">
-          <div className="flex justify-between items-center">
-            <div>
-              <CardTitle className="text-2xl">Arbitrage Opportunities</CardTitle>
-              <CardDescription>
-                {lastUpdated ? (
-                  <span className="flex items-center">
-                    <Clock className="mr-1 h-3 w-3" /> {getLastUpdateText()}
-                  </span>
-                ) : 'No data loaded yet'}
-              </CardDescription>
-            </div>
-            <div className="flex gap-2">
-              <Button 
-                variant="outline" 
-                size="sm" 
-                onClick={handleRefresh}
-                disabled={isLoading || isRefreshing}
-              >
-                <RefreshCw className={`h-4 w-4 mr-1 ${isLoading || isRefreshing ? 'animate-spin' : ''}`} />
-                {isLoading || isRefreshing ? 'Refreshing...' : 'Refresh'}
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={() => setShowSettings(!showSettings)}
-              >
-                <Settings2 className="h-4 w-4 mr-1" />
-                Settings
-              </Button>
-            </div>
-          </div>
-        </CardHeader>
-
-        {error && (
-          <CardContent className="pt-0 pb-3">
-            <Alert variant="destructive" className="mb-4">
-              <AlertCircle className="h-4 w-4" />
-              <AlertTitle>Error</AlertTitle>
-              <AlertDescription className="flex items-center">
-                <WifiOff className="h-4 w-4 mr-2" /> {error}
-              </AlertDescription>
-            </Alert>
-          </CardContent>
-        )}
-
-        <CardContent>
-          {/* Stake input */}
-          <div className="flex items-center gap-4 mb-4">
-            <div className="flex-1">
-              <Label htmlFor="stake" className="text-sm font-medium">
-                Stake Amount (₦)
-              </Label>
-              <div className="flex items-center gap-2">
-                <Input
-                  id="stake"
-                  type="number"
-                  value={stakeAmount}
-                  onChange={(e) => handleStakeChange(Number(e.target.value))}
-                  className="w-full"
-                />
-                <Button size="sm" onClick={saveStakePreference}>Save</Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Search and filters */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-4">
-            <div className="relative flex-1">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search opportunities..."
-                className="pl-8"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="flex items-center gap-1">
-                  <Filter className="h-4 w-4" />
-                  <span>Filter</span>
-                  <ChevronDown className="h-4 w-4 opacity-50" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>Risk Level</DropdownMenuLabel>
-                <DropdownMenuItem onClick={() => setRiskFilter('all')}>
-                  All Risks
-                  {riskFilter === 'all' && " ✓"}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setRiskFilter('low')}>
-                  Low Risk Only
-                  {riskFilter === 'low' && " ✓"}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setRiskFilter('medium')}>
-                  Medium Risk Only
-                  {riskFilter === 'medium' && " ✓"}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setRiskFilter('high')}>
-                  High Risk Only
-                  {riskFilter === 'high' && " ✓"}
-                </DropdownMenuItem>
-                
-                <DropdownMenuSeparator />
-                
-                <DropdownMenuLabel>Market Type</DropdownMenuLabel>
-                <DropdownMenuItem onClick={() => setMarketTypeFilter('all')}>
-                  All Markets
-                  {marketTypeFilter === 'all' && " ✓"}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setMarketTypeFilter('1x2')}>
-                  1X2 Markets Only
-                  {marketTypeFilter === '1x2' && " ✓"}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setMarketTypeFilter('over/under')}>
-                  Over/Under Markets Only
-                  {marketTypeFilter === 'over/under' && " ✓"}
-                </DropdownMenuItem>
-                
-                <DropdownMenuSeparator />
-                
-                <DropdownMenuLabel>Leagues</DropdownMenuLabel>
-                {availableLeagues.length === 0 ? (
-                  <DropdownMenuItem disabled>No leagues available</DropdownMenuItem>
-                ) : (
-                  availableLeagues.slice(0, 10).map(league => (
-                    <DropdownMenuItem 
-                      key={league}
-                      onClick={() => {
-                        if (selectedLeagues.includes(league)) {
-                          setSelectedLeagues(selectedLeagues.filter(l => l !== league));
-                        } else {
-                          setSelectedLeagues([...selectedLeagues, league]);
-                        }
-                      }}
-                    >
-                      {league}
-                      {selectedLeagues.includes(league) && " ✓"}
-                    </DropdownMenuItem>
-                  ))
-                )}
-                
-                {availableLeagues.length > 10 && (
-                  <DropdownMenuItem disabled>
-                    + {availableLeagues.length - 10} more...
-                  </DropdownMenuItem>
-                )}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="flex items-center gap-1">
-                  <SlidersHorizontal className="h-4 w-4" />
-                  <span>Sort</span>
-                  <ChevronDown className="h-4 w-4 opacity-50" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>Sort By</DropdownMenuLabel>
-                <DropdownMenuItem onClick={() => setSortBy('profit')}>
-                  Profit {sortBy === 'profit' && " ✓"}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setSortBy('date')}>
-                  Match Date {sortBy === 'date' && " ✓"}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setSortBy('league')}>
-                  League {sortBy === 'league' && " ✓"}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setSortBy('confidence')}>
-                  Confidence Score {sortBy === 'confidence' && " ✓"}
-                </DropdownMenuItem>
-                
-                <DropdownMenuSeparator />
-                
-                <DropdownMenuItem onClick={toggleSortDirection}>
-                  {sortOrder === 'desc' ? 'Descending ✓' : 'Ascending ✓'}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-
-          {/* Tabs for different views */}
-          <Tabs defaultValue="all" value={activeView} onValueChange={setActiveView} className="mb-4">
-            <TabsList className="grid grid-cols-5 mb-2">
-              <TabsTrigger value="all">All</TabsTrigger>
-              <TabsTrigger value="guaranteed">Guaranteed</TabsTrigger>
-              <TabsTrigger value="high-profit">High Profit</TabsTrigger>
-              <TabsTrigger value="today">Today</TabsTrigger>
-              <TabsTrigger value="active">Active</TabsTrigger>
-            </TabsList>
-            
-            <div className="flex justify-between items-center mb-2">
-              <div className="flex items-center gap-2">
-                <Label htmlFor="min-profit" className="text-sm">Min Profit %</Label>
-                <Slider
-                  id="min-profit"
-                  min={0}
-                  max={10}
-                  step={0.5}
-                  value={[minProfit]}
-                  onValueChange={(values) => setMinProfit(values[0])}
-                  className="w-24"
-                />
-                <Badge variant="outline" className="text-xs">
-                  <Percent className="h-3 w-3 mr-1" />
-                  {minProfit}%
-                </Badge>
+    <TooltipProvider>
+      <div className="container mx-auto p-4 pb-24">
+        {/* Optimized header card */}
+        <Card className="futuristic-card mb-6">
+          <div className="h-1 w-full bg-gradient-primary rounded-t-lg"></div>
+          
+          <CardHeader className="pb-4">
+            <div className="flex justify-between items-center">
+              <div className="space-y-2">
+                <CardTitle className="text-2xl font-bold text-gradient flex items-center gap-2">
+                  <Brain className="w-6 h-6 text-primary" />
+                  Neural Arbitrage Engine
+                </CardTitle>
+                <CardDescription className="flex items-center gap-2">
+                  {lastUpdated ? (
+                    <>
+                      <Activity className="w-4 h-4 text-green-400" />
+                      <span className="text-green-400 font-medium">{getLastUpdateText()}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Cpu className="w-4 h-4 text-muted-foreground animate-spin-slow" />
+                      <span>Initializing...</span>
+                    </>
+                  )}
+                </CardDescription>
               </div>
               
-              <div className="flex items-center gap-2">
-                <Label htmlFor="min-confidence" className="text-sm">Min Confidence</Label>
-                <Slider
-                  id="min-confidence"
-                  min={0}
-                  max={10}
-                  step={1}
-                  value={[minConfidence]}
-                  onValueChange={(values) => setMinConfidence(values[0])}
-                  className="w-24"
-                />
-                <Badge variant="outline" className="text-xs">
-                  <Gauge className="h-3 w-3 mr-1" />
-                  {minConfidence}/10
-                </Badge>
+              <div className="flex gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={handleRefresh}
+                  disabled={isLoading || isRefreshing}
+                  className="glass hover:shadow-glow transition-all duration-300"
+                >
+                  <RefreshCw className={`h-4 w-4 mr-2 ${isLoading || isRefreshing ? 'animate-spin' : ''}`} />
+                  {isLoading || isRefreshing ? 'Syncing...' : 'Refresh'}
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => setShowSettings(!showSettings)}
+                  className="glass hover:shadow-glow transition-all duration-300"
+                >
+                  <Settings2 className="h-4 w-4 mr-2" />
+                  Config
+                </Button>
               </div>
             </div>
-          </Tabs>
+          </CardHeader>
 
-          {/* Results count */}
-          <div className="flex justify-between items-center mb-4">
-            <p className="text-sm text-muted-foreground">
-              Showing {filteredOpportunities.length} of {opportunities.length} opportunities
-            </p>
+          {error && (
+            <CardContent className="pt-0 pb-4">
+              <Alert variant="destructive" className="glass border-red-400/30 bg-red-400/10">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>System Alert</AlertTitle>
+                <AlertDescription className="flex items-center">
+                  <WifiOff className="h-4 w-4 mr-2" /> {error}
+                </AlertDescription>
+              </Alert>
+            </CardContent>
+          )}
+
+          <CardContent className="space-y-4">
+            {/* Simplified stake input */}
+            <div className="glass p-4 rounded-xl">
+              <div className="flex items-center gap-3">
+                <div className="flex-1">
+                  <Label htmlFor="stake" className="text-sm font-semibold text-gradient mb-2 block">
+                    Stake Amount (₦)
+                  </Label>
+                  <div className="flex items-center gap-2">
+                    <Input
+                      id="stake"
+                      type="number"
+                      value={stakeAmount}
+                      onChange={(e) => handleStakeChange(Number(e.target.value))}
+                      className="glass text-center"
+                      placeholder="Enter stake amount"
+                    />
+                    <Button 
+                      size="sm" 
+                      onClick={saveStakePreference}
+                      className="primary-button"
+                    >
+                      <Sparkles className="w-4 h-4 mr-1" />
+                      Save
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Enhanced search and filters with hints */}
+            <div className="flex flex-col lg:flex-row gap-3">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-primary" />
+                <Input
+                  type="search"
+                  placeholder="Search teams, leagues, or bookmakers..."
+                  className="glass pl-10 pr-4"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+
+              <div className="flex gap-2">
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="outline" size="sm" className="glass hover:shadow-glow transition-all duration-300">
+                          <Filter className="h-4 w-4 mr-2" />
+                          Filters
+                          <ChevronDown className="h-4 w-4 ml-2 opacity-50" />
+                          {(riskFilter !== 'all' || marketTypeFilter !== 'all') && (
+                            <div className="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></div>
+                          )}
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end" className="glass w-56">
+                        <DropdownMenuLabel className="flex items-center gap-2">
+                          <HelpCircle className="h-4 w-4" />
+                          Risk Assessment Filters
+                        </DropdownMenuLabel>
+                        <DropdownMenuItem onClick={() => setRiskFilter('all')}>
+                          <Users className="h-4 w-4 mr-2" />
+                          All Risk Levels {riskFilter === 'all' && "✓"}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setRiskFilter('low')}>
+                          <div className="w-4 h-4 mr-2 bg-green-400 rounded-full"></div>
+                          Low Risk Only {riskFilter === 'low' && "✓"}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setRiskFilter('medium')}>
+                          <div className="w-4 h-4 mr-2 bg-yellow-400 rounded-full"></div>
+                          Medium Risk {riskFilter === 'medium' && "✓"}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setRiskFilter('high')}>
+                          <div className="w-4 h-4 mr-2 bg-red-400 rounded-full"></div>
+                          High Risk {riskFilter === 'high' && "✓"}
+                        </DropdownMenuItem>
+                        
+                        <DropdownMenuSeparator />
+                        
+                        <DropdownMenuLabel className="flex items-center gap-2">
+                          <BarChart3 className="h-4 w-4" />
+                          Market Type Filters
+                        </DropdownMenuLabel>
+                        <DropdownMenuItem onClick={() => setMarketTypeFilter('all')}>
+                          <Target className="h-4 w-4 mr-2" />
+                          All Markets {marketTypeFilter === 'all' && "✓"}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setMarketTypeFilter('1x2')}>
+                          <TrendingUp className="h-4 w-4 mr-2" />
+                          Win/Draw/Lose {marketTypeFilter === '1x2' && "✓"}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setMarketTypeFilter('over/under')}>
+                          <BarChart3 className="h-4 w-4 mr-2" />
+                          Over/Under Goals {marketTypeFilter === 'over/under' && "✓"}
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </TooltipTrigger>
+                  <TooltipContent className="glass">
+                    <p className="text-sm">Filter opportunities by risk level and market type</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="outline" size="sm" className="glass hover:shadow-glow transition-all duration-300">
+                          <SlidersHorizontal className="h-4 w-4 mr-2" />
+                          Sort
+                          <ChevronDown className="h-4 w-4 ml-2 opacity-50" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end" className="glass w-48">
+                        <DropdownMenuLabel className="flex items-center gap-2">
+                          <Info className="h-4 w-4" />
+                          Sort Opportunities
+                        </DropdownMenuLabel>
+                        <DropdownMenuItem onClick={() => setSortBy('profit')}>
+                          <TrendingUp className="h-4 w-4 mr-2 text-green-400" />
+                          By Profit {sortBy === 'profit' && "✓"}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setSortBy('date')}>
+                          <Clock className="h-4 w-4 mr-2 text-blue-400" />
+                          By Date {sortBy === 'date' && "✓"}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setSortBy('league')}>
+                          <Users className="h-4 w-4 mr-2 text-purple-400" />
+                          By League {sortBy === 'league' && "✓"}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setSortBy('confidence')}>
+                          <Brain className="h-4 w-4 mr-2 text-orange-400" />
+                          By Confidence {sortBy === 'confidence' && "✓"}
+                        </DropdownMenuItem>
+                        
+                        <DropdownMenuSeparator />
+                        
+                        <DropdownMenuItem onClick={toggleSortDirection}>
+                          <SlidersHorizontal className="h-4 w-4 mr-2" />
+                          {sortOrder === 'desc' ? '⬇ Highest First ✓' : '⬆ Lowest First ✓'}
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </TooltipTrigger>
+                  <TooltipContent className="glass">
+                    <p className="text-sm">Sort opportunities by different criteria</p>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
+            </div>
+
+            {/* Simplified tabs */}
+            <Tabs defaultValue="all" value={activeView} onValueChange={setActiveView} className="w-full">
+              <TabsList className="glass grid grid-cols-5 mb-4 p-1">
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <TabsTrigger value="all">All</TabsTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent className="glass">
+                    <p className="text-sm">Show all available opportunities</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <TabsTrigger value="guaranteed">Guaranteed</TabsTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent className="glass">
+                    <p className="text-sm">Show only guaranteed arbitrage profits</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <TabsTrigger value="high-profit">High Yield</TabsTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent className="glass">
+                    <p className="text-sm">Show opportunities with 2%+ profit</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <TabsTrigger value="today">Today</TabsTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent className="glass">
+                    <p className="text-sm">Show matches happening today</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <TabsTrigger value="active">Live</TabsTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent className="glass">
+                    <p className="text-sm">Show active, non-expired opportunities</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TabsList>
+              
+              {/* Simplified filter controls */}
+              <div className="glass p-4 rounded-xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label className="text-sm font-semibold flex items-center gap-2">
+                      <Target className="w-4 h-4" />
+                      Min Profit (%)
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <HelpCircle className="w-3 h-3 text-muted-foreground" />
+                        </TooltipTrigger>
+                        <TooltipContent className="glass">
+                          <p className="text-sm">Filter opportunities with minimum profit percentage</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </Label>
+                    <div className="flex items-center gap-3">
+                      <Slider
+                        min={0}
+                        max={10}
+                        step={0.5}
+                        value={[minProfit]}
+                        onValueChange={(values) => setMinProfit(values[0])}
+                        className="flex-1"
+                      />
+                      <Badge className="profit-badge min-w-[50px] justify-center">
+                        {minProfit}%
+                      </Badge>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label className="text-sm font-semibold flex items-center gap-2">
+                      <Brain className="w-4 h-4" />
+                      Min Confidence
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <HelpCircle className="w-3 h-3 text-muted-foreground" />
+                        </TooltipTrigger>
+                        <TooltipContent className="glass">
+                          <p className="text-sm">Filter by AI confidence score (1-10)</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </Label>
+                    <div className="flex items-center gap-3">
+                      <Slider
+                        min={0}
+                        max={10}
+                        step={1}
+                        value={[minConfidence]}
+                        onValueChange={(values) => setMinConfidence(values[0])}
+                        className="flex-1"
+                      />
+                      <Badge className="glass border-primary/50 text-primary min-w-[50px] justify-center">
+                        {minConfidence}/10
+                      </Badge>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Tabs>
+
+            {/* Results summary */}
+            <div className="glass p-3 rounded-lg">
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-muted-foreground flex items-center gap-2">
+                  <Activity className="w-4 h-4 text-primary" />
+                  Analysis: {filteredOpportunities.length} of {opportunities.length} opportunities
+                </span>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="text-xs text-green-400">Live</span>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Optimized opportunities display */}
+        {isLoading || isRefreshing ? (
+          <div className="glass p-8 rounded-xl text-center">
+            <div className="mx-auto w-12 h-12 mb-4">
+              <Cpu className="w-12 h-12 text-primary animate-spin-slow mx-auto" />
+            </div>
+            <h3 className="text-lg font-semibold text-gradient mb-2">Processing...</h3>
+            <p className="text-muted-foreground">Analyzing arbitrage patterns...</p>
           </div>
-        </CardContent>
-      </Card>
-
-      {/* Opportunities list */}
-      {isLoading || isRefreshing ? (
-        <div className="flex justify-center items-center py-12">
-          <RefreshCw className="h-8 w-8 animate-spin text-muted-foreground" />
-          <span className="ml-2 text-lg text-muted-foreground">Loading opportunities...</span>
-        </div>
-      ) : filteredOpportunities.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-12 text-center">
-          <AlertCircle className="h-12 w-12 text-muted-foreground mb-4" />
-          <h3 className="text-lg font-medium mb-1">No opportunities found</h3>
-          <p className="text-sm text-muted-foreground mb-4">
-            {opportunities.length > 0 
-              ? "Try adjusting your filters to see more results" 
-              : "No arbitrage opportunities are currently available"}
-          </p>
-          <Button onClick={handleRefresh} variant="outline">
-            <RefreshCw className="h-4 w-4 mr-2" />
-            Refresh Data
-          </Button>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-16">
-          {filteredOpportunities.map((opportunity) => (
-            <OpportunityCard 
-              key={opportunity.id} 
-              opportunity={opportunity}
-            />
-          ))}
-        </div>
-      )}
-    </div>
+        ) : filteredOpportunities.length === 0 ? (
+          <div className="glass p-8 rounded-xl text-center">
+            <AlertCircle className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+            <h3 className="text-lg font-medium mb-2">No Patterns Found</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              {opportunities.length > 0 
+                ? "Adjust filters to discover more patterns" 
+                : "No arbitrage opportunities detected"}
+            </p>
+            <Button onClick={handleRefresh} variant="outline" className="primary-button">
+              <RefreshCw className="h-4 w-4 mr-2" />
+              Refresh
+            </Button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredOpportunities.map((opportunity) => (
+              <OpportunityCard key={opportunity.id} opportunity={opportunity} />
+            ))}
+          </div>
+        )}
+      </div>
+    </TooltipProvider>
   )
 }

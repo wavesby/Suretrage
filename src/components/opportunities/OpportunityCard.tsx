@@ -20,14 +20,15 @@ import {
   AlertTriangle, 
   Zap, 
   Info,
-  Link,
   Target,
-  TrendingUp,
   Activity,
   Timer,
   Star,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Calculator,
+  Eye,
+  EyeOff
 } from 'lucide-react'
 import { 
   Tooltip, 
@@ -56,7 +57,7 @@ export const OpportunityCard = ({
   const [calculatorExpanded, setCalculatorExpanded] = useState(false)
   const isExpired = hasArbitrageExpired(opportunity.matchTime)
   const { preferences } = useUserPreferences()
-  const currency = '₦' // Default currency symbol
+  const currency = '₦'
 
   const toggleExpanded = () => {
     const newExpandedState = !expanded
@@ -66,37 +67,28 @@ export const OpportunityCard = ({
     }
   }
 
-  const getBadgeColors = (profit: number) => {
-    if (profit >= 5) return 'bg-green-500/90 hover:bg-green-500 text-white'
-    if (profit >= 3) return 'bg-emerald-500/90 hover:bg-emerald-500 text-white'
-    if (profit >= 2) return 'bg-lime-500/90 hover:bg-lime-500 text-white'
-    if (profit >= 1) return 'bg-amber-500/90 hover:bg-amber-500 text-white'
-    if (profit >= 0.5) return 'bg-orange-500/90 hover:bg-orange-500 text-white'
-    return 'bg-red-500/90 hover:bg-red-500 text-white'
+  const getProfitGradient = (profit: number) => {
+    if (profit >= 5) return 'bg-gradient-to-r from-green-400 to-emerald-500'
+    if (profit >= 3) return 'bg-gradient-to-r from-emerald-400 to-green-500'
+    if (profit >= 2) return 'bg-gradient-to-r from-lime-400 to-emerald-400'
+    if (profit >= 1) return 'bg-gradient-to-r from-yellow-400 to-amber-500'
+    if (profit >= 0.5) return 'bg-gradient-to-r from-orange-400 to-red-500'
+    return 'bg-gradient-to-r from-red-500 to-pink-500'
   }
 
-  const getConfidenceBadgeColor = (confidence: number | undefined) => {
-    if (!confidence) return 'bg-gray-500/20 text-gray-500'
-    if (confidence >= 8) return 'bg-green-500/20 text-green-600'
-    if (confidence >= 6) return 'bg-emerald-500/20 text-emerald-600'
-    if (confidence >= 4) return 'bg-amber-500/20 text-amber-600'
-    return 'bg-red-500/20 text-red-600'
+  const getConfidenceColor = (confidence: number | undefined) => {
+    if (!confidence) return 'text-gray-400'
+    if (confidence >= 8) return 'text-green-400'
+    if (confidence >= 6) return 'text-emerald-400'
+    if (confidence >= 4) return 'text-yellow-400'
+    return 'text-red-400'
   }
 
-  const getRiskBadgeColor = (risk: string | undefined) => {
-    if (!risk) return 'bg-gray-500/20 text-gray-500'
-    if (risk.toLowerCase().includes('low')) return 'bg-green-500/20 text-green-600'
-    if (risk.toLowerCase().includes('medium')) return 'bg-amber-500/20 text-amber-600'
-    return 'bg-red-500/20 text-red-600'
-  }
-
-  // Enhanced scoring visualization
-  const getScoreColor = (score: number | undefined) => {
-    if (!score) return 'text-gray-400'
-    if (score >= 0.8) return 'text-green-600'
-    if (score >= 0.6) return 'text-emerald-600'
-    if (score >= 0.4) return 'text-amber-600'
-    return 'text-red-600'
+  const getRiskColor = (risk: string | undefined) => {
+    if (!risk) return 'text-gray-400'
+    if (risk.toLowerCase().includes('low')) return 'text-green-400'
+    if (risk.toLowerCase().includes('medium')) return 'text-yellow-400'
+    return 'text-red-400'
   }
 
   const getScoreIcon = (score: number | undefined) => {
@@ -111,134 +103,88 @@ export const OpportunityCard = ({
     return `${(value * 100).toFixed(1)}%`
   }
 
-  const getExecutionWindowBadge = () => {
+  const getExecutionWindowStatus = () => {
     if (!opportunity.optimalExecutionWindow) return null
     
-    const { recommendedAction } = opportunity.optimalExecutionWindow
     const now = new Date()
     const start = new Date(opportunity.optimalExecutionWindow.start)
     const end = new Date(opportunity.optimalExecutionWindow.end)
     
     if (now >= start && now <= end) {
-      return (
-        <Badge className="bg-green-500/90 hover:bg-green-500 text-white text-xs">
-          <Zap className="h-3 w-3 mr-1" />
-          Optimal Window
-        </Badge>
-      )
+      return { status: 'optimal', text: 'Optimal', icon: Zap, color: 'text-green-400' }
     } else if (now > end) {
-      return (
-        <Badge className="bg-red-500/90 hover:bg-red-500 text-white text-xs">
-          <Timer className="h-3 w-3 mr-1" />
-          Act Fast
-        </Badge>
-      )
+      return { status: 'urgent', text: 'Urgent', icon: Timer, color: 'text-red-400' }
     } else {
-      return (
-        <Badge className="bg-amber-500/90 hover:bg-amber-500 text-white text-xs">
-          <Clock className="h-3 w-3 mr-1" />
-          Wait for Window
-        </Badge>
-      )
+      return { status: 'wait', text: 'Pending', icon: Clock, color: 'text-yellow-400' }
     }
   }
 
-  const getSourceReliabilityIndicator = (bookmakers: string[]) => {
-    // Check for high-quality sources
-    const highQualitySources = ['Bet365', 'Pinnacle', 'William Hill', 'Betway', 'DraftKings'];
-    const mediumQualitySources = ['1xBet', 'SportyBet', 'Unibet', 'MarathonBet'];
-    
-    const hasHighQualitySource = bookmakers.some(bm => highQualitySources.includes(bm));
-    const hasMediumQualitySource = bookmakers.some(bm => mediumQualitySources.includes(bm));
-    
-    if (hasHighQualitySource) {
-      return {
-        icon: <Shield className="h-4 w-4 text-green-500" />,
-        text: 'Premium bookmaker odds',
-        className: 'bg-green-50 text-green-700 border-green-200'
-      };
-    } else if (hasMediumQualitySource) {
-      return {
-        icon: <Shield className="h-4 w-4 text-blue-500" />,
-        text: 'Reliable bookmaker odds',
-        className: 'bg-blue-50 text-blue-700 border-blue-200'
-      };
-    } else {
-      return {
-        icon: <AlertTriangle className="h-4 w-4 text-amber-500" />,
-        text: 'Standard bookmaker odds',
-        className: 'bg-amber-50 text-amber-700 border-amber-200'
-      };
-    }
-  }
-
-  const bookmakerNames = opportunity.stakes.map(stake => stake.bookmaker)
-  const sourceReliability = getSourceReliabilityIndicator(bookmakerNames)
+  const executionStatus = getExecutionWindowStatus()
 
   return (
     <TooltipProvider>
-      <Card className={`relative transition-all duration-300 hover:shadow-lg ${
+      <Card className={`futuristic-card transition-all duration-300 ${
         isExpired 
-          ? 'opacity-60 border-gray-300' 
+          ? 'opacity-60 grayscale' 
           : expanded 
-            ? 'border-primary shadow-md' 
-            : 'border-border hover:border-primary/50'
-      }`}>
-        {isExpired && (
-          <div className="absolute top-2 right-2 z-10">
+            ? 'shadow-glow ring-1 ring-primary/20' 
+            : 'hover:shadow-glow'
+      } ${opportunity.profitPercentage >= 3 ? 'ring-1 ring-green-400/30' : ''}`}>
+        
+        {/* Top accent line */}
+        <div className={`h-1 w-full ${getProfitGradient(opportunity.profitPercentage)} rounded-t-lg`}></div>
+        
+        {/* Status indicators */}
+        <div className="absolute top-3 right-3 flex flex-col gap-1 z-10">
+          {isExpired && (
             <Badge variant="destructive" className="text-xs">
               <Clock className="h-3 w-3 mr-1" />
               Expired
             </Badge>
-          </div>
-        )}
+          )}
+          {executionStatus && (
+            <Badge className={`text-xs glass ${executionStatus.color} border-current`}>
+              <executionStatus.icon className="h-3 w-3 mr-1" />
+              {executionStatus.text}
+            </Badge>
+          )}
+        </div>
         
         <CardHeader className="pb-3">
-          <div className="flex items-center justify-between">
-            <div className="flex-1">
-              <CardTitle className="text-lg font-semibold text-foreground">
-                {opportunity.teamHome} vs {opportunity.teamAway}
+          <div className="flex items-start justify-between">
+            <div className="flex-1 pr-3">
+              <CardTitle className="text-lg font-bold text-foreground flex items-center gap-2">
+                <span className="text-gradient">{opportunity.teamHome}</span>
+                <span className="text-muted-foreground text-base">vs</span>
+                <span className="text-gradient">{opportunity.teamAway}</span>
               </CardTitle>
-              <p className="text-sm text-muted-foreground mt-1">
-                {opportunity.league} • {new Date(opportunity.matchTime).toLocaleDateString()}
-              </p>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              {/* Enhanced metrics badges */}
-              {opportunity.efficiencyScore && (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Badge className={`${getScoreColor(opportunity.efficiencyScore)} bg-purple-50 border-purple-200 text-xs`}>
-                      <TrendingUp className="h-3 w-3 mr-1" />
-                      {formatPercentage(opportunity.efficiencyScore)}
-                    </Badge>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Market Efficiency Score - Lower is better for arbitrage</p>
-                  </TooltipContent>
-                </Tooltip>
-              )}
-              
-              {getExecutionWindowBadge()}
+              <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
+                <span className="font-medium">{opportunity.league}</span>
+                <span>•</span>
+                <span>{new Date(opportunity.matchTime).toLocaleDateString()}</span>
+              </div>
             </div>
           </div>
           
-          <div className="flex items-center justify-between mt-3">
-            <div className="flex items-center gap-3">
-              <Badge className={`${getBadgeColors(opportunity.profitPercentage)} text-sm font-semibold`}>
-                <DollarSign className="h-4 w-4 mr-1" />
-                {opportunity.profitPercentage.toFixed(2)}% profit
+          {/* Main metrics row */}
+          <div className="flex items-center justify-between mt-3 gap-2">
+            <div className="flex items-center gap-2">
+              {/* Profit badge */}
+              <Badge className={`${getProfitGradient(opportunity.profitPercentage)} text-white font-bold px-2 py-1 text-sm`}>
+                <DollarSign className="h-3 w-3 mr-1" />
+                {opportunity.profitPercentage.toFixed(2)}%
               </Badge>
               
-              <Badge className={`${getConfidenceBadgeColor(opportunity.confidenceScore)} text-xs`}>
+              {/* Confidence score */}
+              <Badge className={`glass ${getConfidenceColor(opportunity.confidenceScore)} border-current text-xs`}>
                 <Star className="h-3 w-3 mr-1" />
                 {opportunity.confidenceScore}/10
               </Badge>
               
-              <Badge className={`${getRiskBadgeColor(opportunity.riskAssessment)} text-xs`}>
+              {/* Risk assessment */}
+              <Badge className={`glass ${getRiskColor(opportunity.riskAssessment)} border-current text-xs`}>
                 <Shield className="h-3 w-3 mr-1" />
-                {opportunity.riskAssessment}
+                {opportunity.riskAssessment?.split(' ')[0]}
               </Badge>
             </div>
             
@@ -246,26 +192,26 @@ export const OpportunityCard = ({
               variant="ghost"
               size="sm"
               onClick={toggleExpanded}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-primary transition-colors duration-200"
             >
               {expanded ? (
-                <ChevronUp className="h-4 w-4" />
+                <EyeOff className="h-4 w-4" />
               ) : (
-                <ChevronDown className="h-4 w-4" />
+                <Eye className="h-4 w-4" />
               )}
             </Button>
           </div>
         </CardHeader>
 
         <CardContent className="pt-0">
-          {/* Enhanced metrics panel when expanded */}
+          {/* Expanded analytics section */}
           {expanded && (
             <div className="space-y-4">
-              {/* Smart Analytics Section */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200/50">
-                <h4 className="text-sm font-semibold text-blue-700 mb-3 flex items-center">
+              {/* Analytics panel */}
+              <div className="glass p-4 rounded-lg border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
+                <h4 className="text-sm font-semibold text-primary mb-3 flex items-center">
                   <Activity className="h-4 w-4 mr-2" />
-                  Smart Analytics
+                  Analytics
                 </h4>
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -273,18 +219,18 @@ export const OpportunityCard = ({
                   {opportunity.efficiencyScore && (
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <div className="flex items-center gap-2 p-2 bg-white/60 rounded">
-                          {getScoreIcon(opportunity.efficiencyScore)}
-                          <div>
-                            <p className="text-xs text-gray-600">Market Efficiency</p>
-                            <p className={`text-sm font-medium ${getScoreColor(opportunity.efficiencyScore)}`}>
-                              {formatPercentage(opportunity.efficiencyScore)}
-                            </p>
+                        <div className="p-2 glass rounded-lg hover:shadow-glow transition-all duration-200 cursor-help">
+                          <div className="flex items-center gap-1 mb-1">
+                            {getScoreIcon(opportunity.efficiencyScore)}
+                            <span className="text-xs text-muted-foreground">Efficiency</span>
                           </div>
+                          <p className={`text-sm font-bold ${getConfidenceColor(opportunity.efficiencyScore * 10)}`}>
+                            {formatPercentage(opportunity.efficiencyScore)}
+                          </p>
                         </div>
                       </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Market inefficiency score - higher values indicate better arbitrage potential</p>
+                      <TooltipContent className="glass">
+                        <p>Market efficiency score</p>
                       </TooltipContent>
                     </Tooltip>
                   )}
@@ -293,18 +239,18 @@ export const OpportunityCard = ({
                   {opportunity.liquidityScore && (
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <div className="flex items-center gap-2 p-2 bg-white/60 rounded">
-                          {getScoreIcon(opportunity.liquidityScore)}
-                          <div>
-                            <p className="text-xs text-gray-600">Liquidity</p>
-                            <p className={`text-sm font-medium ${getScoreColor(opportunity.liquidityScore)}`}>
-                              {formatPercentage(opportunity.liquidityScore)}
-                            </p>
+                        <div className="p-2 glass rounded-lg hover:shadow-glow transition-all duration-200 cursor-help">
+                          <div className="flex items-center gap-1 mb-1">
+                            {getScoreIcon(opportunity.liquidityScore)}
+                            <span className="text-xs text-muted-foreground">Liquidity</span>
                           </div>
+                          <p className={`text-sm font-bold ${getConfidenceColor(opportunity.liquidityScore * 10)}`}>
+                            {formatPercentage(opportunity.liquidityScore)}
+                          </p>
                         </div>
                       </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Market liquidity score - higher values indicate safer execution</p>
+                      <TooltipContent className="glass">
+                        <p>Market liquidity score</p>
                       </TooltipContent>
                     </Tooltip>
                   )}
@@ -313,89 +259,89 @@ export const OpportunityCard = ({
                   {opportunity.timeDecayFactor && (
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <div className="flex items-center gap-2 p-2 bg-white/60 rounded">
-                          {getScoreIcon(opportunity.timeDecayFactor)}
-                          <div>
-                            <p className="text-xs text-gray-600">Time Factor</p>
-                            <p className={`text-sm font-medium ${getScoreColor(opportunity.timeDecayFactor)}`}>
-                              {formatPercentage(opportunity.timeDecayFactor)}
-                            </p>
+                        <div className="p-2 glass rounded-lg hover:shadow-glow transition-all duration-200 cursor-help">
+                          <div className="flex items-center gap-1 mb-1">
+                            {getScoreIcon(opportunity.timeDecayFactor)}
+                            <span className="text-xs text-muted-foreground">Time Factor</span>
                           </div>
+                          <p className={`text-sm font-bold ${getConfidenceColor(opportunity.timeDecayFactor * 10)}`}>
+                            {formatPercentage(opportunity.timeDecayFactor)}
+                          </p>
                         </div>
                       </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Time decay factor - optimal window scoring for execution timing</p>
+                      <TooltipContent className="glass">
+                        <p>Time decay analysis</p>
                       </TooltipContent>
                     </Tooltip>
                   )}
                   
-                  {/* Bookmaker Reliability */}
+                  {/* Reliability Score */}
                   {opportunity.bookmakerReliabilityScore && (
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <div className="flex items-center gap-2 p-2 bg-white/60 rounded">
-                          {getScoreIcon(opportunity.bookmakerReliabilityScore)}
-                          <div>
-                            <p className="text-xs text-gray-600">Reliability</p>
-                            <p className={`text-sm font-medium ${getScoreColor(opportunity.bookmakerReliabilityScore)}`}>
-                              {formatPercentage(opportunity.bookmakerReliabilityScore)}
-                            </p>
+                        <div className="p-2 glass rounded-lg hover:shadow-glow transition-all duration-200 cursor-help">
+                          <div className="flex items-center gap-1 mb-1">
+                            {getScoreIcon(opportunity.bookmakerReliabilityScore)}
+                            <span className="text-xs text-muted-foreground">Reliability</span>
                           </div>
+                          <p className={`text-sm font-bold ${getConfidenceColor(opportunity.bookmakerReliabilityScore * 10)}`}>
+                            {formatPercentage(opportunity.bookmakerReliabilityScore)}
+                          </p>
                         </div>
                       </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Average bookmaker reliability score - higher values indicate more trustworthy bookmakers</p>
+                      <TooltipContent className="glass">
+                        <p>Bookmaker reliability</p>
                       </TooltipContent>
                     </Tooltip>
                   )}
                 </div>
               </div>
               
-              {/* Execution Guidance */}
+              {/* Execution guidance */}
               {opportunity.optimalExecutionWindow && (
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200/50">
-                  <h4 className="text-sm font-semibold text-green-700 mb-2 flex items-center">
+                <div className="glass p-4 rounded-lg border border-green-400/20 bg-gradient-to-br from-green-400/5 to-emerald-400/5">
+                  <h4 className="text-sm font-semibold text-green-400 mb-2 flex items-center">
                     <Zap className="h-4 w-4 mr-2" />
                     Execution Guidance
                   </h4>
-                  <p className="text-sm text-green-600">
-                    <strong>{opportunity.optimalExecutionWindow.recommendedAction}</strong>
+                  <p className="text-sm text-green-300 font-medium mb-1">
+                    {opportunity.optimalExecutionWindow.recommendedAction}
                   </p>
-                  <p className="text-xs text-green-500 mt-1">
-                    Optimal window: {new Date(opportunity.optimalExecutionWindow.start).toLocaleTimeString()} - {new Date(opportunity.optimalExecutionWindow.end).toLocaleTimeString()}
+                  <p className="text-xs text-green-400/70">
+                    Window: {new Date(opportunity.optimalExecutionWindow.start).toLocaleTimeString()} - {new Date(opportunity.optimalExecutionWindow.end).toLocaleTimeString()}
                   </p>
                 </div>
               )}
 
-              {/* Key Metrics */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="text-center p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-200">
-                  <DollarSign className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                  <p className="text-sm font-medium text-green-700">Guaranteed Profit</p>
-                  <p className="text-lg font-bold text-green-800">
+              {/* Key metrics grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="glass p-3 rounded-lg text-center hover:shadow-glow transition-all duration-200">
+                  <DollarSign className="h-6 w-6 text-green-400 mx-auto mb-2" />
+                  <p className="text-xs text-muted-foreground mb-1">Guaranteed Profit</p>
+                  <p className="text-lg font-bold text-gradient-success">
                     {formatCurrency(opportunity.guaranteedProfit)}
                   </p>
                 </div>
                 
-                <div className="text-center p-3 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
-                  <Percent className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                  <p className="text-sm font-medium text-blue-700">Arbitrage Margin</p>
-                  <p className="text-lg font-bold text-blue-800">
+                <div className="glass p-3 rounded-lg text-center hover:shadow-glow transition-all duration-200">
+                  <Percent className="h-6 w-6 text-primary mx-auto mb-2" />
+                  <p className="text-xs text-muted-foreground mb-1">Arbitrage Margin</p>
+                  <p className="text-lg font-bold text-gradient">
                     {((1 - opportunity.arbitragePercentage) * 100).toFixed(3)}%
                   </p>
                 </div>
                 
-                <div className="text-center p-3 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg border border-purple-200">
-                  <Target className="h-6 w-6 text-purple-600 mx-auto mb-2" />
-                  <p className="text-sm font-medium text-purple-700">Total Stake</p>
-                  <p className="text-lg font-bold text-purple-800">
+                <div className="glass p-3 rounded-lg text-center hover:shadow-glow transition-all duration-200">
+                  <Target className="h-6 w-6 text-purple-400 mx-auto mb-2" />
+                  <p className="text-xs text-muted-foreground mb-1">Total Stake</p>
+                  <p className="text-lg font-bold text-purple-400">
                     {formatCurrency(opportunity.totalStake)}
                   </p>
                 </div>
               </div>
 
-              {/* Stakes Distribution */}
-              <div className="space-y-3">
+              {/* Stakes distribution */}
+              <div className="space-y-2">
                 <h4 className="text-sm font-semibold text-foreground flex items-center">
                   <Info className="h-4 w-4 mr-2" />
                   Stake Distribution
@@ -404,31 +350,25 @@ export const OpportunityCard = ({
                   {opportunity.stakes.map((stake, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border"
+                      className="glass p-3 rounded-lg hover:shadow-glow transition-all duration-200"
                     >
-                      <div className="flex items-center gap-3">
-                        <Badge variant="outline" className="text-xs">
-                          {stake.outcome}
-                        </Badge>
-                        <span className="text-sm font-medium">{stake.bookmaker}</span>
-                        <span className="text-sm text-muted-foreground">@ {stake.odds}</span>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-semibold">{formatCurrency(stake.stake)}</p>
-                        <p className="text-xs text-muted-foreground">
-                          Returns: {formatCurrency(stake.potentialReturn)}
-                        </p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Badge variant="outline" className="text-xs glass">
+                            {stake.outcome}
+                          </Badge>
+                          <span className="text-sm font-medium text-gradient">{stake.bookmaker}</span>
+                          <span className="text-sm text-muted-foreground">@ {stake.odds}</span>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm font-semibold text-primary">{formatCurrency(stake.stake)}</p>
+                          <p className="text-xs text-muted-foreground">
+                            Returns: {formatCurrency(stake.potentialReturn)}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   ))}
-                </div>
-              </div>
-
-              {/* Source Reliability */}
-              <div className={`p-3 rounded-lg border ${sourceReliability.className}`}>
-                <div className="flex items-center gap-2">
-                  {sourceReliability.icon}
-                  <span className="text-sm font-medium">{sourceReliability.text}</span>
                 </div>
               </div>
             </div>
@@ -437,22 +377,22 @@ export const OpportunityCard = ({
           {/* Compact view when not expanded */}
           {!expanded && (
             <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground">Guaranteed Profit</p>
-                  <p className="text-xl font-bold text-green-600">
+              <div className="flex items-center justify-between text-center">
+                <div className="glass p-2 rounded-lg flex-1 mr-2">
+                  <p className="text-xs text-muted-foreground mb-1">Profit</p>
+                  <p className="text-lg font-bold text-gradient-success">
                     {formatCurrency(opportunity.guaranteedProfit)}
                   </p>
                 </div>
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground">Total Stake</p>
-                  <p className="text-lg font-semibold">
+                <div className="glass p-2 rounded-lg flex-1 mx-1">
+                  <p className="text-xs text-muted-foreground mb-1">Stake</p>
+                  <p className="text-lg font-semibold text-foreground">
                     {formatCurrency(opportunity.totalStake)}
                   </p>
                 </div>
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground">Updated</p>
-                  <p className="text-sm font-medium">
+                <div className="glass p-2 rounded-lg flex-1 ml-2">
+                  <p className="text-xs text-muted-foreground mb-1">Updated</p>
+                  <p className="text-sm font-medium text-primary">
                     {getTimeAgo(opportunity.lastUpdated)}
                   </p>
                 </div>
@@ -461,11 +401,11 @@ export const OpportunityCard = ({
           )}
         </CardContent>
 
-        <CardFooter className="pt-0">
+        <CardFooter className="pt-0 pb-3">
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-2">
               {showMarketType && opportunity.marketType && (
-                <Badge variant="outline" className="text-xs">
+                <Badge variant="outline" className="text-xs glass">
                   {opportunity.marketType}
                 </Badge>
               )}
@@ -478,18 +418,16 @@ export const OpportunityCard = ({
               variant="outline"
               size="sm"
               onClick={() => setCalculatorExpanded(!calculatorExpanded)}
-              className="text-xs"
+              className="glass hover:shadow-glow transition-all duration-200"
             >
-              <DollarSign className="h-3 w-3 mr-1" />
-              Stake Calculator
+              <Calculator className="h-3 w-3 mr-1" />
+              Calculator
             </Button>
           </div>
 
           {calculatorExpanded && (
-            <div className="w-full mt-4 pt-4 border-t">
-              <StakeCalculator
-                opportunity={opportunity}
-              />
+            <div className="w-full mt-3 pt-3 border-t border-border/20 animate-slide-in-from-bottom" style={{ transform: 'translateX(-225px)' }}>
+              <StakeCalculator opportunity={opportunity} />
             </div>
           )}
         </CardFooter>

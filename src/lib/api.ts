@@ -30,9 +30,9 @@ export const SUPPORTED_BOOKMAKERS = [
   'Parimatch Africa'
 ];
 
-// Proxy server URL - update this with your actual server URL
+// Proxy server URL - optimized for Netlify deployment
 const PROXY_SERVER = import.meta.env?.VITE_PROXY_SERVER || 
-  (import.meta.env.PROD ? '' : 'http://localhost:3001'); // Use relative URLs in production
+  (import.meta.env.PROD ? window.location.origin : 'http://localhost:3001'); // Use current domain in production
 
 // Add console logs for debugging
 console.log('Using proxy server URL:', PROXY_SERVER);

@@ -1,16 +1,22 @@
 {
-  "name": "Sport Arbitrage",
-  "short_name": "SportArb",
+  "name": "ArbiTrader Pro - Neural Arbitrage Platform",
+  "short_name": "ArbiTrader Pro",
+  "description": "Advanced neural arbitrage platform with quantum-enhanced profit detection across Nigerian markets",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "background_color": "#0f0f23",
+  "theme_color": "#00bfff",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["finance", "sports", "productivity", "utilities"],
   "icons": [
     {
       "src": "/favicon.svg",
-      "sizes": "48x48 72x72 96x96 128x128 256x256",
+      "sizes": "48x48 72x72 96x96 128x128 192x192 256x256 384x384 512x512",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/favicon-small.svg",
@@ -18,5 +24,94 @@
       "type": "image/svg+xml",
       "purpose": "any"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/mobile-main.jpg",
+      "sizes": "390x844",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Neural Arbitrage Dashboard"
+    },
+    {
+      "src": "/screenshots/mobile-calculator.jpg", 
+      "sizes": "390x844",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Quantum Stake Calculator"
+    },
+    {
+      "src": "/screenshots/desktop-overview.jpg",
+      "sizes": "1920x1080", 
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Desktop Overview"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Live Opportunities",
+      "short_name": "Live",
+      "description": "View live arbitrage opportunities",
+      "url": "/?tab=opportunities",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Bookmaker Settings", 
+      "short_name": "Bookmakers",
+      "description": "Configure monitored bookmakers",
+      "url": "/?tab=bookmakers",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Neural Settings",
+      "short_name": "Settings", 
+      "description": "Application preferences",
+      "url": "/?tab=settings",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+arbitrage",
+      "url": "/opportunity?id=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/import",
+      "accept": {
+        "application/json": [".json"],
+        "text/csv": [".csv"]
+      }
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text", 
+      "url": "url",
+      "files": [
+        {
+          "name": "arbitrage_data",
+          "accept": ["application/json", "text/csv"]
+        }
+      ]
+    }
+  },
+  "handle_links": "preferred",
+  "capture_links": "new-client",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "id": "arbitrader-pro-pwa"
 }

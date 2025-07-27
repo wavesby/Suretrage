@@ -1,33 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sport Arbitrage</title>
-    <meta name="description" content="Sports arbitrage opportunities for Nigerian bookmakers" />
-    <meta name="author" content="Sport Arbitrage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>ArbiTrader Pro - Advanced Sports Arbitrage Platform</title>
+    <meta name="description" content="Professional sports arbitrage platform with real-time odds analysis, advanced risk assessment, and guaranteed profit opportunities across Nigerian bookmakers" />
+    <meta name="author" content="ArbiTrader Pro" />
+    <meta name="keywords" content="sports arbitrage, betting odds, profit calculator, Nigerian bookmakers, real-time odds, arbitrage trading" />
     
-    <!-- PWA -->
+    <!-- Enhanced SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://arbitrader.pro" />
+    
+    <!-- Performance Optimizations -->
+    <meta name="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Enhanced PWA Configuration -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/svg+xml" href="/favicon-small.svg" sizes="16x16 32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-152x152.png" sizes="152x152" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-144x144.png" sizes="144x144" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-120x120.png" sizes="120x120" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-114x114.png" sizes="114x114" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-76x76.png" sizes="76x76" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-72x72.png" sizes="72x72" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-60x60.png" sizes="60x60" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-57x57.png" sizes="57x57" />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#3b82f6" />
+    <meta name="theme-color" content="#00BFFF" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0099CC" media="(prefers-color-scheme: light)" />
+    
+    <!-- Enhanced iOS Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Sport Arbitrage" />
-
-    <meta property="og:title" content="Sport Arbitrage" />
-    <meta property="og:description" content="Sports arbitrage opportunities for Nigerian bookmakers" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ArbiTrader Pro" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <link rel="apple-touch-startup-image" href="/apple-launch-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/apple-launch-1668x2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/apple-launch-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/apple-launch-1284x2778.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/apple-launch-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/apple-launch-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/apple-launch-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/apple-launch-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    
+    <!-- Enhanced Android Chrome -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="ArbiTrader Pro" />
+    <meta name="msapplication-TileColor" content="#00BFFF" />
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <!-- Enhanced Mobile Optimizations -->
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://mwaves.dev/opengraph-image.png" />
+    <meta property="og:site_name" content="ArbiTrader Pro" />
+    <meta property="og:title" content="ArbiTrader Pro - Advanced Sports Arbitrage Platform" />
+    <meta property="og:description" content="Professional sports arbitrage platform with real-time odds analysis and guaranteed profit opportunities" />
+    <meta property="og:image" content="https://arbitrader.pro/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://arbitrader.pro" />
+    <meta property="og:locale" content="en_US" />
 
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@mwaves_dev" />
-    <meta name="twitter:image" content="https://mwaves.dev/opengraph-image.png" />
+    <meta name="twitter:site" content="@arbitrader_pro" />
+    <meta name="twitter:creator" content="@arbitrader_pro" />
+    <meta name="twitter:title" content="ArbiTrader Pro - Advanced Sports Arbitrage Platform" />
+    <meta name="twitter:description" content="Professional sports arbitrage platform with real-time odds analysis and guaranteed profit opportunities" />
+    <meta name="twitter:image" content="https://arbitrader.pro/twitter-image.png" />
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/index.css" as="style" />
+    <link rel="preload" href="/src/main.tsx" as="script" />
+    
+    <!-- Critical inline styles for better performance -->
+    <style>
+      /* Critical loading styles */
+      #root {
+        min-height: 100vh;
+        background: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(240 3.7% 15.9%) 100%);
+      }
+      
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(240 3.7% 15.9%) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .loading-spinner {
+        width: 48px;
+        height: 48px;
+        border: 3px solid hsl(240 3.7% 15.9%);
+        border-top: 3px solid hsl(200 100% 50%);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+      }
+      
+      .loading-text {
+        color: hsl(0 0% 98%);
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 1.125rem;
+        font-weight: 500;
+        background: linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(270 95% 75%) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Hide loading screen when app loads */
+      .app-loaded .loading-screen {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
   </head>
 
   <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">ArbiTrader Pro</div>
+    </div>
+    
     <div id="root"></div>
+    
+    <!-- Remove loading screen when app loads -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.body.classList.add('app-loaded');
+          setTimeout(function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+              loadingScreen.remove();
+            }
+          }, 500);
+        }, 100);
+      });
+    </script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
